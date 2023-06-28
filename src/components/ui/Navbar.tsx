@@ -13,7 +13,6 @@ const NavbarContainer = styled.nav({
 
 const Logo = styled.h1({
   fontSize: "1.3em",
-  borderLeft: "1rem",
 });
 
 const BoldText = styled.span({
@@ -36,7 +35,8 @@ const Section = styled.a({
 });
 
 export function Navbar() {
-  const {} = useRouter();
+  const { pathname } = useRouter();
+  console.log(pathname);
 
   return (
     <NavbarContainer>

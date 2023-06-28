@@ -14,6 +14,7 @@ const Wrapper = styled.main({
 const Page = styled.main({
   width: "100vw",
   height: "calc(100vh - 48px)",
+  color: "white",
 });
 
 export function NavbarWrapped({ children }: { children: ReactNode }) {
