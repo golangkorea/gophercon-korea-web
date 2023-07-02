@@ -37,7 +37,8 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "npx organize-imports-cli",
-      "prettier --write ."
+      "prettier --write .",
+      "eslint --fix"
     ]
   }
 }

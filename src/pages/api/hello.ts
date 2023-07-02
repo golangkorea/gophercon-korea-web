@@ -5,9 +5,6 @@ type ResponseT = {
   year: number;
 };
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseT>
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<ResponseT>) {
   res.status(200).json({ year: 2023 });
 }
