@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 
 const NavbarContainer = styled.nav({
   width: "100vw",
-  height: "48px",
+  height: "80px",
+  padding: "0 80px",
   display: "flex",
   flexDirection: "row",
   color: "white",
@@ -12,10 +13,7 @@ const NavbarContainer = styled.nav({
 });
 
 const Logo = styled.h1({
-  fontSize: "1.3em",
-});
-
-const BoldText = styled.span({
+  fontSize: "28px",
   fontWeight: "bold",
 });
 
@@ -24,25 +22,22 @@ const SectionsContainer = styled.div({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  gap: "1rem",
+  gap: "25px",
   marginLeft: "auto",
 });
 
 const Section = styled.a({
   color: "white",
-  fontSize: "0.8em",
+  fontSize: "16px",
   textDecoration: "none",
 });
 
 export function Navbar() {
   const { pathname } = useRouter();
-  console.log(pathname);
 
   return (
     <NavbarContainer>
-      <Logo>
-        GopherCon <BoldText>Korea</BoldText> 2023
-      </Logo>
+      <Logo>GopherCon Korea 2023</Logo>
       <SectionsContainer>
         <Section href='/program'>프로그램</Section>
         <Section href='/sponsors'>스폰서</Section>

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Navbar } from "../ui/Navbar";
 import { ReactNode } from "react";
+import { Navbar } from "../ui/Navbar";
 
 const Wrapper = styled.main({
   width: "100vw",
@@ -8,6 +8,8 @@ const Wrapper = styled.main({
   minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
   backgroundColor: "rgb(14,12,20)",
 });
 

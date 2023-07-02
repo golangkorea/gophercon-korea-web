@@ -1,6 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  --toastify-color-success: #0284c7 !important;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+* {
+  outline: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
