@@ -1,5 +1,5 @@
-import { NavbarWrapped } from "@/components/layout/NavbarWrapped";
+import Layout from "@/components/layout";
 
 export default function ApplicationPage() {
-  return <NavbarWrapped>APPLICATION</NavbarWrapped>;
+  return <Layout>APPLICATION</Layout>;
 }
