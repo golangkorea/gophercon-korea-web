@@ -1,5 +1,5 @@
-import { NavbarWrapped } from "@/components/layout/NavbarWrapped";
+import Layout from "@/components/layout";
 
 export default function InquiriesPage() {
-  return <NavbarWrapped>INQUIRIES</NavbarWrapped>;
+  return <Layout>INQUIRIES</Layout>;
 }

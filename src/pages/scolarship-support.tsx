@@ -1,5 +1,5 @@
-import { NavbarWrapped } from "@/components/layout/NavbarWrapped";
+import Layout from "@/components/layout";
 
 export default function ScolarshipSupportPage() {
-  return <NavbarWrapped>SCOLARSHIP SUPPORT</NavbarWrapped>;
+  return <Layout>SCOLARSHIP SUPPORT</Layout>;
 }
