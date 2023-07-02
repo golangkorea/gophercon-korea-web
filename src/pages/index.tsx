@@ -1,6 +1,3 @@
-import { NavbarWrapped } from "@/components/layout/NavbarWrapped";
-import styled from "@emotion/styled";
-
 // const Container = styled.main({
 //   position: "relative",
 //   display: "flex",
@@ -17,8 +14,10 @@ import styled from "@emotion/styled";
 //   width: 240,
 // });
 
+import Layout from "@/components/layout";
+
 export default function Home() {
-  return <NavbarWrapped>GopherCon</NavbarWrapped>;
+  return <Layout>GopherCon</Layout>;
 }
 
 // <Container>

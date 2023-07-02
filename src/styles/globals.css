@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html,
 body {
@@ -8,7 +5,8 @@ body {
   margin: 0;
   font-size: 16px;
   scroll-behavior: smooth;
-  --toastify-color-success: #0284c7 !important;
+  color: white;
+  position: relative;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;

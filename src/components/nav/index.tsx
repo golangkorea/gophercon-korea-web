@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const NavbarContainer = styled.nav({
@@ -15,6 +16,7 @@ const NavbarContainer = styled.nav({
 const Logo = styled.h1({
   fontSize: "28px",
   fontWeight: "bold",
+  pointer: "cursor",
 });
 
 const SectionsContainer = styled.div({
@@ -37,7 +39,9 @@ export function Navbar() {
 
   return (
     <NavbarContainer>
-      <Logo>GopherCon Korea 2023</Logo>
+      <Link href={"/"}>
+        <Logo>GopherCon Korea 2023</Logo>
+      </Link>
       <SectionsContainer>
         <Section href='/program'>프로그램</Section>
         <Section href='/sponsors'>스폰서</Section>
