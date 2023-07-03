@@ -10,12 +10,11 @@ const Wrapper = styled.main({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "rgb(14,12,20)",
 });
 
 const Page = styled.main({
   width: "100vw",
-  height: "calc(100vh - 80px)",
+  minHeight: "200vh",
   color: "white",
   padding: "16px",
 });

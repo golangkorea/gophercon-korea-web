@@ -11,6 +11,11 @@ const NavbarContainer = styled.nav({
   color: "white",
   alignItems: "center",
   borderBottom: "solid 1px white",
+  background: "rgba(0, 0, 0, 0.2)",
+  backdropFilter: "blur(10px)",
+  zIndex: 5,
+  position: "fixed",
+  top: 0,
 });
 
 const Logo = styled.h1({
