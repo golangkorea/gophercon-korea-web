@@ -14,7 +14,7 @@ const Wrapper = styled.main({
 
 const Page = styled.main({
   width: "100vw",
-  minHeight: "200vh",
+  minHeight: "100vh",
   color: "white",
   padding: "16px",
 });
