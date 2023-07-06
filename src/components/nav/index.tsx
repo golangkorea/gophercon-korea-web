@@ -1,60 +1,25 @@
-import styled from "@emotion/styled";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const NavbarContainer = styled.nav({
-  width: "100vw",
-  height: "80px",
-  padding: "0 80px",
-  display: "flex",
-  flexDirection: "row",
-  color: "white",
-  alignItems: "center",
-  borderBottom: "solid 1px white",
-  background: "rgba(0, 0, 0, 0.2)",
-  backdropFilter: "blur(10px)",
-  zIndex: 5,
-  position: "fixed",
-  top: 0,
-});
-
-const Logo = styled.h1({
-  fontSize: "28px",
-  fontWeight: "bold",
-  pointer: "cursor",
-});
-
-const SectionsContainer = styled.div({
-  height: "100%",
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  gap: "25px",
-  marginLeft: "auto",
-});
-
-const Section = styled.a({
-  color: "white",
-  fontSize: "16px",
-  textDecoration: "none",
-});
 
 export function Navbar() {
   const { pathname } = useRouter();
 
   return (
-    <NavbarContainer>
+    <nav className='border-[rgba(0, 0, 0, 0.2)] fixed top-0 z-10 flex h-20 w-screen items-center border-b px-20 backdrop-blur-md max-sm:px-4'>
       <Link href={"/"}>
-        <Logo>GopherCon Korea 2023</Logo>
+        <h1 className='cursor-pointer text-2xl font-bold'>GopherCon Korea 2023</h1>
       </Link>
-      <SectionsContainer>
-        <Section href='/program'>프로그램</Section>
-        <Section href='/sponsors'>스폰서</Section>
-        <Section href='/coc'>행동강령</Section>
-        <Section href='/scolarship-support'>장학지원</Section>
-        <Section href='/application'>참가신청</Section>
-        <Section href='/inquiries'>행사문의</Section>
-      </SectionsContainer>
-    </NavbarContainer>
+      <div className='ml-auto flex h-full items-center gap-6 max-sm:hidden'>
+        <Link href='/program'>프로그램</Link>
+        <Link href='/sponsors'>스폰서</Link>
+        <Link href='/coc'>행동강령</Link>
+        <Link href='/scolarship-support'>장학지원</Link>
+        <Link href='/application'>참가신청</Link>
+        <Link href='/inquiries'>행사문의</Link>
+      </div>
+      {/*TODO 모바일 메뉴*/}
+      <Bars3Icon className='absolute right-4 h-10 w-10 sm:hidden' />
+    </nav>
   );
 }

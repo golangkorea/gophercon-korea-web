@@ -1,23 +1,5 @@
 import { Navbar } from "@/components/nav";
-import styled from "@emotion/styled";
 import React from "react";
-
-const Wrapper = styled.main({
-  width: "100vw",
-  height: "auto",
-  minHeight: "100vh",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-});
-
-const Page = styled.main({
-  width: "100vw",
-  minHeight: "100vh",
-  color: "white",
-  padding: "16px",
-});
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,10 +7,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <Wrapper>
+    <main className='flex min-h-screen w-screen flex-col items-center justify-center'>
       <Navbar />
-      <Page>{children}</Page>
-    </Wrapper>
+      <div className='color-white min-h-screen w-screen'>{children}</div>
+    </main>
   );
 };
 
