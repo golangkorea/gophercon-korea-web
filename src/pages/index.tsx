@@ -23,7 +23,7 @@ export default function Home() {
       <div className='relative flex min-h-screen w-screen flex-col items-center justify-center'>
         <Intro />
         <div
-          className='absolute top-[100vh] mb-10 w-screen bg-background p-4'
+          className='absolute top-[100vh] mb-10 w-screen bg-background'
           style={{
             transform: `translateY(-${scrollY}px)`,
           }}
