@@ -23,9 +23,6 @@ export function Navbar() {
         <Link className='cursor-pointer' href='/scolarship-support'>
           장학지원
         </Link>
-        <Link className='cursor-pointer' href='/application'>
-          참가신청
-        </Link>
         <Link className='cursor-pointer' href='/inquiries'>
           행사문의
         </Link>
