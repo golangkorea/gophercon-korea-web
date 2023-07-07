@@ -44,6 +44,11 @@ a {
   text-decoration: none;
 }
 
+.ticketGradient {
+  background: linear-gradient(135deg,#00aeff 0%,hsl(146,100%,50%) 100%);
+  padding: 11px;
+}
+
 .borderGradient {
   background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
 }
@@ -62,9 +67,52 @@ a {
   background: linear-gradient(45deg, #0088ff 0%, rgb(0, 204, 255) 100%);
 }
 
+.locationGradient {
+  background: linear-gradient(90deg, rgb(0, 153, 255) 0%, rgb(191, 0, 255) 100%);
+}
+
+
 .rainbowBorder {
   border-radius: 10px;
   border: 2px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+.countDownWrapper {
+  --border-bottom-width: 1px;
+  --border-color: rgba(0, 0, 0, 0.05);
+  --border-left-width: 1px;
+  --border-right-width: 1px;
+  --border-style: solid;
+  --border-top-width: 1px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 26px;
+  opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px 0px;
+  padding: 6px;
+  width: 120px;
+  height: 120px;
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.countDownInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(rgba(255, 255, 255, 0.8) 0%, rgb(255, 255, 255) 100%);
+}
+
+.countDown {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: rgb(17, 17, 17);
 }
