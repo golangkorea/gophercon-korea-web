@@ -11,12 +11,24 @@ export function Navbar() {
         <h1 className='cursor-pointer text-2xl font-bold max-sm:text-xl'>GopherCon Korea 2023</h1>
       </Link>
       <div className='ml-auto flex h-full items-center gap-6 max-sm:hidden'>
-        <Link href='/program'>프로그램</Link>
-        <Link href='/sponsors'>스폰서</Link>
-        <Link href='/coc'>행동강령</Link>
-        <Link href='/scolarship-support'>장학지원</Link>
-        <Link href='/application'>참가신청</Link>
-        <Link href='/inquiries'>행사문의</Link>
+        <Link className='cursor-pointer' href='/program'>
+          프로그램
+        </Link>
+        <Link className='cursor-pointer' href='/sponsors'>
+          스폰서
+        </Link>
+        <Link className='cursor-pointer' href='/coc'>
+          행동강령
+        </Link>
+        <Link className='cursor-pointer' href='/scolarship-support'>
+          장학지원
+        </Link>
+        <Link className='cursor-pointer' href='/application'>
+          참가신청
+        </Link>
+        <Link className='cursor-pointer' href='/inquiries'>
+          행사문의
+        </Link>
       </div>
       {/*TODO 모바일 메뉴*/}
       <Bars3Icon className='absolute right-4 h-10 w-10 sm:hidden' />
