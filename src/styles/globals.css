@@ -45,7 +45,7 @@ a {
 }
 
 .ticketGradient {
-  background: linear-gradient(135deg,#00aeff 0%,hsl(146,100%,50%) 100%);
+  background: linear-gradient(135deg, #00aeff 0%, hsl(146, 100%, 50%) 100%);
   padding: 11px;
 }
 
@@ -70,7 +70,6 @@ a {
 .locationGradient {
   background: linear-gradient(90deg, rgb(0, 153, 255) 0%, rgb(191, 0, 255) 100%);
 }
-
 
 .rainbowBorder {
   border-radius: 10px;

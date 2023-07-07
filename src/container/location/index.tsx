@@ -7,11 +7,11 @@ const Location = () => {
   return (
     <section className='locationGradient justify-betweenu relative flex h-[750px] w-screen items-center bg-white text-white max-sm:h-[400px]'>
       <div className='flex h-full w-full flex-col items-center justify-center'>
-        <div className='mb-10 ml-12 text-center max-sm:ml-6'>
+        <div className='mb-10 ml-12 text-center max-sm:ml-0'>
           <p className='text-8xl font-extrabold max-sm:text-4xl'>GopherCon 2023</p>
           <p className='text-8xl font-extrabold max-sm:text-4xl'>Korea</p>
           <p className='mb-4 text-5xl font-extrabold max-sm:text-xl'>2023.08.05-06</p>
-          <p className='text-2xl font-extrabold max-sm:text-xl'>
+          <p className='text-2xl font-extrabold max-sm:text-base'>
             서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)
           </p>
         </div>
