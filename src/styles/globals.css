@@ -100,8 +100,10 @@ a {
   transform: rotateY(180deg);
 }
 
-.sessionCard:hover .card {
-  transform: rotateY(180deg);
+@media screen and (min-width: 1024px) {
+  .sessionCard:hover .card {
+    transform: rotateY(180deg);
+  }
 }
 
 .locationGradient {
@@ -114,8 +116,6 @@ a {
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
 }
-
-
 
 .countDownWrapper {
   --border-bottom-width: 1px;
