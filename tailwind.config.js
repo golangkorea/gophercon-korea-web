@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         background: "rgb(14, 12, 20)",
+        cardBlack: "rgb(43, 48, 52)",
       },
     },
   },
