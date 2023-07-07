@@ -49,7 +49,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
 
   return (
     <div
-      className='relative h-[400px] w-[320px] overflow-hidden rounded-xl opacity-0'
+      className='rainbowBorder relative h-[400px] w-[320px] opacity-0 shadow-2xl'
       ref={cardRef}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
@@ -62,7 +62,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         <p className=''>{`${speaker.name} / ${speaker.company}`}</p>
       </div>
       <div
-        className='bg-overlay80 absolute bottom-0 z-30 h-full w-full flex-col bg-gray-500 p-4 text-white'
+        className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col bg-gray-500 p-4 text-white'
         style={{
           display: isHover ? "flex" : "none",
         }}

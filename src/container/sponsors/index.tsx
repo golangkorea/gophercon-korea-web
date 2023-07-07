@@ -33,7 +33,7 @@ import Skt from "/public/images/sponsors/etc/skt.png";
 
 const Sponsors = () => {
   return (
-    <section className='flex w-screen flex-col gap-4 bg-background px-16 py-16 max-sm:px-4'>
+    <section className='flex w-screen flex-col gap-4 bg-background bg-white px-16 py-16 max-sm:px-4'>
       <p className='mb-12 text-5xl font-extrabold'>Sponsors</p>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>diamond</p>
@@ -44,7 +44,7 @@ const Sponsors = () => {
             alt={"Google"}
             width={400}
             height={300}
-            className='h-[200px] w-[400px] bg-white object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -57,14 +57,14 @@ const Sponsors = () => {
             alt={"Hyundai Motors"}
             width={400}
             height={300}
-            className='h-[200px] w-[400px] bg-white object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Datadog}
             alt={"Datadog Motors"}
             width={400}
             height={300}
-            className='h-[200px] w-[400px] object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer object-contain p-2'
           />
         </div>
       </div>
@@ -77,21 +77,21 @@ const Sponsors = () => {
             alt={"Dreamus"}
             width={400}
             height={200}
-            className='h-[200px] w-[400px] bg-white object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Karrot}
             alt={"Karrot"}
             width={400}
             height={200}
-            className='h-[200px] w-[400px] bg-white object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Megazon}
             alt={"Megazon"}
             width={400}
             height={200}
-            className='h-[200px] w-[400px] bg-white object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -104,16 +104,22 @@ const Sponsors = () => {
             alt={"Openup"}
             width={300}
             height={200}
-            className='h-[200px] w-[300px] bg-white object-contain p-2'
+            className='h-[200px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Jetbrains}
             alt={"Jetbrains"}
             width={300}
             height={200}
-            className='h-[200px] w-[300px] bg-white object-contain p-2'
+            className='h-[200px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
-          <Image src={Skt} alt={"Skt"} width={300} height={200} className='h-[200px] w-[300px] object-contain p-2' />
+          <Image
+            src={Skt}
+            alt={"Skt"}
+            width={300}
+            height={200}
+            className='h-[200px] w-[300px] cursor-pointer object-contain p-2'
+          />
         </div>
       </div>
       <div className='mb-20'>
@@ -125,21 +131,21 @@ const Sponsors = () => {
             alt={"AB180"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] bg-white object-contain p-2'
+            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Onuii}
             alt={"Onuii"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] bg-white object-contain p-2'
+            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={SkCnC}
             alt={"SkCnC"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] bg-white object-contain p-2'
+            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -152,7 +158,7 @@ const Sponsors = () => {
             alt={"Awskrug"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] bg-white object-contain p-2'
+            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -160,20 +166,26 @@ const Sponsors = () => {
         <p className='mb-2 text-3xl font-bold uppercase'>publisher</p>
         <div className='borderGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
-          <Image src={GoldenRabbit} alt={"GoldenRabbit"} width={300} height={200} className='h-[150px] w-[300px] p-2' />
+          <Image
+            src={GoldenRabbit}
+            alt={"GoldenRabbit"}
+            width={300}
+            height={200}
+            className='h-[150px] w-[300px] cursor-pointer p-2'
+          />
           <Image
             src={Hanbit}
             alt={"Hanbit"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] bg-white object-contain p-2'
+            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Jpub}
             alt={"Jpub"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] bg-white object-contain p-2'
+            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>

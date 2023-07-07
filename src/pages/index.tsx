@@ -29,7 +29,7 @@ export default function Home() {
             transform: `translateY(-${scrollY}px)`,
           }}
         >
-          <About />
+          <About scrollY={scrollY} />
           <Session />
           <Sponsors />
           <Location />
