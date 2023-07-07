@@ -1,6 +1,6 @@
 const Intro = () => {
   return (
-    <section className='fixed min-h-screen w-full'>
+    <section className='relative min-h-screen w-full'>
       <div className='min-w-screen absolute left-0 top-0 min-h-screen'>
         <video className='h-screen w-screen object-cover transition' autoPlay muted loop playsInline preload={"auto"}>
           <source src='https://changhyeon.s3.ap-northeast-2.amazonaws.com/assets/intro.mp4' type={"video/mp4"} />

@@ -4,10 +4,7 @@ import { useInView } from "react-intersection-observer";
 import GoLangKoreaLogo from "/public/images/golang_korea_logo.png";
 import GopherConLogo from "/public/images/gophercon_logo.png";
 
-interface AboutProps {
-  scrollY: number;
-}
-const About: React.FC<AboutProps> = ({ scrollY }) => {
+const About = () => {
   const [text, setText] = React.useState("국내 최초");
   const textRef = React.useRef<HTMLParagraphElement>(null);
   const [ref, inView] = useInView({
@@ -65,60 +62,6 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
     }
   }, [inView]);
 
-  const transformY = React.useMemo(() => {
-    const min = 300;
-    const max = 600;
-    const y1 = -30;
-    const y2 = 0;
-    const m = (y2 - y1) / (max - min);
-    const c = y1 - m * min;
-    if (scrollY < 300) {
-      return -30;
-    }
-    if (scrollY > 600) {
-      return 0;
-    }
-    if (scrollY > 300) {
-      return m * scrollY + c;
-    }
-  }, [scrollY]);
-
-  const transformScale = React.useMemo(() => {
-    const min = 300;
-    const max = 600;
-    const y1 = 0.9;
-    const y2 = 1;
-    const m = (y2 - y1) / (max - min);
-    const c = y1 - m * min;
-    if (scrollY < 300) {
-      return 0.9;
-    }
-    if (scrollY > 600) {
-      return 1;
-    }
-    if (scrollY > 300) {
-      return m * scrollY + c;
-    }
-  }, [scrollY]);
-
-  const transformRotateX = React.useMemo(() => {
-    const min = 300;
-    const max = 600;
-    const y1 = 10;
-    const y2 = 0;
-    const m = (y2 - y1) / (max - min);
-    const c = y1 - m * min;
-    if (scrollY < 300) {
-      return 10;
-    }
-    if (scrollY > 600) {
-      return 0;
-    }
-    if (scrollY > 300) {
-      return m * scrollY + c;
-    }
-  }, [scrollY]);
-
   return (
     <section
       className='relative flex min-h-screen w-screen flex-col items-center justify-center gap-4 bg-white pt-80 max-sm:pt-32'
@@ -130,12 +73,7 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
         {text}
       </p>
       <div className='flex w-full items-center justify-center gap-8 p-8 max-sm:flex-col'>
-        <div
-          className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-sm:w-full'
-          style={{
-            transform: `perspective(1200px) translateX(0px) translateY(${transformY}px) scale(${transformScale}) rotate(0deg) rotateX(${transformRotateX}deg) rotateY(0deg) translateZ(0px)`,
-          }}
-        >
+        <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-sm:w-full'>
           <img
             src={"https://e0.pxfuel.com/wallpapers/412/505/desktop-wallpaper-golang-golang-gopher.jpg"}
             alt='gopher'
@@ -149,12 +87,7 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
             </p>
           </div>
         </div>
-        <div
-          className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-sm:w-full'
-          style={{
-            transform: `perspective(1200px) translateX(0px) translateY(${transformY}px) scale(${transformScale}) rotate(0deg) rotateX(${transformRotateX}deg) rotateY(0deg) translateZ(0px)`,
-          }}
-        >
+        <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-sm:w-full'>
           <img src={GopherConLogo.src} alt='gopher' className='h-[240px] w-full bg-white object-contain p-2' />
           <div className='flex h-[330px] flex-col items-center p-12'>
             <p className='mb-8 text-2xl'>국내 최초 GopherCon</p>
@@ -165,12 +98,7 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
             </p>
           </div>
         </div>
-        <div
-          className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-sm:w-full'
-          style={{
-            transform: `perspective(1200px) translateX(0px) translateY(${transformY}px) scale(${transformScale}) rotate(0deg) rotateX(${transformRotateX}deg) rotateY(0deg) translateZ(0px)`,
-          }}
-        >
+        <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-sm:w-full'>
           <img src={GoLangKoreaLogo.src} alt='gopher' className='h-[240px] w-full bg-white object-contain p-2' />
           <div className='flex h-[330px] flex-col items-center p-12'>
             <p className='mb-8 text-2xl'>국내 최대 고 언어 커뮤니티</p>

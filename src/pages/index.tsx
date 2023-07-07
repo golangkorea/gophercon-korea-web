@@ -23,17 +23,17 @@ export default function Home() {
     <Layout>
       <div className='relative flex min-h-screen w-screen flex-col items-center justify-center'>
         <Intro />
-        <div
-          className='absolute top-[100vh] mb-10 w-screen bg-background'
-          style={{
-            transform: `translateY(-${scrollY}px)`,
-          }}
-        >
-          <About scrollY={scrollY} />
-          <Session />
-          <Sponsors />
-          <Location />
-        </div>
+        {/*<div*/}
+        {/*  className='absolute top-[100vh] mb-10 w-screen bg-background'*/}
+        {/*  style={{*/}
+        {/*    transform: `translateY(-${scrollY}px)`,*/}
+        {/*  }}*/}
+        {/*>*/}
+        <About />
+        <Session />
+        <Sponsors />
+        <Location />
+        {/*</div>*/}
       </div>
     </Layout>
   );
