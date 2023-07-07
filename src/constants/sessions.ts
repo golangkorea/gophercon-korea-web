@@ -32,6 +32,7 @@ export interface Session {
 //   },
 // ];
 
+// FIXME : 임시 데이터
 export const SESSIONS: Session[] = Array.from({ length: 20 }).map((_, index) => ({
   startTime: "10:40",
   endTime: "11:10",
