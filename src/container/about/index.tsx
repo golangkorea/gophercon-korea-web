@@ -121,12 +121,12 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
 
   return (
     <section
-      className='relative flex min-h-screen w-screen flex-col items-center justify-center gap-4 bg-white max-sm:py-44'
+      className='relative flex min-h-screen w-screen flex-col items-center justify-center gap-4 bg-white pt-80 max-sm:pt-32'
       style={{ transform: "perspective(1200px)" }}
       id='about'
     >
       <div ref={ref} />
-      <p className='mb-20 cursor-pointer text-5xl font-bold max-sm:text-3xl' ref={textRef}>
+      <p className='z-50 mb-20 cursor-pointer text-5xl font-bold max-sm:text-3xl' ref={textRef}>
         {text}
       </p>
       <div className='flex w-full items-center justify-center gap-8 p-8 max-sm:flex-col'>
@@ -181,7 +181,7 @@ const About: React.FC<AboutProps> = ({ scrollY }) => {
           </div>
         </div>
       </div>
-      <div className='absolute left-0 right-0 top-0 h-[520px] w-full -rotate-180 overflow-hidden'>
+      <div className='absolute left-0 right-0 top-0 h-[520px] w-full -rotate-180 overflow-hidden max-sm:hidden'>
         <div className='purpleDot h-full w-full' />
         <div className='skyDot h-full w-full' />
       </div>

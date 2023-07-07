@@ -49,17 +49,17 @@ a {
 }
 
 .purpleDot {
-  background: radial-gradient(79.4% 100% at 25.1% 100%,#D261FF 0%,rgba(210,97,255,0) 100%);
+  background: radial-gradient(79.4% 100% at 25.1% 100%, #d261ff 0%, rgba(210, 97, 255, 0) 100%);
   position: absolute;
 }
 
 .skyDot {
-  background: radial-gradient(57.3% 100% at 76.2% 100%,#00a6ff 0%,rgba(0,187,255,0) 100%);
+  background: radial-gradient(57.3% 100% at 76.2% 100%, #00a6ff 0%, rgba(0, 187, 255, 0) 100%);
   position: absolute;
 }
 
 .sessionGradient {
-  background: linear-gradient(45deg,#0088ff 0%, rgb(0, 204, 255) 100%)
+  background: linear-gradient(45deg, #0088ff 0%, rgb(0, 204, 255) 100%);
 }
 
 .rainbowBorder {
