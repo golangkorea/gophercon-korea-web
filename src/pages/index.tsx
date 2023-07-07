@@ -2,12 +2,13 @@ import Layout from "@/components/layout";
 import About from "@/container/about";
 import Intro from "@/container/intro";
 import Location from "@/container/location";
-import Program from "@/container/program";
+import Session from "@/container/session";
 import Sponsors from "@/container/sponsors";
 import React from "react";
 
 export default function Home() {
   const [scrollY, setScrollY] = React.useState(0);
+
   // MEMO 스크롤에 따라 하단 콘텐츠 overlay
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -29,7 +30,7 @@ export default function Home() {
           }}
         >
           <About />
-          <Program />
+          <Session />
           <Sponsors />
           <Location />
         </div>
