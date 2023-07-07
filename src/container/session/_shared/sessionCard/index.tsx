@@ -26,7 +26,6 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
   const { speaker } = session;
 
   const handleAnimation = () => {
-    console.log("inView");
     const tl = gsap.timeline();
     tl.to(cardRef.current, {
       duration: 1,

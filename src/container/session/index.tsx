@@ -4,7 +4,7 @@ import SessionCard from "@/container/session/_shared/sessionCard";
 const Session = () => {
   return (
     <section
-      className='flex min-h-screen w-screen flex-col items-center justify-center gap-4 max-sm:py-44'
+      className='flex min-h-screen w-screen flex-col items-center justify-center gap-4 pb-12 max-sm:py-44'
       id='session'
     >
       <p className='w-full text-center text-3xl font-bold uppercase sm:hidden'>session</p>
