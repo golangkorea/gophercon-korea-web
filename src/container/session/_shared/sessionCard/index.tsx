@@ -68,7 +68,8 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
           display: isHover ? "flex" : "none",
         }}
       >
-        <p className='mb-2'>{`${speaker.name} / ${speaker.company}`}</p>
+        <p className='font-bold'>{`${speaker.name}`}</p>
+        <p className='mb-2 text-sm'>{`${speaker.company}`}</p>
         <p className='mb-5 text-sm'>{speaker.description}</p>
         <p className='bottom-0'>{session.description}</p>
       </div>
