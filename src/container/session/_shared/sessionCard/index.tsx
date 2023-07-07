@@ -41,12 +41,16 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
   };
 
   React.useEffect(() => {
-    if (inView) handleAnimation();
+    if (inView) {
+      setTimeout(() => {
+        handleAnimation();
+      }, 300);
+    }
   }, [inView]);
 
   return (
     <div
-      className='relative h-[400px] w-[320px] overflow-hidden rounded-xl'
+      className='relative h-[400px] w-[320px] overflow-hidden rounded-xl opacity-0'
       ref={cardRef}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
