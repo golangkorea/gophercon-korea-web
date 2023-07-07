@@ -49,28 +49,34 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
 
   return (
     <div
-      className='rainbowBorder relative h-[400px] w-[320px] opacity-0 shadow-2xl'
+      className='sessionCard relative h-[400px] w-[320px] opacity-0'
       ref={cardRef}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
     >
       <div ref={ref} />
-      <img src={speaker.profileImage} className='z-10 h-full w-full' alt={speaker.name} />
-      <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-end bg-overlay50 p-4 text-white'>
-        <p className='mb-4 '>{session.category}</p>
-        <p className='mb-4 text-xl font-bold '>{session.title}</p>
-        <p className=''>{`${speaker.name} / ${speaker.company}`}</p>
-      </div>
-      <div
-        className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col bg-gray-500 p-4 text-white'
-        style={{
-          display: isHover ? "flex" : "none",
-        }}
-      >
-        <p className='font-bold'>{`${speaker.name}`}</p>
-        <p className='mb-2 text-sm'>{`${speaker.company}`}</p>
-        <p className='mb-5 text-sm'>{speaker.description}</p>
-        <p className='bottom-0'>{session.description}</p>
+      <div className='card rainbowBorder'>
+        <div className='card-side card-side-front'>
+          <img src={speaker.profileImage} className='absolute left-0 top-0 z-10 h-full w-full' alt={speaker.name} />
+          <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-end bg-overlay50 p-4 text-white'>
+            <p className='mb-4 '>{session.category}</p>
+            <p className='mb-4 text-xl font-bold '>{session.title}</p>
+            <p className=''>{`${speaker.name} / ${speaker.company}`}</p>
+          </div>
+        </div>
+        <div className='card-side card-side-back'>
+          <div
+            className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col bg-gray-500 p-4 text-white'
+            style={{
+              display: isHover ? "flex" : "none",
+            }}
+          >
+            <p className='font-bold'>{`${speaker.name}`}</p>
+            <p className='mb-2 text-sm'>{`${speaker.company}`}</p>
+            <p className='mb-5 text-sm'>{speaker.description}</p>
+            <p className='bottom-0'>{session.description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
