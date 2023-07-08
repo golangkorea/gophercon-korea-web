@@ -54,7 +54,7 @@ export function Navbar() {
   return (
     <div className='w-screen'>
       <nav className='border-[rgba(0, 0, 0, 0.2)] fixed top-0 z-30 flex h-20 w-screen items-center border-b px-20 backdrop-blur-md max-sm:h-16 max-sm:px-4'>
-        <a href={"/"}>
+        <a onClick={handleRoute("/")}>
           <h1 className='cursor-pointer text-2xl font-bold max-sm:text-xl'>GopherCon Korea 2023</h1>
         </a>
         <div className='ml-auto flex h-full items-center gap-6 max-sm:hidden'>

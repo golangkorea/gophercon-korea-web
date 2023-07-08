@@ -33,7 +33,7 @@ export interface Session {
 // ];
 
 // FIXME : 임시 데이터
-export const SESSIONS: Session[] = Array.from({ length: 20 }).map((_, index) => ({
+export const SESSIONS: Session[] = Array.from({ length: 9 }).map((_, index) => ({
   startTime: "10:40",
   endTime: "11:10",
   title: `AWS Lambda in Go \n(with Kafka)`,
