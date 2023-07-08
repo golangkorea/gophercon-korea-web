@@ -11,19 +11,19 @@ export function Navbar() {
         <h1 className='cursor-pointer text-2xl font-bold max-sm:text-xl'>GopherCon Korea 2023</h1>
       </Link>
       <div className='ml-auto flex h-full items-center gap-6 max-sm:hidden'>
-        <Link className='cursor-pointer' href='/program'>
+        <Link className='cursor-pointer font-semibold' href='/program'>
           프로그램
         </Link>
-        <Link className='cursor-pointer' href='/sponsors'>
+        <Link className='cursor-pointer font-semibold' href='/sponsors'>
           스폰서
         </Link>
-        <Link className='cursor-pointer' href='/coc'>
+        <Link className='cursor-pointer font-semibold' href='/coc'>
           행동강령
         </Link>
-        <Link className='cursor-pointer' href='/scolarship-support'>
+        <Link className='cursor-pointer font-semibold' href='/scolarship-support'>
           장학지원
         </Link>
-        <Link className='cursor-pointer' href='/inquiries'>
+        <Link className='cursor-pointer font-semibold' href='/inquiries'>
           행사문의
         </Link>
         <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>

@@ -37,7 +37,7 @@ const Sponsors = () => {
       <p className='mb-12 text-5xl font-extrabold'>Sponsors</p>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>diamond</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='diamondColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center p-4'>
           <Image
             src={Google}
@@ -50,7 +50,7 @@ const Sponsors = () => {
       </div>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>platinum</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='platinumColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
           <Image
             src={Hyundai}
@@ -70,7 +70,7 @@ const Sponsors = () => {
       </div>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>gold</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='goldColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
           <Image
             src={Dreamus}
@@ -97,7 +97,7 @@ const Sponsors = () => {
       </div>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>silver</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='silverColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
           <Image
             src={Openup}
@@ -124,7 +124,7 @@ const Sponsors = () => {
       </div>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>bronze</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='bronzeColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
           <Image
             src={AB180}
@@ -151,7 +151,7 @@ const Sponsors = () => {
       </div>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>community</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='etcColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
           <Image
             src={Awskrug}
@@ -164,7 +164,7 @@ const Sponsors = () => {
       </div>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>publisher</p>
-        <div className='borderGradient mb-4 h-0.5 w-full' />
+        <div className='etcColorGradient mb-4 h-0.5 w-full' />
         <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
           <Image
             src={GoldenRabbit}
