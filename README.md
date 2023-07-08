@@ -13,7 +13,6 @@
 | react            | 18.2.0  |
 | react-router-dom | 6.10.0  |
 | typescript       | 5.1.3   |
-| emotion          | 11.11.1 |
 
 ### Installation
 
