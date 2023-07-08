@@ -10,7 +10,7 @@ body {
   scroll-behavior: smooth;
   color: #222222;
   position: relative;
-  background: rgb(14, 12, 20);
+  background: white;
 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
@@ -160,23 +160,25 @@ a {
 }
 
 .platinumColorGradient {
-  background: linear-gradient(to right, #E1E4E3 0%, #C5C8C6 25%, #A9ABA9 50%, #C5C8C6 75%, #E1E4E3 100%);
+  background: linear-gradient(to right, #e1e4e3 0%, #c5c8c6 25%, #a9aba9 50%, #c5c8c6 75%, #e1e4e3 100%);
 }
 
 .goldColorGradient {
-  background: linear-gradient(to right, #FFD700 0%, #F4A460 25%, #E06633 50%, #F4A460 75%, #FFD700 100%);
+  background: linear-gradient(to right, #ffd700 0%, #f4a460 25%, #e06633 50%, #f4a460 75%, #ffd700 100%);
 }
 
 .silverColorGradient {
-  background: linear-gradient(to right, #C0C0C0 0%, #A9A9A9 25%, #808080 50%, #A9A9A9 75%, #C0C0C0 100%);
+  background: linear-gradient(to right, #c0c0c0 0%, #a9a9a9 25%, #808080 50%, #a9a9a9 75%, #c0c0c0 100%);
 }
 
 .bronzeColorGradient {
-  background: linear-gradient(to right, #B87333 0%, #A95F2B 25%, #9A4B23 50%, #A95F2B 75%, #B87333 100%);
+  background: linear-gradient(to right, #b87333 0%, #a95f2b 25%, #9a4b23 50%, #a95f2b 75%, #b87333 100%);
 }
 
 .etcColorGradient {
-  background: linear-gradient(315deg,#00f6ff 0%,hsl(250,100%,50%) 100%)
+  background: linear-gradient(315deg, #00f6ff 0%, hsl(250, 100%, 50%) 100%);
 }
 
+.mobileNav {
 
+}

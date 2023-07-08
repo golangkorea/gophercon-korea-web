@@ -13,6 +13,7 @@ module.exports = {
         background: "rgb(14, 12, 20)",
         cardBlack: "rgb(43, 48, 52)",
         overlay50: "rgba(0, 0, 0, 0.5)",
+        overlay75: "rgba(0, 0, 0, 0.75)",
       },
     },
   },
