@@ -33,7 +33,7 @@ import Skt from "/public/images/sponsors/etc/skt.png";
 
 const Sponsors = () => {
   return (
-    <section className='flex w-screen flex-col gap-4 bg-background bg-white px-16 py-16 max-sm:px-4'>
+    <section className='flex w-screen flex-col gap-4 bg-background bg-white px-16 py-16 max-lg:px-4'>
       <p className='mb-12 text-5xl font-extrabold'>Sponsors</p>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>diamond</p>
@@ -51,7 +51,7 @@ const Sponsors = () => {
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>platinum</p>
         <div className='platinumColorGradient mb-4 h-0.5 w-full' />
-        <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             src={Hyundai}
             alt={"Hyundai Motors"}
@@ -71,7 +71,7 @@ const Sponsors = () => {
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>gold</p>
         <div className='goldColorGradient mb-4 h-0.5 w-full' />
-        <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             src={Dreamus}
             alt={"Dreamus"}
@@ -98,7 +98,7 @@ const Sponsors = () => {
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>silver</p>
         <div className='silverColorGradient mb-4 h-0.5 w-full' />
-        <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             src={Openup}
             alt={"Openup"}
@@ -125,7 +125,7 @@ const Sponsors = () => {
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>bronze</p>
         <div className='bronzeColorGradient mb-4 h-0.5 w-full' />
-        <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             src={AB180}
             alt={"AB180"}
@@ -152,7 +152,7 @@ const Sponsors = () => {
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>community</p>
         <div className='etcColorGradient mb-4 h-0.5 w-full' />
-        <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             src={Awskrug}
             alt={"Awskrug"}
@@ -165,7 +165,7 @@ const Sponsors = () => {
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>publisher</p>
         <div className='etcColorGradient mb-4 h-0.5 w-full' />
-        <div className='flex w-full justify-center gap-8 p-4 max-sm:flex-col max-sm:items-center'>
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             src={GoldenRabbit}
             alt={"GoldenRabbit"}

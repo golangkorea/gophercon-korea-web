@@ -41,23 +41,23 @@ export function Navbar() {
 
   const handleRoute = React.useCallback(
     (href: string) => {
-      return () => router.push(href).then(toggleMenuOpen);
+      return () => router.push(href).then(() => setIsOpen(false));
     },
     [router],
   );
 
   const openNewWindow = () => {
-    toggleMenuOpen();
+    setIsOpen(false);
     window.open("https://festa.io/events/3435", "_blank");
   };
 
   return (
     <div className='w-screen'>
-      <nav className='border-[rgba(0, 0, 0, 0.2)] fixed top-0 z-30 flex h-20 w-screen items-center border-b px-20 backdrop-blur-md max-sm:h-16 max-sm:px-4'>
+      <nav className='border-[rgba(0, 0, 0, 0.2)] fixed top-0 z-30 flex h-20 w-screen items-center border-b px-20 backdrop-blur-md max-lg:h-16 max-lg:px-4'>
         <a onClick={handleRoute("/")}>
-          <h1 className='cursor-pointer text-2xl font-bold max-sm:text-xl'>GopherCon Korea 2023</h1>
+          <h1 className='cursor-pointer text-2xl font-bold max-lg:text-xl'>GopherCon Korea 2023</h1>
         </a>
-        <div className='ml-auto flex h-full items-center gap-6 max-sm:hidden'>
+        <div className='ml-auto flex h-full items-center gap-6 max-lg:hidden'>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/program")}>
             프로그램
           </a>
@@ -70,7 +70,7 @@ export function Navbar() {
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
             장학지원
           </a>
-          <a className='cursor-pointer font-semibold' onClick={handleRoute("/inquiries")}>
+          <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
             행사문의
           </a>
           <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>
@@ -78,9 +78,9 @@ export function Navbar() {
           </button>
         </div>
         {isOpen ? (
-          <XMarkIcon className='absolute right-4 h-10 w-10 sm:hidden' onClick={toggleMenuOpen} />
+          <XMarkIcon className='absolute right-4 h-10 w-10 lg:hidden' onClick={toggleMenuOpen} />
         ) : (
-          <Bars3Icon className='absolute right-4 h-10 w-10 sm:hidden' onClick={toggleMenuOpen} />
+          <Bars3Icon className='absolute right-4 h-10 w-10 lg:hidden' onClick={toggleMenuOpen} />
         )}
       </nav>
       {isOpen && <div className={`fixed top-0 z-10 h-screen w-full bg-overlay50`} onClick={toggleMenuOpen} />}
@@ -100,7 +100,7 @@ export function Navbar() {
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
           장학지원
         </a>
-        <a className='cursor-pointer font-semibold' onClick={handleRoute("/inquiries")}>
+        <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
           행사문의
         </a>
         <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>
