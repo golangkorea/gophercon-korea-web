@@ -67,7 +67,7 @@ export function Navbar() {
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
             행동강령
           </a>
-          <a className='cursor-pointer font-semibold' onClick={handleRoute("/scolarship-support")}>
+          <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
             장학지원
           </a>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/inquiries")}>
@@ -97,7 +97,7 @@ export function Navbar() {
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
           행동강령
         </a>
-        <a className='cursor-pointer font-semibold' onClick={handleRoute("/scolarship-support")}>
+        <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
           장학지원
         </a>
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/inquiries")}>
