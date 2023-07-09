@@ -1,5 +1,6 @@
 import Banner from "@/components/banner";
 import Layout from "@/components/layout";
+import { getI18nProps } from "@/i18n/utils/getI18nProps";
 
 export default function SponsorsPage() {
   return (
@@ -13,3 +14,5 @@ export default function SponsorsPage() {
     </Layout>
   );
 }
+
+export const getServerSideProps = getI18nProps;
