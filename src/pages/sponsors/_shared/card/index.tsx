@@ -119,8 +119,9 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
             <div className='relative flex flex-1 flex-col'>
               {thumbnail && <img src={thumbnail} alt={name} className='h-[350px] w-full' />}
               <div className='h-full p-4'>
-                <p className='mb-4 text-3xl font-semibold'>{service}</p>
-                <div className='mb-4 whitespace-pre-line text-xl'>{detail}</div>
+                <p className='mb-4 text-3xl font-semibold tracking-wider'>{service}</p>
+                <div className='mb-4 whitespace-pre-line text-xl tracking-wide'>{detail}</div>
+                <img src={logo} alt={logo} className='mb-4 mt-4 w-52' />
                 <a onClick={openHomepage} className='z-50 cursor-pointer text-xl font-semibold text-blue-500'>
                   {`홈페이지 바로가기 >`}
                 </a>
