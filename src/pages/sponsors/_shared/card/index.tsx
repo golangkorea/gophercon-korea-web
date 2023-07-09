@@ -63,58 +63,76 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     }
   }, [isDetail]);
 
+  const openHomepage = (e: any) => {
+    e.stopPropagation();
+    window.open(link, "_blank");
+  };
+
+  React.useEffect(() => {
+    if (isDetail) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isDetail]);
+
   return (
-    <div
-      className='h-[500px] w-[500px] scale-0 cursor-pointer rounded-xl bg-white shadow-2xl'
-      ref={cardRef}
-      onClick={handleZoom}
-    >
-      <div ref={ref} />
-      {!isDetail && (
-        <>
-          <div className='flex h-16 w-full items-center justify-between gap-2 bg-white px-5 py-2 shadow-md'>
-            <div className='flex gap-2'>
-              <div className='h-4 w-4 rounded-full bg-red-400' />
-              <div className='h-4 w-4 rounded-full bg-yellow-400' />
-              <div className='h-4 w-4 rounded-full bg-green-400' />
+    <>
+      <div
+        className='z-50 h-[500px] w-[500px] scale-0 cursor-pointer rounded-xl bg-white shadow-2xl'
+        onClick={handleZoom}
+        ref={cardRef}
+      >
+        <div ref={ref} />
+        {!isDetail && (
+          <>
+            <div className='flex h-16 w-full items-center justify-between gap-2 bg-white px-5 py-2 shadow-md'>
+              <div className='flex gap-2'>
+                <div className='h-4 w-4 cursor-pointer rounded-full bg-red-400' />
+                <div className='h-4 w-4 rounded-full bg-yellow-400' />
+                <div className='z-[10000] h-4 w-4 cursor-pointer rounded-full bg-green-400' />
+              </div>
+              <div className='flex h-full w-full items-center justify-center rounded-2xl border border-gray-200'>
+                <p className='text-xl tracking-wide'>{name}</p>
+              </div>
+              <img src={Gopher.src} alt={"gopher"} className='h-12 w-12 rounded-full border border-gray-200 p-1' />
             </div>
-            <div className='flex h-full w-full items-center justify-center rounded-2xl border border-gray-200'>
-              <p className='text-xl tracking-wide'>{name}</p>
+            <div className='flex h-full flex-col'>
+              {thumbnail && <img src={thumbnail} alt={name} className='h-[250px] w-full' />}
+              <div className='whitespace-pre-line p-4'>{description}</div>
             </div>
-            <img src={Gopher.src} alt={"gopher"} className='h-12 w-12 rounded-full border border-gray-200 p-1' />
-          </div>
-          <div className='flex h-full flex-col'>
-            {thumbnail && <img src={thumbnail} alt={name} className='h-[250px] w-full' />}
-            <div className='whitespace-pre-line p-4'>{description}</div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+        {isDetail && (
+          <>
+            <div className='flex h-16 items-center justify-between gap-2 px-5 py-2 shadow-2xl'>
+              <div className='flex gap-2'>
+                <div className='h-4 w-4 rounded-full bg-red-400' />
+                <div className='h-4 w-4 rounded-full bg-yellow-400' />
+                <div className='h-4 w-4 rounded-full bg-green-400' />
+              </div>
+              <div className='flex h-full w-full items-center justify-center rounded-2xl border border-gray-200'>
+                <p className='text-xl tracking-wide'>{name}</p>
+              </div>
+              <img src={Gopher.src} alt={"gopher"} className='h-12 w-12 rounded-full border border-gray-200 p-1' />
+            </div>
+            <div className='relative flex flex-1 flex-col'>
+              {thumbnail && <img src={thumbnail} alt={name} className='h-[350px] w-full' />}
+              <div className='h-full p-4'>
+                <p className='mb-4 text-3xl font-semibold'>{service}</p>
+                <div className='mb-4 whitespace-pre-line text-xl'>{detail}</div>
+                <a onClick={openHomepage} className='z-50 cursor-pointer text-xl font-semibold text-blue-500'>
+                  {`홈페이지 바로가기 >`}
+                </a>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
       {isDetail && (
-        <>
-          <div className='flex h-16 items-center justify-between gap-2 px-5 py-2 shadow-2xl'>
-            <div className='flex gap-2'>
-              <div className='h-4 w-4 rounded-full bg-red-400' />
-              <div className='h-4 w-4 rounded-full bg-yellow-400' />
-              <div className='h-4 w-4 rounded-full bg-green-400' />
-            </div>
-            <div className='flex h-full w-full items-center justify-center rounded-2xl border border-gray-200'>
-              <p className='text-xl tracking-wide'>{name}</p>
-            </div>
-            <img src={Gopher.src} alt={"gopher"} className='h-12 w-12 rounded-full border border-gray-200 p-1' />
-          </div>
-          <div className='relative flex flex-1 flex-col'>
-            {thumbnail && <img src={thumbnail} alt={name} className='h-[350px] w-full' />}
-            <div className='h-full p-4'>
-              <p className='mb-4 text-3xl font-semibold'>{service}</p>
-              <div className='mb-4 whitespace-pre-line text-xl'>{detail}</div>
-              <a href={link} className='cursor-pointer text-xl font-semibold text-blue-500'>
-                {`홈페이지 바로가기 >`}
-              </a>
-            </div>
-          </div>
-        </>
+        <div className='fixed left-0 top-0 z-30 h-screen w-screen bg-overlay50' onClick={zoomOutAnimation} />
       )}
-    </div>
+    </>
   );
 };
 
