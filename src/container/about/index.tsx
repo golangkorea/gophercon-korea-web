@@ -80,11 +80,8 @@ const About = () => {
             className='h-[240px] w-full object-cover'
           />
           <div className='flex h-[330px] flex-col items-center p-12'>
-            <p className='mb-8 text-2xl'>블라블라</p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </p>
+            <p className='mb-8 text-2xl'>About GO</p>
+            <p>Go Lang은 펀쿨섹 언어입니다.</p>
           </div>
         </div>
         <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-lg:w-full'>
