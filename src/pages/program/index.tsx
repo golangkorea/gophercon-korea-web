@@ -1,5 +1,7 @@
 import Banner from "@/components/banner";
 import Layout from "@/components/layout";
+import { getI18nProps } from "@/i18n/utils/getI18nProps";
+
 export default function Program() {
   return (
     <Layout>
@@ -12,3 +14,5 @@ export default function Program() {
     </Layout>
   );
 }
+
+export const getStaticProps = getI18nProps;
