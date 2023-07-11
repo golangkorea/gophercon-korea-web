@@ -1,3 +1,4 @@
+import { useI18n } from "@/hooks/useI18n";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
@@ -6,6 +7,7 @@ import React from "react";
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const mobileNavRef = React.useRef<HTMLDivElement>(null);
+  const { locale, setLocale, LL } = useI18n();
   const router = useRouter();
 
   const toggleMenuOpen = () => {
@@ -59,19 +61,28 @@ export function Navbar() {
         </a>
         <div className='ml-auto flex h-full items-center gap-6 max-lg:hidden'>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/program")}>
-            프로그램
+            {LL.nav.program()}
           </a>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/sponsors")}>
-            스폰서
+            {LL.nav.sponsors()}
           </a>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
-            행동강령
+            {LL.nav.coc()}
+          </a>
+          <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
+            {LL.nav.scholarships()}
           </a>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
-            행사문의
+            {LL.nav.contact()}
           </a>
           <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>
             Register
+          </button>
+          <button
+            className='cursor-pointer font-semibold'
+            onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}
+          >
+            {LL.changeLang()}
           </button>
         </div>
         {isOpen ? (
@@ -86,19 +97,28 @@ export function Navbar() {
         className={`fixed -top-full z-20 flex h-1/2 w-screen flex-col justify-around bg-white px-4 pt-20`}
       >
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/program")}>
-          프로그램
+          {LL.nav.program()}
         </a>
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/sponsors")}>
-          스폰서
+          {LL.nav.sponsors()}
         </a>
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
-          행동강령
+          {LL.nav.coc()}
+        </a>
+        <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
+          {LL.nav.scholarships()}
         </a>
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
-          행사문의
+          {LL.nav.contact()}
         </a>
         <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>
           Register
+        </button>
+        <button
+          className='cursor-pointer font-semibold'
+          onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}
+        >
+          {LL.changeLang()}
         </button>
       </div>
     </div>

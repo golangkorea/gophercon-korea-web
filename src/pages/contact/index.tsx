@@ -1,5 +1,6 @@
 import Banner from "@/components/banner";
 import Layout from "@/components/layout";
+import { getI18nProps } from "@/i18n/utils/getI18nProps";
 
 export default function ContactPage() {
   return (
@@ -10,3 +11,5 @@ export default function ContactPage() {
     </Layout>
   );
 }
+
+export const getStaticProps = getI18nProps;

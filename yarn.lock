@@ -2511,6 +2511,11 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
+typesafe-i18n@^5.24.3:
+  version "5.24.3"
+  resolved "https://registry.yarnpkg.com/typesafe-i18n/-/typesafe-i18n-5.24.3.tgz#925a49f7ccec9ddb1d0c32f44bf9abc2d7df0071"
+  integrity sha512-VqjGbIydOqtQjO81mGo++TjuqeC8YoxxgYrO1/ikXIS/l/Q6mAcz4yrt5AvqjdFHMt3gRm7oGbVI/yLyV+VTOg==
+
 typescript@5.1.3:
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.3.tgz#8d84219244a6b40b6fb2b33cc1c062f715b9e826"

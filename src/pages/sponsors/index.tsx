@@ -1,5 +1,6 @@
 import Banner from "@/components/banner";
 import Layout from "@/components/layout";
+import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import { SPONSORS } from "@/constants/sponsors";
 import SponsorCard from "@/pages/sponsors/_shared/card";
 
@@ -20,3 +21,5 @@ export default function SponsorsPage() {
     </Layout>
   );
 }
+
+export const getServerSideProps = getI18nProps;
