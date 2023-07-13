@@ -44,17 +44,17 @@ export const SPONSORS: Sponsor[] = [
   //   description: `.\n`,
   //   detail: `.`,
   // },
-  //   {
-  //   id: 4,
-  //   name: "메가존클라우드",
-  //   thumbnail:
-  //     "https://raw.githubusercontent.com/golangkorea/gophercon-korea-2023/main/public/images/golang_korea_logo.png",
-  //   logo: "https://raw.githubusercontent.com/golangkorea/gophercon-korea-2023/main/public/images/golang_korea_logo.png",
-  //   link: "https://gophercon-korea-2023.vercel.app/",
-  //   service: "메가존클라우드",
-  //   description: `.\n`,
-  //   detail: `.`,
-  // },
+  {
+    id: 4,
+    name: "메가존소프트",
+    thumbnail:
+      "https://raw.githubusercontent.com/golangkorea/gophercon-korea-2023/main/public/images/sponsors/gold/thumbnail_megazon.png",
+    logo: "https://raw.githubusercontent.com/golangkorea/gophercon-korea-2023/main/public/images/sponsors/gold/logo_megazon.png",
+    link: "https://www.megazonesoft.com/googlecloud",
+    service: "메가존소프트",
+    description: `메가존소프트는 2009년부터 한국 최초로 Google과의 파트너십을 체결하였으며, 프리미어 파트너 입니다. 또한 아시아 No.1 클라우드 서비스 관리 업체(MSP)로서 최다 클라우드 구축 경험을 보유하고 있으며, 고객의 클라우드 여정과 고객이 원하는 클라우드의 혁신을 위한 실현할 수 있도록 체계적인 서비스를 제공하고 있습니다.\n`,
+    detail: `메가존소프트는 구글 클라우드 프리미어 파트너로서 10년 이상의 기업 IT 운영 경험과 노하우를 바탕으로 고객에게 완벽한 매니지드 서비스(Managed Service)를 제공합니다. \n`,
+  },
   {
     id: 5,
     name: "AB180",

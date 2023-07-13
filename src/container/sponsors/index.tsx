@@ -7,7 +7,7 @@ import Hyundai from "/public/images/sponsors/platinum/hyundai.png";
 // GOLD
 import Dreamus from "/public/images/sponsors/gold/dreamus.jpg";
 import Karrot from "/public/images/sponsors/gold/logo_daangn.png";
-import Megazon from "/public/images/sponsors/gold/megazon.png";
+import Megazon from "/public/images/sponsors/gold/logo_megazon.png";
 
 // SILVER
 import Openup from "/public/images/sponsors/silver/openup.png";
