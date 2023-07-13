@@ -6,14 +6,14 @@ import Image from "next/image";
 import Hyundai from "/public/images/sponsors/platinum/hyundai.png";
 // GOLD
 import Dreamus from "/public/images/sponsors/gold/dreamus.jpg";
-import Karrot from "/public/images/sponsors/gold/karrot.png";
-import Megazon from "/public/images/sponsors/gold/megazon.png";
+import Karrot from "/public/images/sponsors/gold/logo_daangn.png";
+import Megazon from "/public/images/sponsors/gold/logo_megazon.png";
 
 // SILVER
 import Openup from "/public/images/sponsors/silver/openup.png";
 
 // BRONZE
-import AB180 from "/public/images/sponsors/bronze/ab180.png";
+import AB180 from "/public/images/sponsors/bronze/logo_ab180.png";
 import Onuii from "/public/images/sponsors/bronze/onuii.png";
 
 // COMMUNITY
