@@ -336,6 +336,20 @@ acorn@^8.8.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.9.0.tgz#78a16e3b2bcc198c10822786fa6679e245db5b59"
   integrity sha512-jaVNAFBHNLXspO543WnNNPZFRtavh3skAkITqD0/2aeMkKZTN+254PyhwxFYrk3vQ1xfY+2wbesJMs/JC8/PwQ==
 
+add-to-calendar-button-react@^2.2.8:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/add-to-calendar-button-react/-/add-to-calendar-button-react-2.2.8.tgz#1d934b168b143d7c8eb49b1165624c90fa53042a"
+  integrity sha512-rAFzxjr88lHBtEeaEVvapbwc2JCUAxFKLRqhV/rC29xv0PLjndPuQEbx/a7LX/hsBjhIHjXgRwPFew++7k4Caw==
+  dependencies:
+    add-to-calendar-button "^2.2.10"
+
+add-to-calendar-button@^2.2.10:
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/add-to-calendar-button/-/add-to-calendar-button-2.2.10.tgz#33c6cdd5980533753ca663735133c670ff920892"
+  integrity sha512-e8gw7l/nwmkMkQG+GqEMZVHSQuLDMI4Ho7LULvSQbzfguxVRJM6U7KUsKGm/xfX9t5i3QbNAdRlKCSaUaW8erQ==
+  dependencies:
+    timezones-ical-library "^1.7.1"
+
 ajv@^6.10.0, ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
@@ -2644,6 +2658,11 @@ throttle-debounce@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
   integrity sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==
+
+timezones-ical-library@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/timezones-ical-library/-/timezones-ical-library-1.7.1.tgz#638abce1cb96cc98003172f9a73491206848ad5c"
+  integrity sha512-kMklJHvitGSl51ewFyDuFmgN+QRM2y4FmW6bOSl+etzUfOkGVWRmoGAoyaNunmVFY5jw0Puezg2cXwvsgaOkFQ==
 
 titleize@^3.0.0:
   version "3.0.0"

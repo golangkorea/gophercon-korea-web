@@ -1,4 +1,5 @@
 import useCountdown from "@/hooks/useCountdown";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
 import dayjs from "dayjs";
 import { gsap } from "gsap";
 import React from "react";
@@ -57,6 +58,24 @@ const Location = () => {
           <p className='text-2xl font-extrabold max-lg:text-base'>
             서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)
           </p>
+          <div className='mt-2 flex w-full justify-center'>
+            <AddToCalendarButton
+              name='GopherCon Korea 2023'
+              description='안녕하세요, Golang Korea입니다.
+2023년 여름, Go 언어 사용자들의 최대 행사인 GopherCon이 한국에서 처음으로 개최됩니다! 🎉
+
+이번 GopherCon Korea 2023의 주제는 "Go In Depth"로 그동안 미처 살펴보지 못했던 Go 언어의 활용법과 내부를 들여다 볼 수 있다는 다양한 세션이 준비되어 있습니다.'
+              startDate='2023-08-05'
+              startTime='10:00'
+              endDate='2023-08-06'
+              endTime='18:00'
+              timeZone='Asia/Seoul'
+              location='서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)'
+              options="'Apple','Google','iCal','Outlook.com','Microsoft365'"
+              buttonStyle='3d'
+              listStyle='overlay'
+            />
+          </div>
         </div>
         <div className='z-10 ml-12 flex gap-4 max-lg:ml-0 max-lg:w-screen max-lg:justify-center max-lg:gap-2'>
           <div className='countDownWrapper' ref={daysRef}>
