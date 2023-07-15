@@ -5,6 +5,9 @@ const nextConfig = {
     locales: ["ko", "en"],
     defaultLocale: "ko",
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 module.exports = nextConfig;
