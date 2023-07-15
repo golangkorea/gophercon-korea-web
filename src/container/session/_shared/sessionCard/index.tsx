@@ -66,7 +66,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         </div>
         <div className='card-side card-side-back'>
           <div
-            className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col bg-gray-500 p-4 text-white'
+            className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col overflow-y-scroll bg-gray-500 p-4 text-white'
             style={{
               display: isHover ? "flex" : "none",
             }}
