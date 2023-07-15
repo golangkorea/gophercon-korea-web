@@ -3,6 +3,7 @@ import { AddToCalendarButton } from "add-to-calendar-button-react";
 import dayjs from "dayjs";
 import { gsap } from "gsap";
 import React from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const DATE = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm").toDate();
 const Location = () => {
@@ -54,11 +55,18 @@ const Location = () => {
         <div className='mb-10 ml-12 text-center max-lg:ml-0'>
           <p className='text-8xl font-extrabold max-lg:text-4xl'>GopherCon 2023</p>
           <p className='text-8xl font-extrabold max-lg:text-4xl'>Korea</p>
-          <p className='mb-4 text-5xl font-extrabold max-lg:text-xl'>2023.08.05-06</p>
-          <p className='text-2xl font-extrabold max-lg:text-base'>
-            서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)
-          </p>
-          <div className='mt-2 flex w-full justify-center'>
+          <p className='mb-4 mt-2 text-5xl font-extrabold max-lg:text-xl'>2023.08.05-06</p>
+          <CopyToClipboard
+            text='서울특별시 광진구 능동로 209'
+            onCopy={() => {
+              window.alert("주소가 클립보드에 복사되었습니다.");
+            }}
+          >
+            <button className='text-2xl font-extrabold underline max-lg:text-base'>
+              서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)
+            </button>
+          </CopyToClipboard>
+          <div className='mt-4 flex w-full justify-center'>
             <AddToCalendarButton
               name='GopherCon Korea 2023'
               description='안녕하세요, Golang Korea입니다.

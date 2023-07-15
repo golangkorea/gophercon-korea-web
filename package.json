@@ -27,6 +27,7 @@
     "next": "13.4.6",
     "postcss": "^8.4.25",
     "react": "18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.5.2",
     "react-router-dom": "6.14.0",
@@ -37,6 +38,7 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "eslint": "8.15.0",
     "eslint-config-next": "^13.1.6",
     "husky": "^8.0.3",
