@@ -69,9 +69,9 @@ export function Navbar() {
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
             {LL.nav.coc()}
           </a>
-          <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
-            {LL.nav.scholarships()}
-          </a>
+          {/*<a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>*/}
+          {/*  {LL.nav.scholarships()}*/}
+          {/*</a>*/}
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
             {LL.nav.contact()}
           </a>
@@ -105,9 +105,9 @@ export function Navbar() {
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
           {LL.nav.coc()}
         </a>
-        <a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>
-          {LL.nav.scholarships()}
-        </a>
+        {/*<a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>*/}
+        {/*  {LL.nav.scholarships()}*/}
+        {/*</a>*/}
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
           {LL.nav.contact()}
         </a>
