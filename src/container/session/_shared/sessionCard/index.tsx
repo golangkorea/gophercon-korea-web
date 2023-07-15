@@ -1,5 +1,6 @@
 import { Session } from "@/constants/sessions";
 import { gsap } from "gsap";
+import { useRouter } from "next/router";
 import React from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -8,6 +9,7 @@ interface SessionCardProps {
 }
 
 const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
+  const router = useRouter();
   const [isHover, setIsHover] = React.useState(false);
   const cardRef = React.useRef<HTMLDivElement>(null);
   const [ref, inView] = useInView({
@@ -21,6 +23,10 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
 
   const onLeave = () => {
     setIsHover(false);
+  };
+
+  const routeToDetail = () => {
+    router.push(`/program/${session.id}`);
   };
 
   const { speaker } = session;
@@ -49,10 +55,11 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
 
   return (
     <div
-      className='sessionCard relative h-[400px] w-[320px] opacity-0'
+      className='sessionCard relative h-[400px] w-[320px] cursor-pointer opacity-0'
       ref={cardRef}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
+      onClick={routeToDetail}
     >
       <div ref={ref} />
       <div className='card rainbowBorder'>
