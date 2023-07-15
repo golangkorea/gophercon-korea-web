@@ -2,6 +2,7 @@ import { Sponsor } from "@/constants/sponsors";
 import { gsap } from "gsap";
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { useWindowSize } from "react-use";
 import Gopher from "/public/images/gopher.png";
 
 interface SponsorCardProps extends Sponsor {}
@@ -12,30 +13,55 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     threshold: 0.5,
   });
   const { name, thumbnail, youtube, logo, link, service, description, detail } = props;
+  const { width } = useWindowSize();
 
   const zoomInAnimation = React.useCallback(() => {
     let tl = gsap.timeline();
     tl.to(cardRef.current, {
-      duration: 0.5,
-      position: "absolute",
-      left: "50%",
-      width: 800,
-      height: 900,
-      transform: "translate(-50%, -50%)",
-    });
+      duration: 0.3,
+      scale: 0,
+    })
+      .to(cardRef.current, {
+        duration: 0.1,
+        position: "absolute",
+        width: 800,
+        height: 900,
+        zIndex: 1000,
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        margin: "auto",
+      })
+      .to(cardRef.current, {
+        duration: 0.3,
+        scale: 1,
+      });
     setIsDetail(true);
   }, []);
 
   const zoomOutAnimation = React.useCallback(() => {
     let tl = gsap.timeline();
     tl.to(cardRef.current, {
-      duration: 0.5,
-      width: 500,
-      height: 500,
-      position: "relative",
-      left: "0%",
-      transform: "translate(0%, 0%)",
-    });
+      duration: 0.3,
+      scale: 0,
+    })
+      .to(cardRef.current, {
+        duration: 0.1,
+        width: 500,
+        height: 500,
+        left: "unset",
+        top: "unset",
+        right: "unset",
+        bottom: "unset",
+        margin: "unset",
+        position: "relative",
+        zIndex: 0,
+      })
+      .to(cardRef.current, {
+        duration: 0.3,
+        scale: 1,
+      });
     setIsDetail(false);
   }, []);
 
@@ -56,12 +82,16 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
   }, [inView]);
 
   const handleZoom = React.useCallback(() => {
+    if (width < 768) {
+      window.open(link, "_blank");
+      return;
+    }
     if (isDetail) {
       zoomOutAnimation();
     } else {
       zoomInAnimation();
     }
-  }, [isDetail]);
+  }, [isDetail, width, link]);
 
   const openHomepage = (e: any) => {
     e.stopPropagation();
@@ -76,17 +106,19 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     }
   }, [isDetail]);
 
+  if (!width) return null;
+
   return (
     <>
       <div
-        className='z-50 h-[500px] w-[500px] scale-0 cursor-pointer rounded-xl bg-white shadow-2xl'
+        className='h-[500px] w-[500px] scale-0 cursor-pointer rounded-xl bg-white shadow-2xl max-lg:w-full max-lg:scale-100'
         onClick={handleZoom}
         ref={cardRef}
       >
-        <div ref={ref} />
+        {width > 768 && <div ref={ref} />}
         {!isDetail && (
           <>
-            <div className='flex h-16 w-full items-center justify-between gap-2 bg-white px-5 py-2 shadow-md'>
+            <div className='flex h-16 w-full items-center justify-between gap-2 rounded-t-xl bg-white px-5 py-2 shadow-md'>
               <div className='flex gap-2'>
                 <div className='h-4 w-4 cursor-pointer rounded-full bg-red-400' />
                 <div className='h-4 w-4 rounded-full bg-yellow-400' />
