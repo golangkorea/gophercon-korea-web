@@ -5,6 +5,7 @@ export interface Speaker {
   profileImage: string;
 }
 export interface Session {
+  id: number;
   date: string;
   startTime: string;
   endTime: string;
@@ -16,14 +17,14 @@ export interface Session {
 
 export const SESSIONS: Session[] = [
   {
+    id: 1,
     date: "08-05",
     startTime: "10:40",
     endTime: "11:10",
     title: `Open Source in Go`,
     category: "Main Talk",
-    description:
-      "Go 언어 관련 강연에 참석하면 자주 들리는 질문이 있습니다. ‘Go 언어로는 무엇을 할 수 있나요?’ 이번 세션에서는 왜 Go 언어가 오픈소스에 기여할 수 있는 강력한 도구인지 이야기하고 Go 언어로 구현된 클라우드 네이티브 오픈소스들을 소개합니다. 더 나은 이해를 위해 데모 애플리케이션을 활용합니다.\n \
-      이후 ‘오픈소스 컨트리뷰션 아카데미’, ‘LFX Mentorship’등 오픈소스 기여를 도와주는 국내외 여러 프로그램에 참여한 경험을 소개합니다.",
+    description: `Go 언어 관련 강연에 참석하면 자주 들리는 질문이 있습니다. \n‘Go 언어로는 무엇을 할 수 있나요?’ \n이번 세션에서는 왜 Go 언어가 오픈소스에 기여할 수 있는 강력한 도구인지 이야기하고 Go 언어로 구현된 클라우드 네이티브 오픈소스들을 소개합니다. \n더 나은 이해를 위해 데모 애플리케이션을 활용합니다.\n \
+      이후 ‘오픈소스 컨트리뷰션 아카데미’, ‘LFX Mentorship’등 오픈소스 기여를 도와주는 국내외 여러 프로그램에 참여한 경험을 소개합니다.`,
     speaker: {
       name: "박남규",
       company: "LitmusChaos",
@@ -34,6 +35,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 2,
     date: "08-05",
     startTime: "11:20",
     endTime: "11:50",
@@ -55,6 +57,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 3,
     date: "08-05",
     startTime: "14:00",
     endTime: "14:30",
@@ -72,6 +75,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 4,
     date: "08-05",
     startTime: "14:40",
     endTime: "15:40",
@@ -90,6 +94,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 5,
     date: "08-05",
     startTime: "16:30",
     endTime: "17:00",
@@ -109,6 +114,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 6,
     date: "08-05",
     startTime: "17:10",
     endTime: "17:40",
@@ -128,6 +134,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 7,
     date: "08-06",
     startTime: "10:30",
     endTime: "11:00",
@@ -145,6 +152,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 8,
     date: "08-06",
     startTime: "11:10",
     endTime: "11:40",
@@ -162,6 +170,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 9,
     date: "08-06",
     startTime: "13:50",
     endTime: "14:20",
@@ -182,6 +191,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 10,
     date: "08-06",
     startTime: "14:30",
     endTime: "15:00",
@@ -201,6 +211,7 @@ export const SESSIONS: Session[] = [
     },
   },
   {
+    id: 11,
     date: "08-06",
     startTime: "15:50",
     endTime: "16:50",

@@ -61,19 +61,19 @@ export function Navbar() {
         </a>
         <div className='ml-auto flex h-full items-center gap-6 max-lg:hidden'>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/program")}>
-            {LL.nav.program()}
+            {LL?.nav.program()}
           </a>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/sponsors")}>
-            {LL.nav.sponsors()}
+            {LL?.nav.sponsors()}
           </a>
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
-            {LL.nav.coc()}
+            {LL?.nav.coc()}
           </a>
           {/*<a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>*/}
-          {/*  {LL.nav.scholarships()}*/}
+          {/*  {LL?.nav.scholarships()}*/}
           {/*</a>*/}
           <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
-            {LL.nav.contact()}
+            {LL?.nav.contact()}
           </a>
           <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>
             Register
@@ -82,7 +82,7 @@ export function Navbar() {
             className='cursor-pointer font-semibold'
             onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}
           >
-            {LL.changeLang()}
+            {LL?.changeLang()}
           </button>
         </div>
         {isOpen ? (
@@ -97,19 +97,19 @@ export function Navbar() {
         className={`fixed -top-full z-20 flex h-1/2 w-screen flex-col justify-around bg-white px-4 pt-20`}
       >
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/program")}>
-          {LL.nav.program()}
+          {LL?.nav.program()}
         </a>
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/sponsors")}>
-          {LL.nav.sponsors()}
+          {LL?.nav.sponsors()}
         </a>
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/coc")}>
-          {LL.nav.coc()}
+          {LL?.nav.coc()}
         </a>
         {/*<a className='cursor-pointer font-semibold' onClick={handleRoute("/scholarship-support")}>*/}
-        {/*  {LL.nav.scholarships()}*/}
+        {/*  {LL?.nav.scholarships()}*/}
         {/*</a>*/}
         <a className='cursor-pointer font-semibold' onClick={handleRoute("/contact")}>
-          {LL.nav.contact()}
+          {LL?.nav.contact()}
         </a>
         <button className='ticketGradient rounded-xl font-bold text-white' onClick={openNewWindow}>
           Register
@@ -118,7 +118,7 @@ export function Navbar() {
           className='cursor-pointer font-semibold'
           onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}
         >
-          {LL.changeLang()}
+          {LL?.changeLang()}
         </button>
       </div>
     </div>

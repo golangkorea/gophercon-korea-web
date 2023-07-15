@@ -2,12 +2,20 @@ import Banner from "@/components/banner";
 import Layout from "@/components/layout";
 import { SESSIONS } from "@/constants/sessions";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
+import { useRouter } from "next/router";
 import React from "react";
 
 export default function Program() {
+  const router = useRouter();
   const [tab, setTab] = React.useState<"DAY1" | "DAY2">("DAY1");
   const onChangeTab = (tab: "DAY1" | "DAY2") => {
     return () => setTab(tab);
+  };
+
+  const routeToDetail = (id: number) => {
+    return () => {
+      router.push(`/program/${id}`);
+    };
   };
   return (
     <Layout>
@@ -46,12 +54,18 @@ export default function Program() {
                     if (tab === "DAY2" && session.date === "08-05") return;
                     return (
                       <tr key={session.title}>
-                        <td className='w-2/5 whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900'>
+                        <td className='w-3/6 whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900'>
                           {session.title}
                         </td>
-                        <td className='w-1/5 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{session.category}</td>
-                        <td className='w-1/5 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{`${session.startTime} ~ ${session.endTime}`}</td>
-                        <td className='w-1.5 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</td>
+                        <td className='w-1/6 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{session.category}</td>
+                        <td className='w-1/6 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{`${session.startTime} ~ ${session.endTime}`}</td>
+                        <td className='w-1/6 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</td>
+                        <td
+                          onClick={routeToDetail(session.id)}
+                          className='cursor-pointer whitespace-nowrap px-3 py-4 text-sm font-bold text-blue-400'
+                        >
+                          Learn More
+                        </td>
                       </tr>
                     );
                   })}
@@ -72,6 +86,12 @@ export default function Program() {
                     <p className='whitespace-pre-line font-bold text-gray-900'>{session.title}</p>
                     <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.startTime} ~ ${session.endTime}`}</p>
                     <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</p>
+                    <p
+                      onClick={routeToDetail(session.id)}
+                      className='whitespace-pre-line text-sm font-bold text-blue-400'
+                    >
+                      Learn More
+                    </p>
                   </div>
                 );
               })}
