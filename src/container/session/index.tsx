@@ -17,9 +17,9 @@ const Session = () => {
             </p>
           </div>
         </div>
-        {SESSIONS.map((session, index) => (
-          <SessionCard session={session} key={index} />
-        ))}
+        {SESSIONS.map((session, index) => {
+          if (session.category === "Main Talk") return <SessionCard session={session} key={index} />;
+        })}
       </div>
     </section>
   );
