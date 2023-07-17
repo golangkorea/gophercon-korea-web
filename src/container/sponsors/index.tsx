@@ -3,10 +3,10 @@ import Image from "next/image";
 // DIAMOND
 
 // PLATINUM
-import Hyundai from "/public/images/sponsors/platinum/hyundai.png";
+import Hyundai from "/public/images/sponsors/platinum/logo_hyundai.png";
 // GOLD
-import Dreamus from "/public/images/sponsors/gold/dreamus.jpg";
 import Karrot from "/public/images/sponsors/gold/logo_daangn.png";
+import Dreamus from "/public/images/sponsors/gold/logo_flo.png";
 import Megazon from "/public/images/sponsors/gold/logo_megazon.png";
 
 // SILVER
@@ -25,11 +25,8 @@ import Hanbit from "/public/images/sponsors/publisher/hanbit.png";
 import Jpub from "/public/images/sponsors/publisher/jpub.jpeg";
 
 // ETC
-import Datadog from "/public/images/sponsors/etc/datadog.png";
 import Google from "/public/images/sponsors/etc/google.png";
 import Jetbrains from "/public/images/sponsors/etc/jetbrains.png";
-import SkCnC from "/public/images/sponsors/etc/skCnC.png";
-import Skt from "/public/images/sponsors/etc/skt.png";
 
 const Sponsors = () => {
   return (
@@ -58,13 +55,6 @@ const Sponsors = () => {
             width={400}
             height={300}
             className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
-          />
-          <Image
-            src={Datadog}
-            alt={"Datadog Motors"}
-            width={400}
-            height={300}
-            className='h-[200px] w-[400px] cursor-pointer object-contain p-2'
           />
         </div>
       </div>
@@ -113,13 +103,6 @@ const Sponsors = () => {
             height={200}
             className='h-[200px] w-[300px] cursor-pointer bg-white object-contain p-2'
           />
-          <Image
-            src={Skt}
-            alt={"Skt"}
-            width={300}
-            height={200}
-            className='h-[200px] w-[300px] cursor-pointer object-contain p-2'
-          />
         </div>
       </div>
       <div className='mb-20'>
@@ -136,13 +119,6 @@ const Sponsors = () => {
           <Image
             src={Onuii}
             alt={"Onuii"}
-            width={300}
-            height={200}
-            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
-          />
-          <Image
-            src={SkCnC}
-            alt={"SkCnC"}
             width={300}
             height={200}
             className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
