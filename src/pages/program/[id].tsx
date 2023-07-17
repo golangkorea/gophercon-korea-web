@@ -38,7 +38,7 @@ const ProgramDetailPage = () => {
           <p className='mt-5 font-extrabold tracking-wide'>{`With ${data.speaker.name} | ${data.speaker.company}`}</p>
         </div>
         <div className='max-lg:mt-5 max-lg:flex max-lg:w-full max-lg:justify-center'>
-          <img src={data.speaker?.profileImage} alt={data.speaker.name} className='w-[320px]' />
+          <img src={data.speaker?.profileImage} alt={data.speaker.name} className='w-[500px]' />
         </div>
       </div>
       <div className='flex flex-col p-10'>
