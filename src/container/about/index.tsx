@@ -72,36 +72,44 @@ const About = () => {
       <p className='z-50 mb-20 cursor-pointer text-5xl font-bold max-lg:text-3xl' ref={textRef}>
         {text}
       </p>
-      <div className='flex w-full items-center justify-center gap-8 p-8 max-lg:flex-col'>
+      <div className='flex w-full items-center justify-center gap-10 p-5 max-lg:flex-col'>
         <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-lg:w-full'>
           <img
             src={"https://e0.pxfuel.com/wallpapers/412/505/desktop-wallpaper-golang-golang-gopher.jpg"}
             alt='gopher'
             className='h-[240px] w-full object-cover'
           />
-          <div className='flex h-[330px] flex-col items-center p-12'>
-            <p className='mb-8 text-2xl'>About GO</p>
-            <p>Go Lang은 펀쿨섹 언어입니다.</p>
+          <div className='flex h-fit flex-col items-center p-10'>
+            <p className='mb-8 text-2xl font-bold'>GO 언어에 대해서</p>
+            <p className='text-lg'>
+              Go 언어는 Google에서 개발한 프로그래밍 언어입니다. 간결하고 가독성이 높은 문법을 갖췄으며 동시성과 빠른
+              컴파일 속도를 제공한다는 특징을 가지고 있는 Go 언어는, 대규모 시스템에서도 효율적인 실행과 확장성을
+              제공합니다. Go는 주로 서버 프로그래밍과 분산 시스템에 많이 사용되며, Docker, Kubernetes 등의 대형
+              프로젝트에서도 활발하게 사용되고 있습니다.
+            </p>
           </div>
         </div>
         <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-lg:w-full'>
           <img src={GopherConLogo.src} alt='gopher' className='h-[240px] w-full bg-white object-contain p-2' />
-          <div className='flex h-[330px] flex-col items-center p-12'>
-            <p className='mb-8 text-2xl'>국내 최초 GopherCon</p>
-            <p>
-              Go 언어 사용자들을 고퍼(Gopher)라고 부르며, 고퍼들을 위한 연례행사인 고퍼콘(GopherCon)이 2014년 시작해
-              미국, 독일, 영국, 중국, 일본, 브라질, 이스라엘, 인도, 캐나다, 이탈리아, 싱가포르 등 세계 각국에서 매년
-              열리고 있습니다.
+          <div className='flex h-fit flex-col items-center p-10'>
+            <p className='mb-8 text-2xl font-bold'>고퍼콘 코리아</p>
+            <p className='text-lg'>
+              Go 언어 사용자들과 Go 언어의 마스코트는 고퍼(Gopher)라고 불립니다. 여기서 창안된 고퍼콘(GopherCon)은 모든
+              고퍼들을 위한 컨퍼런스입니다. 한국에서는 2023년에 최초로 연례 최대 고 개발자 행사인 고퍼콘
+              코리아(GopherCon Korea)를 시작하였고, 이를 기점으로 매년 고퍼콘 코리아를 통해 고 언어 소통 창구를 만들고
+              글로벌 연결을 시도하고 있습니다.
             </p>
           </div>
         </div>
         <div className='w-1/4 max-w-[500px] cursor-pointer overflow-hidden rounded-xl border border-gray-200 shadow-xl transition hover:scale-105 max-lg:w-full'>
           <img src={GoLangKoreaLogo.src} alt='gopher' className='h-[240px] w-full bg-white object-contain p-2' />
-          <div className='flex h-[330px] flex-col items-center p-12'>
-            <p className='mb-8 text-2xl'>국내 최대 고 언어 커뮤니티</p>
-            <p>
-              Golang Korea는 페이스북을 기반으로 약 7천명의 사용자가 모여 Go 프로그래밍 언어에 대한 정보 교류 및
-              네트워크를 연결하는 비영리 커뮤니티입니다. Go 생태계 활성화 및 다양성을 키워가고 있습니다.
+          <div className='flex h-fit flex-col items-center p-10'>
+            <p className='mb-8 text-2xl font-bold'>한국 고언어 사용자모임</p>
+            <p className='text-lg'>
+              Golang Korea는 2011년 부터 시작되어 12년강 꾸준하게 성장해온 한국 고언어 커뮤니티입니다. Facebook의
+              7,300명에 달하는 커뮤니티 구성원과 Instagram, Thread, Slack, Twitter, YouTube, GitHub 등 다양한 채널을
+              통해 다양한 고언어 사용자끼리의 정보 공유와 네트워킹, 그리고 교육 세션을 주관하고 재밌는 온/오프라인
+              이벤트 기획하고 있습니다.
             </p>
           </div>
         </div>
