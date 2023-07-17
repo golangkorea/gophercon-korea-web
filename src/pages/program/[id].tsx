@@ -1,4 +1,3 @@
-import Banner from "@/components/banner";
 import Layout from "@/components/layout";
 import { Session, SESSIONS } from "@/constants/sessions";
 import { useRouter } from "next/router";
@@ -16,39 +15,52 @@ const ProgramDetailPage = () => {
     }
   }, [router]);
 
+  const randomTwo = React.useMemo(() => {
+    const { id } = router.query;
+    if (!id) return [];
+    const target = SESSIONS.filter((session) => session.id !== Number(id) && session.category === "Main Talk");
+
+    const random = Math.floor(Math.random() * target.length);
+    const random2 = Math.floor(Math.random() * target.length);
+    return [target[random], target[random2]];
+  }, [router]);
+
+  if (!data) return null;
+
   return (
     <Layout>
-      <div className='mt-20 max-lg:mt-16'>
-        <Banner
-          title={"Agenda"}
-          description={`2일동안 준비된 다양한 프로그램들을 즐겨보세요\n 블라블라 한 2줄 적으면 ㄱㅊ을듯`}
-        />
+      <div className='programDetailBackground max-lg: mt-20 flex h-[50vh] items-center justify-around max-lg:mt-16 max-lg:h-full max-lg:flex-col max-lg:items-start max-lg:p-4'>
+        <div className='max-lg:mt-5'>
+          <p className='text-gray-500'>{`2023-${data.date}`}</p>
+          <p className='text-gray-500'>{`${data.startTime} ~ ${data.endTime}`}</p>
+          <p className='mt-5 w-[400px] text-4xl font-extrabold tracking-wider max-lg:w-full'>{data.title}</p>
+          <p className='mt-5 w-[400px] font-bold tracking-wide text-[#00000080] max-lg:w-full'>{data.description}</p>
+          <p className='mt-5 font-extrabold tracking-wide'>{`With ${data.speaker.name} | ${data.speaker.company}`}</p>
+        </div>
+        <div className='max-lg:mt-5 max-lg:flex max-lg:w-full max-lg:justify-center'>
+          <img src={data.speaker?.profileImage} alt={data.speaker.name} className='w-[500px]' />
+        </div>
       </div>
-      {data && (
-        <section className='p-20 max-lg:p-4'>
-          <div className='flex max-lg:w-full max-lg:flex-col max-lg:items-center max-lg:pt-10'>
-            <img src={data.speaker?.profileImage} alt={data.speaker.name} className='w-[320px] rounded-xl' />
-            <div className='ml-4 flex flex-col p-4'>
-              <p className='mb-2 text-3xl font-bold'>
-                {data.speaker.name} | {data.speaker.company}
-              </p>
-              <p className='max-lg:mb-4'>{data.speaker.description}</p>
-              <div className='flex h-full flex-1 flex-col justify-end gap-2'>
-                <p>Github : https://github.com/</p>
-                <p>LinkedIn : https://github.com/</p>
+      <div className='flex flex-col p-10'>
+        <p className='mb-10 text-4xl font-extrabold tracking-wide'>You might also like</p>
+        <div className='flex gap-5 max-lg:flex-col'>
+          {randomTwo.map((session, index) => (
+            <div
+              key={session.id}
+              className='relative flex cursor-pointer'
+              onClick={() => router.push(`/program/${session.id}`)}
+            >
+              <img src={session.speaker?.profileImage} alt={session.speaker.name} className='z-0 w-[450px]' />
+              <div className='absolute z-10 flex h-full w-full flex-col justify-end p-10 text-white max-lg:p-5'>
+                <p className='mb-2 whitespace-pre-line text-3xl font-extrabold'>{`Ep.${session.id}`}</p>
+                <p className='mb-2 text-2xl'>{session.title}</p>
+                <p className='text-lg'>{`2023-${session.date}`}</p>
+                <p className='text-lg'>{`${session.startTime} ~ ${session.endTime}`}</p>
               </div>
             </div>
-          </div>
-          <div className='mt-16'>
-            <p className='mb-4 text-5xl font-bold max-lg:text-3xl'>{data.title}</p>
-            <p className='mb-2 text-2xl max-lg:text-2xl'>{data.category}</p>
-            <p className='mb-2 text-2xl max-lg:text-2xl'>{`2023-${data.date} ${data.startTime} ~ ${data.endTime}`}</p>
-            <p className='whitespace-pre-line text-2xl font-semibold tracking-wide max-lg:text-xl'>
-              {data.description}
-            </p>
-          </div>
-        </section>
-      )}
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 };

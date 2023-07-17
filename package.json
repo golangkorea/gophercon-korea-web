@@ -12,6 +12,7 @@
     "typesafe-i18n": "typesafe-i18n"
   },
   "dependencies": {
+    "@cyntler/react-doc-viewer": "^1.13.0",
     "@heroicons/react": "^2.0.18",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",

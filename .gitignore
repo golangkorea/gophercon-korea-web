@@ -133,3 +133,9 @@ dist
 .code
 .idea
 .vscode
+.DS_Store
+public/.DS_Store
+public/images/.DS_Store
+public/images/sponsors/.DS_Store
+public/images/sponsors/bronze/.DS_Store
+public/images/sponsors/gold/.DS_Store

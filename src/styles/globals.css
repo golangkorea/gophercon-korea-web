@@ -254,3 +254,7 @@ a {
   padding: 30px;
   gap: 20px;
 }
+
+.programDetailBackground {
+  background: radial-gradient(95.3% 100% at 50% 100%, #00f6ff 0%, rgb(255, 255, 255) 100%);
+}
