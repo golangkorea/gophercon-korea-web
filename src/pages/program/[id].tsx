@@ -63,7 +63,7 @@ const ProgramDetailPage = () => {
                 alt={session.speaker.name}
                 className='z-0 w-[450px]'
               />
-              <div className='absolute z-10 flex h-full w-full flex-col justify-end p-10 text-white max-lg:p-5'>
+              <div className='absolute z-10 flex h-full w-full flex-col justify-end bg-overlay50 p-10 text-white max-lg:p-5'>
                 <p className='mb-2 whitespace-pre-line text-3xl font-extrabold'>{`Ep.${session.id}`}</p>
                 <p className='mb-2 text-2xl'>{session.title}</p>
                 <p className='text-lg'>{`2023-${session.date}`}</p>
