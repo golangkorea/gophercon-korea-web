@@ -1,5 +1,7 @@
 import Layout from "@/components/layout";
 import { Session, SESSIONS } from "@/constants/sessions";
+import { getI18nProps } from "@/i18n/utils/getI18nProps";
+import { GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -11,6 +13,7 @@ const ProgramDetailPage = () => {
     const { id } = router.query;
     if (id) {
       const target = SESSIONS.find((session) => session.id === Number(id));
+      console.log(target);
       setData(target);
     }
   }, [router]);
@@ -66,3 +69,11 @@ const ProgramDetailPage = () => {
 };
 
 export default ProgramDetailPage;
+
+export const getStaticProps = getI18nProps;
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
