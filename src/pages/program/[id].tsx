@@ -23,9 +23,12 @@ const ProgramDetailPage = () => {
     const { id } = router.query;
     if (!id) return [];
     const target = SESSIONS.filter((session) => session.id !== Number(id) && session.category === "Main Talk");
-
-    const random = Math.floor(Math.random() * target.length);
-    const random2 = Math.floor(Math.random() * target.length);
+    let random = Number(id);
+    let random2 = Number(id);
+    while (Number(id) === random || Number(id) === random2 || random === random2) {
+      random = Math.floor(Math.random() * target.length);
+      random2 = Math.floor(Math.random() * target.length);
+    }
     return [target[random], target[random2]];
   }, [router]);
 
