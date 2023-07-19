@@ -308,7 +308,7 @@ export const SESSIONS: Session[] = [
       company: "라인플러스",
       description:
         "고성능 워크로드 실행을 위한 쿠버네티스 플랫폼 운영 및 오퍼레이터 개발 업무를 진행하고 있습니다. Go 언어로 개발한 애플리케이션을 eBPF 도구를 이용해 추적하는 방법을 정리해 공유하는 발표를 준비해 보았습니다.",
-      profileImage: "https://drive.google.com/uc?id=1AkXllpybMQVgovPbyXCskG4LuWxZZBZd",
+      profileImage: "https://drive.google.com/uc?id=1fSnSwjxlx44qQaHGk244Cqe2LlH5F59d",
     },
   },
   {
