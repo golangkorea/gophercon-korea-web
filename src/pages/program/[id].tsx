@@ -4,6 +4,7 @@ import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import { GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import React from "react";
+import Gopher from "/public/images/gopher.png";
 
 const ProgramDetailPage = () => {
   const router = useRouter();
@@ -22,9 +23,12 @@ const ProgramDetailPage = () => {
     const { id } = router.query;
     if (!id) return [];
     const target = SESSIONS.filter((session) => session.id !== Number(id) && session.category === "Main Talk");
-
-    const random = Math.floor(Math.random() * target.length);
-    const random2 = Math.floor(Math.random() * target.length);
+    let random = Number(id);
+    let random2 = Number(id);
+    while (Number(id) === random || Number(id) === random2 || random === random2) {
+      random = Math.floor(Math.random() * target.length);
+      random2 = Math.floor(Math.random() * target.length);
+    }
     return [target[random], target[random2]];
   }, [router]);
 
@@ -41,7 +45,11 @@ const ProgramDetailPage = () => {
           <p className='mt-5 font-extrabold tracking-wide'>{`With ${data.speaker.name} | ${data.speaker.company}`}</p>
         </div>
         <div className='max-lg:mt-5 max-lg:flex max-lg:w-full max-lg:justify-center'>
-          <img src={data.speaker?.profileImage} alt={data.speaker.name} className='w-[500px]' />
+          <img
+            src={data.speaker?.profileImage == "" ? Gopher.src : data.speaker?.profileImage}
+            alt={data.speaker.name}
+            className='w-[500px]'
+          />
         </div>
       </div>
       <div className='flex flex-col p-10'>
@@ -53,8 +61,12 @@ const ProgramDetailPage = () => {
               className='relative flex cursor-pointer'
               onClick={() => router.push(`/program/${session.id}`)}
             >
-              <img src={session.speaker?.profileImage} alt={session.speaker.name} className='z-0 w-[450px]' />
-              <div className='absolute z-10 flex h-full w-full flex-col justify-end p-10 text-white max-lg:p-5'>
+              <img
+                src={session.speaker?.profileImage == "" ? Gopher.src : session.speaker?.profileImage}
+                alt={session.speaker.name}
+                className='z-0 w-[450px]'
+              />
+              <div className='absolute z-10 flex h-full w-full flex-col justify-end bg-overlay50 p-10 text-white max-lg:p-5'>
                 <p className='mb-2 whitespace-pre-line text-3xl font-extrabold'>{`Ep.${session.id}`}</p>
                 <p className='mb-2 text-2xl'>{session.title}</p>
                 <p className='text-lg'>{`2023-${session.date}`}</p>

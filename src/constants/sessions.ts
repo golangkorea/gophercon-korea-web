@@ -209,7 +209,7 @@ export const SESSIONS: Session[] = [
       description:
         "글로벌 서비스인 에이클로젯을 만드는 룩코에서 백엔드 리드로서 일하고 있습니다. \
         팀이 어떻게 함께 일하고, 소통하며, 문제를 해결하고, 학습하고, 지속적으로 성장하는 방법에 대해서 관심이 많습니다.",
-      profileImage: "",
+      profileImage: "https://drive.google.com/uc?id=1yZ3-tzpPFBOHEWHSaNcTUXIyX6XMf5rO",
     },
   },
   {
@@ -308,7 +308,7 @@ export const SESSIONS: Session[] = [
       company: "라인플러스",
       description:
         "고성능 워크로드 실행을 위한 쿠버네티스 플랫폼 운영 및 오퍼레이터 개발 업무를 진행하고 있습니다. Go 언어로 개발한 애플리케이션을 eBPF 도구를 이용해 추적하는 방법을 정리해 공유하는 발표를 준비해 보았습니다.",
-      profileImage: "",
+      profileImage: "https://drive.google.com/uc?id=1fSnSwjxlx44qQaHGk244Cqe2LlH5F59d",
     },
   },
   {
@@ -499,7 +499,7 @@ export const SESSIONS: Session[] = [
         '분산 시스템, p2p 네트워킹, 그리고 블록체인을 사랑하는 Gopher입니다.\n \
         현재 Osmosis에서 블록체인 엔지니어링을 맡고 있으며, 합의 알고리즘과 Proof-of-Stake(POS) 블록체인을 만들수 있는 오픈 소스 프레임워크를 개발하고 있습니다. 고언어 개발자를 위한 "버그 없는 프로그램을 만드는 방법:테스팅의 관점으로, 근데 이제 블록체인을 곁들인"를 주제로 한 발표를 준비해보았습니다. 버그없는 프로그램을 만드는 비밀에 대해 알려드리고 싶습니다.\n \
         －－＝＝(/･_･)/==≡≡卍',
-      profileImage: "",
+      profileImage: "https://drive.google.com/uc?id=1gm2boS_ocpHDc0RB6qoR5agls14S363v",
     },
   },
   {

@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import Gopher from "/public/images/gopher.png";
 
 interface SessionCardProps {
   session: Session;
@@ -62,10 +63,14 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
       onClick={routeToDetail}
     >
       <div ref={ref} />
-      <div className='card rainbowBorder'>
+      <div className='card'>
         <div className='card-side card-side-front'>
-          <img src={speaker.profileImage} className='absolute left-0 top-0 z-10 h-full w-full' alt={speaker.name} />
-          <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-end bg-overlay50 p-4 text-white'>
+          <img
+            src={speaker.profileImage == "" ? Gopher.src : speaker.profileImage}
+            className='absolute left-0 top-0 z-10 h-full w-full rounded-xl border border-gray-200 shadow-xl'
+            alt={speaker.name}
+          />
+          <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-end rounded-xl border border-gray-200 bg-overlay50 p-4 text-white shadow-xl'>
             <p className='mb-4 '>{session.category}</p>
             <p className='mb-4 text-xl font-bold '>{session.title}</p>
             <p className=''>{`${speaker.name} / ${speaker.company}`}</p>
@@ -73,7 +78,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         </div>
         <div className='card-side card-side-back'>
           <div
-            className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col overflow-y-scroll bg-gray-500 p-4 text-white'
+            className='sessionGradient absolute bottom-0 z-30 h-full w-full flex-col overflow-y-scroll rounded-xl border border-gray-200 bg-gray-500 p-4 text-white shadow-xl'
             style={{
               display: isHover ? "flex" : "none",
             }}
