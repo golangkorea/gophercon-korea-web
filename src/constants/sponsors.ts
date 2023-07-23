@@ -14,7 +14,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 1,
     name: "현대자동차그룹",
-    thumbnail: "/images/sponsors/platinum/logo_hyundai.png",
+    thumbnail: "/images/sponsors/platinum/thumbnail_hyundai.webp",
     logo: "/images/sponsors/platinum/logo_hyundai.png",
     link: "https://talent.hyundai.com/main/main.hc",
     service: "현대자동차그룹",
@@ -27,7 +27,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 2,
     name: "드림어스컴퍼니",
-    thumbnail: "/images/sponsors/gold/thumbnail_flo.png",
+    thumbnail: "/images/sponsors/gold/thumbnail_flo.webp",
     logo: "/images/sponsors/gold/logo_dreamus.png",
     link: "https://recruit.dreamuscompany.com/",
     service: "드림어스컴퍼니",
@@ -40,7 +40,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 3,
     name: "당근마켓",
-    thumbnail: "/images/sponsors/gold/thumbnail_daangn.jpg",
+    thumbnail: "/images/sponsors/gold/thumbnail_daangn.webp",
     logo: "/images/sponsors/gold/logo_daangn.png",
     link: "https://about.daangn.com/",
     service: "당근마켓",
@@ -54,7 +54,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 4,
     name: "메가존소프트",
-    thumbnail: "/images/sponsors/gold/thumbnail_megazon.png",
+    thumbnail: "/images/sponsors/gold/thumbnail_megazon.webp",
     logo: "/images/sponsors/gold/logo_megazon.png",
     link: "https://www.megazonesoft.com/googlecloud",
     service: "메가존소프트",
@@ -64,7 +64,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 5,
     name: "AB180",
-    thumbnail: "/images/sponsors/bronze/logo_ab180.png",
+    thumbnail: "/images/sponsors/bronze/thumbnail_ab180.webp",
     logo: "/images/sponsors/bronze/logo_airbridge.png",
     link: "www.airbridge.io",
     service: "에어브릿지",
@@ -74,8 +74,8 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 6,
     name: "오누이(설탭)",
-    thumbnail: "/images/sponsors/bronze/onuii.png",
-    logo: "/images/sponsors/bronze/onuii.png",
+    thumbnail: "/images/sponsors/bronze/thumbnail_onuii.webp",
+    logo: "/images/sponsors/bronze/logo_onuii.png",
     link: "https://gophercon-korea-2023.vercel.app/",
     service: "오누이(설탭)",
     description: `.`,

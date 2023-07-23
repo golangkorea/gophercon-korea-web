@@ -3,7 +3,8 @@ import Image from "next/image";
 // DIAMOND
 
 // PLATINUM
-import Hyundai from "/public/images/sponsors/platinum/logo_hyundai.png";
+import Hyundai from "/public/images/sponsors/platinum/thumbnail_hyundai.webp";
+
 // GOLD
 import Karrot from "/public/images/sponsors/gold/logo_daangn.png";
 import Dreamus from "/public/images/sponsors/gold/logo_flo.png";
@@ -14,7 +15,7 @@ import Openup from "/public/images/sponsors/silver/openup.png";
 
 // BRONZE
 import AB180 from "/public/images/sponsors/bronze/logo_ab180.png";
-import Onuii from "/public/images/sponsors/bronze/onuii.png";
+import Onuii from "/public/images/sponsors/bronze/logo_onuii.png";
 
 // COMMUNITY
 import Awskrug from "/public/images/sponsors/community/awskrug.png";
@@ -41,7 +42,7 @@ const Sponsors = () => {
             alt={"Google"}
             width={400}
             height={300}
-            className='h-[200px] w-[400px] cursor-pointer cursor-pointer bg-white object-contain p-2'
+            className='h-[200px] w-full cursor-pointer cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -54,7 +55,7 @@ const Sponsors = () => {
             alt={"Hyundai Motors"}
             width={400}
             height={300}
-            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
+            className='h-[180px] w-full cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -67,21 +68,21 @@ const Sponsors = () => {
             alt={"Dreamus"}
             width={400}
             height={200}
-            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
+            className='h-[150px] w-full cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Karrot}
             alt={"Karrot"}
             width={400}
             height={200}
-            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
+            className='h-[150px] w-full cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Megazon}
             alt={"Megazon"}
             width={400}
             height={200}
-            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
+            className='h-[150px] w-full cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -94,14 +95,14 @@ const Sponsors = () => {
             alt={"Openup"}
             width={300}
             height={200}
-            className='h-[200px] w-[300px] cursor-pointer bg-white object-contain p-2'
+            className='h-[130px] w-full cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Jetbrains}
             alt={"Jetbrains"}
             width={300}
             height={200}
-            className='h-[200px] w-[300px] cursor-pointer bg-white object-contain p-2'
+            className='h-[130px] w-full cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -114,14 +115,14 @@ const Sponsors = () => {
             alt={"AB180"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
+            className='h-[110px] w-full cursor-pointer bg-white object-contain p-2'
           />
           <Image
             src={Onuii}
             alt={"Onuii"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
+            className='h-[110px] w-full cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -134,7 +135,7 @@ const Sponsors = () => {
             alt={"Awskrug"}
             width={300}
             height={200}
-            className='h-[150px] w-[300px] cursor-pointer bg-white object-contain p-2'
+            className='h-[150px] w-full cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
