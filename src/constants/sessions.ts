@@ -99,7 +99,7 @@ export const SESSIONS: Session[] = [
     date: "08-05",
     startTime: "11:20",
     endTime: "11:50",
-    title: `Go 테스트의 모든 것, 모든 것을 테스트해보자`,
+    title: `Go 테스트의 거의 모든 것, 실습으로 쉽게 알아보자Go`,
     category: "Main Talk",
     description:
       "테스트 관련 패키지(testing, testify, httptest)들에 대해 알아봅니다.\n \
