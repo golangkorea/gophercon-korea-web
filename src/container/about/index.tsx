@@ -9,7 +9,7 @@ const About = () => {
   const textRef = React.useRef<HTMLParagraphElement>(null);
   const [ref, inView] = useInView({
     threshold: 0.8,
-    // triggerOnce: true,
+    triggerOnce: true,
   });
 
   const textAnimation = React.useCallback(() => {

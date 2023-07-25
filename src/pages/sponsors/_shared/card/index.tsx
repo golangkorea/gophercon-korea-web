@@ -11,6 +11,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
   const [isDetail, setIsDetail] = React.useState(false);
   const [ref, inView] = useInView({
     threshold: 0.5,
+    triggerOnce: true,
   });
   const { name, thumbnail, youtube, logo, link, service, description, detail } = props;
   const { width } = useWindowSize();
@@ -130,7 +131,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
               <img src={Gopher.src} alt={"gopher"} className='h-12 w-12 rounded-full border border-gray-200 p-1' />
             </div>
             <div className='flex h-full flex-col'>
-              {thumbnail && <img src={thumbnail} alt={name} className='h-[250px] w-full' />}
+              {thumbnail && <img src={thumbnail} alt={name} className='h-[250px] w-full object-contain' />}
               <div className='whitespace-pre-line p-4'>{description}</div>
             </div>
           </>
