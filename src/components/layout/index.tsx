@@ -1,16 +1,40 @@
 import Navbar from "@/components/nav";
+import styled from "@emotion/styled";
 import React from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
+  main?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+interface LayoutInnerStyledProps {
+  main?: boolean;
+}
+
+const LayoutContainer = styled.div({
+  display: "flex",
+  position: "relative",
+  width: "100%",
+  height: "100%",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  overflow: "hidden",
+});
+
+const LayoutInner = styled.div<LayoutInnerStyledProps>(({ main }: LayoutInnerStyledProps) => ({
+  width: "100vw",
+  height: main ? "100vh" : "calc(100vh - 60px)",
+  marginTop: main ? 0 : 60,
+  overflowY: "auto",
+}));
+
+const Layout: React.FC<LayoutProps> = ({ children, main }) => {
   return (
-    <main className='relative flex min-h-screen w-screen flex-col items-center justify-center'>
+    <LayoutContainer>
       <Navbar />
-      <div className='color-white min-h-screen w-screen'>{children}</div>
-    </main>
+      <LayoutInner main={main}>{children}</LayoutInner>
+    </LayoutContainer>
   );
 };
 

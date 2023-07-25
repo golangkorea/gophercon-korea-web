@@ -2,7 +2,7 @@ import { Global } from "@emotion/react";
 
 const style = {
   html: {
-    fontSize: 16,
+    fontSize: 18,
     fontSmoothing: "antialiased",
   },
   body: {},
@@ -32,29 +32,33 @@ const style = {
     marginBottom: "1.5rem",
   },
   "h1, h2, h3, h4, h5, h6": {
-    marginTop: "1.5rem",
-    marginBottom: 0,
-    lineHeight: "1.5rem",
+    paddingBottom: ".4em",
+    borderBottom: "1px solid rgba(0, 0, 0, .2)",
+    marginBottom: "1em",
   },
   h1: {
-    fontSize: "2.828rem",
-    lineHeight: "3rem",
-    marginTop: "3rem",
+    fontSize: "2.5rem",
+    fontWeight: 800,
   },
   h2: {
-    fontSize: "1.414rem",
+    fontWeight: 700,
+    fontSize: "2rem",
   },
   h3: {
-    fontSize: "1rem",
+    fontWeight: 600,
+    fontSize: "1.5rem",
   },
   h4: {
-    fontSize: "0.707rem",
+    fontWeight: 600,
+    fontSize: "1.7rem",
   },
   h5: {
-    fontSize: "0.4713333333333333rem",
+    fontWeight: 500,
+    fontSize: "0.83rem",
   },
   h6: {
-    fontSize: "0.3535rem",
+    fontWeight: 500,
+    fontSize: "0.75rem",
   },
   table: {
     marginTop: "1.5rem",

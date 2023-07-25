@@ -67,12 +67,14 @@ const NavbarTitle = styled.h1({
   verticalAlign: "middle",
   fontSize: 22,
   fontWeight: 700,
-  color: "#0029FF",
+  padding: 0,
   margin: 0,
+  border: 0,
+  color: "#0029FF",
 });
 
 const NavLink = styled.a<NavLinkStyledProps>(({ transparent }: NavLinkStyledProps) => ({
-  fontSize: 17,
+  fontSize: 18,
   fontWeight: 600,
   cursor: "pointer",
   transition: "color .3s ease, border-color .3s ease, background-color .3s ease",

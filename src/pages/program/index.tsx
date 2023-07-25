@@ -1,9 +1,11 @@
-import Banner from "@/components/banner";
 import Layout from "@/components/layout";
 import { SESSIONS } from "@/constants/sessions";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
+import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import React from "react";
+
+const ProgramTable = styled.table({});
 
 export default function Program() {
   const router = useRouter();
@@ -19,12 +21,6 @@ export default function Program() {
   };
   return (
     <Layout>
-      <div className='mt-20 max-lg:mt-16'>
-        <Banner
-          title={"Agenda"}
-          description={`2일동안 준비된 다양한 프로그램들을 즐겨보세요\n 블라블라 한 2줄 적으면 ㄱㅊ을듯`}
-        />
-      </div>
       <section className='p-20 max-lg:p-4'>
         <div className='flex w-full gap-4'>
           <button
@@ -47,7 +43,7 @@ export default function Program() {
         <div className='mt-8 flow-root max-lg:hidden'>
           <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
             <div className='flex min-w-full justify-center py-2 align-middle'>
-              <table className='w-[80vw] divide-y divide-gray-300'>
+              <ProgramTable>
                 <tbody className='divide-y divide-gray-200'>
                   {SESSIONS.map((session) => {
                     if (tab === "DAY1" && session.date === "08-06") return;
@@ -74,7 +70,7 @@ export default function Program() {
                     );
                   })}
                 </tbody>
-              </table>
+              </ProgramTable>
             </div>
           </div>
         </div>
