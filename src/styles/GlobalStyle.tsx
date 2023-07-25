@@ -1,6 +1,6 @@
-import { Global } from "@emotion/react";
+import { Global, Interpolation } from "@emotion/react";
 
-const style = {
+const style: Interpolation<Global> = {
   html: {
     fontSize: 18,
     fontSmoothing: "antialiased",
