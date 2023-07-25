@@ -13,13 +13,15 @@ export interface Sponsor {
 export const SPONSORS: Sponsor[] = [
   {
     id: 1,
-    name: "현대자동차그룹",
+    name: "현대자동차",
     thumbnail: "/images/sponsors/platinum/thumbnail_hyundai.webp",
     logo: "/images/sponsors/platinum/logo_hyundai.png",
     link: "https://talent.hyundai.com/main/main.hc",
-    service: "현대자동차그룹",
-    description: `Connecting to the Future 미래를 만나는 가장 빠른 채널,
-    현대자동차그룹 부스에서 다양한 정보를 만나보세요.`,
+    service: "현대자동차",
+    description: `Progress for Humanity   
+    "우리는 인류를 위해 옳은 일을 하고자 존재합니다."
+    완성차 사업의 글로벌 리더십을 기반으로 Smart Mobility Solution Provider로의 신속 전환을 추진합니다. 
+    우리 모두의 이동을 위해 오늘도 혁신하는 현대자동차에 합류하세요.`,
     detail: `현대자동차그룹은 글로벌 완성차 시장에서 매년 경이로운 성장을 하고 있으며 Global Top 3라는 놀라운 성과를 달성하였습니다. 이러한 성과를 넘어 이제 Software Defined Vehicle이라는 새로운 도전을 통해 IT 전문 기업으로 도약하고자 합니다.
     \n 현대자동차그룹은 자동차와 IT 기술을 접목한 Mobility Service를 통해 고객에게 새로운 가치를 제공할 것이며, 앞으로 고객들은 Software를 통해 Hardware를 업그레이드할 수 있고, 더욱 안전하고 편리한 이동 경험을 제공받게 될 것입니다.
     \n 지금 현대자동차와 함께 여러분의 미래를 만들어가세요. Come Grow with Us!`,
