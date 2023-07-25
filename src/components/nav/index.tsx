@@ -178,7 +178,7 @@ const Navbar: React.FC = () => {
 
   const handleRoute = React.useCallback(
     (href: string) => {
-      return () => router.push(href, { shallow: true }).then(() => setIsOpen(false));
+      return () => router.push(href, undefined, { shallow: true }).then(() => setIsOpen(false));
     },
     [router],
   );
