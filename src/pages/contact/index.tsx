@@ -1,12 +1,17 @@
 import Accordion from "@/components/accordion";
 import Layout from "@/components/layout";
+import { QNA } from "@/constants/qna";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
 
 export default function ContactPage() {
   return (
     <Layout>
       <div className='w-full'>
-        <Accordion title={"예시 입니다"}>아코디언 예시입니다</Accordion>
+        {QNA.map((item) => (
+          <Accordion key={item.id} title={item.question}>
+            {item.answer}
+          </Accordion>
+        ))}
       </div>
     </Layout>
   );
