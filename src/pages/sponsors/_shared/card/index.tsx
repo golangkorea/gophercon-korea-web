@@ -24,9 +24,9 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     })
       .to(cardRef.current, {
         duration: 0.1,
-        position: "absolute",
-        width: 800,
-        height: 900,
+        position: "fixed",
+        width: "50vw",
+        height: "80vh",
         zIndex: 1000,
         left: 0,
         top: 0,
@@ -49,7 +49,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     })
       .to(cardRef.current, {
         duration: 0.1,
-        width: 500,
+        width: "auto",
         height: 500,
         left: "unset",
         top: "unset",
@@ -112,7 +112,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
   return (
     <>
       <div
-        className='h-[500px] w-[500px] scale-0 cursor-pointer rounded-xl bg-white shadow-2xl max-lg:w-full max-lg:scale-100'
+        className='h-[500px] w-auto scale-0 cursor-pointer rounded-xl bg-white shadow-2xl max-lg:w-full max-lg:scale-100'
         onClick={handleZoom}
         ref={cardRef}
       >
@@ -151,7 +151,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
             </div>
             <div className='relative flex flex-1 flex-col'>
               {thumbnail && <img src={thumbnail} alt={name} className='h-[350px] w-full' />}
-              <div className='h-full p-4'>
+              <div className='h-full overflow-y-scroll p-4'>
                 <p className='mb-4 text-3xl font-semibold tracking-wider'>{service}</p>
                 <div className='mb-4 whitespace-pre-line text-xl tracking-wide'>{detail}</div>
                 <img src={logo} alt={logo} className='mb-4 mt-4 w-52' />
