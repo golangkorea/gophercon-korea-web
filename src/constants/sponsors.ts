@@ -29,8 +29,8 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 2,
     name: "드림어스컴퍼니",
-    thumbnail: "/images/sponsors/gold/thumbnail_flo.webp",
-    logo: "/images/sponsors/gold/logo_dreamus.png",
+    thumbnail: "/images/sponsors/gold/thumbnail_flo.jpg",
+    logo: "/images/sponsors/gold/logo_dreamus.jpg",
     link: "https://recruit.dreamuscompany.com/",
     service: "드림어스컴퍼니",
     description: `드림어스컴퍼니는 쓰면 쓸수록 나와 점점 닮아가는
@@ -77,7 +77,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 6,
     name: "오누이(설탭)",
-    thumbnail: "/images/sponsors/bronze/thumbnail_onuii.webp",
+    thumbnail: "/images/sponsors/bronze/thumbnail_onuii.png",
     logo: "/images/sponsors/bronze/logo_onuii.png",
     link: "https://gophercon-korea-2023.vercel.app/",
     service: "오누이(설탭)",

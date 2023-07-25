@@ -1,3 +1,4 @@
+import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SESSIONS } from "@/constants/sessions";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
@@ -5,7 +6,89 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import React from "react";
 
-const ProgramTable = styled.table({});
+interface ProgramTabButtonStyledProps {
+  active?: boolean;
+}
+
+const ProgramTab = styled.div({
+  display: "flex",
+  gap: 20,
+  paddingBottom: 10,
+  borderBottom: "3px solid #bbb",
+  marginBottom: 40,
+});
+
+const ProgramTabButton = styled.button<ProgramTabButtonStyledProps>(({ active }: ProgramTabButtonStyledProps) => ({
+  fontSize: 32,
+  fontWeight: 600,
+  color: active ? "#000" : "#bbb",
+  transition: "color .3s ease",
+}));
+
+const ProgramTable = styled.table({
+  width: "100%",
+  margin: 0,
+  padding: 0,
+  textAlign: "left",
+  borderCollapse: "collapse",
+  thead: {
+    backgroundColor: "#fafafa",
+    th: {
+      height: "3em",
+      fontSize: 20,
+      textAlign: "center",
+    },
+  },
+  tbody: {
+    tr: {
+      borderBottom: "1px solid #eaeaea",
+    },
+    "th, td": {
+      height: "4em",
+      verticalAlign: "center",
+    },
+  },
+  "@media screen and (max-width: 1000px)": {
+    border: 0,
+    thead: {
+      clip: "rect(0 0 0 0)",
+      height: 0,
+      overflow: "hidden",
+      padding: 0,
+      position: "absolute",
+      width: 0,
+    },
+    tbody: {
+      tr: {
+        display: "block",
+        borderBottom: "3px solid #000",
+        marginBottom: 40,
+      },
+      "th, td": {
+        display: "block",
+        textAlign: "right",
+        "&::before": {
+          content: "attr(data-label)",
+          float: "left",
+          fontWeight: 600,
+          textTransform: "uppercase",
+        },
+        "&:last-child": {
+          borderBottom: 0,
+        },
+      },
+    },
+  },
+});
+
+const ProgramButton = styled.button({
+  fontWeight: 800,
+  color: "#0029FF",
+  transition: "color .2s ease",
+  "&:hover": {
+    color: "#4692FF",
+  },
+});
 
 export default function Program() {
   const router = useRouter();
@@ -21,88 +104,48 @@ export default function Program() {
   };
   return (
     <Layout>
-      <section className='p-20 max-lg:p-4'>
-        <div className='flex w-full gap-4'>
-          <button
-            onClick={onChangeTab("DAY1")}
-            className={`pb-1.5 text-xl tracking-widest ${
-              tab === "DAY1" ? "border-b-2 border-mint font-bold" : "font-medium text-gray-500"
-            }`}
-          >
+      <Content>
+        <ProgramTab>
+          <ProgramTabButton active={tab === "DAY1"} onClick={onChangeTab("DAY1")}>
             DAY1
-          </button>
-          <button
-            onClick={onChangeTab("DAY2")}
-            className={`pb-1.5 text-xl tracking-widest ${
-              tab === "DAY2" ? "border-b-2 border-mint font-bold" : "font-medium text-gray-500"
-            }`}
-          >
+          </ProgramTabButton>
+          <ProgramTabButton active={tab === "DAY2"} onClick={onChangeTab("DAY2")}>
             DAY2
-          </button>
-        </div>
-        <div className='mt-8 flow-root max-lg:hidden'>
-          <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
-            <div className='flex min-w-full justify-center py-2 align-middle'>
-              <ProgramTable>
-                <tbody className='divide-y divide-gray-200'>
-                  {SESSIONS.map((session) => {
-                    if (tab === "DAY1" && session.date === "08-06") return;
-                    if (tab === "DAY2" && session.date === "08-05") return;
-                    return (
-                      <tr key={session.id}>
-                        <td className='w-3/6 whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900'>
-                          {session.title}
-                        </td>
-                        <td className='w-1/6 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{session.category}</td>
-                        <td className='w-1/6 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{`${session.startTime} ~ ${session.endTime}`}</td>
-                        {session.category === "Main Talk" && (
-                          <div>
-                            <td className='w-1/6 whitespace-nowrap px-3 py-4 text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</td>
-                            <td
-                              onClick={routeToDetail(session.id)}
-                              className='cursor-pointer whitespace-nowrap px-3 py-4 text-sm font-bold text-blue-400'
-                            >
-                              Learn More
-                            </td>
-                          </div>
-                        )}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </ProgramTable>
-            </div>
-          </div>
-        </div>
-        <div className='mt-8 lg:hidden'>
-          <div className=''>
-            <div className='flex w-full flex-col justify-center gap-4 py-2 align-middle'>
-              {SESSIONS.map((session) => {
-                if (tab === "DAY1" && session.date === "08-06") return;
-                if (tab === "DAY2" && session.date === "08-05") return;
-                return (
-                  <div key={session.id} className='flex flex-col gap-2 rounded-md border border-mint p-3'>
-                    <p className='whitespace-pre-line font-semibold text-gray-500'>{session.category}</p>
-                    <p className='whitespace-pre-line font-bold text-gray-900'>{session.title}</p>
-                    <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.startTime} ~ ${session.endTime}`}</p>
-                    {session.category === "Main Talk" && (
-                      <div>
-                        <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</p>
-                        <p
-                          onClick={routeToDetail(session.id)}
-                          className='whitespace-pre-line text-sm font-bold text-blue-400'
-                        >
-                          Learn More
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+          </ProgramTabButton>
+        </ProgramTab>
+        <ProgramTable>
+          <thead>
+            <tr>
+              <th>발표 제목</th>
+              <th>구분</th>
+              <th>시간</th>
+              <th>발표자</th>
+              <th>더보기</th>
+            </tr>
+          </thead>
+          <tbody>
+            {SESSIONS.map((session) => {
+              if (tab === "DAY1" && session.date === "08-06") return;
+              if (tab === "DAY2" && session.date === "08-05") return;
+              return (
+                <tr key={session.id}>
+                  <th data-label='발표 제목'>{session.title}</th>
+                  <td data-label='구분'>{session.category}</td>
+                  <td data-label='시간'>{`${session.startTime} ~ ${session.endTime}`}</td>
+                  {session.category === "Main Talk" && (
+                    <>
+                      <td data-label='발표자'>{`${session.speaker.name} | ${session.speaker.company}`}</td>
+                      <td data-label='더보기' onClick={routeToDetail(session.id)}>
+                        <ProgramButton>Learn More</ProgramButton>
+                      </td>
+                    </>
+                  )}
+                </tr>
+              );
+            })}
+          </tbody>
+        </ProgramTable>
+      </Content>
     </Layout>
   );
 }

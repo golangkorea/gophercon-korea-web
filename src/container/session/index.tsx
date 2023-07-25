@@ -12,9 +12,7 @@ const Session = () => {
         <div className='sessionGradient relative h-[400px] w-[320px] rounded-xl border border-gray-200 shadow-2xl shadow-xl max-lg:hidden'>
           <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-between p-4 text-white '>
             <p className='mb-4 text-3xl font-bold uppercase'>Session</p>
-            <p className=''>
-              다양한 회사들의 Go 사용기를 들어보세요. 블라블라 한 2~3줄 적으면 될듯 수빈님 도배 죄송해요
-            </p>
+            <p className=''>발표자 분들의 깊고 다양한 Go 경험을 들어보고, Go의 여정에 함께하세요.</p>
           </div>
         </div>
         {SESSIONS.map((session, index) => {

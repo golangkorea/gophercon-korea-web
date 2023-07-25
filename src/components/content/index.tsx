@@ -6,9 +6,9 @@ interface LayoutProps {
 }
 
 const ContentContainer = styled.main({
-  padding: "100px 0 40px 0",
+  paddingTop: 80,
+  paddingBottom: 160,
   width: 1440,
-  height: "100%",
   margin: "0 auto",
   overflow: "hidden",
   "@media (max-width: 1440px)": {

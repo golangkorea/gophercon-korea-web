@@ -6,6 +6,7 @@ import React, { useCallback } from "react";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 
 interface NavLinkStyledProps {
+  active?: boolean;
   transparent?: boolean;
 }
 
@@ -22,14 +23,11 @@ const NavbarContainer = styled.div({
 });
 
 const animationGradient = keyframes({
-  "0%": {
+  from: {
     backgroundPosition: "0 50%",
   },
-  "50%": {
+  to: {
     backgroundPosition: "100% 50%",
-  },
-  "100%": {
-    backgroundPosition: "0 50%",
   },
 });
 
@@ -73,7 +71,7 @@ const NavbarTitle = styled.h1({
   color: "#0029FF",
 });
 
-const NavLink = styled.a<NavLinkStyledProps>(({ transparent }: NavLinkStyledProps) => ({
+const NavLink = styled.a<NavLinkStyledProps>(({ active, transparent }: NavLinkStyledProps) => ({
   fontSize: 18,
   fontWeight: 600,
   cursor: "pointer",
@@ -82,6 +80,8 @@ const NavLink = styled.a<NavLinkStyledProps>(({ transparent }: NavLinkStyledProp
   border: transparent ? "none" : "1px solid transparent",
   padding: transparent ? 0 : "6px 12px",
   boxSizing: "border-box",
+  backgroundColor: active ? "rgba(0, 0, 0, .05)" : "auto",
+  color: active ? "#0029FF" : "auto",
   "&:hover": {
     backgroundColor: transparent ? "auto" : "rgba(0, 0, 0, .05)",
     color: transparent ? "auto" : "#0029FF",
@@ -109,7 +109,7 @@ const NavRegisterButton = styled(NavButton)({
   fontWeight: 600,
   color: "white",
   animation: animationGradient,
-  animationDuration: "8s",
+  animationDuration: "3s",
   animationIterationCount: "infinite",
   animationDirection: "alternate",
   borderRadius: 14,
@@ -167,6 +167,7 @@ const BlackOverlay = styled.div<BlackOverlayStyledProps>(({ active }: BlackOverl
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const mobileNavRef = React.useRef<HTMLDivElement>(null);
+  const { pathname } = useRouter();
   const { locale, setLocale, LL } = useI18n();
   const router = useRouter();
 
@@ -198,10 +199,18 @@ const Navbar: React.FC = () => {
             <NavbarTitle>GopherCon Korea 2023</NavbarTitle>
           </NavLink>
           <NavButtonGroup>
-            <NavLink onClick={handleRoute("/program")}>{LL?.nav.program()}</NavLink>
-            <NavLink onClick={handleRoute("/sponsors")}>{LL?.nav.sponsors()}</NavLink>
-            <NavLink onClick={handleRoute("/coc")}>{LL?.nav.coc()}</NavLink>
-            <NavLink onClick={handleRoute("/contact")}>{LL?.nav.contact()}</NavLink>
+            <NavLink active={pathname === "/program"} onClick={handleRoute("/program")}>
+              {LL?.nav.program()}
+            </NavLink>
+            <NavLink active={pathname === "/sponsors"} onClick={handleRoute("/sponsors")}>
+              {LL?.nav.sponsors()}
+            </NavLink>
+            <NavLink active={pathname === "/coc"} onClick={handleRoute("/coc")}>
+              {LL?.nav.coc()}
+            </NavLink>
+            <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
+              {LL?.nav.contact()}
+            </NavLink>
             <NavRegisterButton onClick={openNewWindow}>Register</NavRegisterButton>
             <NavButton onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}>
               {LL?.changeLang()}
@@ -214,10 +223,18 @@ const Navbar: React.FC = () => {
       </NavbarHeader>
       <BlackOverlay active={isOpen} onClick={toggleMenuOpen} />
       <NavMobile active={isOpen} ref={mobileNavRef}>
-        <NavLink onClick={handleRoute("/program")}>{LL?.nav.program()}</NavLink>
-        <NavLink onClick={handleRoute("/sponsors")}>{LL?.nav.sponsors()}</NavLink>
-        <NavLink onClick={handleRoute("/coc")}>{LL?.nav.coc()}</NavLink>
-        <NavLink onClick={handleRoute("/contact")}>{LL?.nav.contact()}</NavLink>
+        <NavLink active={pathname === "/program"} onClick={handleRoute("/program")}>
+          {LL?.nav.program()}
+        </NavLink>
+        <NavLink active={pathname === "/sponsors"} onClick={handleRoute("/sponsors")}>
+          {LL?.nav.sponsors()}
+        </NavLink>
+        <NavLink active={pathname === "/coc"} onClick={handleRoute("/coc")}>
+          {LL?.nav.coc()}
+        </NavLink>
+        <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
+          {LL?.nav.contact()}
+        </NavLink>
         <NavRegisterButton onClick={openNewWindow}>Register</NavRegisterButton>
         <NavButton onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}>{LL?.changeLang()}</NavButton>
       </NavMobile>

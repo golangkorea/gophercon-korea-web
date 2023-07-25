@@ -10,12 +10,10 @@ export const getStaticProps = getI18nProps;
 export default function Home() {
   return (
     <Layout main>
-      <div className='relative flex min-h-screen w-screen flex-col items-center justify-center'>
-        <Location />
-        <About />
-        <Session />
-        <Sponsors />
-      </div>
+      <Location />
+      <About />
+      <Session />
+      <Sponsors />
     </Layout>
   );
 }
