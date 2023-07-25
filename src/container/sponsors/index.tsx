@@ -67,7 +67,7 @@ const Sponsors = () => {
             alt={"Dreamus"}
             width={350}
             height={170}
-            className='h-[155px] w-4/5 cursor-pointer bg-white object-contain p-2'
+            className='h-[155px] w-1/3 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -76,7 +76,7 @@ const Sponsors = () => {
             alt={"Karrot"}
             width={350}
             height={170}
-            className='h-[155px] w-4/5 cursor-pointer bg-white object-contain p-2'
+            className='h-[155px] w-1/3 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -85,7 +85,7 @@ const Sponsors = () => {
             alt={"Megazon"}
             width={350}
             height={170}
-            className='h-[155px] w-4/5 cursor-pointer bg-white object-contain p-2'
+            className='h-[155px] w-1/3 cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -137,7 +137,7 @@ const Sponsors = () => {
             alt={"Google"}
             width={400}
             height={180}
-            className='h-[170px] w-4/6 cursor-pointer cursor-pointer bg-white object-contain p-2'
+            className='h-[170px] w-1/3 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -145,7 +145,7 @@ const Sponsors = () => {
             alt={"Awskrug"}
             width={250}
             height={125}
-            className='h-[115px] w-1/6 cursor-pointer bg-white object-contain p-2'
+            className='h-[170px] w-1/3 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -153,7 +153,7 @@ const Sponsors = () => {
             alt={"Jetbrains"}
             width={250}
             height={125}
-            className='h-[115px] w-1/6 cursor-pointer bg-white object-contain p-2'
+            className='h-[170px] w-1/3 cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
