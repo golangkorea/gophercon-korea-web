@@ -30,7 +30,7 @@ import Jetbrains from "/public/images/sponsors/etc/jetbrains.png";
 
 const Sponsors = () => {
   return (
-    <section className='flex w-screen flex-col gap-4 bg-background bg-white px-16 py-16 max-lg:px-4'>
+    <section className='flex w-screen flex-col gap-4 bg-white px-16 py-16 max-lg:px-4'>
       <p className='mb-12 text-5xl font-extrabold'>Sponsors</p>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>diamond</p>
@@ -41,7 +41,7 @@ const Sponsors = () => {
             alt={"Google"}
             width={400}
             height={300}
-            className='h-[200px] w-[400px] cursor-pointer cursor-pointer bg-white object-contain p-2'
+            className='h-[200px] w-[400px] cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>

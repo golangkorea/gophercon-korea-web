@@ -50,7 +50,7 @@ const Location = () => {
   }, [seconds]);
 
   return (
-    <section className='locationGradient justify-betweenu relative flex h-[750px] w-screen items-center bg-white text-white max-lg:h-[400px]'>
+    <section className='locationGradient justify-betweenu relative flex h-screen w-screen items-center bg-white text-white max-lg:h-[400px]'>
       <div className='flex h-full w-full flex-col items-center justify-center'>
         <div className='mb-10 ml-12 text-center max-lg:ml-0'>
           <p className='text-8xl font-extrabold max-lg:text-4xl'>GopherCon 2023</p>
