@@ -49,6 +49,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@emotion/babel-plugin": "^11.11.0",
     "@types/react-copy-to-clipboard": "^5.0.4",
+    "@types/styled-components": "^5.1.26",
     "eslint": "8.15.0",
     "eslint-config-next": "^13.1.6",
     "husky": "^8.0.3",
