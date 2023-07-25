@@ -31,11 +31,12 @@ export const SPONSORS: Sponsor[] = [
     logo: "/images/sponsors/gold/logo_dreamus.png",
     link: "https://recruit.dreamuscompany.com/",
     service: "드림어스컴퍼니",
-    description: `쓰면 쓸수록 나와 점점 닮아가는 FLO 뮤직. \nFlo`,
-    detail: `드림어스컴퍼니는 쓰면 쓸수록 나와 점점 닮아가는
+    description: `드림어스컴퍼니는 쓰면 쓸수록 나와 점점 닮아가는
     취향 기반의 뮤직 플랫폼 'FLO'를 중심으로
     '플랫폼 - 음원 유통 - 공연 - MD- 음악 디바이스' 등
     음악 생태계 전반을 아우르는 음악 콘텐츠 비즈니스 기업입니다.`,
+    detail: `FLO는 AI 기술 기반 개인의 취향을 정의하고 표현할 수 있도록 돕는 뮤직 플랫폼으로, 취향을 반영한 개인화 홈 화면부터 개성을 표현할 수 있는 콘텐츠 창작 환경까지, FLO는 단 한 명을 위한 서비스를 고민합니다.
+    이처럼 드림어스컴퍼니는 FLO와 함께 새롭고 다채로운 음악 콘텐츠가 가득한, 음악의 각 주체들이 꿈꾸는 세상을 만들어 나가고 있습니다.`,
   },
   {
     id: 3,
