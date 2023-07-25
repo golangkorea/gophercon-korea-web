@@ -13,7 +13,8 @@ const Session = () => {
           <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-between p-4 text-white '>
             <p className='mb-4 text-3xl font-bold uppercase'>Session</p>
             <p className=''>
-              다양한 회사들의 Go 사용기를 들어보세요. 블라블라 한 2~3줄 적으면 될듯 수빈님 도배 죄송해요
+              그동안 미처 살펴보지 못했던 Go 언어의 활용법과 내부를 들여다 볼 수 있는 다양한 세션이 준비되어 있습니다.
+              다양한 회사들의 Go 사용기를 들어보세요.
             </p>
           </div>
         </div>
