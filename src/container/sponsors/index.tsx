@@ -30,7 +30,7 @@ import Jpub from "/public/images/sponsors/publisher/logo_jpub.webp";
 
 const Sponsors = () => {
   return (
-    <section className='flex w-screen flex-col gap-4 bg-background bg-white px-16 py-16 max-lg:px-4'>
+    <section className='flex w-screen flex-col gap-4 bg-white px-16 py-16 max-lg:px-4'>
       <p className='mb-12 text-5xl font-extrabold'>Sponsors</p>
       <div className='mb-20'>
         <p className='mb-2 text-3xl font-bold uppercase'>platinum</p>

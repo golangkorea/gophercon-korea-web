@@ -49,7 +49,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     })
       .to(cardRef.current, {
         duration: 0.1,
-        width: 500,
+        width: "auto",
         height: 500,
         left: "unset",
         top: "unset",
@@ -112,7 +112,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
   return (
     <>
       <div
-        className='h-[500px] w-[500px] scale-0 cursor-pointer rounded-xl bg-white shadow-2xl max-lg:w-full max-lg:scale-100'
+        className='h-[500px] w-auto scale-0 cursor-pointer rounded-xl bg-white shadow-2xl max-lg:w-full max-lg:scale-100'
         onClick={handleZoom}
         ref={cardRef}
       >

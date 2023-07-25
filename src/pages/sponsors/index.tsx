@@ -12,7 +12,7 @@ export default function SponsorsPage() {
           title={"Sponsors"}
           description={`GopherCon에서 고 언어를 사용하는 다양한 회사를 만나보세요.\n 스폰서들의 세션에서 전문가들의 다양한 기술과 노하우를 배울 수 있습니다.`}
         />
-        <div className='flex flex-wrap justify-around p-16 max-lg:flex-col max-lg:gap-4 max-lg:p-4 lg:gap-y-8'>
+        <div className='grid grid-cols-4 gap-10 p-16 max-lg:grid-cols-1 max-lg:gap-5 max-lg:p-4 lg:gap-y-8'>
           {SPONSORS.map((sponsor) => (
             <SponsorCard {...sponsor} key={sponsor.name} />
           ))}
