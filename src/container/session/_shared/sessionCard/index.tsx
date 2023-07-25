@@ -54,6 +54,8 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
     }
   }, [inView]);
 
+  const profileImage = speaker.profileImage == "" ? Gopher.src : speaker.profileImage;
+
   return (
     <div
       className='sessionCard relative h-[400px] w-[320px] cursor-pointer opacity-0'
@@ -65,11 +67,28 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
       <div ref={ref} />
       <div className='card'>
         <div className='card-side card-side-front'>
-          <img
-            src={speaker.profileImage == "" ? Gopher.src : speaker.profileImage}
+          <div
+            style={{
+              backgroundImage: `url('${profileImage}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center center",
+              filter: "blur(16px)",
+              backgroundRepeat: "no-repeat",
+            }}
             className='absolute left-0 top-0 z-10 h-full w-full rounded-xl border border-gray-200 shadow-xl'
-            alt={speaker.name}
           />
+          <div
+            style={{
+              backgroundImage: `url('${profileImage}')`,
+              backgroundSize: "contain",
+              backgroundPosition: "center center",
+              backgroundRepeat: "no-repeat",
+              fontSize: 0,
+            }}
+            className='absolute left-0 top-0 z-10 h-full w-full rounded-xl border border-gray-200 shadow-xl'
+          >
+            {speaker.name}
+          </div>
           <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-end rounded-xl border border-gray-200 bg-overlay50 p-4 text-white shadow-xl'>
             <p className='mb-4 '>{session.category}</p>
             <p className='mb-4 text-xl font-bold '>{session.title}</p>
