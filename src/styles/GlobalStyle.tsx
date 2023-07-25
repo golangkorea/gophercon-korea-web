@@ -5,7 +5,9 @@ const style = {
     fontSize: 18,
     fontSmoothing: "antialiased",
   },
-  body: {},
+  body: {
+    color: "#000",
+  },
   "select, input, button, textarea": {
     border: 0,
     outline: 0,
@@ -15,15 +17,32 @@ const style = {
     marginTop: "1.5rem",
     marginBottom: 0,
   },
-  "ul, ol": {
-    marginTop: "1.5rem",
-    marginBottom: "1.5rem",
-    li: {
-      lineHeight: "1.5rem",
+  ul: {
+    paddingLeft: "1em",
+    listStyle: "disc",
+    "ul, ol": {
+      marginTop: ".5em",
+      marginLeft: "1em",
+      marginBottom: "1.5em",
+    },
+  },
+  ol: {
+    listStyle: "decimal",
+    paddingLeft: "1em",
+    ol: {
+      listStyle: "korean-hangul-formal",
     },
     "ul, ol": {
-      marginTop: 0,
-      marginBottom: 0,
+      marginTop: ".5em",
+      marginLeft: "1em",
+      marginBottom: "1.5em",
+    },
+  },
+  "ul, ol": {
+    marginTop: 1.5,
+    marginBottom: 1.5,
+    li: {
+      lineHeight: 1.5,
     },
   },
   blockquote: {
@@ -37,7 +56,7 @@ const style = {
     marginBottom: "1em",
   },
   h1: {
-    fontSize: "2.5rem",
+    fontSize: "2.4rem",
     fontWeight: 800,
   },
   h2: {

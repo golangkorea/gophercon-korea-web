@@ -10,6 +10,7 @@ const ContentContainer = styled.main({
   width: 1440,
   height: "100%",
   margin: "0 auto",
+  overflow: "hidden",
   "@media (max-width: 1440px)": {
     width: "100%",
     minWidth: "auto",
