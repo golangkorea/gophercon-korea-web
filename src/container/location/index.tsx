@@ -51,7 +51,7 @@ const Location = () => {
 
   return (
     <section className='locationGradient justify-betweenu relative flex h-screen w-screen items-center bg-white text-white max-lg:h-[400px]'>
-      <div className='flex h-full w-full flex-col items-center justify-center'>
+      <div className='z-10 flex h-full w-full flex-col items-center justify-center'>
         <div className='mb-10 ml-12 text-center max-lg:ml-0'>
           <p className='text-8xl font-extrabold max-lg:text-4xl'>GopherCon 2023</p>
           <p className='text-8xl font-extrabold max-lg:text-4xl'>Korea</p>
@@ -70,9 +70,9 @@ const Location = () => {
             <AddToCalendarButton
               name='GopherCon Korea 2023'
               description='안녕하세요, Golang Korea입니다.
-2023년 여름, Go 언어 사용자들의 최대 행사인 GopherCon이 한국에서 처음으로 개최됩니다! 🎉
+      2023년 여름, Go 언어 사용자들의 최대 행사인 GopherCon이 한국에서 처음으로 개최됩니다! 🎉
 
-이번 GopherCon Korea 2023의 주제는 "Go In Depth"로 그동안 미처 살펴보지 못했던 Go 언어의 활용법과 내부를 들여다 볼 수 있다는 다양한 세션이 준비되어 있습니다.'
+      이번 GopherCon Korea 2023의 주제는 "Go In Depth"로 그동안 미처 살펴보지 못했던 Go 언어의 활용법과 내부를 들여다 볼 수 있다는 다양한 세션이 준비되어 있습니다.'
               startDate='2023-08-05'
               startTime='10:00'
               endDate='2023-08-06'
@@ -120,6 +120,7 @@ const Location = () => {
           </div>
         </div>
       </div>
+      {/*<Wave />*/}
     </section>
   );
 };
