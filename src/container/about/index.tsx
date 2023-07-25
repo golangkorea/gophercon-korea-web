@@ -106,7 +106,7 @@ const About = () => {
           <div className='flex h-fit flex-col items-center p-10'>
             <p className='mb-8 text-2xl font-bold'>한국 고언어 사용자모임</p>
             <p className='text-lg'>
-              Golang Korea는 2011년 부터 시작되어 12년강 꾸준하게 성장해온 한국 고언어 커뮤니티입니다. Facebook의
+              Golang Korea는 2011년 부터 시작되어 12년간 꾸준하게 성장해온 한국 고언어 커뮤니티입니다. Facebook의
               7,300명에 달하는 커뮤니티 구성원과 Instagram, Thread, Slack, Twitter, YouTube, GitHub 등 다양한 채널을
               통해 다양한 고언어 사용자끼리의 정보 공유와 네트워킹, 그리고 교육 세션을 주관하고 재밌는 온/오프라인
               이벤트 기획하고 있습니다.

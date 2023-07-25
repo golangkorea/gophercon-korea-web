@@ -85,17 +85,21 @@ export default function Program() {
                 if (tab === "DAY1" && session.date === "08-06") return;
                 if (tab === "DAY2" && session.date === "08-05") return;
                 return (
-                  <div key={session.title} className='flex flex-col gap-2 rounded-md border border-mint p-3'>
+                  <div key={session.id} className='flex flex-col gap-2 rounded-md border border-mint p-3'>
                     <p className='whitespace-pre-line font-semibold text-gray-500'>{session.category}</p>
                     <p className='whitespace-pre-line font-bold text-gray-900'>{session.title}</p>
                     <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.startTime} ~ ${session.endTime}`}</p>
-                    <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</p>
-                    <p
-                      onClick={routeToDetail(session.id)}
-                      className='whitespace-pre-line text-sm font-bold text-blue-400'
-                    >
-                      Learn More
-                    </p>
+                    {session.category === "Main Talk" && (
+                      <div>
+                        <p className='whitespace-pre-line text-sm text-gray-500'>{`${session.speaker.name} | ${session.speaker.company}`}</p>
+                        <p
+                          onClick={routeToDetail(session.id)}
+                          className='whitespace-pre-line text-sm font-bold text-blue-400'
+                        >
+                          Learn More
+                        </p>
+                      </div>
+                    )}
                   </div>
                 );
               })}

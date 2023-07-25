@@ -13,13 +13,15 @@ export interface Sponsor {
 export const SPONSORS: Sponsor[] = [
   {
     id: 1,
-    name: "현대자동차그룹",
-    thumbnail: "/images/sponsors/platinum/logo_hyundai.png",
+    name: "현대자동차",
+    thumbnail: "/images/sponsors/platinum/thumbnail_hyundai.webp",
     logo: "/images/sponsors/platinum/logo_hyundai.png",
     link: "https://talent.hyundai.com/main/main.hc",
-    service: "현대자동차그룹",
-    description: `Connecting to the Future 미래를 만나는 가장 빠른 채널,
-    현대자동차그룹 부스에서 다양한 정보를 만나보세요.`,
+    service: "현대자동차",
+    description: `Progress for Humanity   
+    "우리는 인류를 위해 옳은 일을 하고자 존재합니다."
+    완성차 사업의 글로벌 리더십을 기반으로 Smart Mobility Solution Provider로의 신속 전환을 추진합니다. 
+    우리 모두의 이동을 위해 오늘도 혁신하는 현대자동차에 합류하세요.`,
     detail: `현대자동차그룹은 글로벌 완성차 시장에서 매년 경이로운 성장을 하고 있으며 Global Top 3라는 놀라운 성과를 달성하였습니다. 이러한 성과를 넘어 이제 Software Defined Vehicle이라는 새로운 도전을 통해 IT 전문 기업으로 도약하고자 합니다.
     \n 현대자동차그룹은 자동차와 IT 기술을 접목한 Mobility Service를 통해 고객에게 새로운 가치를 제공할 것이며, 앞으로 고객들은 Software를 통해 Hardware를 업그레이드할 수 있고, 더욱 안전하고 편리한 이동 경험을 제공받게 될 것입니다.
     \n 지금 현대자동차와 함께 여러분의 미래를 만들어가세요. Come Grow with Us!`,
@@ -27,20 +29,21 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 2,
     name: "드림어스컴퍼니",
-    thumbnail: "/images/sponsors/gold/thumbnail_flo.png",
+    thumbnail: "/images/sponsors/gold/thumbnail_flo.webp",
     logo: "/images/sponsors/gold/logo_dreamus.png",
     link: "https://recruit.dreamuscompany.com/",
     service: "드림어스컴퍼니",
-    description: `쓰면 쓸수록 나와 점점 닮아가는 FLO 뮤직. \nFlo`,
-    detail: `드림어스컴퍼니는 쓰면 쓸수록 나와 점점 닮아가는
+    description: `드림어스컴퍼니는 쓰면 쓸수록 나와 점점 닮아가는
     취향 기반의 뮤직 플랫폼 'FLO'를 중심으로
     '플랫폼 - 음원 유통 - 공연 - MD- 음악 디바이스' 등
     음악 생태계 전반을 아우르는 음악 콘텐츠 비즈니스 기업입니다.`,
+    detail: `FLO는 AI 기술 기반 개인의 취향을 정의하고 표현할 수 있도록 돕는 뮤직 플랫폼으로, 취향을 반영한 개인화 홈 화면부터 개성을 표현할 수 있는 콘텐츠 창작 환경까지, FLO는 단 한 명을 위한 서비스를 고민합니다.
+    이처럼 드림어스컴퍼니는 FLO와 함께 새롭고 다채로운 음악 콘텐츠가 가득한, 음악의 각 주체들이 꿈꾸는 세상을 만들어 나가고 있습니다.`,
   },
   {
     id: 3,
     name: "당근마켓",
-    thumbnail: "/images/sponsors/gold/thumbnail_daangn.jpg",
+    thumbnail: "/images/sponsors/gold/thumbnail_daangn.webp",
     logo: "/images/sponsors/gold/logo_daangn.png",
     link: "https://about.daangn.com/",
     service: "당근마켓",
@@ -54,7 +57,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 4,
     name: "메가존소프트",
-    thumbnail: "/images/sponsors/gold/thumbnail_megazon.png",
+    thumbnail: "/images/sponsors/gold/thumbnail_megazon.webp",
     logo: "/images/sponsors/gold/logo_megazon.png",
     link: "https://www.megazonesoft.com/googlecloud",
     service: "메가존소프트",
@@ -64,7 +67,7 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 5,
     name: "AB180",
-    thumbnail: "/images/sponsors/bronze/logo_ab180.png",
+    thumbnail: "/images/sponsors/bronze/thumbnail_ab180.webp",
     logo: "/images/sponsors/bronze/logo_airbridge.png",
     link: "www.airbridge.io",
     service: "에어브릿지",
@@ -74,8 +77,8 @@ export const SPONSORS: Sponsor[] = [
   {
     id: 6,
     name: "오누이(설탭)",
-    thumbnail: "/images/sponsors/bronze/onuii.png",
-    logo: "/images/sponsors/bronze/onuii.png",
+    thumbnail: "/images/sponsors/bronze/thumbnail_onuii.webp",
+    logo: "/images/sponsors/bronze/logo_onuii.png",
     link: "https://gophercon-korea-2023.vercel.app/",
     service: "오누이(설탭)",
     description: `.`,
