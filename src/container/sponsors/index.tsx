@@ -99,7 +99,7 @@ const Sponsors = () => {
             alt={"Openup"}
             width={300}
             height={150}
-            className='h-[135px] w-3/6 cursor-pointer bg-white object-contain p-2'
+            className='w-1/3 cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -114,7 +114,7 @@ const Sponsors = () => {
             alt={"AB180"}
             width={280}
             height={125}
-            className='h-[115px] w-1/6 cursor-pointer bg-white object-contain p-2'
+            className='w-1/4 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -123,7 +123,7 @@ const Sponsors = () => {
             alt={"Onuii"}
             width={280}
             height={125}
-            className='h-[115px] w-1/6 cursor-pointer bg-white object-contain p-2'
+            className='w-1/4 cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
@@ -167,7 +167,7 @@ const Sponsors = () => {
             alt={"GoldenRabbit"}
             width={200}
             height={100}
-            className='w-1/7 h-[115px] cursor-pointer p-2'
+            className='h-[115px] w-1/5 cursor-pointer p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -175,7 +175,7 @@ const Sponsors = () => {
             alt={"Hanbit"}
             width={200}
             height={100}
-            className='w-1/7 h-[115px] cursor-pointer bg-white object-contain p-2'
+            className='h-[115px] w-1/5 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -183,7 +183,7 @@ const Sponsors = () => {
             alt={"Decoding"}
             width={200}
             height={100}
-            className='w-1/7 h-[115px] cursor-pointer bg-white object-contain p-2'
+            className='h-[115px] w-1/5 cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -191,7 +191,7 @@ const Sponsors = () => {
             alt={"Jpub"}
             width={200}
             height={100}
-            className='w-1/7 h-[115px] cursor-pointer bg-white object-contain p-2'
+            className='h-[115px] w-1/5 cursor-pointer bg-white object-contain p-2'
           />
         </div>
       </div>
