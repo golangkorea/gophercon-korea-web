@@ -120,7 +120,6 @@ const Location = () => {
           </div>
         </div>
       </div>
-      {/*<Wave />*/}
     </section>
   );
 };
