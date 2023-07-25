@@ -81,7 +81,9 @@ export const SPONSORS: Sponsor[] = [
     logo: "/images/sponsors/bronze/logo_onuii.png",
     link: "https://gophercon-korea-2023.vercel.app/",
     service: "오누이(설탭)",
-    description: `.`,
-    detail: `.`,
+    description: `(주)오누이는 매년 놀라운 성장을 거듭, 누적 매출 700억이라는 경이로운 성과를 달성하고 있는 No.1 에듀테크 스타트업입니다. 태블릿 기반의  1:1 온라인 과외 서비스 <설탭>으로 전국의 학생과 선생님을 실시간으로 연결하고 있습니다.<설탭>은 국내 최다 학습・수업・매칭 데이터 및 디지털 컨텐츠를 기반으로 공부의 전 영역을 디지털화, 학습 진단부터 수업까지 모든 학생에게 개인맞춤형 교육을 제공하는 AI Study Super App으로 도약하고자 합니다.Maximize Everyone's Potential,
+    No.1 Personalized Education Platform, 설탭!`,
+    detail: `Za세대를 위한 태블릿 공부의 혁신,
+    No.1 Personalized Education을 이끌어갈 종합 학습 플랫폼 '설탭'`,
   },
 ];
