@@ -9,6 +9,10 @@ interface SponsorCardContainerStyledProps {
   active?: boolean;
 }
 
+interface SponsorCardInnerStylesProps {
+  active?: boolean;
+}
+
 interface SponsorOverlayStylesProps {
   active?: boolean;
 }
@@ -36,7 +40,6 @@ const SponsorCardContainer = styled.div<SponsorCardContainerStyledProps>(
     transform: "scale(1)",
     zIndex: active ? 50 : 0,
     boxSizing: "border-box",
-    overflowY: active ? "auto" : "hidden",
     "&:hover": {
       backgroundPosition: active ? "0 50%" : "50% 100%",
       boxShadow: active ? "none" : "0 30px 60px rgba(28, 28, 191, .5)",
@@ -51,9 +54,10 @@ const SponsorCardContainer = styled.div<SponsorCardContainerStyledProps>(
   }),
 );
 
-const SponsorCardInner = styled.div({
-  overflow: "hidden",
-});
+const SponsorCardInner = styled.div<SponsorCardInnerStylesProps>(({ active }: SponsorCardInnerStylesProps) => ({
+  height: "100%",
+  overflowY: active ? "auto" : "hidden",
+}));
 
 const SponsorName = styled.h3({
   fontSize: "1.733em",
@@ -129,7 +133,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
   return (
     <>
       <SponsorCardContainer active={isDetail} onClick={() => toggleDetail()} ref={cardRef}>
-        <SponsorCardInner>
+        <SponsorCardInner active={isDetail}>
           {!isDetail && (
             <>
               <SponsorName>{name}</SponsorName>

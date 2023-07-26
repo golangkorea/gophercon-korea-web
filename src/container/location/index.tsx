@@ -31,6 +31,8 @@ const Globe = styled.div({
 });
 
 const LocationMainSection = styled.section({
+  width: "90%",
+  maxWidth: 1440,
   padding: "0 80px",
   "@media (max-width: 1000px)": {
     display: "flex",
@@ -217,6 +219,7 @@ const Location = () => {
 
         <div className='mt-4 flex w-full justify-center'>
           <AddToCalendarButton
+            label='내 캘린더에 일정 추가하기'
             name='GopherCon Korea 2023'
             description='안녕하세요, Golang Korea입니다.
     2023년 여름, Go 언어 사용자들의 최대 행사인 GopherCon이 한국에서 처음으로 개최됩니다! 🎉
