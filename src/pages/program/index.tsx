@@ -132,7 +132,7 @@ export default function Program() {
                   <th data-label='발표 제목'>{session.title}</th>
                   <td data-label='구분'>{session.category}</td>
                   <td data-label='시간'>{`${session.startTime} ~ ${session.endTime}`}</td>
-                  {session.category === "Main Talk" && (
+                  {(session.category === "Main Talk" || session.category === "Sponsor") && (
                     <>
                       <td data-label='발표자'>{`${session.speaker.name} | ${session.speaker.company}`}</td>
                       <td data-label='더보기' onClick={routeToDetail(session.id)}>

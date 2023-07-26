@@ -135,14 +135,15 @@ export const SESSIONS: Session[] = [
     date: "08-05",
     startTime: "12:00",
     endTime: "12:30",
-    title: `TBD`,
+    title: `Golang 도입, 그리고 4년 간의 기록`,
     category: "Sponsor",
-    description: ``,
+    description: `처음에 Golang을 도입한 계기와 4년동안 채팅 서비스를 개발하면서 서비스 규모에 따라 선택했던 아키텍처를 공유합니다. 또한, 서비스를 운영하면서 겪었던 문제는 무엇이 있고 어떻게 해결했는지 레슨런을 공유합니다.`,
     speaker: {
-      name: "",
-      company: "",
-      description: "",
-      profileImage: "",
+      name: "변규현(Bien Byun)",
+      company: "당근마켓",
+      description: "당근마켓 채팅팀 Engineering Lead \n AWS Serverless Hero",
+      profileImage:
+        "https://lh3.googleusercontent.com/u/3/drive-viewer/AITFw-zRUzHjyi7Y_XgFZmVegyv8W19_JIKbYDM7vsK7zvrMx1q0yVw9boU2rhqyjj71OhNOqKtYethtW1bt9EbjLktx8xXi9w=w2560-h1289",
     },
   },
   {
@@ -232,14 +233,16 @@ export const SESSIONS: Session[] = [
     date: "08-05",
     startTime: "15:50",
     endTime: "16:20",
-    title: `TBD`,
+    title: `클라우드 플랫폼 및 인프라 자동화 솔루션 개발`,
     category: "Sponsor",
-    description: ``,
+    description: `Hyundai Cloud의 Datacenter 자동화를 위해서 Go와 K8S의 Operator Pattern을 활용한 사례를 공유합니다. Go를 활용하여 Kubernetes의 Operator를 개발하고 Datacenter의 자원들을 선언적인 방식으로 정의합니다. 이를 통해 자동차의 자율 주행처럼 데이터센터를 완전 자동화하여 사람의 개입 없이 운영하는 사례를 소개드립니다.`,
     speaker: {
-      name: "",
-      company: "",
-      description: "",
-      profileImage: "",
+      name: "박도형",
+      company: "현대자동차",
+      description:
+        "클라우드 플랫폼 및 인프라 자동화 솔루션 개발 \n현대자동차 카클라우드개발실 근무 (2023~) \n삼성전자 클라우드개발그룹 근무 (2015~2023)",
+      profileImage:
+        "https://lh3.googleusercontent.com/fife/AKsag4Mkb45fxqNuZPm_GO0BTfmmwHNIQ6LI2tN9aJPSonrncWgKOwMyoEKQJvTBohF1TYUEHTbmn54uOQkfLHVanZcBQwDLLSg3ogiCCnbJASPje4WkohjU0CpDxcAt2lJMtzxfnq6Jm6nVEozi6rJ5IzO2ins--tDtbovOuYyioYrnh__akaYURK9XlVpwlOG-9BMWq-5qBymZFkjGL_zkMhX_4aE3XapB5mrWKqdfkyx0QjBY1RsdXbaMS3I66pOgj0zcY7J8yCHP4eLE1suHEo2YfMypJaijMvuYaF0RtzX6qXnFgCpsk1ROU1dzanEqgPtH84bVvo1onvw613UE7XQ2_Q2oIz_6fYpumegTXY1C5zLqni5Yfkz21FhoVoWzxzuykiYORFjlm2yyuQlliXcxUSjMgWWJfL9Nd1Y1CjXWkSfpugStUQWxxSjHOrgazE9hpxWmMs9M7FvhhWXunkncQ_e94f1Bau_U7qJOBPZC-7vMJngj473DEgDP3Z1IONqw5i32kk6EDLrC0Z4x88b0h9ujbus9js4B6gbO22o3dKJQeLq7XMIbo5tscm-7YtqTAAMpQRRoZE4E4wFmEWgZ6rhIeO3piIhv2MmERrDcJc8KWLp7V8Aor1d6oKCXi9XFSh5iI51wsCPminVy_7uSh8f_UY1ZQcg3xLyrNZqDJqdkiZcH2Em0rIgF3znmh9IV71DngrSAzSB_L-JXjrI7EzRrzHzuiK4oFi6DtGSlCrME1AFb_fsySIj782x3K4vKQi9yJefsIGoZ1DPbud4j7zne1lKzJngVaaNQnFQkRPtYzUmjnYWwxMyw9N8_LQJASXgWewdGKGZMMj5BIQqZHC0GnxSf4uwefuNRafSbjbjKTCh0r0186VEo7EWfnooJZy1w2wUSkZ_WxOBTXWoSAIgLsfIjLz8C1JGyd5nKzrtwX8ga7H8CXmDWeHPL3kKpZBxyDxRTTIAHWJ9tS1Vm5IQIF0sA95Ck-9OrdXzF-hJysdWtty5RGZuGIwEf9BtP-SFPmWKmee2cLPpKBl7LIA7vmfd-MZb3qQz1wd9zjXQ6MhYpSge0LhGDglfDd4shVVxVxEyIITKjPAFj3Mfnp6bEB0CTruI6F9KB2AahvC56o8nQCQWqFkg9cnAP1Pz1wBdOit_EVJfeXU3exgiX93ZmL4N1zUG8KUxWsZzSqHYY8roU_ukSrkjb2tQqfT-6t-5LyStW01rNyse7sGasv_lWeynTFKKfxUShziOqYaO3jLlhKOapmvZ3jycz3jSD5VcrdXJEBH599v01-jA-oFEEGZ2lgb6NCMAv4kV29F-9SEFlurGuPcEuhIINt2MXUYAhbWWxwiR3gOfWySA-KM_NIQm_KfULyXVSuBLuTQo5pBRRFcfV6d1UE_GSM5ydJnzf0s73bYE7z0dlej08_dfmB9ulwmhP8WB1HuJGFnsTSOYXFpOBlF9riu_xJyrBVrjuegjFKKwaRbaSD1pzCbpjiTWoRS_LbH1391QgA8vFJNoycrdjs1a-QfK83QeDkYcAgA3MQ_iMdQzaIugTscQcR_p7if0euVLhrLsGQ0kwa-32XameGIrIJ55CqQcOjn2NwgBgatzXfNuWgC9dWGeIkF-9LIz45gVPXkFEeU8C6-HhxRZxN282skA3XM_UXE9-2S_2R6oF9C1_qegwyfgtGxtTZYYscwWD62aieOKyPwbl0VA6=w2560-h1289",
     },
   },
   {
