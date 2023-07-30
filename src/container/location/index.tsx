@@ -40,6 +40,7 @@ const LocationMainSection = styled.section({
     justifyContent: "center",
     flexDirection: "column",
     textAlign: "center",
+    padding: "0 20px",
   },
 });
 
@@ -49,6 +50,9 @@ const LocationTitle = styled.h1({
   fontSize: 70,
   fontWeight: 900,
   border: 0,
+  "@media (max-width: 1280px)": {
+    fontSize: 60,
+  },
 });
 
 const LocationDate = styled.h2({
@@ -57,6 +61,9 @@ const LocationDate = styled.h2({
   fontSize: 40,
   border: 0,
   color: "#9000FF",
+  "@media (max-width: 1280px)": {
+    width: "100%",
+  },
 });
 
 const LocationAddressButton = styled.button({
