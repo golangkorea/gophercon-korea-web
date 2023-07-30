@@ -5,6 +5,7 @@ import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { GetStaticPaths } from "next";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
 import Gopher from "/public/images/gopher.png";
@@ -182,6 +183,17 @@ const ProgramDetail: React.FC = () => {
 
   return (
     <Layout>
+      <NextSeo
+        title='GopherCon Korea 2023'
+        description='국내에서 진행되는 최초의 거대 행사, 2023년 08월 05일 부터 06일, 서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)에서 만나요!'
+        openGraph={{
+          title: "GopherCon Korea 2023",
+          description: data.title,
+          url: `https://gophercon.kr/program/${data.id}`,
+          type: "website",
+          images: [{ url: data.speaker.profileImage }],
+        }}
+      />
       <Content>
         <ContentProgramDetail>
           <ProgramDateTime>
