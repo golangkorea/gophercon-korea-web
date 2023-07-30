@@ -5,7 +5,7 @@ import { SESSIONS } from "@/constants/sessions";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { useTranslation } from "next-i18next";
+import { WithTranslation, withTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
@@ -251,9 +251,12 @@ const ProgramCardDateTime = styled.p({
 const ProgramCardDate = styled.span();
 const ProgramCardTime = styled.span();
 
-const ProgramDetail: React.FC = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface ProgramDetailProps extends WithTranslation {
+  data: InferGetStaticPropsType<typeof getStaticProps>;
+}
+
+const ProgramDetail: React.FC<ProgramDetailProps> = ({ t, data }) => {
   const router = useRouter();
-  const { t } = useTranslation(["common", "nav", "coc"]);
   // const [data, setData] = React.useState<Session | undefined>(undefined);
 
   // React.useEffect(() => {
@@ -345,7 +348,7 @@ const ProgramDetail: React.FC = ({ data }: InferGetStaticPropsType<typeof getSta
   );
 };
 
-export default ProgramDetail;
+export default withTranslation(["common", "nav", "coc"])(ProgramDetail);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
