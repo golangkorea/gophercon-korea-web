@@ -1,9 +1,11 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
+import { SEO } from "@/constants/seo";
 import { SPONSORS } from "@/constants/sponsors";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import SponsorCard from "@/pages/sponsors/_shared/card";
 import styled from "@emotion/styled";
+import { NextSeo } from "next-seo";
 
 const SponsorCards = styled.div({
   display: "flex",
@@ -21,6 +23,7 @@ const SponsorCards = styled.div({
 export default function SponsorsPage() {
   return (
     <Layout>
+      <NextSeo title={SEO.title} description={SEO.description} openGraph={SEO.openGraph} />
       <Content>
         <h1>당신이 있기에 오늘 GopherCon Korea 2023이 있습니다.</h1>
         <SponsorCards>

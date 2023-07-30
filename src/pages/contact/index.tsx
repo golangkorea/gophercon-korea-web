@@ -2,11 +2,14 @@ import Accordion from "@/components/accordion";
 import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { QNA } from "@/constants/qna";
+import { SEO } from "@/constants/seo";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
+import { NextSeo } from "next-seo";
 
 export default function ContactPage() {
   return (
     <Layout>
+      <NextSeo title={SEO.title} description={SEO.description} openGraph={SEO.openGraph} />
       <Content>
         <div className='w-full'>
           {QNA.map((item) => (

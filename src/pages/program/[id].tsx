@@ -1,5 +1,6 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
+import { SEO } from "@/constants/seo";
 import { Session, SESSIONS } from "@/constants/sessions";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import { keyframes } from "@emotion/react";
@@ -191,7 +192,7 @@ const ProgramDetail: React.FC = () => {
           description: data.title,
           url: `https://gophercon.kr/program/${data.id}`,
           type: "website",
-          images: [{ url: data.speaker.profileImage }],
+          images: [{ url: data.speaker.profileImage ?? SEO.image }],
         }}
       />
       <Content>

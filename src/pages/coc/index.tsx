@@ -1,7 +1,9 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
+import { SEO } from "@/constants/seo";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import styled from "@emotion/styled";
+import { NextSeo } from "next-seo";
 
 const COCSection = styled.section({
   marginBottom: 80,
@@ -10,6 +12,7 @@ const COCSection = styled.section({
 export default function COCPage() {
   return (
     <Layout>
+      <NextSeo title={SEO.title} description={SEO.description} openGraph={SEO.openGraph} />
       <Content>
         <div className='max-sm:p-4'>
           <h1>GopherCon Korea 2023 일반 참가자 행동강령</h1>

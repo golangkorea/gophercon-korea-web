@@ -1,8 +1,10 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
+import { SEO } from "@/constants/seo";
 import { SESSIONS } from "@/constants/sessions";
 import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import styled from "@emotion/styled";
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -104,6 +106,7 @@ export default function Program() {
   };
   return (
     <Layout>
+      <NextSeo title={SEO.title} description={SEO.description} openGraph={SEO.openGraph} />
       <Content>
         <ProgramTab>
           <ProgramTabButton active={tab === "DAY1"} onClick={onChangeTab("DAY1")}>

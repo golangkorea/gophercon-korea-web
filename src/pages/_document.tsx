@@ -36,13 +36,13 @@ export default function Document() {
         <meta property='twitter:domain' content={domain} />
         <meta name='twitter:title' content={title} />
         <meta property='og:title' content='GopherCon Korea 2023' key='title' />
-        <meta name='og:description' content={description} />
-        <meta name='description' content={description} />
-        <meta name='twitter:description' content={description} />
+        {/*<meta name='og:description' content={description} />*/}
+        {/*<meta name='description' content={description} />*/}
+        {/*<meta name='twitter:description' content={description} />*/}
 
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:image' content={"/ogImage.png"} />
-        <meta property='og:image' content={"/ogImage.png"} />
+        {/*<meta name='twitter:image' content={"/ogImage.png"} />*/}
+        {/*<meta property='og:image' content={"/ogImage.png"} />*/}
 
         <meta name='twitter:card' content='summary' />
 
