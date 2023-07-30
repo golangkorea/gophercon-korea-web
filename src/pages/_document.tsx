@@ -41,16 +41,16 @@ export default function Document() {
         <meta name='twitter:description' content={description} />
 
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:image' content={"/public/ogImage.png"} />
-        <meta property='og:image' content={"/public/ogImage.png"} />
+        <meta name='twitter:image' content={"/ogImage.png"} />
+        <meta property='og:image' content={"/ogImage.png"} />
 
         <meta name='twitter:card' content='summary' />
 
         <meta name='keywords' content='Golang, Gopher, 고퍼콘, 고퍼콘코리아' />
         <meta name='naver-site-verification' content='800ac9769224e7e4ed567fdabd7ff9708a748536' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='theme-color' content='#000000' />
-        <meta name='description' content='Web site created using create-react-app' />
+        <link rel='shortcut icon' href='/favicon.ico' />
+        <link rel='icon' type='image/png' sizes='32x32' href='favicon.png' />
         <link rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png' />
         <link rel='apple-touch-icon' sizes='60x60' href='/apple-icon-60x60.png' />
         <link rel='apple-touch-icon' sizes='72x72' href='/apple-icon-72x72.png' />
