@@ -83,6 +83,7 @@ export default function Document() {
         </Script>
       </Head>
       <body>
+        <Script strategy='beforeInteractive' type='text/javascript' src='/scripts/three.min.js' />
         <Main />
         <NextScript />
       </body>

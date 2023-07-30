@@ -7,6 +7,7 @@ const nextConfig = {
   },
   experimental: {
     scrollRestoration: true,
+    nextScriptWorkers: true,
   },
 };
 

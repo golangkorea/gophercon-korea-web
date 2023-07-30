@@ -49,6 +49,7 @@
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-typescript": "^7.22.5",
+    "@builder.io/partytown": "^0.8.0",
     "@emotion/babel-plugin": "^11.11.0",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/styled-components": "^5.1.26",

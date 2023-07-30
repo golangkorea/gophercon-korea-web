@@ -148,7 +148,6 @@ const CounterUnit = styled.p({
 const DATE = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm").toDate();
 const Location = () => {
   const [copied, setCopied] = useState<boolean>(false);
-  const [isThreeLoaded, setIsThreeLoaded] = useState<boolean>(false);
   const daysRef = useRef<HTMLDivElement>(null);
   const hoursRef = useRef<HTMLDivElement>(null);
   const minutesRef = useRef<HTMLDivElement>(null);
@@ -195,10 +194,6 @@ const Location = () => {
     tickAnimation("second");
   }, [seconds]);
 
-  const onLoadThree = () => {
-    setIsThreeLoaded(true);
-  };
-
   const onLoadVanta = () => {
     VANTA.GLOBE({
       el: "#vanta",
@@ -217,8 +212,7 @@ const Location = () => {
   return (
     <LocationContainer>
       <Globe id='vanta'></Globe>
-      <Script type='text/javascript' src='/scripts/three.min.js' onLoad={onLoadThree} />
-      {isThreeLoaded && <Script type='text/javascript' src='/scripts/vanta.globe.min.js' onLoad={onLoadVanta} />}
+      <Script type='text/javascript' src='/scripts/vanta.globe.min.js' onLoad={onLoadVanta} onError={onLoadVanta} />
       <LocationInner>
         <LocationMainSection>
           <LocationTitle>
