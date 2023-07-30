@@ -19,7 +19,7 @@ export default function Document() {
           <script dangerouslySetInnerHTML={{ __html: noOverlayWorkaroundScript }} />
         )}
         <Script async src='https://www.googletagmanager.com/gtag/js?id=G-T8BMXV9ZPX' />
-        <Script>
+        <Script id='google-analytics'>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
