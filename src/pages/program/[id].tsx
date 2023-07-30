@@ -186,7 +186,7 @@ const ProgramDetail: React.FC = () => {
     <Layout>
       <NextSeo
         title='GopherCon Korea 2023'
-        description='국내에서 진행되는 최초의 거대 행사, 2023년 08월 05일 부터 06일, 서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)에서 만나요!'
+        description='국국내에서 진행되는 Go 언어 사용자를 위한 최초의 거대 행사 GopherCon Korea 2023'
         openGraph={{
           title: "GopherCon Korea 2023",
           description: data.title,
