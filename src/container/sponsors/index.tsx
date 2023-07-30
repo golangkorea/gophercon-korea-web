@@ -40,7 +40,7 @@ const SponsorSection = styled.section({
 const Sponsors = () => {
   const handleClickLogo: MouseEventHandler<HTMLImageElement> = (e) => {
     const { id } = e.currentTarget;
-    const link = SPONSORS.find((sponsor) => sponsor.name === id)?.link;
+    const link = SPONSORS.ko.find((sponsor) => sponsor.name === id)?.link;
     if (link) {
       window.open(link, "_blank");
     }

@@ -58,6 +58,10 @@ const NavbarInner = styled.div({
     paddingLeft: 40,
     paddingRight: 40,
   },
+  "@media (max-width: 1000px)": {
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
 });
 
 const NavbarTitle = styled.h1({
@@ -220,7 +224,7 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
             <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
               {t("nav:contact")}
             </NavLink>
-            <NavRegisterButton onClick={openNewWindow}>Register</NavRegisterButton>
+            <NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>
             <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
           </NavButtonGroup>
           <NavMenuButton transparent onClick={toggleMenuOpen}>
@@ -242,11 +246,11 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
         <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
           {t("nav:contact")}
         </NavLink>
-        <NavRegisterButton onClick={openNewWindow}>Register</NavRegisterButton>
+        <NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>
         <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
       </NavMobile>
     </NavbarContainer>
   );
 };
 
-export default withTranslation(["common", "nav", "program"])(Navbar);
+export default withTranslation(["common", "nav", "coc"])(Navbar);

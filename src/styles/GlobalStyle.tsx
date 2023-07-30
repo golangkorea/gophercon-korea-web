@@ -30,7 +30,7 @@ const style: Interpolation<Global> = {
     listStyle: "decimal",
     paddingLeft: "1em",
     ol: {
-      listStyle: "korean-hangul-formal",
+      listStyle: "lower-roman",
     },
     "ul, ol": {
       marginTop: ".5em",

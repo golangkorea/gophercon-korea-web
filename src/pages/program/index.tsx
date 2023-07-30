@@ -4,6 +4,7 @@ import { SEO } from "@/constants/seo";
 import { SESSIONS } from "@/constants/sessions";
 import styled from "@emotion/styled";
 import { GetStaticProps } from "next";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
@@ -11,7 +12,7 @@ import React from "react";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? "", ["common", "nav", "program"])),
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav", "coc"])),
   },
 });
 
@@ -101,10 +102,12 @@ const ProgramButton = styled.button({
 
 export default function Program() {
   const router = useRouter();
+  const { locale } = router;
   const [tab, setTab] = React.useState<"DAY1" | "DAY2">("DAY1");
   const onChangeTab = (tab: "DAY1" | "DAY2") => {
     return () => setTab(tab);
   };
+  const { t } = useTranslation(["common", "nav", "coc"]);
 
   const routeToDetail = (id: number) => {
     return () => {
@@ -126,27 +129,27 @@ export default function Program() {
         <ProgramTable>
           <thead>
             <tr>
-              <th>발표 제목</th>
-              <th>구분</th>
-              <th>시간</th>
-              <th>발표자</th>
-              <th>더보기</th>
+              <th>{t("common:title")}</th>
+              <th>{t("common:category")}</th>
+              <th>{t("common:time")}</th>
+              <th>{t("common:speaker")}</th>
+              <th>{t("common:more")}</th>
             </tr>
           </thead>
           <tbody>
-            {SESSIONS.map((session) => {
+            {(locale === "ko" ? SESSIONS.ko : SESSIONS.en).map((session) => {
               if (tab === "DAY1" && session.date === "08-06") return;
               if (tab === "DAY2" && session.date === "08-05") return;
               return (
                 <tr key={session.id}>
-                  <th data-label='발표 제목'>{session.title}</th>
-                  <td data-label='구분'>{session.category}</td>
-                  <td data-label='시간'>{`${session.startTime} ~ ${session.endTime}`}</td>
+                  <th data-label={t("common:title")}>{session.title}</th>
+                  <td data-label={t("common:category")}>{session.category}</td>
+                  <td data-label={t("common:time")}>{`${session.startTime} ~ ${session.endTime}`}</td>
                   {session.category === "Main Talk" && (
                     <>
-                      <td data-label='발표자'>{`${session.speaker.name} | ${session.speaker.company}`}</td>
-                      <td data-label='더보기' onClick={routeToDetail(session.id)}>
-                        <ProgramButton>Learn More</ProgramButton>
+                      <td data-label={t("common:speaker")}>{`${session.speaker.name} | ${session.speaker.company}`}</td>
+                      <td data-label={t("common:more")} onClick={routeToDetail(session.id)}>
+                        <ProgramButton>{t("common:more")}</ProgramButton>
                       </td>
                     </>
                   )}

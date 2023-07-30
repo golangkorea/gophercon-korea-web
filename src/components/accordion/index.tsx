@@ -17,35 +17,38 @@ const AccordionContainer = styled.div<AccordionContainerStylesProps>(({ active }
   marginBottom: 40,
   overflow: "hidden",
   transition: "max-height 0.3s ease-in-out",
-  maxHeight: active ? "auto" : 128,
+  "&>h2": {
+    borderBottomWidth: active ? 1 : 0,
+  },
+  "&>div": {
+    display: active ? "block" : "none",
+  },
   "@media (max-width: 1000px)": {
-    maxHeight: active ? "auto" : 88,
     marginBottom: 20,
   },
 }));
 
 const AccordionTitle = styled.h2({
   cursor: "pointer",
-  fontSize: 32,
+  fontSize: 28,
   fontWeight: 600,
   margin: 0,
-  padding: 40,
+  padding: 20,
+  lineHeight: 1.2,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   "@media (max-width: 1000px)": {
-    fontSize: 24,
-    padding: 20,
+    fontSize: 22,
   },
 });
 
 const AccordionContent = styled.div({
-  padding: 40,
-  fontSize: 24,
+  padding: 20,
+  fontSize: 22,
   overflow: "hidden",
   "@media (max-width: 1000px)": {
     fontSize: 20,
-    padding: 20,
   },
 });
 

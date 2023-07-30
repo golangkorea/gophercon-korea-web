@@ -108,4 +108,4 @@ const About: React.FC<WithTranslation> = ({ t }) => {
   );
 };
 
-export default withTranslation(["common", "nav", "program"])(About);
+export default withTranslation(["common", "nav", "coc"])(About);

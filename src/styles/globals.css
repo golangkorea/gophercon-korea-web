@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+::-moz-selection {
+  color: #fff;
+  background-color: rgba(0, 32, 255, 0.9);
+}
+
+::selection {
+  color: #fff;
+  background-color: rgba(0, 32, 255, 0.9);
+}
+
 .ticketGradient {
   background: linear-gradient(135deg, #00aeff 0%, hsl(146, 100%, 50%) 100%);
   padding: 11px;

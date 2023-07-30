@@ -10,7 +10,7 @@ import { NextSeo } from "next-seo";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? "", ["common", "nav", "program"])),
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav", "coc"])),
   },
 });
 

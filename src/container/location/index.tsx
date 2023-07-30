@@ -284,4 +284,4 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
   );
 };
 
-export default withTranslation(["common", "nav", "program"])(Location);
+export default withTranslation(["common", "nav", "coc"])(Location);

@@ -19,5 +19,9 @@
   "time": "Time",
   "speaker": "Speaker",
   "more": "More",
-  "checkin": "Check-in"
+  "checkin": "Check-in",
+  "moreTopics": "Check out these other topics!",
+  "readTopics": "Hear the speakers' deep and varied experiences with the Go language and join them on our journey.",
+  "sponsorTitle": "GopherCon Korea 2023 is here today because of you.",
+  "goToWebsite": "Go to website"
 }
