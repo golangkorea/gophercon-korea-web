@@ -2,11 +2,18 @@ import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
 import { SESSIONS } from "@/constants/sessions";
-import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import styled from "@emotion/styled";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav"])),
+  },
+});
 
 interface ProgramTabButtonStyledProps {
   active?: boolean;
@@ -152,5 +159,3 @@ export default function Program() {
     </Layout>
   );
 }
-
-export const getStaticProps = getI18nProps;

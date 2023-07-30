@@ -1,9 +1,16 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
-import { getI18nProps } from "@/i18n/utils/getI18nProps";
 import styled from "@emotion/styled";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav"])),
+  },
+});
 
 const COCSection = styled.section({
   marginBottom: 80,
@@ -191,5 +198,3 @@ export default function COCPage() {
     </Layout>
   );
 }
-
-export const getStaticProps = getI18nProps;

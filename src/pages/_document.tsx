@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from "next/document";
 import Script from "next/script";
+import GlobalStyle from "../styles/GlobalStyle";
 
 const noOverlayWorkaroundScript = `
   window.addEventListener('error', event => {
@@ -20,12 +21,6 @@ export default function Document() {
       <Head>
         <meta charSet='utf-8' />
         <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
-        <meta
-          name='viewport'
-          content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
-        />
-        <title>{title}</title>
-
         <meta name='author' content='Golang Korea' />
 
         <meta name='robots' content='index,follow' />
@@ -35,9 +30,9 @@ export default function Document() {
         <meta property='twitter:domain' content={domain} />
         <meta name='twitter:title' content={title} />
         <meta property='og:title' content='GopherCon Korea 2023' key='title' />
-        {/*<meta name='og:description' content={description} />*/}
-        {/*<meta name='description' content={description} />*/}
-        {/*<meta name='twitter:description' content={description} />*/}
+        <meta name='og:description' content={description} />
+        <meta name='description' content={description} />
+        <meta name='twitter:description' content={description} />
 
         <meta name='twitter:card' content='summary_large_image' />
         {/*<meta name='twitter:image' content={"/ogImage.png"} />*/}
@@ -82,6 +77,7 @@ export default function Document() {
           `}
         </Script>
       </Head>
+      <GlobalStyle />
       <body>
         <Script strategy='beforeInteractive' type='text/javascript' src='/scripts/three.min.js' />
         <Main />

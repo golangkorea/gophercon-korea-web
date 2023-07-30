@@ -1,8 +1,8 @@
-import { useI18n } from "@/hooks/useI18n";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import { WithTranslation, withTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 
 interface NavLinkStyledProps {
@@ -164,20 +164,29 @@ const BlackOverlay = styled.div<BlackOverlayStyledProps>(({ active }: BlackOverl
   transition: "background-color .3s ease",
 }));
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const mobileNavRef = React.useRef<HTMLDivElement>(null);
   const { pathname } = useRouter();
-  const { locale, setLocale, LL } = useI18n();
   const router = useRouter();
+  const { locale } = router;
 
   const toggleMenuOpen = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
-  React.useEffect(() => {
+  const handleChangeLanguage = useCallback(() => {
+    const nextLocal = locale === "en" ? "ko" : "en";
+    router.push(router.asPath, router.asPath, { locale: nextLocal });
+  }, [locale]);
+
+  useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
+
+  useEffect(() => {
+    i18n.changeLanguage(locale);
+  }, [locale]);
 
   const handleRoute = React.useCallback(
     (href: string) => {
@@ -200,21 +209,19 @@ const Navbar: React.FC = () => {
           </NavLink>
           <NavButtonGroup>
             <NavLink active={pathname === "/program"} onClick={handleRoute("/program")}>
-              {LL?.nav.program()}
+              {t("nav:program")}
             </NavLink>
             <NavLink active={pathname === "/sponsors"} onClick={handleRoute("/sponsors")}>
-              {LL?.nav.sponsors()}
+              {t("nav:sponsors")}
             </NavLink>
             <NavLink active={pathname === "/coc"} onClick={handleRoute("/coc")}>
-              {LL?.nav.coc()}
+              {t("nav:coc")}
             </NavLink>
             <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
-              {LL?.nav.contact()}
+              {t("nav:contact")}
             </NavLink>
             <NavRegisterButton onClick={openNewWindow}>Register</NavRegisterButton>
-            <NavButton onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}>
-              {LL?.changeLang()}
-            </NavButton>
+            <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
           </NavButtonGroup>
           <NavMenuButton transparent onClick={toggleMenuOpen}>
             {isOpen ? <RiCloseFill /> : <RiMenuFill />}
@@ -224,22 +231,22 @@ const Navbar: React.FC = () => {
       <BlackOverlay active={isOpen} onClick={toggleMenuOpen} />
       <NavMobile active={isOpen} ref={mobileNavRef}>
         <NavLink active={pathname === "/program"} onClick={handleRoute("/program")}>
-          {LL?.nav.program()}
+          {t("nav:program")}
         </NavLink>
         <NavLink active={pathname === "/sponsors"} onClick={handleRoute("/sponsors")}>
-          {LL?.nav.sponsors()}
+          {t("nav:sponsors")}
         </NavLink>
         <NavLink active={pathname === "/coc"} onClick={handleRoute("/coc")}>
-          {LL?.nav.coc()}
+          {t("nav:coc")}
         </NavLink>
         <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
-          {LL?.nav.contact()}
+          {t("nav:contact")}
         </NavLink>
         <NavRegisterButton onClick={openNewWindow}>Register</NavRegisterButton>
-        <NavButton onClick={async () => await setLocale(locale === "en" ? "ko" : "en")}>{LL?.changeLang()}</NavButton>
+        <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
       </NavMobile>
     </NavbarContainer>
   );
 };
 
-export default Navbar;
+export default withTranslation(["common", "nav"])(Navbar);

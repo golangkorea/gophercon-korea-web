@@ -2,16 +2,25 @@ import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
 import { SESSIONS } from "@/constants/sessions";
-import { Locales } from "@/i18n/i18n-types";
-import { loadedLocales } from "@/i18n/i18n-util";
-import { loadLocaleAsync } from "@/i18n/i18n-util.async";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
 import Gopher from "/public/images/gopher.png";
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const id = context.params?.id;
+  const data = SESSIONS.find((session) => session.id === Number(id));
+  return {
+    props: {
+      data: data || {},
+    },
+    ...(await serverSideTranslations(context.locale ?? "", ["common", "nav"])),
+  };
+};
 
 interface SpeakerProfileStyledProps {
   url: string;
@@ -157,24 +166,7 @@ const ProgramCardDateTime = styled.p({
 const ProgramCardDate = styled.span();
 const ProgramCardTime = styled.span();
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const locale = context.locale as Locales;
-  await loadLocaleAsync(locale);
-
-  const id = context.params?.id;
-  const data = SESSIONS.find((session) => session.id === Number(id));
-  return {
-    props: {
-      i18n: {
-        locale: locale,
-        dictionary: loadedLocales[locale],
-      },
-      data: data || {},
-    },
-  };
-};
 const ProgramDetail: React.FC = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log({ data });
   const router = useRouter();
   // const [data, setData] = React.useState<Session | undefined>(undefined);
 

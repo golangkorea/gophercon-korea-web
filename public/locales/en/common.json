@@ -1,0 +1,23 @@
+{
+  "address": "Sejong Univ, Daeyang AI Center, 12F, 209, Neungdong-ro, Gwangjin-gu, Seoul, South Korea",
+  "eventDesc": "Hi there!, It's Golang Korea.\nIn the summer of 2023, GopherCon, the biggest event for Go language users in South Korea, will be held for the first time in Korea! 🎉\n\nThe theme of GopherCon Korea 2023 is \"Go in-depth,\" and there will be a variety of sessions that will give you an inside look at the Go language and how to use it.",
+  "copyright1": "The first in Korea",
+  "copyright2": "The largest in Korea",
+  "copyright3": "Conferences for Go users",
+  "aboutGo": "About the Go language",
+  "gopherConKorea": "GopherCon Korea",
+  "golangKorea": "Golang Korea",
+  "aboutGoDesc": "The Go language is a programming language developed by Google. Characterized by its concise and readable syntax, concurrency, and fast compilation speed, the Go language runs efficiently and scales well on large systems. Go is primarily used for server programming and distributed systems, and is also actively used in large projects such as Docker and Kubernetes.",
+  "gopherConKoreaDesc": "Users of the Go language and its mascot are called Gophers. GopherCon, coined here, is a conference for all Gophers. In Korea, we launched the first and largest annual Go developer event, GopherCon Korea, in 2023, and since then, we have been trying to create a communication channel for the Go language and make global connections through GopherCon Korea every year.",
+  "golangKoreaDesc": "Golang Korea is a Korean language community that started in 2011 and has been growing steadily for 12 years. With over 7,300 community members on Facebook, Instagram, Thread, Slack, Twitter, YouTube, GitHub, and other channels, we share information, network, organize educational sessions, and plan fun online and offline events.",
+  "register": "Register",
+  "copyAddress": "Copy address",
+  "copied": "Copied!",
+  "addCalendar": "Add this event to my calendar",
+  "title": "Title",
+  "category": "Category",
+  "time": "Time",
+  "speaker": "Speaker",
+  "more": "More",
+  "checkin": "Check-in"
+}

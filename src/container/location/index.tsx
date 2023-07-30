@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import dayjs from "dayjs";
 import { gsap } from "gsap";
+import { WithTranslation, withTranslation } from "next-i18next";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -33,7 +34,8 @@ const Globe = styled.div({
 const LocationMainSection = styled.section({
   width: "90%",
   maxWidth: 1440,
-  padding: "0 80px",
+  textAlign: "left",
+  justifyContent: "flex-start",
   "@media (max-width: 1000px)": {
     display: "flex",
     alignItems: "center",
@@ -146,7 +148,7 @@ const CounterUnit = styled.p({
 });
 
 const DATE = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm").toDate();
-const Location = () => {
+const Location: React.FC<WithTranslation> = ({ t }) => {
   const [copied, setCopied] = useState<boolean>(false);
   const daysRef = useRef<HTMLDivElement>(null);
   const hoursRef = useRef<HTMLDivElement>(null);
@@ -194,25 +196,35 @@ const Location = () => {
     tickAnimation("second");
   }, [seconds]);
 
-  const onLoadVanta = () => {
-    VANTA.GLOBE({
-      el: "#vanta",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale: 1.2,
-      scaleMobile: 1.0,
-      color: "#0029ff",
-      backgroundColor: "#f2f2ff",
-    });
+  const initVanta = () => {
+    try {
+      VANTA.GLOBE({
+        el: "#vanta",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.2,
+        scaleMobile: 1.0,
+        color: "#0029ff",
+        backgroundColor: "#f2f2ff",
+      });
+    } catch (e) {
+      console.warn(e);
+    }
   };
+
+  const onLoadVanta = () => {
+    initVanta();
+  };
+
+  useEffect(initVanta, []);
 
   return (
     <LocationContainer>
       <Globe id='vanta'></Globe>
-      <Script type='text/javascript' src='/scripts/vanta.globe.min.js' onLoad={onLoadVanta} onError={onLoadVanta} />
+      <Script type='text/javascript' src='/scripts/vanta.globe.min.js' onLoad={onLoadVanta} />
       <LocationInner>
         <LocationMainSection>
           <LocationTitle>
@@ -223,11 +235,11 @@ const Location = () => {
           <LocationDate>2023.08.05-06</LocationDate>
           <CopyToClipboard text='서울특별시 광진구 능동로 209' onCopy={onCopyHandler}>
             <LocationAddressButton>
-              <span>서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)</span>
+              <span>{t("address")}</span>
               {copied ? (
-                <LocationAddressButtonCopied>복사됨!</LocationAddressButtonCopied>
+                <LocationAddressButtonCopied>{t("copied")}</LocationAddressButtonCopied>
               ) : (
-                <LocationAddressButtonCopyMessage>이곳을 클릭해서 주소 복사하기</LocationAddressButtonCopyMessage>
+                <LocationAddressButtonCopyMessage>{t("copyAddress")}</LocationAddressButtonCopyMessage>
               )}
             </LocationAddressButton>
           </CopyToClipboard>
@@ -235,18 +247,15 @@ const Location = () => {
 
         <div className='mt-4 flex w-full justify-center'>
           <AddToCalendarButton
-            label='내 캘린더에 일정 추가하기'
+            label={t("addCalendar")}
             name='GopherCon Korea 2023'
-            description='안녕하세요, Golang Korea입니다.
-    2023년 여름, Go 언어 사용자들의 최대 행사인 GopherCon이 한국에서 처음으로 개최됩니다! 🎉
-
-    이번 GopherCon Korea 2023의 주제는 "Go In Depth"로 그동안 미처 살펴보지 못했던 Go 언어의 활용법과 내부를 들여다 볼 수 있다는 다양한 세션이 준비되어 있습니다.'
+            description={t("eventDesc")}
             startDate='2023-08-05'
             startTime='10:00'
             endDate='2023-08-06'
             endTime='18:00'
             timeZone='Asia/Seoul'
-            location='서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)'
+            location={t("address")}
             options="'Apple','Google','iCal','Outlook.com','Microsoft365'"
             buttonStyle='3d'
             listStyle='overlay'
@@ -275,4 +284,4 @@ const Location = () => {
   );
 };
 
-export default Location;
+export default withTranslation(["common", "nav"])(Location);

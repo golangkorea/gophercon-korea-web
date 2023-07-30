@@ -3,8 +3,15 @@ import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { QNA } from "@/constants/qna";
 import { SEO } from "@/constants/seo";
-import { getI18nProps } from "@/i18n/utils/getI18nProps";
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav"])),
+  },
+});
 
 export default function ContactPage() {
   return (
@@ -22,5 +29,3 @@ export default function ContactPage() {
     </Layout>
   );
 }
-
-export const getStaticProps = getI18nProps;

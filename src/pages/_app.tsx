@@ -1,10 +1,6 @@
-import TypesafeI18n from "@/i18n/i18n-react";
-import { Locales, Translation } from "@/i18n/i18n-types";
-import { loadedLocales } from "@/i18n/i18n-util";
-import { loadFormatters } from "@/i18n/i18n-util.sync";
 import "@/styles/globals.css";
-import GlobalStyle from "@/styles/GlobalStyle";
 import localFont from "@next/font/local";
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
 
 const pretendard = localFont({
@@ -48,24 +44,19 @@ const pretendard = localFont({
   ],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   if (!pageProps.i18n) {
     // Something wrong...!
     return <Component {...pageProps} />;
   }
 
-  const locale: Locales = pageProps.i18n.locale;
-  const dictionary: Translation = pageProps.i18n.dictionary;
-
-  loadedLocales[locale] = dictionary as Translation;
-  loadFormatters(locale);
+  console.log("a", pretendard.className);
 
   return (
-    <TypesafeI18n locale={locale}>
-      <GlobalStyle />
-      <main className={pretendard.className}>
-        <Component {...pageProps} />
-      </main>
-    </TypesafeI18n>
+    <main className={pretendard.className}>
+      <Component {...pageProps} />
+    </main>
   );
-}
+};
+
+export default appWithTranslation(App);

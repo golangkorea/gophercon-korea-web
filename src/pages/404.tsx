@@ -1,3 +1,12 @@
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav"])),
+  },
+});
+
 export default function Custom404() {
   return (
     <div className='text- flex h-screen w-screen items-center justify-center bg-[#1D1D1D] text-sm md:text-2xl xl:text-2xl '>

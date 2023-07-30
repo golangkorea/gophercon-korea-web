@@ -1,0 +1,23 @@
+{
+  "address": "서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)",
+  "eventDesc": "안녕하세요, Golang Korea입니다.\n2023년 여름, Go 언어 사용자들의 최대 행사인 GopherCon이 한국에서 처음으로 개최됩니다! 🎉\n\n이번 GopherCon Korea 2023의 주제는 \"Go in-depth\"로 그동안 미처 살펴보지 못했던 Go 언어의 활용법과 내부를 들여다 볼 수 있다는 다양한 세션이 준비되어 있습니다.",
+  "copyright1": "국내 최초",
+  "copyright2": "국내 최대",
+  "copyright3": "Go 사용자를 위한 컨퍼런스",
+  "aboutGo": "Go 언어에 대해서",
+  "gopherConKorea": "고퍼콘 코리아",
+  "golangKorea": "한국 고언어 사용자모임",
+  "aboutGoDesc": "Go 언어는 Google에서 개발한 프로그래밍 언어입니다. 간결하고 가독성이 높은 문법을 갖췄으며 동시성과 빠른 컴파일 속도를 제공한다는 특징을 가지고 있는 Go 언어는, 대규모 시스템에서도 효율적인 실행과 확장성을 제공합니다. Go는 주로 서버 프로그래밍과 분산 시스템에 많이 사용되며, Docker, Kubernetes 등의 대형 프로젝트에서도 활발하게 사용되고 있습니다.",
+  "gopherConKoreaDesc": "Go 언어 사용자들과 Go 언어의 마스코트는 고퍼(Gopher)라고 불립니다. 여기서 창안된 고퍼콘(GopherCon)은 모든 고퍼들을 위한 컨퍼런스입니다. 한국에서는 2023년에 최초로 연례 최대 고 개발자 행사인 고퍼콘 코리아(GopherCon Korea)를 시작하였고, 이를 기점으로 매년 고퍼콘 코리아를 통해 고 언어 소통 창구를 만들고 글로벌 연결을 시도하고 있습니다.",
+  "golangKoreaDesc": "Golang Korea는 2011년 부터 시작되어 12년간 꾸준하게 성장해온 한국 고언어 커뮤니티입니다. Facebook의 7,300명에 달하는 커뮤니티 구성원과 Instagram, Thread, Slack, Twitter, YouTube, GitHub 등 다양한 채널을 통해 다양한 고언어 사용자끼리의 정보 공유와 네트워킹, 그리고 교육 세션을 주관하고 재밌는 온/오프라인 이벤트 기획하고 있습니다.",
+  "register": "행사등록",
+  "copyAddress": "주소 복사",
+  "copied": "복사됨!",
+  "addCalendar": "내 캘린더에 일정 추가",
+  "title": "제목",
+  "category": "구분",
+  "time": "시간",
+  "speaker": "발표자",
+  "more": "더보기",
+  "checkin": "체크인"
+}

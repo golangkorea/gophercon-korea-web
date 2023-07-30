@@ -142,14 +142,16 @@ const Sponsors = () => {
         <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             onClick={handleClickLogo}
+            id='GoogleForDevelopers'
             src={GoogleForDevelopers}
-            alt={"Google"}
+            alt={"GoogleForDevelopers"}
             height={80}
             quality={100}
             className='cursor-pointer bg-white object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
+            id='Awskrug'
             src={Awskrug}
             alt={"Awskrug"}
             height={160}
@@ -188,7 +190,7 @@ const Sponsors = () => {
             alt={"Hanbit"}
             height={90}
             quality={100}
-            className='object-contain p-2'
+            className='cursor-pointer object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -197,7 +199,7 @@ const Sponsors = () => {
             alt={"Decoding"}
             height={80}
             quality={100}
-            className='object-contain p-2'
+            className='cursor-pointer object-contain p-2'
           />
           <Image
             onClick={handleClickLogo}
@@ -206,7 +208,7 @@ const Sponsors = () => {
             alt={"Jpub"}
             height={120}
             quality={100}
-            className='object-contain p-2'
+            className='cursor-pointer object-contain p-2'
           />
         </div>
       </SponsorSection>
