@@ -1,11 +1,13 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
-import { Session, SESSIONS } from "@/constants/sessions";
-import { getI18nProps } from "@/i18n/utils/getI18nProps";
+import { SESSIONS } from "@/constants/sessions";
+import { Locales } from "@/i18n/i18n-types";
+import { loadedLocales } from "@/i18n/i18n-util";
+import { loadLocaleAsync } from "@/i18n/i18n-util.async";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import { GetStaticPaths } from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
@@ -155,17 +157,34 @@ const ProgramCardDateTime = styled.p({
 const ProgramCardDate = styled.span();
 const ProgramCardTime = styled.span();
 
-const ProgramDetail: React.FC = () => {
-  const router = useRouter();
-  const [data, setData] = React.useState<Session | undefined>(undefined);
+export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale as Locales;
+  await loadLocaleAsync(locale);
 
-  React.useEffect(() => {
-    const { id } = router.query;
-    if (id) {
-      const target = SESSIONS.find((session) => session.id === Number(id));
-      setData(target);
-    }
-  }, [router]);
+  const id = context.params?.id;
+  const data = SESSIONS.find((session) => session.id === Number(id));
+  return {
+    props: {
+      i18n: {
+        locale: locale,
+        dictionary: loadedLocales[locale],
+      },
+      data: data || {},
+    },
+  };
+};
+const ProgramDetail: React.FC = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log({ data });
+  const router = useRouter();
+  // const [data, setData] = React.useState<Session | undefined>(undefined);
+
+  // React.useEffect(() => {
+  //   const { id } = router.query;
+  //   if (id) {
+  //     const target = SESSIONS.find((session) => session.id === Number(id));
+  //     setData(target);
+  //   }
+  // }, [router]);
 
   const randomTwo = React.useMemo(() => {
     const { id } = router.query;
@@ -220,7 +239,7 @@ const ProgramDetail: React.FC = () => {
         <ContentProgramDetail>
           <h2>다른 프로그램도 준비되어 있습니다!</h2>
           <Programs>
-            {randomTwo.map((session, index) => (
+            {randomTwo?.map((session, index) => (
               <ProgramCard
                 key={session.id}
                 className='relative flex cursor-pointer'
@@ -246,7 +265,6 @@ const ProgramDetail: React.FC = () => {
 
 export default ProgramDetail;
 
-export const getStaticProps = getI18nProps;
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
