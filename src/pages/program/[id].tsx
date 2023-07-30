@@ -17,8 +17,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const data = (context.locale === "ko" ? SESSIONS.ko : SESSIONS.en).find((session) => session.id === Number(id));
   return {
     props: {
-      ...(await serverSideTranslations(context.locale ?? "", ["common", "nav", "coc"])),
       data: data || {},
+      ...(await serverSideTranslations(context.locale ?? "", ["common", "nav", "coc"])),
     },
   };
 };
