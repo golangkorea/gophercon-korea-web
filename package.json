@@ -28,7 +28,7 @@
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6",
     "gsap": "^3.12.2",
-    "next": "13.4.6",
+    "next": "13.2.4",
     "next-seo": "^6.1.0",
     "postcss": "^8.4.25",
     "react": "18.2.0",
