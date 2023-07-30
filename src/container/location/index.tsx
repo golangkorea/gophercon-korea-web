@@ -88,8 +88,11 @@ const LocationAddressButtonCopied = styled.span({
 });
 
 const LocationAddressButtonCopyMessage = styled(LocationAddressButtonCopied)({
-  backgroundColor: "#fafafa",
+  backgroundColor: "#fafafa90",
   color: "#000",
+  "@media (max-width: 1000px)": {
+    fontSize: 18,
+  },
 });
 
 const CounterGroup = styled.div({
@@ -97,11 +100,17 @@ const CounterGroup = styled.div({
   marginTop: 20,
   fontWeight: 600,
   gap: 80,
+  "@media (max-width: 1000px)": {
+    gap: 20,
+  },
 });
 const Counter = styled.div({
   MozOutlineWidthidth: 120,
   height: 200,
   textAlign: "center",
+  "@media (max-width: 1000px)": {
+    height: 100,
+  },
 });
 const CounterValue = styled.p({
   fontSize: 70,
@@ -112,6 +121,9 @@ const CounterValue = styled.p({
   "-webkit-text-fill-color": "transparent",
   lineHeight: 1.5,
   textShadow: "0 6px 12px rgba(0, 32, 255, .25)",
+  "@media (max-width: 1000px)": {
+    fontSize: 24,
+  },
 });
 const CounterUnit = styled.p({
   fontSize: 30,
@@ -121,6 +133,9 @@ const CounterUnit = styled.p({
   "-webkit-text-fill-color": "transparent",
   textShadow: "0 3px 6px rgba(0, 163, 255, .25)",
   lineHeight: 1.5,
+  "@media (max-width: 1000px)": {
+    fontSize: 18,
+  },
 });
 
 const DATE = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm").toDate();
