@@ -23,7 +23,7 @@ export default function Document() {
         <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
         <meta name='author' content='Golang Korea' />
 
-        <meta name='robots' content='index,follow' />
+        <meta name='robots' content='index, follow' />
         <meta property='og:type' content='website' />
 
         <meta property='og:site_name' content={title} />
@@ -40,7 +40,7 @@ export default function Document() {
 
         <meta name='twitter:card' content='summary' />
 
-        <meta name='keywords' content='Golang, Gopher, 고퍼콘, 고퍼콘코리아' />
+        <meta name='keywords' content='Golang, Gopher, GopherCon Korea, 고퍼콘, 고퍼콘 코리아' />
         <meta name='naver-site-verification' content='800ac9769224e7e4ed567fdabd7ff9708a748536' />
         <meta name='theme-color' content='#000000' />
         <link rel='shortcut icon' href='/favicon.ico' />
