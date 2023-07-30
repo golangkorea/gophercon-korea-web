@@ -128,7 +128,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ ...props }) => {
     }
   }, [isDetail]);
 
-  if (!width) return null;
+  if (!width || !props.isShow) return null;
 
   return (
     <>
