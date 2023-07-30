@@ -24,6 +24,9 @@ import Awskrug from "/public/images/sponsors/community/logo_awskrug.webp";
 import GoogleForDevelopers from "/public/images/sponsors/community/logo_google_for_developers.png";
 import Jetbrains from "/public/images/sponsors/community/logo_jetbrains.webp";
 
+// SPACE
+import Modulabs from "/public/images/sponsors/space/modulabs.png";
+
 // PUBLISHER
 import { SPONSORS } from "@/constants/sponsors";
 import styled from "@emotion/styled";
@@ -164,6 +167,21 @@ const Sponsors = () => {
             src={Jetbrains}
             alt={"Jetbrains"}
             height={140}
+            quality={100}
+            className='cursor-pointer bg-white object-contain p-2'
+          />
+        </div>
+      </SponsorSection>
+      <SponsorSection>
+        <p className='mb-2 text-3xl font-bold uppercase'>space</p>
+        <div className='etcColorGradient mb-4 h-0.5 w-full' />
+        <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
+          <Image
+            onClick={handleClickLogo}
+            id='Modulabs'
+            src={Modulabs}
+            alt={"Modulabs"}
+            height={80}
             quality={100}
             className='cursor-pointer bg-white object-contain p-2'
           />
