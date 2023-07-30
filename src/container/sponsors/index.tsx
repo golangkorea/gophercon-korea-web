@@ -181,7 +181,7 @@ const Sponsors = () => {
             id='Modulabs'
             src={Modulabs}
             alt={"Modulabs"}
-            height={80}
+            height={90}
             quality={100}
             className='cursor-pointer bg-white object-contain p-2'
           />
