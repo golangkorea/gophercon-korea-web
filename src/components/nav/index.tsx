@@ -249,4 +249,4 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
   );
 };
 
-export default withTranslation(["common", "nav"])(Navbar);
+export default withTranslation(["common", "nav", "program"])(Navbar);

@@ -11,7 +11,7 @@ import React from "react";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? "", ["common", "nav"])),
+    ...(await serverSideTranslations(locale ?? "", ["common", "nav", "program"])),
   },
 });
 

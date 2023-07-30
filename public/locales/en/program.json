@@ -1,0 +1,13 @@
+{
+  "day05Time1120": "Go 테스트의 거의 모든 것, 실습으로 쉽게 알아보자Go",
+  "day05Time1230": "1.Generative AI with GO (30분) 2.Event(60분)",
+  "day05Time1400": "컨텍스트를 이용한 상태관리",
+  "day05Time1440": "API 서버 테스트코드 A-Z : 케이스별 효과적인 테스트코드 작성 전략",
+  "day05Time1630": "Profiling and Tracing Tips in Go: OLAP 데이터베이스를 개발하며 얻은 교훈들",
+  "day05Time1710": "eBPF 도구를 이용해 Go 애플리케이션 추적하기",
+  "event": "이벤트 (추첨)",
+  "break": "쉬는시간",
+  "tbd": "미정 (추후 업데이트)",
+  "openingWithSponsorIntro": "오프닝 및 후원사 인트로",
+  "closing": "클로징"
+}

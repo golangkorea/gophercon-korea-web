@@ -45,13 +45,6 @@ const pretendard = localFont({
 });
 
 const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  if (!pageProps.i18n) {
-    // Something wrong...!
-    return <Component {...pageProps} />;
-  }
-
-  console.log("a", pretendard.className);
-
   return (
     <main className={pretendard.className}>
       <Component {...pageProps} />
