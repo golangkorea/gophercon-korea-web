@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import localFont from "@next/font/local";
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
+import Script from "next/script";
 
 const pretendard = localFont({
   src: [
@@ -47,6 +48,16 @@ const pretendard = localFont({
 const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <main className={pretendard.className}>
+      <Script async src='https://www.googletagmanager.com/gtag/js?id=G-T8BMXV9ZPX' />
+      <Script id='google-analytics'>
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-T8BMXV9ZPX');
+          `}
+      </Script>
       <Component {...pageProps} />
     </main>
   );

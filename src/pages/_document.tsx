@@ -66,16 +66,6 @@ export default function Document() {
         {process.env.NODE_ENV !== "production" && (
           <script dangerouslySetInnerHTML={{ __html: noOverlayWorkaroundScript }} />
         )}
-        <Script async src='https://www.googletagmanager.com/gtag/js?id=G-T8BMXV9ZPX' />
-        <Script id='google-analytics'>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-T8BMXV9ZPX');
-          `}
-        </Script>
       </Head>
       <GlobalStyle />
       <body>
