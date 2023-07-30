@@ -103,6 +103,7 @@ const Sponsors = () => {
         <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             onClick={handleClickLogo}
+            id='오픈업'
             src={Openup}
             alt={"Openup"}
             height={120}
@@ -157,6 +158,7 @@ const Sponsors = () => {
           />
           <Image
             onClick={handleClickLogo}
+            id='Jetbrains'
             src={Jetbrains}
             alt={"Jetbrains"}
             height={140}
@@ -171,6 +173,7 @@ const Sponsors = () => {
         <div className='flex w-full justify-center gap-8 p-4 max-lg:flex-col max-lg:items-center'>
           <Image
             onClick={handleClickLogo}
+            id='GoldenRabbit'
             src={GoldenRabbit}
             alt={"GoldenRabbit"}
             width={200}
@@ -180,6 +183,7 @@ const Sponsors = () => {
           />
           <Image
             onClick={handleClickLogo}
+            id='Hanbit'
             src={Hanbit}
             alt={"Hanbit"}
             height={90}
@@ -188,6 +192,7 @@ const Sponsors = () => {
           />
           <Image
             onClick={handleClickLogo}
+            id='Decoding'
             src={Decoding}
             alt={"Decoding"}
             height={80}
@@ -196,6 +201,7 @@ const Sponsors = () => {
           />
           <Image
             onClick={handleClickLogo}
+            id='Jpub'
             src={Jpub}
             alt={"Jpub"}
             height={120}
