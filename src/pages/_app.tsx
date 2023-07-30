@@ -4,8 +4,8 @@ import { loadedLocales } from "@/i18n/i18n-util";
 import { loadFormatters } from "@/i18n/i18n-util.sync";
 import "@/styles/globals.css";
 import GlobalStyle from "@/styles/GlobalStyle";
+import localFont from "@next/font/local";
 import type { AppProps } from "next/app";
-import localFont from "next/font/local";
 
 const pretendard = localFont({
   src: [
