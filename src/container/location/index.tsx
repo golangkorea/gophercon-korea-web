@@ -233,7 +233,7 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
             2023
           </LocationTitle>
           <LocationDate>2023.08.05-06</LocationDate>
-          <CopyToClipboard text='서울특별시 광진구 능동로 209' onCopy={onCopyHandler}>
+          <CopyToClipboard text={t("address")} onCopy={onCopyHandler}>
             <LocationAddressButton>
               <span>{t("address")}</span>
               {copied ? (
