@@ -20,6 +20,8 @@ export default function Document() {
           name='description'
           content='국내에서 진행되는 최초의 거대 행사, 2023년 08월 05일 부터 06일, 서울특별시 광진구 능동로 209, 세종대학교 대양 AI 센터 (12층)에서 만나요!'
         />
+        <meta name='keywords' content='Golang, Gopher, 고퍼콘, 고퍼콘코리아' />
+        <meta charSet='utf-8'></meta>
         <meta name='naver-site-verification' content='800ac9769224e7e4ed567fdabd7ff9708a748536' />
         {process.env.NODE_ENV !== "production" && (
           <script dangerouslySetInnerHTML={{ __html: noOverlayWorkaroundScript }} />
