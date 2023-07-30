@@ -31,13 +31,15 @@ const createSitemap = () =>
     <url>
       <loc>https://gophercon.kr/sponsors</loc>
     </url>
-    ${SESSIONS.map((session) =>
-      `
+    ${SESSIONS.ko
+      .map((session) =>
+        `
           <url>
             <loc>https://gophercon.kr/program/${session.id}</loc>
           </url>
         `.trim(),
-    ).join("")}
+      )
+      .join("")}
   </urlset>
 `;
 
