@@ -1,5 +1,6 @@
 import Navbar from "@/components/nav";
 import styled from "@emotion/styled";
+import Script from "next/script";
 import React from "react";
 
 interface LayoutProps {
@@ -34,6 +35,16 @@ const Layout: React.FC<LayoutProps> = ({ children, main }) => {
     <LayoutContainer>
       <Navbar />
       <LayoutInner main={main}>{children}</LayoutInner>
+      <Script async src='https://www.googletagmanager.com/gtag/js?id=G-T8BMXV9ZPX' />
+      <Script id='google-analytics'>
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-T8BMXV9ZPX');
+        `}
+      </Script>
     </LayoutContainer>
   );
 };

@@ -56,7 +56,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
             gtag('js', new Date());
 
             gtag('config', 'G-T8BMXV9ZPX');
-          `}
+        `}
       </Script>
       <Component {...pageProps} />
     </main>
