@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { gsap } from "gsap";
 import { WithTranslation, withTranslation } from "next-i18next";
 import Script from "next/script";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const LocationContainer = styled.main({
@@ -114,7 +114,7 @@ const CounterGroup = styled.div({
   },
 });
 const Counter = styled.div({
-  MozOutlineWidthidth: 120,
+  MozOutlineWidth: 120,
   height: 200,
   textAlign: "center",
   "@media (max-width: 1000px)": {
