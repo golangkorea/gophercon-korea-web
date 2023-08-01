@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import dayjs from "dayjs";
 import Script from "next/script";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -58,6 +59,7 @@ const LiveText = styled.span({
   fontSize: 24,
   fontWeight: 700,
   marginRight: 20,
+  textTransform: "uppercase",
   "@media (max-width: 1000px)": {
     display: "none",
   },
@@ -95,6 +97,7 @@ const DAY1 = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm");
 const DAY2 = dayjs("2023-08-06 10:00", "YYYY-MM-DD HH:mm");
 
 const Layout: React.FC<LayoutProps> = ({ children, main }) => {
+  const { t } = useTranslation(["common"]);
   const day: Date = React.useMemo(() => {
     const today = dayjs();
     if (today.isBefore(DAY1)) {
@@ -122,7 +125,7 @@ const Layout: React.FC<LayoutProps> = ({ children, main }) => {
       <LayoutInner main={main}>
         {children}
         <LiveContainer isLive={isLive}>
-          <LiveText>국내에서 진행되는 Go 언어 사용자를 위한 최초의 거대 행사 GopherCon Korea 2023</LiveText>
+          <LiveText>{t("common:liveTitle")}</LiveText>
           <CountDown>{`${days} DAY ${hours} HOURS ${minutes} MINUTES ${seconds} SECONDS`}</CountDown>
           {isLive && <YoutubeButton onClick={() => window.open(youtubeLink, "_blank")}>WATCH LIVE</YoutubeButton>}
         </LiveContainer>
