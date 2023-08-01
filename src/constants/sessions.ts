@@ -122,7 +122,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         실습 코드와 사례를 중심으로 이해하기 쉬운 자료를 만들어 보았습니다. \
         \n \
         테스트 관련 패키지, 테스트 코드 작성 방법(블랙박스 테스트, 서브테스트, 수명주기, 네이밍/스타일)에 대해 알아보고, \
-        mocking과 커버리지 100% 달성하는 방법을 논의합니다. \
+        mocking과 커버리지 100% 달성하는 방법을 논의합니다. \n\
         그외 테스트 관련 주제(에러/패닉, race, benchmark, GitHub Actions)와 경험을 공유합니다. \
         이미 Go 테스트에 익숙하신 분도 재밌고 유익한 정보를 얻으실 수 있을 것이라 생각합니다.",
       speaker: {
@@ -164,7 +164,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       title: "Golang 도입, 그리고 4년 간의 기록",
       category: "Sponsor",
       description:
-        "처음에 Golang을 도입한 계기와 4년동안 채팅 서비스를 개발하면서 서비스 규모에 따라 선택했던 아키텍처를 공유합니다. 또한, 서비스를 운영하면서 겪었던 문제는 무엇이 있고 어떻게 해결했는지 레슨런을 공유합니다.",
+        "처음에 Golang을 도입한 계기와 4년동안 채팅 서비스를 개발하면서 서비스 규모에 따라 선택했던 아키텍처를 공유합니다. \n또한, 서비스를 운영하면서 겪었던 문제는 무엇이 있고 어떻게 해결했는지 레슨런을 공유합니다.",
       speaker: {
         name: "변규현",
         company: "후원사(당근마켓)",
@@ -180,11 +180,11 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       date: "08-05",
       startTime: "12:30",
       endTime: "14:00",
-      title: "1.Generative AI with GO (30분)\n 2.Event (60분)",
+      title: "Lunch Time (90min)",
       category: "Lunch",
       description: "",
       speaker: {
-        name: "Fermin Blanco",
+        name: "",
         company: "",
         description: "",
         profileImage: "",
@@ -199,7 +199,8 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       title: "컨텍스트를 이용한 상태관리",
       category: "Main Talk",
       description:
-        "현재 배포된 컨텍스트 패키지의 기능과 곧 추가될 기능을 합쳐 고 언어에서 활용할 수 있는 기초적인 상태관리 방법에 대한 발표입니다. 컨텍스트 타입을 알아보고, 어떤 곳에 활용할 수 있는 지 간단한 예시를 통해 알아봅시다!",
+        "현재 배포된 컨텍스트 패키지의 기능과 곧 추가될 기능을 합쳐 고 언어에서 활용할 수 있는 기초적인 상태관리 방법에 대한 발표입니다. \n \
+        컨텍스트 타입을 알아보고, 어떤 곳에 활용할 수 있는 지 간단한 예시를 통해 알아봅시다!",
       speaker: {
         name: "권용민",
         company: "AfreecaTV",
@@ -268,11 +269,17 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       endTime: "16:20",
       title: "Go와 K8S로 만드는 Datacenter Autopilot",
       category: "Sponsor",
-      description: "",
+      description:
+        "Hyundai Cloud의 Datacenter 자동화를 위해서 Go와 K8S의 Operator Pattern을 활용한 사례를 공유합니다. \n\
+        Go를 활용하여 Kubernetes의 Operator를 개발하고 Datacenter의 자원들을 선언적인 방식으로 정의합니다. \n\
+        이를 통해 자동차의 자율 주행처럼 데이터센터를 완전 자동화하여 사람의 개입 없이 운영하는 사례를 소개드립니다.",
       speaker: {
-        name: "박도형",
-        company: "후원사 (현대자동차)",
-        description: "",
+        name: "박도형(카클라우드인프라개발팀 박도형 책임매니저)",
+        company: "후원사(현대자동차)",
+        description:
+          "클라우드 플랫폼 및 인프라 자동화 솔루션 개발 \n\
+          . 현대자동차 카클라우드개발실 근무 (2023~) \n\
+          . 삼성전자 클라우드개발그룹 근무 (2015~2023)",
         profileImage: "",
       },
       level: Level.None,
@@ -505,12 +512,12 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       date: "08-06",
       startTime: "11:50",
       endTime: "12:20",
-      title: "메가존소프트 \n 프로메테우스는 어떻게 쿠버네티스의 메트릭을 자동으로 가지고 올까요?",
+      title: "프로메테우스는 어떻게 쿠버네티스의 메트릭을 자동으로 가지고 올까요?",
       category: "Sponsor",
       description: "Go로 작성된 프로메테우스가 어떻게 쿠버네티스의 메트릭을 수집해 오는지 확인합니다.",
       speaker: {
         name: "조훈",
-        company: "후원사 (메가존소프트) ",
+        company: "후원사(메가존소프트) ",
         description:
           "시스템/네트워크 IT 벤더의 경험 이후, 메가존 GCP 클라우드 팀에서 쿠버네티스와 연관된 모든 프로젝트에 대한 Tech Advisor 및 Container Architecture Design을 제공하고 있습니다. \n \
           그 외에 페이스북 ‘IT 인프라 엔지니어 그룹’의 운영진을 맡고 있으며, 오픈 소스 컨트리뷰터로도 활동하고 있습니다. \n \
@@ -525,7 +532,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       date: "08-06",
       startTime: "12:20",
       endTime: "13:50",
-      title: "1. 해외 GDE 영상 (30분) \n 2. 이벤트 가능! (60분)",
+      title: "Lunch Time (90min)",
       category: "Lunch",
       description: "",
       speaker: {
