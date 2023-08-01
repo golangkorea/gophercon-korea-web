@@ -88,7 +88,9 @@ const SponsorThumbnail = styled.img({
   },
 });
 
-const SponsorDescription = styled.div({});
+const SponsorDescription = styled.div({
+  whiteSpace: "pre-line",
+});
 
 const SponsorLink = styled.a({
   display: "block",

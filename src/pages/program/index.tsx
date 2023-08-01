@@ -9,6 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
+import Gopher from "/public/images/gopher.png";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
@@ -19,6 +20,23 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 interface ProgramTabButtonStyledProps {
   active?: boolean;
 }
+
+interface ProgramSpeakerCircleStyledProps {
+  url: string;
+}
+
+const ProgramSpeakerCircle = styled.img<ProgramSpeakerCircleStyledProps>(
+  ({ url }: ProgramSpeakerCircleStyledProps) => ({
+    width: 40,
+    height: 40,
+    borderRadius: 65,
+    backgroundImage: `url('${url ? url : Gopher.src}')`,
+    backgroundImageRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "inline-block",
+    margin: 10,
+  }),
+);
 
 const ProgramTab = styled.div({
   display: "flex",
@@ -75,7 +93,9 @@ const ProgramTable = styled.table({
         marginBottom: 40,
       },
       "th, td": {
-        display: "block",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         textAlign: "right",
         "&::before": {
           content: "attr(data-label)",
@@ -147,7 +167,10 @@ export default function Program() {
                   <td data-label={t("common:time")}>{`${session.startTime} ~ ${session.endTime}`}</td>
                   {session.category === "Main Talk" && (
                     <>
-                      <td data-label={t("common:speaker")}>{`${session.speaker.name} | ${session.speaker.company}`}</td>
+                      <td data-label={t("common:speaker")}>
+                        <ProgramSpeakerCircle url={session.speaker.profileImage} />
+                        {`${session.speaker.name} | ${session.speaker.company}`}
+                      </td>
                       <td data-label={t("common:more")} onClick={routeToDetail(session.id)}>
                         <ProgramButton>{t("common:more")}</ProgramButton>
                       </td>
