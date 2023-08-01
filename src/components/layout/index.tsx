@@ -79,18 +79,46 @@ const CountDown = styled.span({
 });
 
 const YoutubeButton = styled.button({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   backgroundColor: "#FF0000",
   padding: "8px 16px",
   borderRadius: 16,
   color: "#fff",
   fontWeight: 700,
   letterSpacing: 1,
+  boxShadow: "0 0 10px rgba(0, 0, 0, .2)",
   "@media (max-width: 1000px)": {
     width: "100vw",
     borderRadius: 0,
     padding: "16px 0",
     letterSpacing: 2,
   },
+});
+
+const LiveCircle = styled.div({
+  zIndex: 10,
+  backgroundColor: "#FFFFFF",
+  borderRadius: "50%",
+  width: 16,
+  height: 16,
+  marginRight: 8,
+  position: "relative",
+  display: "inline-block",
+});
+
+const RippleCircle = styled.div({
+  zIndex: 1,
+  backgroundColor: "#FFFFFF",
+  opacity: 0.8,
+  borderRadius: "50%",
+  width: 16,
+  height: 16,
+  position: "absolute",
+  top: 0,
+  left: 0,
+  animation: "ripple 1.5s ease-in-out infinite",
 });
 
 const DAY1 = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm");
@@ -127,7 +155,14 @@ const Layout: React.FC<LayoutProps> = ({ children, main }) => {
         <LiveContainer isLive={isLive}>
           <LiveText>{t("common:liveTitle")}</LiveText>
           <CountDown>{`${days} DAY ${hours} HOURS ${minutes} MINUTES ${seconds} SECONDS`}</CountDown>
-          {isLive && <YoutubeButton onClick={() => window.open(youtubeLink, "_blank")}>WATCH LIVE</YoutubeButton>}
+          {isLive && (
+            <YoutubeButton className='cta' onClick={() => window.open(youtubeLink, "_blank")}>
+              <LiveCircle>
+                <RippleCircle />
+              </LiveCircle>
+              WATCH YOUTUBE LIVE
+            </YoutubeButton>
+          )}
         </LiveContainer>
       </LayoutInner>
       <Script async src='https://www.googletagmanager.com/gtag/js?id=G-T8BMXV9ZPX' />
