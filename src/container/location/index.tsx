@@ -247,6 +247,7 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
 
         <div className='mt-4 flex w-full justify-center'>
           <AddToCalendarButton
+            trigger='click'
             label={t("addCalendar")}
             name='GopherCon Korea 2023'
             description={t("eventDesc")}
@@ -258,7 +259,7 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
             location={t("address")}
             options="'Apple','Google','iCal','Outlook.com','Microsoft365'"
             buttonStyle='3d'
-            listStyle='overlay'
+            listStyle='dropdown'
           />
         </div>
         <CounterGroup>
