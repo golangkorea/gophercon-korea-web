@@ -93,7 +93,9 @@ const ProgramTable = styled.table({
         marginBottom: 40,
       },
       "th, td": {
-        display: "block",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         textAlign: "right",
         "&::before": {
           content: "attr(data-label)",

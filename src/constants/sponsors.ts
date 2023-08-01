@@ -20,7 +20,7 @@ export const SPONSORS: Record<"ko" | "en", Sponsor[]> = {
       logo: "/images/sponsors/platinum/logo_hyundai.png",
       link: "https://talent.hyundai.com/main/main.hc",
       service: "현대자동차",
-      description: `Progress for Humanity   
+      description: `Progress for Humanity 
     "우리는 인류를 위해 옳은 일을 하고자 존재합니다."
     완성차 사업의 글로벌 리더십을 기반으로 Smart Mobility Solution Provider로의 신속 전환을 추진합니다. 
     우리 모두의 이동을 위해 오늘도 혁신하는 현대자동차에 합류하세요.`,
