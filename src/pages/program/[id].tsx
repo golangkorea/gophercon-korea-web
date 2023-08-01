@@ -175,6 +175,7 @@ const ProgramDescription = styled.p({
   "@media (max-width: 1000px)": {
     fontSize: 20,
   },
+  whiteSpace: "pre-line",
 });
 const Programs = styled.div({
   display: "grid",
