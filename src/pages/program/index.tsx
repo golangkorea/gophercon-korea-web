@@ -1,7 +1,7 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
-import { SESSIONS } from "@/constants/sessions";
+import { Levels, SESSIONS } from "@/constants/sessions";
 import styled from "@emotion/styled";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
@@ -9,6 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
+import { DiGo } from "react-icons/di";
 import Gopher from "/public/images/gopher.png";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
@@ -24,6 +25,34 @@ interface ProgramTabButtonStyledProps {
 interface ProgramSpeakerCircleStyledProps {
   url: string;
 }
+
+interface LevelProps {
+  level: Levels;
+}
+
+const LevelIcon = styled(DiGo)`
+  font-size: xx-large;
+`;
+
+const LevelStyles = styled.div<LevelProps>(({ level }: LevelProps) => ({
+  color: level === Levels.Low ? "green" : level === Levels.Mid ? "orange" : level === Levels.High ? "red" : "white",
+  display: "inline-flex",
+  fontSize: 12,
+  alignItems: "center",
+  float: "right",
+  paddingRight: 50,
+}));
+
+const LevelDiv = ({ level }: { level: Levels }) => {
+  return (
+    <LevelStyles level={level}>
+      <LevelIcon />
+      <span>
+        {level === Levels.Low ? "easy" : level === Levels.Mid ? "normal" : level === Levels.High ? "hard" : "none"}
+      </span>
+    </LevelStyles>
+  );
+};
 
 const ProgramSpeakerCircle = styled.img<ProgramSpeakerCircleStyledProps>(
   ({ url }: ProgramSpeakerCircleStyledProps) => ({
@@ -162,7 +191,10 @@ export default function Program() {
               if (tab === "DAY2" && session.date === "08-05") return;
               return (
                 <tr key={session.id}>
-                  <th data-label={t("common:title")}>{session.title}</th>
+                  <th data-label={t("common:title")}>
+                    {session.title}
+                    {session.category === "Main Talk" && <LevelDiv level={session.level} />}
+                  </th>
                   <td data-label={t("common:category")}>{session.category}</td>
                   <td data-label={t("common:time")}>{`${session.startTime} ~ ${session.endTime}`}</td>
                   {session.category === "Main Talk" && (
