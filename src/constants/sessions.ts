@@ -274,7 +274,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         Go를 활용하여 Kubernetes의 Operator를 개발하고 Datacenter의 자원들을 선언적인 방식으로 정의합니다. \n\
         이를 통해 자동차의 자율 주행처럼 데이터센터를 완전 자동화하여 사람의 개입 없이 운영하는 사례를 소개드립니다.",
       speaker: {
-        name: "박도형(카클라우드인프라개발팀 박도형 책임매니저)",
+        name: "박도형",
         company: "후원사(현대자동차)",
         description:
           "클라우드 플랫폼 및 인프라 자동화 솔루션 개발 \n\

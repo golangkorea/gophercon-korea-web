@@ -197,7 +197,7 @@ export default function Program() {
                   </th>
                   <td data-label={t("common:category")}>{session.category}</td>
                   <td data-label={t("common:time")}>{`${session.startTime} ~ ${session.endTime}`}</td>
-                  {session.category === "Main Talk" && (
+                  {(session.category === "Main Talk" || session.category === "Sponsor") && (
                     <>
                       <td data-label={t("common:speaker")}>
                         <ProgramSpeakerCircle url={session.speaker.profileImage} />
