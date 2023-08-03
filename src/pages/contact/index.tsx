@@ -24,7 +24,7 @@ export default function ContactPage() {
     <Layout>
       <NextSeo title={SEO.title} description={SEO.description} openGraph={SEO.openGraph} />
       <Content>
-        <div className='flex py-10'>
+        <div className='flex py-10 max-lg:flex-col'>
           <KakaoMap />
           <div className='flex flex-col justify-center px-10'>
             <p className='mt-0 text-xl'>{`${t("common:subway")}`}</p>
