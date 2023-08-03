@@ -35,20 +35,32 @@ const LevelIcon = styled(DiGo)`
 `;
 
 const LevelStyles = styled.div<LevelProps>(({ level }: LevelProps) => ({
-  color: level === Levels.Low ? "green" : level === Levels.Mid ? "orange" : level === Levels.High ? "red" : "white",
-  display: "inline-flex",
-  fontSize: 12,
+  backgroundColor:
+    level === Levels.Low ? "green" : level === Levels.Mid ? "orange" : level === Levels.High ? "red" : "white",
+  color: "white",
+  display: "flex",
+  justifyContent: "center",
   alignItems: "center",
-  float: "right",
-  paddingRight: 50,
+  fontSize: 12,
+  borderRadius: 999,
+  padding: "2px 12px",
+  "@media screen and (max-width: 1000px)": {
+    marginLeft: 8,
+  },
 }));
 
 const LevelDiv = ({ level }: { level: Levels }) => {
   return (
     <LevelStyles level={level}>
-      <LevelIcon />
+      {/*<LevelIcon />*/}
       <span>
-        {level === Levels.Low ? "easy" : level === Levels.Mid ? "normal" : level === Levels.High ? "hard" : "none"}
+        {level === Levels.Low
+          ? "begineer"
+          : level === Levels.Mid
+          ? "intermediate"
+          : level === Levels.High
+          ? "advanced"
+          : "none"}
       </span>
     </LevelStyles>
   );
@@ -91,18 +103,26 @@ const ProgramTable = styled.table({
   thead: {
     backgroundColor: "#fafafa",
     th: {
+      padding: "0 10px",
       height: "3em",
       fontSize: 20,
       textAlign: "center",
     },
   },
   tbody: {
+    fontSize: 16,
     tr: {
       borderBottom: "1px solid #eaeaea",
+      cursor: "pointer",
+    },
+    th: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
     },
     "th, td": {
-      height: "4em",
-      verticalAlign: "center",
+      height: "5em",
+      padding: "0 10px",
     },
   },
   "@media screen and (max-width: 1000px)": {
@@ -131,6 +151,7 @@ const ProgramTable = styled.table({
           float: "left",
           fontWeight: 600,
           textTransform: "uppercase",
+          marginRight: 12,
         },
         "&:last-child": {
           borderBottom: 0,
@@ -192,12 +213,12 @@ export default function Program() {
               return (
                 <tr key={session.id}>
                   <th data-label={t("common:title")}>
-                    {session.title}
+                    <span>{session.title}</span>
                     {session.category === "Main Talk" && <LevelDiv level={session.level} />}
                   </th>
                   <td data-label={t("common:category")}>{session.category}</td>
                   <td data-label={t("common:time")}>{`${session.startTime} ~ ${session.endTime}`}</td>
-                  {(session.category === "Main Talk" || session.category === "Sponsor") && (
+                  {session.category === "Main Talk" || session.category === "Sponsor" ? (
                     <>
                       <td data-label={t("common:speaker")}>
                         <ProgramSpeakerCircle url={session.speaker.profileImage} />
@@ -207,6 +228,8 @@ export default function Program() {
                         <ProgramButton>{t("common:more")}</ProgramButton>
                       </td>
                     </>
+                  ) : (
+                    <td />
                   )}
                 </tr>
               );
