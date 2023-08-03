@@ -35,6 +35,11 @@ export const QNA = {
       answer:
         "네, 추후 행사 녹화본에 대해서 제공됩니다. 다만 현장 만큼의 상호작용이나 질의응답 등이 불가능한 점 참고 부탁드립니다.",
     },
+    {
+      id: 7,
+      question: "티켓 환불이 가능한가요?",
+      answer: "8월 4일 오전 10시 이전까지는 환불이 100% 가능하고, 그 이후에는 환불이 불가능한 점 참고 부탁드립니다.",
+    },
   ],
   en: [
     {
@@ -71,6 +76,12 @@ export const QNA = {
       question: "Will there be event materials or a replay?",
       answer:
         "Yes, a recording of the event will be available afterward. However, please note that it will not allow for the same level of interaction and Q&A as the live event.",
+    },
+    {
+      id: 7,
+      question: "Can I get a ticket refund?",
+      answer:
+        "Please note that 100% refunds are available before August 4 at 10am, and no refunds are available after that.",
     },
   ],
 };

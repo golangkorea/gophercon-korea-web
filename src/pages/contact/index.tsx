@@ -33,20 +33,20 @@ export default function ContactPage() {
             <p className='mt-2 text-gray-900'>{`${t("common:busDescription")}`}</p>
             <p className='text-xl'>{`${t("common:lostAndFound")}`}</p>
             <p className='mt-2 text-gray-900'>
-              <a className='underline' href='https://gophercon.notion.site' target='_blank'>
+              <a className='text-[#0029FF] underline' href='https://gophercon.notion.site' target='_blank'>
                 https://gophercon.notion.site
               </a>
             </p>
             <p className='text-xl'>{`${t("common:etc")}`}</p>
             <p className='mt-2 text-gray-900'>
               {`${t("common:email")}`}
-              <a className='ml-2 underline' href='mailto:gophercon.kor@gmail.com' target='_blank'>
+              <a className='ml-2 text-[#0029FF] underline' href='mailto:gophercon.kor@gmail.com' target='_blank'>
                 gophercon.kor@gmail.com
               </a>
             </p>
             <p className='mt-2 text-gray-900'>
               {`${t("common:kakaoPlus")}`}
-              <a className='ml-2 underline' href='https://pf.kakao.com/_wnrqG' target='_blank'>
+              <a className='ml-2 text-[#0029FF] underline' href='https://pf.kakao.com/_wnrqG' target='_blank'>
                 https://pf.kakao.com/_wnrqG
               </a>
             </p>
