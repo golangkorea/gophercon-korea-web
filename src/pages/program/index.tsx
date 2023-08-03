@@ -55,11 +55,11 @@ const LevelDiv = ({ level }: { level: Levels }) => {
       {/*<LevelIcon />*/}
       <span>
         {level === Levels.Low
-          ? "beginner"
+          ? "Beginner"
           : level === Levels.Mid
-          ? "intermediate"
+          ? "Intermediate"
           : level === Levels.High
-          ? "advanced"
+          ? "Advanced"
           : "none"}
       </span>
     </LevelStyles>
