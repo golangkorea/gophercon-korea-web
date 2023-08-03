@@ -105,7 +105,14 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
             <p className='font-bold'>{`${speaker.name}`}</p>
             <p className='mb-2 text-sm'>{`${speaker.company}`}</p>
             <p className='mb-5 text-sm'>{speaker.description}</p>
-            <p className='bottom-0'>{session.description}</p>
+            <p
+              className='bottom-0'
+              style={{
+                whiteSpace: "pre-line",
+              }}
+            >
+              {session.description}
+            </p>
           </div>
         </div>
       </div>

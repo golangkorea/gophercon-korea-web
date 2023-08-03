@@ -4,7 +4,7 @@ export interface Speaker {
   description: string;
   profileImage: string;
 }
-export const enum Level {
+export const enum Levels {
   None,
   Low,
   Mid,
@@ -19,7 +19,7 @@ export interface Session {
   category: string;
   description: string;
   speaker: Speaker;
-  level: Level;
+  level: Levels;
 }
 
 export const SESSIONS: Record<"ko" | "en", Session[]> = {
@@ -38,7 +38,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 3,
@@ -70,7 +70,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 4,
@@ -90,7 +90,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4OJg1o7McNedDK3bJszOFW0MZu1K6gfQ3zKkf2EaZfpzKtH1K_NdO2fOQXDRZe0SNBFuYorEZ_Xs-iyMolPGvGjghi0W8xwRRbnOqiBmguxILhpF76UcBKJ0r1o22kb_wmg_P7bz6k8RhYz3qsUDdGPxIz515wdLZ4hCCddkweTchCqPMQgEttiuoHGlW2AqWN6VA3irBGQyUQA-w8ItMboLss_gHe0NVHzKtHgj4EFvLoH5lUI2Fi7PP8QHbz9yZHylhEqjzH7mylneQJQrCGOaHqBsGrAuTOdy1sqQt1e-elWGPABMQNwa0mpky8gnlrIa3UozF2XbzNPuErIq11VbY_QACzKVvUH7mZbdx_Tam_3vyohDdELxsB0qKUx2yNi0WkAZ8oCdJVsOZXP0-rj10ri2roEh-kt3CQ6rjS7upXXCoMii_Skqo6T-MrohuoKnDpY0xAEC2vm28gquNrp1rwW9evz1qBEgt2fmmlR51M6LSer7LGTYYUk2Ci9IpQ-RLvkCsAzXluOW0yqGrAww1zxYwj3fIrI0EUrt47hKze6eZNWqHH9dpqjLh9QXcxLWeNAJuL2OLZ2rGC6HLCLu5taZjGOZfC6IFJUI8ec1zEAvuGr4ejgsMTCpFIGM_CkIEFc0SFrzuhsyBPNQDlM0of-MwdpPv_WQkP1IFOSKDzZiwvDZdxnnsSemmvswjle6tKnqBwPW-uk4pfZWY-21rgUtE4eap5ku8pG0ybjOeMczCVNP1OKExyxU1xnK73TAruO2MyvfQhX1QcpVWyiXETuUbOYZbMJpyVnsFgM4ucx54fXHJfKHV_wrGBWckdjPBCl25Wf8FA6yw-5kB4X4Qs4i0T22irkio4tNwIMi2ymTffuFbJqD-Om1CS4O4-TsdlOo4Zh3mtpH4LF5EvCk7iiZcAQLmkTIfPSBi2taFDPRPjzbkhYnlVEZ7rLn5PNs9v4iAHIC-2Et22CGsoD4ZgHlVJwZdDixnFRJECq7PtuUiyQQegamqChXhH6E5lBaDmnogzliSOPSGCm-I7xYLgRpkyVtIgwvGDG2hcCx7t_fFE1p-kY1DHikHwpCCxoH_zNMqE_uGFFGtaSNpnATP269rfzq1QXXAelSUD6jgMT22nwyPteG1LvfyDUNYdOxZEnzCBGH1byEPtOMM0S-8MpNwvM90T3oz4eTS1-xWnjipYmq5ehvuYEbnvrf2zfAZg52liIhI_-UtE8XtSagK0rUzmYHVHV89Dzl11B_IXOGn6EQ9YcBYRZU8dDgFBAxqXQZq8IgJ6-eouHUUVlzt2vJSWTZwlX7Y_5qnwg2zNgZq3ej7QSs1s7KQch4JvKQGlltVVqznmIiL8SfSJCZnCab3RS5Q2oowSusqBTDCXv",
       },
-      level: Level.Low,
+      level: Levels.Low,
     },
     {
       id: 5,
@@ -106,7 +106,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 6,
@@ -122,7 +122,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         실습 코드와 사례를 중심으로 이해하기 쉬운 자료를 만들어 보았습니다. \
         \n \
         테스트 관련 패키지, 테스트 코드 작성 방법(블랙박스 테스트, 서브테스트, 수명주기, 네이밍/스타일)에 대해 알아보고, \
-        mocking과 커버리지 100% 달성하는 방법을 논의합니다. \
+        mocking과 커버리지 100% 달성하는 방법을 논의합니다. \n\
         그외 테스트 관련 주제(에러/패닉, race, benchmark, GitHub Actions)와 경험을 공유합니다. \
         이미 Go 테스트에 익숙하신 분도 재밌고 유익한 정보를 얻으실 수 있을 것이라 생각합니다.",
       speaker: {
@@ -138,7 +138,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           이번 GopherCon에서는 'Go 테스트의 거의 모든 것'이라는 세션을 준비하였습니다.",
         profileImage: "",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 7,
@@ -154,7 +154,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 8,
@@ -164,7 +164,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       title: "Golang 도입, 그리고 4년 간의 기록",
       category: "Sponsor",
       description:
-        "처음에 Golang을 도입한 계기와 4년동안 채팅 서비스를 개발하면서 서비스 규모에 따라 선택했던 아키텍처를 공유합니다. 또한, 서비스를 운영하면서 겪었던 문제는 무엇이 있고 어떻게 해결했는지 레슨런을 공유합니다.",
+        "처음에 Golang을 도입한 계기와 4년동안 채팅 서비스를 개발하면서 서비스 규모에 따라 선택했던 아키텍처를 공유합니다. \n또한, 서비스를 운영하면서 겪었던 문제는 무엇이 있고 어떻게 해결했는지 레슨런을 공유합니다.",
       speaker: {
         name: "변규현",
         company: "후원사(당근마켓)",
@@ -173,23 +173,23 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         - AWS Serverless Hero",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 9,
       date: "08-05",
       startTime: "12:30",
       endTime: "14:00",
-      title: "1.Generative AI with GO (30분)\n 2.Event (60분)",
+      title: "Lunch Time (90min)",
       category: "Lunch",
       description: "",
       speaker: {
-        name: "Fermin Blanco",
+        name: "",
         company: "",
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 10,
@@ -199,7 +199,8 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       title: "컨텍스트를 이용한 상태관리",
       category: "Main Talk",
       description:
-        "현재 배포된 컨텍스트 패키지의 기능과 곧 추가될 기능을 합쳐 고 언어에서 활용할 수 있는 기초적인 상태관리 방법에 대한 발표입니다. 컨텍스트 타입을 알아보고, 어떤 곳에 활용할 수 있는 지 간단한 예시를 통해 알아봅시다!",
+        "현재 배포된 컨텍스트 패키지의 기능과 곧 추가될 기능을 합쳐 고 언어에서 활용할 수 있는 기초적인 상태관리 방법에 대한 발표입니다. \n \
+        컨텍스트 타입을 알아보고, 어떤 곳에 활용할 수 있는 지 간단한 예시를 통해 알아봅시다!",
       speaker: {
         name: "권용민",
         company: "AfreecaTV",
@@ -208,7 +209,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4OH_mYYi2H9GsUU72ocF7y7D2K2RK6glu0i5QzmWhtYFJGvZX8kvj6ERqQA4-mfQmO4ITGJ-nErgC1BVNseTXO7qhOLVTimJJP-TJ_XA_jtz9a83kXM2xb2N91Y9V-wm1a_nWOTGDZ0HltwaBTP-hAgzpetZREHK_cfcrx1v9Vjisinua-gFZiO6Q4GpLLXvZq3wIlLrYTR9jNeXF6K7CSQ-gMR_zS1zRYso8zy3CM7oEVIPkIMoUyLq9NjgbN7YCafwB8plo-mgy8k5W8jHhgPUXtaXnPXpeQMdW0NAlpGMcA575TAPGgSHXeh7QL3jfgCQ1QgazOgAs2o2hdF6bUSAD5s0PJxHq7-J73IbOIU2OiVaJyNCm5XCJ1uWIKBz8XUdxkCI79PQSKTJ5GhXxH1S7zkPCqdKbsvEGirZBiqC2PDu59UO62raixvLIYW4Ba04pQtmDmyEzRQ-NxzlB15uO1ufe2w2Dwoz0AsvQNJProljz55pRro1DLXSy8m89swknNutDVZqLgTMTPT623nw7UbhGyCe0HhIXe0Xq31tlTFnMzleX9nX_l_CAqwDyDrKgjfWA4I9vd3z78ziiDWPn28lNvMzIyDE1affYMYJ_XLNB68eyXgNoLMYv6QS7VMox9X-AgWf2Bzi_BtKI3MyBuyxoY5tLFKixn9du8xLlgFheJR_heAOXg4miDDUVuIiG9rfRM7FgOxhj-JchzE8gdtpGOS7kKtUH61rgssEyJeIzyj_TV8h16FHaNARYvYWj9EBdzEMIFPnfrWpBrMB7mC--JqtKsBn1VzR3ndov42KwmbIemmdkxot7q7srVhaPQow7A1vmLbVYSJO4GaIXHwC4xfEV0PkK0vP7MHTZGFQ1wIWjR_uozVhcSlnwQ3cOwnZa6YK8W4IjSkXQXC_uth8Cj75ZWfeqWi3btK0vN3pSXIHwl5Mdi6RIKqGmflfRVyx23h1CECBmChW_O5QJt2ror-awDxzfkW1XDS1nFQmXSsQxus3nNpHSCEbE6auZIIuij2h5hHn82RypSTxzmB3swb80xu1GD3vHglhdLa9g-EovZzrz6H43ct4aM5elLyyLenumEue4jBUjbn1gw6FxP6xKH7ygK5LBgxAhOkwG625T8VnbguDJ6FWJ5cCXaxyOaIqOAJzsq_Y5SQiZ54EfbyhYIF1WY2uJpdDT7pC7_Bl-sJ2vIIhmZH5r-RcXtISHB17KT_i9qgf6_xU9nmL0wR5YpQXHirQkFr_HnLC8yj6HP1TIGRGZL1FysuhrQ9HpEKae0-z_qfAxLsBQJl4nhtSOZMcakqGEQmyZbHKmhSSsJ-bVv_tTHYAVyax48ROR1j1DvxJ3XrsfWOalnVGyhy_xf7uaLuyEJqKh1n",
       },
-      level: Level.Low,
+      level: Levels.Low,
     },
     {
       id: 11,
@@ -224,7 +225,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 12,
@@ -243,7 +244,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           팀이 어떻게 함께 일하고, 소통하며, 문제를 해결하고, 학습하고, 지속적으로 성장하는 방법에 대해서 관심이 많습니다.",
         profileImage: "https://drive.google.com/uc?id=1yZ3-tzpPFBOHEWHSaNcTUXIyX6XMf5rO",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 13,
@@ -259,7 +260,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 14,
@@ -268,14 +269,20 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       endTime: "16:20",
       title: "Go와 K8S로 만드는 Datacenter Autopilot",
       category: "Sponsor",
-      description: "",
+      description:
+        "Hyundai Cloud의 Datacenter 자동화를 위해서 Go와 K8S의 Operator Pattern을 활용한 사례를 공유합니다. \n\
+        Go를 활용하여 Kubernetes의 Operator를 개발하고 Datacenter의 자원들을 선언적인 방식으로 정의합니다. \n\
+        이를 통해 자동차의 자율 주행처럼 데이터센터를 완전 자동화하여 사람의 개입 없이 운영하는 사례를 소개드립니다.",
       speaker: {
         name: "박도형",
-        company: "후원사 (현대자동차)",
-        description: "",
+        company: "후원사(현대자동차)",
+        description:
+          "클라우드 플랫폼 및 인프라 자동화 솔루션 개발 \n\
+          . 현대자동차 카클라우드개발실 근무 (2023~) \n\
+          . 삼성전자 클라우드개발그룹 근무 (2015~2023)",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 15,
@@ -291,7 +298,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 16,
@@ -312,7 +319,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4P01_nSfi7ZxfRGwglJhQjGiMQwuaHvg3ENavi8HnXU167oaLlLY5u4Yp-qbC5kFHvnKjIzZpG2g5XOllyxHAUz_TMHPTmyi4-OvvXTA5wbd6Sxfv0r77-Zkj-qR-CjH2_uIvlZYt0V-knEWkSqSgRJQT6yKwUi3dwEdTEjFG-yK89eYYfqANzZwohHg955TXNcuW6-du9io52JPjfdBLgzpeG2pKXD8ZGd0aCZ5f_ppYcA38jkqrHKMMOygE9QM9aCei8jFDSH5-5okZmGRZxg-ZOe3OiMIlV9XOC2CKPYwq8_YUPcUSs3O89vx9a5JWhe7JSl9ugERh51r_eG5mqjZGU63SyJZO6y9FpEN7z07spq1hlowGjeL9dTnD32Y-nhZ7ajb1YryYxMTPHzSuTR4wW9e7JNvqb8l2f8qnl7MMbm-03yRqat0qbREQrW6D9ial5AGNgeWRMoRg3raMrqJSh9PX00qoMgs44uNHAH4Mz95r0cGpx2h956R5pPmjDMV1s-QI6Pj23XAylMD8r9soxkU6yd3Vmiu5o3XErDCUj-Z-cyrwN9LmwuMYjAUZxzc3ZSCKrMizp9Ua5sGh2-S9NFzZQ3xQTPeYig5W0_g5S3ddKZXJ-6GyG5I109HnnNqZiq6OxG-nSK7IeoMRqoDmQGRAtuFgVzVFTsUUw6XEjbSjR8_4XvPTvoiZNQFLZ7gSW3Em9WpznQa5-XWZcRwPgWBRoSfjJvIsIyymN81w8Z9p2NpIn-VaHWHNN7p-sosCUZDXPL-hDqiQ7K3MhwOTEn6ZfmLvmg2SVmA2SRurpmrvf5kh6YbAD9RRpnA6jj3jcJZH4GRMpRfv4iZEIUTBWWFkoPUB_PMD8onBtCtREc49mEfoR5I9SWOTtefRrW96z4XXG5YxQL6TLquOaxBxc6OxJZcp9Zssd7hMZU8jkOiOymmVCkycFjdC1jQ0x3A4c7ScSF1K7MMvZi7YLCxpfZowLk_aiUMjpqnKyGbMmEHT3zzLTtFS8OjSqa1k3DYXnpIcwXZnLjMBGgev1eCATWAiC5wjo9FnxTdO3j0eV0WEJlHxHr3576NukkJtGv1PorEyz4CM6S92w96DWr_SyvsduHAoo2JF3YjKoMMo0km_o7LdqEp5nyaQ9s7M8pyhxlViznHdqODyDKrrAbmSTlkppgD2wlTQSPtCvPne3APeI41C88ZuBVrWjAMEzsLdAF9fA9uS7ZrnKu4snjFDJknKHrDKcaWzkIMvboszMsNz76OrG-3djKhKfl2J0bdSa3AETN74Hv0EPrc_YKc97lLUWba4qjpBDBJr9bsiQzktOlh4dLTZE5AT_-pjGxiw-Ps2-2S5YbEhtxtcV5Js_T0eqc6S6F2shN_qvRfdw",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 17,
@@ -328,7 +335,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 18,
@@ -348,14 +355,14 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           "고성능 워크로드 실행을 위한 쿠버네티스 플랫폼 운영 및 오퍼레이터 개발 업무를 진행하고 있습니다. Go 언어로 개발한 애플리케이션을 eBPF 도구를 이용해 추적하는 방법을 정리해 공유하는 발표를 준비해 보았습니다.",
         profileImage: "https://drive.google.com/uc?id=1fSnSwjxlx44qQaHGk244Cqe2LlH5F59d",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 19,
       date: "08-05",
       startTime: "17:40",
       endTime: "17:50",
-      title: "이벤트 (추첨)",
+      title: "럭키 드로우",
       category: "Event",
       description: "",
       speaker: {
@@ -364,7 +371,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 20,
@@ -380,7 +387,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 21,
@@ -396,7 +403,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 22,
@@ -412,7 +419,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 23,
@@ -428,7 +435,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 24,
@@ -447,7 +454,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4NmDhd5Ymi3AxtxV94p5vwcddduSMeGA6Sbcub9TUH3Jw6Dh1fIjR-DnS4y4rkOD_YRSy8hHw1zWw7_T_biKTLD2uO3ymw0aBdbRMaDfMuw4hJHQVgIckqqpXWeVK8IH5EJlgmmK0oNxxfsyUJ6i_mqL2fiRx3A0cFKk6cpQDnJVg-n-KFRH9o8HOnvbGgkHipDNsh_KsJhdk6f1CmYQCXGQHYBeqVTM_4QocB-fs-poeI_xwepKv5omfTFae2eXHrEA42BBNh1eB5Q7K6teu3PbDcx1SbE4aWj3KAcSf4ncE9QqfzazA4JUcmlSRDnlXMKHfRsPToOKrBlpVjyuJ5kBwKphBkOaq67FWvcmk32VKQy4v_1cxoYmBeqjDCef1RBHpxjZjCKz1_wDNdeTYNnDhC-TJLDrZMRwfwjyZtK-wrJvLknE_Se1sR7nMbVJFo90N5HOOA9obQDtwjSvjdZsOT8TEUqgxPwyV7CW4DQg7N39TGY2CRGda0HIjTLQfxzn2-HFSUwdr3geLJW2TpWTN0uLeT2RhgEIZwM5O6u6qLkUmJuzJd5tu54oblxJFF5XxQi8rCSjtAouAsU6d9yE2dlx5pXCMJ3Pp3Varu6h3CRAPiwO4_IlNpkp_slBDXqHZfCRg-pC48cFvM1ax71iN-OwQ0iWoVo-epNtQiJ26dm4Z6mEXD1Q6XdbNlMKWe7AzxGDuckL4079fVFIlKRVywtn8LIF77ST8cZNYa86T-w8ccnUWGlpApHxAd0gCq9X5dRPcfW4j1TKWoamIWs4DB1rMCMALAaeJe_9BayBEfH4tb92uIxHWHUfnyGHx6nWZFiH7V37w0vM3hLqXPCY30ufUSZyNiGjLnI3JPhVRnQfQLJRiiDzM_e4JZrvnxIWgn79tvdYhTNk_TYp7f9RYFp_FYOk-iUdYzm1ZXHKCuR-_YV4FGApZD3oeN927ngyy1QpJC85ZK275MAhAwS_anaFr207WndcBq0k1mtOSEe3jlw54LeOYYA7QXIWXX6o8ELoGdbQDPTASYZhEcAFbtDicWkefH2tjrreCQEE-bn2SgneAJPdthsvl1o1jh40LXIToDlQt8RFXR_5G_lJ0xD9xjMnpk34RdrddHYLG9SJyZjxGinfaKyQSqmYYjmFYXjbdeYQ2btwaGnApNV8NV2V2oYMRNCBGlQQ9v8sxdhDwea7pG1D6SwmzwMoiDv-w4VPuvXOKKD8SiV8EMQ3ATwpuSmXhyejTQV1T_Ux8jU2z7N6Iwzs9yI5ZrKjiajRvrZjII5oVqnvqrGWwsHveU2OcEmKr4qsc9Jez5d2A-vyvTEBAvwEd5a7JN4hOZT8Hicv6Ew3fqPP7YQeb4ThmwKlnsGYQ3_M8zNmbabkWAJ",
       },
-      level: Level.Low,
+      level: Levels.Low,
     },
     {
       id: 25,
@@ -463,7 +470,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 26,
@@ -482,7 +489,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4MYDZ6R9Vg13arCDpSkbrePrIox0POZZdKyCXebA9KqjQWeUUs8TfMTNlEfVaCheJDW6Z-t8ONATx1YHWPiweZppA34C7F8uvkaci7p2g34swAJPARIZcQF9K1yiXS7spGI430CFgWPL1YhHURwe7sm-0Dl7wNgKswZkhcrFgtCx8H8loqnjLBaYfSfEhrAIxmxpBqpb519eUyAAzyONwaxLOPRRAoGQeVr8-Bta2Z7S0iD5UVcQGRSjKBKo9yvv5rN3TzI_7yU7d3et_d_4E6ccVGV0XSuagLkrwosy0ZBkirmyKyRKoLKuBEHSPzflLLaanUvmnTpm_EtHRMvsWC1hsZt0xnxbCuNy0AfAXfa0dBsUk8vyxZzTK3BuZ6DfaE95hvN892NYxONSQ9usP1oXbx1XBrigIjOlrLgrfxGnYiy2diiITJfTbuCP9TV1JidySlj6-x6iWIRLqIINRESG_ezO-cXRHVGq3n8bfFHc_jUfuRzirxV07hMRfKBIDVSbwU2frT8dq_1udyjCsgkbI5yq1D4BTRDjuwA_tRxVCIEIzknQKtjVVap4x12j1stEpJvXiiReA_-6rNSqfMfAIotZvWLw7BcZVP3oZpBrKNOCJ1iPNHs4nw3gmUhmct25nKwr1KgEaDMfZIiUNTRpmXAKXyp53pYjRhvfYlLgJjzW4Gtlj3BRJQmnAvgX7q3HdotDup824Dml7e4cN3wS1ePwoQc2_pthcHzS9vJjzxTEJuDqu1A2_mOCSOofPDonL_EqxYdR_3mhsHe-1m98KgFmc5RCO-gjwKqX0wtZWKjWP62j9b2ixGUJ71hIJ5iqURjelb8CECZ0pAh3Fyf8dhSUL09r5Wyf7aj9niQoPWQp0DxBLck6ho3ppyTGKoVmqyDbBWvogHc83sRLlOcgqWGBrbNGNK7KVtS_jYjw-X8JLN-uz-icW4DLktalXhWsC_7m_6inBtS3J7bnnFZm4ch0XaP-TX4szeOv8jUn3fpAgY2rvn2j5g4lWxoKDCJ_DOBTlZU-OXtwxQ5sVKqMbzjuxuaHVP1LLN6oDcSn9eJpg9mvf_aUgIOZyJcvA9RrBkXytCxdsMmpAtV3cl5c-gXcCYz_Me7NxYi7pH-3TKjBoIE0XKFH1A0r11wxSA4cn57HOB7Y8yKLUpNlDURUJSXUGsYUbUQl8BrRt8joCDhvojGXSut_xD0rxSJmaP8PhYZu3djSiUJZenY0IcIp7Yqn3I2EAxCnEBSW3M1cHWpj75eT-QlmsztLkiFdW6U2ZkrTgqVcjqIUsX79QG8xCK45pQyZwZJWtLUM8vgIXW-DHc08SCbTx_F8hLfg7SO-6LzBd5_BleuvFVGBDr79pkZOPIBgNha5p0aqSGPauCEqCsn4Ev_VJM8-x0AGOVIjc12DursR34PupxS",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 27,
@@ -498,19 +505,19 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 28,
       date: "08-06",
       startTime: "11:50",
       endTime: "12:20",
-      title: "메가존소프트 \n 프로메테우스는 어떻게 쿠버네티스의 메트릭을 자동으로 가지고 올까요?",
+      title: "프로메테우스는 어떻게 쿠버네티스의 메트릭을 자동으로 가지고 올까요?",
       category: "Sponsor",
       description: "Go로 작성된 프로메테우스가 어떻게 쿠버네티스의 메트릭을 수집해 오는지 확인합니다.",
       speaker: {
         name: "조훈",
-        company: "후원사 (메가존소프트) ",
+        company: "후원사(메가존소프트) ",
         description:
           "시스템/네트워크 IT 벤더의 경험 이후, 메가존 GCP 클라우드 팀에서 쿠버네티스와 연관된 모든 프로젝트에 대한 Tech Advisor 및 Container Architecture Design을 제공하고 있습니다. \n \
           그 외에 페이스북 ‘IT 인프라 엔지니어 그룹’의 운영진을 맡고 있으며, 오픈 소스 컨트리뷰터로도 활동하고 있습니다. \n \
@@ -518,14 +525,14 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           CNCF 앰버서더 및 네이버 클라우드 앰버서더로서도 쿠버네티스 생태계가 더 활발하게 퍼질 수 있도록 기여하고 있습니다.",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 29,
       date: "08-06",
       startTime: "12:20",
       endTime: "13:50",
-      title: "1. 해외 GDE 영상 (30분) \n 2. 이벤트 가능! (60분)",
+      title: "Lunch Time (90min)",
       category: "Lunch",
       description: "",
       speaker: {
@@ -534,7 +541,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 30,
@@ -555,7 +562,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           버그없는 프로그램을 만드는 비밀에 대해 알려드리고 싶습니다. －－＝＝(/･_･)/==≡≡卍',
         profileImage: "https://drive.google.com/uc?id=1gm2boS_ocpHDc0RB6qoR5agls14S363v",
       },
-      level: Level.High,
+      level: Levels.High,
     },
     {
       id: 31,
@@ -571,7 +578,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 32,
@@ -592,7 +599,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4M5SDDrv3yN3SesalbL4B4_PVdma75EyT9WpQOb0bOekNkiiz8LA_qI4sBWqLX-BLoPr-bDw3cIeW7lgSspEQDRDnwFdNo49d28XqXY43yTjbwqs5KJ0jjXD4Yr5qnoVsZmdFV5PLoKhPVOT3a8wCJGUMXV0B21CYmUefSl8azyn7WsudJUtTqdjRxfDDAaEh4hyxexKtaCaoGQIyBo66lZAXdVpayQjRjxyZvqgp4qm8Skn0nJ-E4zeG5H9hmpcPOgadK9VHwoOGCSiZ6pgCcw9bBhjBhs6gW4PYDZtmD1D03hw7uE-OFTDkq4WN6S8cuWAdRo5iAAebstpx_tVI9TIZWhTNq2yvtu-pey5R9BPebA0Wx7jDJGLgbN4xW3FVvHH_9RPxWILbYEJ2ocH9RlRrnCrvNoB3YoRmYcyh8Lh_25U5YqfMgW5TlFYHWbi6QihGItVlMvYzl21aqxpEuYvv90vQ4BcB6QlSi664b0To22fUISEvezZ4Q2f2_WuXn-3HLwzZB61ipkGi8Z7kcSMXfHysRRR01V9hJ8Tei4F1OGSko8hnLxKZywfT0Pr5DtI5yX5Gl-5DTdlr-jd5ty6VqCssGmLguQ-kd3buNFLLDtwGeRN_5lKdRZarQH7BQ5EOa1lFqfsgPXseOQU5tZRJdQ406qhk-sxkD5jF81YHa4gNlZyyoh_jpc0lta-3cMOc8TkPsNLHfzZ6XQ6LPrFjYfBxUOh0J-_PRJcSA65zTVr1xQTB8QwWEa9tbmNwoygCLc1OAhtCFXvyx0dlvLG4Q89TjXeDuAvoznyPCs8ktzN94cZd2Pae68yhAmxOkVyZbDJ7LrYxIxC4689MtQAJZb0g8q0iAmss3EYAe9cx-wzHBvXhvIrQR_NJCGhGjoQwSG4Kpc8TnrIaqmZ6-DL1nmGT3bTO_WRqIcdmKiJgFjFZtRiwCJOt2DDis5E3brlfgMIFW6icv7N2R3RVaD-QxYQ8G_0nifu0FlgTSC8gGjFNR0mbwhupNC1nYHRSDw-107rvcV2alsxD54qGqejgeOKrJD1Hu8lTxzcUOVrYYBchUZ2wNqXXXJXlwGrh9TAqBxwCp75MlmZBiJFj0UBl2Vf82lyNtKMraWPp7e9wPDCl2DozT7OjPajY47M4ghy3sFg2IXOfLwZRvf7bGjabV4oNETb2Nlp5g2I0EcHtWbHfhOa3QilukYbNxezN5l6EA9EK0GjfmROktU7GEi7rY0fEmxRFtbCajwd78XTREWadp7MK-UToqUttmoucgLe1XSUOLLkXN46qAn59qqI0Aff91Y89S_E4R1rxoQXxRy3BEo9ucDdkmz_DtWXZwJhz5CakFvSw45ZWQ6ySilk_DTK98i5f2Vt9uNX4zkfhWf",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 33,
@@ -608,7 +615,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 34,
@@ -628,7 +635,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           또한 오픈소스 커뮤니티에 기여하면서 배움의 기회를 더 넓히고 있습니다. 현대적인 기술과 개발 동향에 관심을 가지고 있으며, 새로운 도전을 좋아합니다.",
         profileImage: "",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 35,
@@ -644,7 +651,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 36,
@@ -662,15 +669,15 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4N0fZNDoU2mKoQH_bJFjZnnJkgZM0XzNp721FVL7iswp5DRZbNw-lxgKssJRGaWVgag96ZPE4Tsv86kmHqTjXrKT4quDGgH1dNJypJA36Vo0hNYVe5ZQ-ITGQ_TGGBdo-Nx2qRo4eTd1wwRIh62qUuHnWHhaUzCR99QrmIG-31iwq69deTwk8qHelepUU3YzEf35U5u49ZvugbkZwMHxw3mvRE-8G7A_SJm7TlImkX_3S58fwdIv713lq_WDhqFey194zyzwf2dD_ZEJsGvxfq2kTV2QV3UZGJfjfmAxWfybv8nHRj6Q5tSGfdn_QN23TJYmk6b5WxfI9Cm8bl0af2WvM3uVPKV5MSz1YF0yVrlfUY5FcBt1P4sL6OFX88-hc3Gz_CDrfuE5vLJoHkOAvfQf97LwAFfpg-9A79h-5p8wf_NC7oI8BWNtd3iVuNZzPypB-RnhdDGQYjAQ0Ra5-d5kjhJTQ1mc_Ax4-CWIwa1f0DXbVLleSEOJBMnfvj-XRdjdjafTSlRW60lGCDsMqRiNkpuvwC_K6lhQ5epBI_6PSkJFpZwIZBGqEWJspkGbM1zdfqwR97eTzwK3u5iBbzWB-A1P9YSywK4W7CNlpe-1wH6X5cz7G6k708IlgyJ9-KvoiJN4yUcINwILfl0QPbU7I0PRRcuF4JMYOg9hpz8LG-S71EI3nXmqTiynn-7gIprMUE0O3ti9-l7y7HJNoGWM4UDCWfZ90L1BuEyCtZpnC3q_M1xkpsQ3i83zX_0spQp2WoNnuAouT7kEtzMmgWB7XWB9RPRU8CCKRYrjvm_mFypine55wF0PAkhdyCsL9UYTnBEJUh5wtb2iu4Z8EyvmtqnrgVqKNSaLeAdYpkJ0ux7wSiv0eWpCnrEuQ48ISMInVRZP9jnBuawl-mVfIq7ds3uCRtuNrsx9aLXyuNScUc8jfsWpGQwMWE_okRpGLqY-IrxUaxCZuYd8Uxk3ITkU5WGO72pKBveVf7Qgyf7Ox0ifyrq8CI_78Kue5Yq_K6S6PF0TmEhBvbzsqXK47UVaceDvr0FiWfp5Gx4xQOfmmyB0-vR5ZZkVzC4_e455ILYHXx5VsIqiDoOIuzuTv1H1jcjeQwLy8J2cZupbDpR3gzKuw-K_3b6xAUFMPr_Aqlg1Y8t0UFT60WmJoGgwlGznDgUWFgOPDsHoGrxkTh7TUJ3P3bQjkjVUTIDLcex9hMRfLF0tGRIf9kshEjsqos2trtCglZ6z4bYw33NIqMAm4Zu5LYmMlBOrCjiDKmmIQcu1spI5-6nwk-mYG7AGwpeqys7UbLANNnkFoE6j3WAo5wN6aRDcXgSEryqOFAwDl5E0UHyNfSJebQuYvxxQUH3zK-NiHNxzszOzHrqRlDiBhWq",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 37,
       date: "08-06",
       startTime: "16:50",
-      endTime: "17:30",
-      title: "이벤트 + 네트워킹",
-      category: "Event + Networking",
+      endTime: "17:00",
+      title: "쉬는시간",
+      category: "Break Time",
       description: "",
       speaker: {
         name: "",
@@ -678,14 +685,14 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 38,
       date: "08-06",
-      startTime: "17:30",
+      startTime: "17:00",
       endTime: "17:40",
-      title: "이벤트 (추첨)",
+      title: "Golang Korea X AWSKRUG",
       category: "Event",
       description: "",
       speaker: {
@@ -694,12 +701,28 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 39,
       date: "08-06",
       startTime: "17:40",
+      endTime: "17:50",
+      title: "럭키 드로우",
+      category: "Event",
+      description: "",
+      speaker: {
+        name: "",
+        company: "",
+        description: "",
+        profileImage: "",
+      },
+      level: Levels.None,
+    },
+    {
+      id: 40,
+      date: "08-06",
+      startTime: "17:50",
       endTime: "18:00",
       title: "클로징",
       category: "Closing",
@@ -710,7 +733,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
   ],
   en: [
@@ -728,7 +751,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 2,
@@ -744,7 +767,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 3,
@@ -760,7 +783,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 4,
@@ -780,7 +803,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4OJg1o7McNedDK3bJszOFW0MZu1K6gfQ3zKkf2EaZfpzKtH1K_NdO2fOQXDRZe0SNBFuYorEZ_Xs-iyMolPGvGjghi0W8xwRRbnOqiBmguxILhpF76UcBKJ0r1o22kb_wmg_P7bz6k8RhYz3qsUDdGPxIz515wdLZ4hCCddkweTchCqPMQgEttiuoHGlW2AqWN6VA3irBGQyUQA-w8ItMboLss_gHe0NVHzKtHgj4EFvLoH5lUI2Fi7PP8QHbz9yZHylhEqjzH7mylneQJQrCGOaHqBsGrAuTOdy1sqQt1e-elWGPABMQNwa0mpky8gnlrIa3UozF2XbzNPuErIq11VbY_QACzKVvUH7mZbdx_Tam_3vyohDdELxsB0qKUx2yNi0WkAZ8oCdJVsOZXP0-rj10ri2roEh-kt3CQ6rjS7upXXCoMii_Skqo6T-MrohuoKnDpY0xAEC2vm28gquNrp1rwW9evz1qBEgt2fmmlR51M6LSer7LGTYYUk2Ci9IpQ-RLvkCsAzXluOW0yqGrAww1zxYwj3fIrI0EUrt47hKze6eZNWqHH9dpqjLh9QXcxLWeNAJuL2OLZ2rGC6HLCLu5taZjGOZfC6IFJUI8ec1zEAvuGr4ejgsMTCpFIGM_CkIEFc0SFrzuhsyBPNQDlM0of-MwdpPv_WQkP1IFOSKDzZiwvDZdxnnsSemmvswjle6tKnqBwPW-uk4pfZWY-21rgUtE4eap5ku8pG0ybjOeMczCVNP1OKExyxU1xnK73TAruO2MyvfQhX1QcpVWyiXETuUbOYZbMJpyVnsFgM4ucx54fXHJfKHV_wrGBWckdjPBCl25Wf8FA6yw-5kB4X4Qs4i0T22irkio4tNwIMi2ymTffuFbJqD-Om1CS4O4-TsdlOo4Zh3mtpH4LF5EvCk7iiZcAQLmkTIfPSBi2taFDPRPjzbkhYnlVEZ7rLn5PNs9v4iAHIC-2Et22CGsoD4ZgHlVJwZdDixnFRJECq7PtuUiyQQegamqChXhH6E5lBaDmnogzliSOPSGCm-I7xYLgRpkyVtIgwvGDG2hcCx7t_fFE1p-kY1DHikHwpCCxoH_zNMqE_uGFFGtaSNpnATP269rfzq1QXXAelSUD6jgMT22nwyPteG1LvfyDUNYdOxZEnzCBGH1byEPtOMM0S-8MpNwvM90T3oz4eTS1-xWnjipYmq5ehvuYEbnvrf2zfAZg52liIhI_-UtE8XtSagK0rUzmYHVHV89Dzl11B_IXOGn6EQ9YcBYRZU8dDgFBAxqXQZq8IgJ6-eouHUUVlzt2vJSWTZwlX7Y_5qnwg2zNgZq3ej7QSs1s7KQch4JvKQGlltVVqznmIiL8SfSJCZnCab3RS5Q2oowSusqBTDCXv",
       },
-      level: Level.Low,
+      level: Levels.Low,
     },
     {
       id: 5,
@@ -796,7 +819,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 6,
@@ -818,7 +841,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           In this program, I would like to share my testing experience while developing the open source lethe/venti ( https://github.com/kuoss ).",
         profileImage: "",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 7,
@@ -834,7 +857,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 8,
@@ -850,7 +873,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 9,
@@ -866,7 +889,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 10,
@@ -885,7 +908,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4OH_mYYi2H9GsUU72ocF7y7D2K2RK6glu0i5QzmWhtYFJGvZX8kvj6ERqQA4-mfQmO4ITGJ-nErgC1BVNseTXO7qhOLVTimJJP-TJ_XA_jtz9a83kXM2xb2N91Y9V-wm1a_nWOTGDZ0HltwaBTP-hAgzpetZREHK_cfcrx1v9Vjisinua-gFZiO6Q4GpLLXvZq3wIlLrYTR9jNeXF6K7CSQ-gMR_zS1zRYso8zy3CM7oEVIPkIMoUyLq9NjgbN7YCafwB8plo-mgy8k5W8jHhgPUXtaXnPXpeQMdW0NAlpGMcA575TAPGgSHXeh7QL3jfgCQ1QgazOgAs2o2hdF6bUSAD5s0PJxHq7-J73IbOIU2OiVaJyNCm5XCJ1uWIKBz8XUdxkCI79PQSKTJ5GhXxH1S7zkPCqdKbsvEGirZBiqC2PDu59UO62raixvLIYW4Ba04pQtmDmyEzRQ-NxzlB15uO1ufe2w2Dwoz0AsvQNJProljz55pRro1DLXSy8m89swknNutDVZqLgTMTPT623nw7UbhGyCe0HhIXe0Xq31tlTFnMzleX9nX_l_CAqwDyDrKgjfWA4I9vd3z78ziiDWPn28lNvMzIyDE1affYMYJ_XLNB68eyXgNoLMYv6QS7VMox9X-AgWf2Bzi_BtKI3MyBuyxoY5tLFKixn9du8xLlgFheJR_heAOXg4miDDUVuIiG9rfRM7FgOxhj-JchzE8gdtpGOS7kKtUH61rgssEyJeIzyj_TV8h16FHaNARYvYWj9EBdzEMIFPnfrWpBrMB7mC--JqtKsBn1VzR3ndov42KwmbIemmdkxot7q7srVhaPQow7A1vmLbVYSJO4GaIXHwC4xfEV0PkK0vP7MHTZGFQ1wIWjR_uozVhcSlnwQ3cOwnZa6YK8W4IjSkXQXC_uth8Cj75ZWfeqWi3btK0vN3pSXIHwl5Mdi6RIKqGmflfRVyx23h1CECBmChW_O5QJt2ror-awDxzfkW1XDS1nFQmXSsQxus3nNpHSCEbE6auZIIuij2h5hHn82RypSTxzmB3swb80xu1GD3vHglhdLa9g-EovZzrz6H43ct4aM5elLyyLenumEue4jBUjbn1gw6FxP6xKH7ygK5LBgxAhOkwG625T8VnbguDJ6FWJ5cCXaxyOaIqOAJzsq_Y5SQiZ54EfbyhYIF1WY2uJpdDT7pC7_Bl-sJ2vIIhmZH5r-RcXtISHB17KT_i9qgf6_xU9nmL0wR5YpQXHirQkFr_HnLC8yj6HP1TIGRGZL1FysuhrQ9HpEKae0-z_qfAxLsBQJl4nhtSOZMcakqGEQmyZbHKmhSSsJ-bVv_tTHYAVyax48ROR1j1DvxJ3XrsfWOalnVGyhy_xf7uaLuyEJqKh1n",
       },
-      level: Level.Low,
+      level: Levels.Low,
     },
     {
       id: 11,
@@ -901,7 +924,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 12,
@@ -920,7 +943,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           I'm passionate about how teams work together, communicate, solve problems, learn, and continuously grow.",
         profileImage: "https://drive.google.com/uc?id=1yZ3-tzpPFBOHEWHSaNcTUXIyX6XMf5rO",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 13,
@@ -936,7 +959,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 14,
@@ -952,7 +975,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 15,
@@ -968,7 +991,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 16,
@@ -989,7 +1012,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4P01_nSfi7ZxfRGwglJhQjGiMQwuaHvg3ENavi8HnXU167oaLlLY5u4Yp-qbC5kFHvnKjIzZpG2g5XOllyxHAUz_TMHPTmyi4-OvvXTA5wbd6Sxfv0r77-Zkj-qR-CjH2_uIvlZYt0V-knEWkSqSgRJQT6yKwUi3dwEdTEjFG-yK89eYYfqANzZwohHg955TXNcuW6-du9io52JPjfdBLgzpeG2pKXD8ZGd0aCZ5f_ppYcA38jkqrHKMMOygE9QM9aCei8jFDSH5-5okZmGRZxg-ZOe3OiMIlV9XOC2CKPYwq8_YUPcUSs3O89vx9a5JWhe7JSl9ugERh51r_eG5mqjZGU63SyJZO6y9FpEN7z07spq1hlowGjeL9dTnD32Y-nhZ7ajb1YryYxMTPHzSuTR4wW9e7JNvqb8l2f8qnl7MMbm-03yRqat0qbREQrW6D9ial5AGNgeWRMoRg3raMrqJSh9PX00qoMgs44uNHAH4Mz95r0cGpx2h956R5pPmjDMV1s-QI6Pj23XAylMD8r9soxkU6yd3Vmiu5o3XErDCUj-Z-cyrwN9LmwuMYjAUZxzc3ZSCKrMizp9Ua5sGh2-S9NFzZQ3xQTPeYig5W0_g5S3ddKZXJ-6GyG5I109HnnNqZiq6OxG-nSK7IeoMRqoDmQGRAtuFgVzVFTsUUw6XEjbSjR8_4XvPTvoiZNQFLZ7gSW3Em9WpznQa5-XWZcRwPgWBRoSfjJvIsIyymN81w8Z9p2NpIn-VaHWHNN7p-sosCUZDXPL-hDqiQ7K3MhwOTEn6ZfmLvmg2SVmA2SRurpmrvf5kh6YbAD9RRpnA6jj3jcJZH4GRMpRfv4iZEIUTBWWFkoPUB_PMD8onBtCtREc49mEfoR5I9SWOTtefRrW96z4XXG5YxQL6TLquOaxBxc6OxJZcp9Zssd7hMZU8jkOiOymmVCkycFjdC1jQ0x3A4c7ScSF1K7MMvZi7YLCxpfZowLk_aiUMjpqnKyGbMmEHT3zzLTtFS8OjSqa1k3DYXnpIcwXZnLjMBGgev1eCATWAiC5wjo9FnxTdO3j0eV0WEJlHxHr3576NukkJtGv1PorEyz4CM6S92w96DWr_SyvsduHAoo2JF3YjKoMMo0km_o7LdqEp5nyaQ9s7M8pyhxlViznHdqODyDKrrAbmSTlkppgD2wlTQSPtCvPne3APeI41C88ZuBVrWjAMEzsLdAF9fA9uS7ZrnKu4snjFDJknKHrDKcaWzkIMvboszMsNz76OrG-3djKhKfl2J0bdSa3AETN74Hv0EPrc_YKc97lLUWba4qjpBDBJr9bsiQzktOlh4dLTZE5AT_-pjGxiw-Ps2-2S5YbEhtxtcV5Js_T0eqc6S6F2shN_qvRfdw",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 17,
@@ -1005,7 +1028,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 18,
@@ -1025,7 +1048,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           "I work on operating the Kubernetes platform and developing operators for running high-performance workloads. I've prepared a talk to summarize and share how I use the eBPF tool to track applications developed in the Go language.",
         profileImage: "https://drive.google.com/uc?id=1fSnSwjxlx44qQaHGk244Cqe2LlH5F59d",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 19,
@@ -1041,7 +1064,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 20,
@@ -1057,7 +1080,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 21,
@@ -1073,7 +1096,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 22,
@@ -1089,7 +1112,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 23,
@@ -1105,7 +1128,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 24,
@@ -1124,7 +1147,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4NmDhd5Ymi3AxtxV94p5vwcddduSMeGA6Sbcub9TUH3Jw6Dh1fIjR-DnS4y4rkOD_YRSy8hHw1zWw7_T_biKTLD2uO3ymw0aBdbRMaDfMuw4hJHQVgIckqqpXWeVK8IH5EJlgmmK0oNxxfsyUJ6i_mqL2fiRx3A0cFKk6cpQDnJVg-n-KFRH9o8HOnvbGgkHipDNsh_KsJhdk6f1CmYQCXGQHYBeqVTM_4QocB-fs-poeI_xwepKv5omfTFae2eXHrEA42BBNh1eB5Q7K6teu3PbDcx1SbE4aWj3KAcSf4ncE9QqfzazA4JUcmlSRDnlXMKHfRsPToOKrBlpVjyuJ5kBwKphBkOaq67FWvcmk32VKQy4v_1cxoYmBeqjDCef1RBHpxjZjCKz1_wDNdeTYNnDhC-TJLDrZMRwfwjyZtK-wrJvLknE_Se1sR7nMbVJFo90N5HOOA9obQDtwjSvjdZsOT8TEUqgxPwyV7CW4DQg7N39TGY2CRGda0HIjTLQfxzn2-HFSUwdr3geLJW2TpWTN0uLeT2RhgEIZwM5O6u6qLkUmJuzJd5tu54oblxJFF5XxQi8rCSjtAouAsU6d9yE2dlx5pXCMJ3Pp3Varu6h3CRAPiwO4_IlNpkp_slBDXqHZfCRg-pC48cFvM1ax71iN-OwQ0iWoVo-epNtQiJ26dm4Z6mEXD1Q6XdbNlMKWe7AzxGDuckL4079fVFIlKRVywtn8LIF77ST8cZNYa86T-w8ccnUWGlpApHxAd0gCq9X5dRPcfW4j1TKWoamIWs4DB1rMCMALAaeJe_9BayBEfH4tb92uIxHWHUfnyGHx6nWZFiH7V37w0vM3hLqXPCY30ufUSZyNiGjLnI3JPhVRnQfQLJRiiDzM_e4JZrvnxIWgn79tvdYhTNk_TYp7f9RYFp_FYOk-iUdYzm1ZXHKCuR-_YV4FGApZD3oeN927ngyy1QpJC85ZK275MAhAwS_anaFr207WndcBq0k1mtOSEe3jlw54LeOYYA7QXIWXX6o8ELoGdbQDPTASYZhEcAFbtDicWkefH2tjrreCQEE-bn2SgneAJPdthsvl1o1jh40LXIToDlQt8RFXR_5G_lJ0xD9xjMnpk34RdrddHYLG9SJyZjxGinfaKyQSqmYYjmFYXjbdeYQ2btwaGnApNV8NV2V2oYMRNCBGlQQ9v8sxdhDwea7pG1D6SwmzwMoiDv-w4VPuvXOKKD8SiV8EMQ3ATwpuSmXhyejTQV1T_Ux8jU2z7N6Iwzs9yI5ZrKjiajRvrZjII5oVqnvqrGWwsHveU2OcEmKr4qsc9Jez5d2A-vyvTEBAvwEd5a7JN4hOZT8Hicv6Ew3fqPP7YQeb4ThmwKlnsGYQ3_M8zNmbabkWAJ",
       },
-      level: Level.Low,
+      level: Levels.Low,
     },
     {
       id: 25,
@@ -1140,7 +1163,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 26,
@@ -1159,7 +1182,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4MYDZ6R9Vg13arCDpSkbrePrIox0POZZdKyCXebA9KqjQWeUUs8TfMTNlEfVaCheJDW6Z-t8ONATx1YHWPiweZppA34C7F8uvkaci7p2g34swAJPARIZcQF9K1yiXS7spGI430CFgWPL1YhHURwe7sm-0Dl7wNgKswZkhcrFgtCx8H8loqnjLBaYfSfEhrAIxmxpBqpb519eUyAAzyONwaxLOPRRAoGQeVr8-Bta2Z7S0iD5UVcQGRSjKBKo9yvv5rN3TzI_7yU7d3et_d_4E6ccVGV0XSuagLkrwosy0ZBkirmyKyRKoLKuBEHSPzflLLaanUvmnTpm_EtHRMvsWC1hsZt0xnxbCuNy0AfAXfa0dBsUk8vyxZzTK3BuZ6DfaE95hvN892NYxONSQ9usP1oXbx1XBrigIjOlrLgrfxGnYiy2diiITJfTbuCP9TV1JidySlj6-x6iWIRLqIINRESG_ezO-cXRHVGq3n8bfFHc_jUfuRzirxV07hMRfKBIDVSbwU2frT8dq_1udyjCsgkbI5yq1D4BTRDjuwA_tRxVCIEIzknQKtjVVap4x12j1stEpJvXiiReA_-6rNSqfMfAIotZvWLw7BcZVP3oZpBrKNOCJ1iPNHs4nw3gmUhmct25nKwr1KgEaDMfZIiUNTRpmXAKXyp53pYjRhvfYlLgJjzW4Gtlj3BRJQmnAvgX7q3HdotDup824Dml7e4cN3wS1ePwoQc2_pthcHzS9vJjzxTEJuDqu1A2_mOCSOofPDonL_EqxYdR_3mhsHe-1m98KgFmc5RCO-gjwKqX0wtZWKjWP62j9b2ixGUJ71hIJ5iqURjelb8CECZ0pAh3Fyf8dhSUL09r5Wyf7aj9niQoPWQp0DxBLck6ho3ppyTGKoVmqyDbBWvogHc83sRLlOcgqWGBrbNGNK7KVtS_jYjw-X8JLN-uz-icW4DLktalXhWsC_7m_6inBtS3J7bnnFZm4ch0XaP-TX4szeOv8jUn3fpAgY2rvn2j5g4lWxoKDCJ_DOBTlZU-OXtwxQ5sVKqMbzjuxuaHVP1LLN6oDcSn9eJpg9mvf_aUgIOZyJcvA9RrBkXytCxdsMmpAtV3cl5c-gXcCYz_Me7NxYi7pH-3TKjBoIE0XKFH1A0r11wxSA4cn57HOB7Y8yKLUpNlDURUJSXUGsYUbUQl8BrRt8joCDhvojGXSut_xD0rxSJmaP8PhYZu3djSiUJZenY0IcIp7Yqn3I2EAxCnEBSW3M1cHWpj75eT-QlmsztLkiFdW6U2ZkrTgqVcjqIUsX79QG8xCK45pQyZwZJWtLUM8vgIXW-DHc08SCbTx_F8hLfg7SO-6LzBd5_BleuvFVGBDr79pkZOPIBgNha5p0aqSGPauCEqCsn4Ev_VJM8-x0AGOVIjc12DursR34PupxS",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 27,
@@ -1175,7 +1198,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 28,
@@ -1191,7 +1214,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 29,
@@ -1207,7 +1230,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 30,
@@ -1228,7 +1251,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
           --＝＝(/･_･)/==≡≡卍",
         profileImage: "https://drive.google.com/uc?id=1gm2boS_ocpHDc0RB6qoR5agls14S363v",
       },
-      level: Level.High,
+      level: Levels.High,
     },
     {
       id: 31,
@@ -1244,7 +1267,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 32,
@@ -1265,7 +1288,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4M5SDDrv3yN3SesalbL4B4_PVdma75EyT9WpQOb0bOekNkiiz8LA_qI4sBWqLX-BLoPr-bDw3cIeW7lgSspEQDRDnwFdNo49d28XqXY43yTjbwqs5KJ0jjXD4Yr5qnoVsZmdFV5PLoKhPVOT3a8wCJGUMXV0B21CYmUefSl8azyn7WsudJUtTqdjRxfDDAaEh4hyxexKtaCaoGQIyBo66lZAXdVpayQjRjxyZvqgp4qm8Skn0nJ-E4zeG5H9hmpcPOgadK9VHwoOGCSiZ6pgCcw9bBhjBhs6gW4PYDZtmD1D03hw7uE-OFTDkq4WN6S8cuWAdRo5iAAebstpx_tVI9TIZWhTNq2yvtu-pey5R9BPebA0Wx7jDJGLgbN4xW3FVvHH_9RPxWILbYEJ2ocH9RlRrnCrvNoB3YoRmYcyh8Lh_25U5YqfMgW5TlFYHWbi6QihGItVlMvYzl21aqxpEuYvv90vQ4BcB6QlSi664b0To22fUISEvezZ4Q2f2_WuXn-3HLwzZB61ipkGi8Z7kcSMXfHysRRR01V9hJ8Tei4F1OGSko8hnLxKZywfT0Pr5DtI5yX5Gl-5DTdlr-jd5ty6VqCssGmLguQ-kd3buNFLLDtwGeRN_5lKdRZarQH7BQ5EOa1lFqfsgPXseOQU5tZRJdQ406qhk-sxkD5jF81YHa4gNlZyyoh_jpc0lta-3cMOc8TkPsNLHfzZ6XQ6LPrFjYfBxUOh0J-_PRJcSA65zTVr1xQTB8QwWEa9tbmNwoygCLc1OAhtCFXvyx0dlvLG4Q89TjXeDuAvoznyPCs8ktzN94cZd2Pae68yhAmxOkVyZbDJ7LrYxIxC4689MtQAJZb0g8q0iAmss3EYAe9cx-wzHBvXhvIrQR_NJCGhGjoQwSG4Kpc8TnrIaqmZ6-DL1nmGT3bTO_WRqIcdmKiJgFjFZtRiwCJOt2DDis5E3brlfgMIFW6icv7N2R3RVaD-QxYQ8G_0nifu0FlgTSC8gGjFNR0mbwhupNC1nYHRSDw-107rvcV2alsxD54qGqejgeOKrJD1Hu8lTxzcUOVrYYBchUZ2wNqXXXJXlwGrh9TAqBxwCp75MlmZBiJFj0UBl2Vf82lyNtKMraWPp7e9wPDCl2DozT7OjPajY47M4ghy3sFg2IXOfLwZRvf7bGjabV4oNETb2Nlp5g2I0EcHtWbHfhOa3QilukYbNxezN5l6EA9EK0GjfmROktU7GEi7rY0fEmxRFtbCajwd78XTREWadp7MK-UToqUttmoucgLe1XSUOLLkXN46qAn59qqI0Aff91Y89S_E4R1rxoQXxRy3BEo9ucDdkmz_DtWXZwJhz5CakFvSw45ZWQ6ySilk_DTK98i5f2Vt9uNX4zkfhWf",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 33,
@@ -1281,7 +1304,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 34,
@@ -1297,7 +1320,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 35,
@@ -1313,7 +1336,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 36,
@@ -1337,15 +1360,15 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4N0fZNDoU2mKoQH_bJFjZnnJkgZM0XzNp721FVL7iswp5DRZbNw-lxgKssJRGaWVgag96ZPE4Tsv86kmHqTjXrKT4quDGgH1dNJypJA36Vo0hNYVe5ZQ-ITGQ_TGGBdo-Nx2qRo4eTd1wwRIh62qUuHnWHhaUzCR99QrmIG-31iwq69deTwk8qHelepUU3YzEf35U5u49ZvugbkZwMHxw3mvRE-8G7A_SJm7TlImkX_3S58fwdIv713lq_WDhqFey194zyzwf2dD_ZEJsGvxfq2kTV2QV3UZGJfjfmAxWfybv8nHRj6Q5tSGfdn_QN23TJYmk6b5WxfI9Cm8bl0af2WvM3uVPKV5MSz1YF0yVrlfUY5FcBt1P4sL6OFX88-hc3Gz_CDrfuE5vLJoHkOAvfQf97LwAFfpg-9A79h-5p8wf_NC7oI8BWNtd3iVuNZzPypB-RnhdDGQYjAQ0Ra5-d5kjhJTQ1mc_Ax4-CWIwa1f0DXbVLleSEOJBMnfvj-XRdjdjafTSlRW60lGCDsMqRiNkpuvwC_K6lhQ5epBI_6PSkJFpZwIZBGqEWJspkGbM1zdfqwR97eTzwK3u5iBbzWB-A1P9YSywK4W7CNlpe-1wH6X5cz7G6k708IlgyJ9-KvoiJN4yUcINwILfl0QPbU7I0PRRcuF4JMYOg9hpz8LG-S71EI3nXmqTiynn-7gIprMUE0O3ti9-l7y7HJNoGWM4UDCWfZ90L1BuEyCtZpnC3q_M1xkpsQ3i83zX_0spQp2WoNnuAouT7kEtzMmgWB7XWB9RPRU8CCKRYrjvm_mFypine55wF0PAkhdyCsL9UYTnBEJUh5wtb2iu4Z8EyvmtqnrgVqKNSaLeAdYpkJ0ux7wSiv0eWpCnrEuQ48ISMInVRZP9jnBuawl-mVfIq7ds3uCRtuNrsx9aLXyuNScUc8jfsWpGQwMWE_okRpGLqY-IrxUaxCZuYd8Uxk3ITkU5WGO72pKBveVf7Qgyf7Ox0ifyrq8CI_78Kue5Yq_K6S6PF0TmEhBvbzsqXK47UVaceDvr0FiWfp5Gx4xQOfmmyB0-vR5ZZkVzC4_e455ILYHXx5VsIqiDoOIuzuTv1H1jcjeQwLy8J2cZupbDpR3gzKuw-K_3b6xAUFMPr_Aqlg1Y8t0UFT60WmJoGgwlGznDgUWFgOPDsHoGrxkTh7TUJ3P3bQjkjVUTIDLcex9hMRfLF0tGRIf9kshEjsqos2trtCglZ6z4bYw33NIqMAm4Zu5LYmMlBOrCjiDKmmIQcu1spI5-6nwk-mYG7AGwpeqys7UbLANNnkFoE6j3WAo5wN6aRDcXgSEryqOFAwDl5E0UHyNfSJebQuYvxxQUH3zK-NiHNxzszOzHrqRlDiBhWq",
       },
-      level: Level.Mid,
+      level: Levels.Mid,
     },
     {
       id: 37,
       date: "08-06",
       startTime: "16:50",
-      endTime: "17:30",
-      title: "Event + Networking",
-      category: "Event + Networking",
+      endTime: "17:00",
+      title: "Breaktime",
+      category: "Break Time",
       description: "",
       speaker: {
         name: "",
@@ -1353,13 +1376,29 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
       id: 38,
       date: "08-06",
-      startTime: "17:30",
+      startTime: "17:00",
       endTime: "17:40",
+      title: "Golang Korea X AWSKRUG",
+      category: "Event",
+      description: "",
+      speaker: {
+        name: "",
+        company: "",
+        description: "",
+        profileImage: "",
+      },
+      level: Levels.None,
+    },
+    {
+      id: 39,
+      date: "08-06",
+      startTime: "17:40",
+      endTime: "17:50",
       title: "Events (raffles)",
       category: "Event",
       description: "",
@@ -1369,12 +1408,12 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
     {
-      id: 39,
+      id: 40,
       date: "08-06",
-      startTime: "17:40",
+      startTime: "17:50",
       endTime: "18:00",
       title: "Closing",
       category: "Closing",
@@ -1385,7 +1424,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         description: "",
         profileImage: "",
       },
-      level: Level.None,
+      level: Levels.None,
     },
   ],
 };

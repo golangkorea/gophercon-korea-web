@@ -1,7 +1,7 @@
 import Content from "@/components/content";
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
-import { SESSIONS } from "@/constants/sessions";
+import { Levels, SESSIONS } from "@/constants/sessions";
 import styled from "@emotion/styled";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
@@ -9,6 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
+import { DiGo } from "react-icons/di";
 import Gopher from "/public/images/gopher.png";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
@@ -24,6 +25,46 @@ interface ProgramTabButtonStyledProps {
 interface ProgramSpeakerCircleStyledProps {
   url: string;
 }
+
+interface LevelProps {
+  level: Levels;
+}
+
+const LevelIcon = styled(DiGo)`
+  font-size: xx-large;
+`;
+
+const LevelStyles = styled.div<LevelProps>(({ level }: LevelProps) => ({
+  backgroundColor:
+    level === Levels.Low ? "green" : level === Levels.Mid ? "orange" : level === Levels.High ? "red" : "white",
+  color: "white",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: 12,
+  borderRadius: 999,
+  padding: "2px 12px",
+  "@media screen and (max-width: 1000px)": {
+    marginLeft: 8,
+  },
+}));
+
+const LevelDiv = ({ level }: { level: Levels }) => {
+  return (
+    <LevelStyles level={level}>
+      {/*<LevelIcon />*/}
+      <span>
+        {level === Levels.Low
+          ? "begineer"
+          : level === Levels.Mid
+          ? "intermediate"
+          : level === Levels.High
+          ? "advanced"
+          : "none"}
+      </span>
+    </LevelStyles>
+  );
+};
 
 const ProgramSpeakerCircle = styled.img<ProgramSpeakerCircleStyledProps>(
   ({ url }: ProgramSpeakerCircleStyledProps) => ({
@@ -62,18 +103,26 @@ const ProgramTable = styled.table({
   thead: {
     backgroundColor: "#fafafa",
     th: {
+      padding: "0 10px",
       height: "3em",
       fontSize: 20,
       textAlign: "center",
     },
   },
   tbody: {
+    fontSize: 16,
     tr: {
       borderBottom: "1px solid #eaeaea",
+      cursor: "pointer",
+    },
+    th: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
     },
     "th, td": {
-      height: "4em",
-      verticalAlign: "center",
+      height: "5em",
+      padding: "0 10px",
     },
   },
   "@media screen and (max-width: 1000px)": {
@@ -102,6 +151,7 @@ const ProgramTable = styled.table({
           float: "left",
           fontWeight: 600,
           textTransform: "uppercase",
+          marginRight: 12,
         },
         "&:last-child": {
           borderBottom: 0,
@@ -162,10 +212,13 @@ export default function Program() {
               if (tab === "DAY2" && session.date === "08-05") return;
               return (
                 <tr key={session.id}>
-                  <th data-label={t("common:title")}>{session.title}</th>
+                  <th data-label={t("common:title")}>
+                    <span>{session.title}</span>
+                    {session.category === "Main Talk" && <LevelDiv level={session.level} />}
+                  </th>
                   <td data-label={t("common:category")}>{session.category}</td>
                   <td data-label={t("common:time")}>{`${session.startTime} ~ ${session.endTime}`}</td>
-                  {session.category === "Main Talk" && (
+                  {session.category === "Main Talk" || session.category === "Sponsor" ? (
                     <>
                       <td data-label={t("common:speaker")}>
                         <ProgramSpeakerCircle url={session.speaker.profileImage} />
@@ -175,6 +228,8 @@ export default function Program() {
                         <ProgramButton>{t("common:more")}</ProgramButton>
                       </td>
                     </>
+                  ) : (
+                    <td />
                   )}
                 </tr>
               );
