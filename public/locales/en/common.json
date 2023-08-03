@@ -24,5 +24,13 @@
   "readTopics": "Hear the speakers' deep and varied experiences with the Go language and join them on our journey.",
   "sponsorTitle": "GopherCon Korea 2023 is here today because of you.",
   "goToWebsite": "Go to website",
-  "liveTitle": "GopherCon Korea 2023, the first big event for Go language users in Korea"
+  "liveTitle": "GopherCon Korea 2023, the first big event for Go language users in Korea",
+  "subway": "· Subway",
+  "bus": "· Bus",
+  "lostAndFound": "Lost and Found",
+  "etc": "Other event inquiries",
+  "subwayDescription": "Line 2, Geon University - Transfer at Line 5, Gunja Station, get off at Line 7, Sejongdae Station (Children's University Park Station) and exit 6",
+  "busDescription" : "Children's University Park Blue (main line) 721 Green (branch line) 119, 3216, 4212 Hwayangni Blue (main line) 240, 320 Green (branch line) 2222, 3217, 3220 Red (wide area) 102 Huamun (Sejongcho) Blue (main line) 240 Green (branch line) 2012, 2013",
+  "email": "· email",
+  "kakaoPlus": "· KakaoTalk Plus Friend"
 }

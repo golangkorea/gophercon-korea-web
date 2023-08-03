@@ -224,6 +224,11 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
             <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
               {t("nav:contact")}
             </NavLink>
+            <NavLink>
+              <a href='https://gophercon.notion.site' target='_blank'>
+                {t("common:lostAndFound")}
+              </a>
+            </NavLink>
             <NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>
             <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
           </NavButtonGroup>
