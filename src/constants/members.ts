@@ -70,8 +70,8 @@ export const ORGANIZATION: Organization[] = [
       {
         ko_name: "호르헤",
         en_name: "Jorge Gimenez",
-        ko_bio: `A spanish guy that loves programming as much as kimchi~ `,
-        en_bio: `A spanish guy that loves programming as much as kimchi~ `,
+        ko_bio: `A spanish guy that loves programming as much as kimchi~`,
+        en_bio: `A spanish guy that loves programming as much as kimchi~`,
         github: "https://github.com/hrh858",
         linkedin: "https://instagram.com/hrh.858?igshid=OGQ5ZDc2ODk2ZA==",
         profile_image: "Jorge_Gimenez.png",
@@ -140,7 +140,7 @@ export const ORGANIZATION: Organization[] = [
       {
         ko_name: "호르헤",
         en_name: "Jorge Gimenez",
-        ko_bio: `김치만큼이나 프로그래밍을 사랑하는 스페인 남자~`,
+        ko_bio: `A spanish guy that loves programming as much as kimchi~`,
         en_bio: `A spanish guy that loves programming as much as kimchi~ `,
         github: "https://github.com/hrh858",
         linkedin: "https://instagram.com/hrh.858?igshid=OGQ5ZDc2ODk2ZA==",
