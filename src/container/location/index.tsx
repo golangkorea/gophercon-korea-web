@@ -69,9 +69,13 @@ const LocationDate = styled.h2({
 });
 
 const LocationAddressButton = styled.button({
-  fontSize: 26,
+  fontSize: 24,
   fontWeight: 600,
   marginBottom: 40,
+  textAlign: "left",
+  display: "flex",
+  flexDirection: "column",
+  whiteSpace: "pre-line",
   "@media (max-width: 1280px)": {
     display: "flex",
     alignItems: "center",
@@ -81,8 +85,8 @@ const LocationAddressButton = styled.button({
 });
 
 const LocationAddressButtonCopied = styled.span({
+  marginTop: 10,
   fontSize: 24,
-  marginLeft: 20,
   fontWeight: 600,
   backgroundColor: "#0029FF",
   padding: "8px 16px",
@@ -246,7 +250,7 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
           <LocationDate>2023.08.05-06</LocationDate>
           <CopyToClipboard text={t("address")} onCopy={onCopyHandler}>
             <LocationAddressButton>
-              <span>{t("address")}</span>
+              <p>{t("address")}</p>
               {copied ? (
                 <LocationAddressButtonCopied>{t("copied")}</LocationAddressButtonCopied>
               ) : (
