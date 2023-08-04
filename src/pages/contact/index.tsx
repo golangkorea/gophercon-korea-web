@@ -33,8 +33,12 @@ export default function ContactPage() {
             <p className='mt-2 text-gray-900'>{`${t("common:busDescription")}`}</p>
             <p className='text-xl'>{`${t("common:lostAndFound")}`}</p>
             <p className='mt-2 text-gray-900'>
-              <a className='text-[#0029FF] underline' href='https://gophercon.notion.site' target='_blank'>
-                https://gophercon.notion.site
+              <a
+                className='text-[#0029FF] underline'
+                href='https://golang-kr.notion.site/Lost-Found-Zone-25caffe464ef4253bdc23e39a047c1a9?pvs=4'
+                target='_blank'
+              >
+                https://golang-kr.notion.site
               </a>
             </p>
             <p className='text-xl'>{`${t("common:etc")}`}</p>

@@ -225,7 +225,10 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
               {t("nav:contact")}
             </NavLink>
             <NavLink>
-              <a href='https://gophercon.notion.site' target='_blank'>
+              <a
+                href='https://golang-kr.notion.site/Lost-Found-Zone-25caffe464ef4253bdc23e39a047c1a9?pvs=4'
+                target='_blank'
+              >
                 {t("common:lostAndFound")}
               </a>
             </NavLink>
@@ -250,6 +253,14 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
         </NavLink>
         <NavLink active={pathname === "/contact"} onClick={handleRoute("/contact")}>
           {t("nav:contact")}
+        </NavLink>
+        <NavLink>
+          <a
+            href='https://golang-kr.notion.site/Lost-Found-Zone-25caffe464ef4253bdc23e39a047c1a9?pvs=4'
+            target='_blank'
+          >
+            {t("common:lostAndFound")}
+          </a>
         </NavLink>
         <NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>
         <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>

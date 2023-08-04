@@ -221,6 +221,17 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
 
   useEffect(initVanta, []);
 
+  const DAY1 = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm");
+  const DAY1_END = dayjs("2023-08-05 18:00", "YYYY-MM-DD HH:mm");
+  const DAY2 = dayjs("2023-08-06 10:00", "YYYY-MM-DD HH:mm");
+  const DAY2_END = dayjs("2023-08-06 18:00", "YYYY-MM-DD HH:mm");
+
+  const done = dayjs().isAfter(DAY2_END);
+
+  const day1_live = dayjs().isAfter(DAY1) && dayjs().isBefore(DAY1_END);
+  const day2_live = dayjs().isAfter(DAY2) && dayjs().isBefore(DAY2_END);
+  const isLive = day1_live || day2_live;
+
   return (
     <LocationContainer>
       <Globe id='vanta'></Globe>
@@ -262,24 +273,26 @@ const Location: React.FC<WithTranslation> = ({ t }) => {
             listStyle='dropdown'
           />
         </div>
-        <CounterGroup>
-          <Counter ref={daysRef}>
-            <CounterValue>{days}</CounterValue>
-            <CounterUnit>DAY</CounterUnit>
-          </Counter>
-          <Counter ref={hoursRef}>
-            <CounterValue>{hours}</CounterValue>
-            <CounterUnit>HOURS</CounterUnit>
-          </Counter>
-          <Counter ref={minutesRef}>
-            <CounterValue>{minutes}</CounterValue>
-            <CounterUnit>MINUTES</CounterUnit>
-          </Counter>
-          <Counter ref={secondsRef}>
-            <CounterValue>{seconds}</CounterValue>
-            <CounterUnit>SECONDS</CounterUnit>
-          </Counter>
-        </CounterGroup>
+        {!isLive && !done && (
+          <CounterGroup>
+            <Counter ref={daysRef}>
+              <CounterValue>{days}</CounterValue>
+              <CounterUnit>DAY</CounterUnit>
+            </Counter>
+            <Counter ref={hoursRef}>
+              <CounterValue>{hours}</CounterValue>
+              <CounterUnit>HOURS</CounterUnit>
+            </Counter>
+            <Counter ref={minutesRef}>
+              <CounterValue>{minutes}</CounterValue>
+              <CounterUnit>MINUTES</CounterUnit>
+            </Counter>
+            <Counter ref={secondsRef}>
+              <CounterValue>{seconds}</CounterValue>
+              <CounterUnit>SECONDS</CounterUnit>
+            </Counter>
+          </CounterGroup>
+        )}
       </LocationInner>
     </LocationContainer>
   );
