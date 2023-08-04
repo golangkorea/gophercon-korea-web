@@ -85,11 +85,11 @@ export default function ContactPage() {
                     <div className='flex w-full flex-col'>
                       <div className='flex flex-col'>
                         <p className='text-3xl font-bold tracking-widest'>{member.ko_name}</p>
-                        <p className='mt-2 text-lg font-semibold tracking-widest'>{member.en_name}</p>
+                        <p className='mt-2 text-lg font-semibold tracking-widest text-gray-800'>{member.en_name}</p>
                         <p
-                          className={`mt-5 ${
+                          className={`mt-5 text-gray-800 ${
                             locale === "ko" ? "lg:min-h-[216px]" : "lg:min-h-[297px]"
-                          } flex-1 whitespace-pre-line font-light`}
+                          } flex-1 whitespace-pre-line font-light tracking-wide`}
                         >
                           {locale === "ko" ? member.ko_bio : member.en_bio}
                         </p>
