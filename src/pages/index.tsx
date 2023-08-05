@@ -27,7 +27,11 @@ export default function Home() {
       return false;
     }
     // DAY1 1시간 전부터
-    if (now.isBefore(DAY2) && now.isAfter(DAY1.subtract(1, "hour"))) {
+    if (
+      now.isBefore(DAY2) &&
+      now.isAfter(DAY1.subtract(1, "hour")) &&
+      now.isBefore(dayjs("2023-08-05 18:00", "YYYY-MM-DD HH:mm"))
+    ) {
       return true;
     }
     // DAY1 종료 후 && DAY2 시작 전

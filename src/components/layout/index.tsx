@@ -129,7 +129,7 @@ const Layout: React.FC<LayoutProps> = ({ children, main }) => {
   const { t } = useTranslation(["common"]);
   const day: Date = React.useMemo(() => {
     const today = dayjs();
-    if (today.isBefore(DAY2)) {
+    if (today.isBefore(DAY2) && today.isBefore(dayjs("2023-08-05 18:00", "YYYY-MM-DD HH:mm"))) {
       return DAY1.toDate();
     } else return DAY2.toDate();
   }, []);
@@ -148,7 +148,11 @@ const Layout: React.FC<LayoutProps> = ({ children, main }) => {
       return false;
     }
     // DAY1 1시간 전부터
-    if (now.isBefore(DAY2) && now.isAfter(DAY1.subtract(1, "hour"))) {
+    if (
+      now.isBefore(DAY2) &&
+      now.isAfter(DAY1.subtract(1, "hour")) &&
+      now.isBefore(dayjs("2023-08-05 18:00", "YYYY-MM-DD HH:mm"))
+    ) {
       return true;
     }
     // DAY1 종료 후 && DAY2 시작 전

@@ -151,7 +151,7 @@ const CounterUnit = styled.p({
   },
 });
 
-const DATE = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm").toDate();
+const DATE = dayjs("2023-08-06 10:00", "YYYY-MM-DD HH:mm").toDate();
 const Location: React.FC<WithTranslation> = ({ t }) => {
   const [copied, setCopied] = useState<boolean>(false);
   const daysRef = useRef<HTMLDivElement>(null);
