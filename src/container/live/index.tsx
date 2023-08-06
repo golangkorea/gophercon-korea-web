@@ -1,10 +1,6 @@
-import dayjs from "dayjs";
 import Image from "next/image";
 import React from "react";
 import YouTube from "react-youtube";
-
-const DAY1 = dayjs("2023-08-05 10:00", "YYYY-MM-DD HH:mm");
-const DAY2 = dayjs("2023-08-06 10:00", "YYYY-MM-DD HH:mm");
 
 type ViewPort = {
   width: number;
@@ -26,12 +22,8 @@ const Live = () => {
       });
     }
   }, []);
-  const youtubeLink = React.useMemo(() => {
-    const today = dayjs();
-    if (today.isBefore(DAY2)) {
-      return "WZthMW0BaNA";
-    } else return "8AUVKh0qJgU";
-  }, []);
+  // "WZthMW0BaNA"
+  const youtubeLink = "8AUVKh0qJgU";
 
   const opts = {
     height: viewport.height,
