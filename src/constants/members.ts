@@ -57,7 +57,7 @@ export const ORGANIZATION: Organization[] = [
     ],
   },
   {
-    name: "Common Dept.",
+    name: "Communication Dept.",
     members: [
       {
         ko_name: "박진형",
