@@ -141,20 +141,20 @@ const Layout: React.FC<LayoutProps> = ({ children, main }) => {
       <Navbar />
       <LayoutInner main={main}>
         {children}
-        <LiveContainer isLive={isLive}>
-          <LiveText>{t("common:liveTitle")}</LiveText>
-          {!isLive && dayjs().isBefore(END) && (
-            <CountDown>{`${days} DAY ${hours} HOURS ${minutes} MINUTES ${seconds} SECONDS`}</CountDown>
-          )}
-          {isLive && (
-            <YoutubeButton className='cta' onClick={() => window.open(youtubeLink, "_blank")}>
-              <LiveCircle>
-                <RippleCircle />
-              </LiveCircle>
-              WATCH YOUTUBE LIVE
-            </YoutubeButton>
-          )}
-        </LiveContainer>
+        {/*<LiveContainer isLive={isLive}>*/}
+        {/*  <LiveText>{t("common:liveTitle")}</LiveText>*/}
+        {/*  {!isLive && dayjs().isBefore(END) && (*/}
+        {/*    <CountDown>{`${days} DAY ${hours} HOURS ${minutes} MINUTES ${seconds} SECONDS`}</CountDown>*/}
+        {/*  )}*/}
+        {/*  {isLive && (*/}
+        {/*    <YoutubeButton className='cta' onClick={() => window.open(youtubeLink, "_blank")}>*/}
+        {/*      <LiveCircle>*/}
+        {/*        <RippleCircle />*/}
+        {/*      </LiveCircle>*/}
+        {/*      WATCH YOUTUBE LIVE*/}
+        {/*    </YoutubeButton>*/}
+        {/*  )}*/}
+        {/*</LiveContainer>*/}
       </LayoutInner>
       <Script async src='https://www.googletagmanager.com/gtag/js?id=G-T8BMXV9ZPX' />
       <Script id='google-analytics'>

@@ -1,7 +1,6 @@
 import Layout from "@/components/layout";
 import { SEO } from "@/constants/seo";
 import About from "@/container/about";
-import Live from "@/container/live";
 import Location from "@/container/location";
 import Session from "@/container/session";
 import Sponsors from "@/container/sponsors";
@@ -19,7 +18,7 @@ export default function Home() {
   return (
     <Layout main>
       <NextSeo title={SEO.title} description={SEO.description} openGraph={SEO.openGraph} />
-      <Live />
+      {/*<Live />*/}
       <Location />
       <About />
       <Session />
