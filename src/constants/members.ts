@@ -271,7 +271,7 @@ export const ORGANIZATION: Organization[] = [
       },
       {
         ko_name: "한종우",
-        en_name: "Jonwoo Han",
+        en_name: "Jongwoo Han",
         ko_bio: `GopherCon Korea 2023에서 운영을 담당하고 있습니다🦹🏻‍♂️`,
         en_bio: `I'm running operations at GopherCon Korea 2023🦹🏻‍♂️`,
         github: "https://github.com/jongwooo",
