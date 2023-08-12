@@ -232,7 +232,7 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
                 {t("common:lostAndFound")}
               </a>
             </NavLink>
-            <NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>
+            {/*<NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>*/}
             <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
           </NavButtonGroup>
           <NavMenuButton transparent onClick={toggleMenuOpen}>
@@ -262,7 +262,7 @@ const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
             {t("common:lostAndFound")}
           </a>
         </NavLink>
-        <NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>
+        {/*<NavRegisterButton onClick={openNewWindow}>{t("common:register")}</NavRegisterButton>*/}
         <NavButton onClick={() => handleChangeLanguage()}>{t("nav:changeLanguage")}</NavButton>
       </NavMobile>
     </NavbarContainer>
