@@ -18,10 +18,10 @@ export default function Event() {
         <h2 className='mt-0'>GopherCon Korea 2023 이벤트 당첨 안내</h2>
         <div className='flex flex-col gap-5'>
           <h3 className='border-none'>🎉GopherCon Korea 2023 이벤트 당첨을 축하드립니다.🎉</h3>
-          <b className='whitespace-pre-line'>{`상품을수령할 주소를 아래의 구글폼 링크를 통해 입력해주세요.\n제출해주신 개인정보(이름, 휴대폰번호, 우편번호, 주소)는 GopherCon Korea 2023 이벤트 당첨자 배송에 활용되며, 발송 완료 시점에 폐기됩니다.`}</b>
-          <a href={"https://forms.gle/qkNG8YaoMkm495LS6"} target={"_blank"} className='text-blue-600 underline'>
-            https://forms.gle/qkNG8YaoMkm495LS6
-          </a>
+          <b className='whitespace-pre-line'>{`당첨자 분들께 개별적으로 배송받을 주소를 입력하실 링크를 전송해드렸습니다.\n제출해주신 개인정보(이름, 휴대폰번호, 우편번호, 주소)는 GopherCon Korea 2023 이벤트 당첨자 배송에 활용되며, 발송 완료 시점에 폐기됩니다.`}</b>
+          {/*<a href={"https://forms.gle/qkNG8YaoMkm495LS6"} target={"_blank"} className='text-blue-600 underline'>*/}
+          {/*  https://forms.gle/qkNG8YaoMkm495LS6*/}
+          {/*</a>*/}
         </div>
         <img src={"/images/event1.png"} alt='event1' />
         <img src={"/images/event2.png"} alt='event2' />
