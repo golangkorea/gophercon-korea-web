@@ -113,6 +113,7 @@ export const ORGANIZATION: Organization[] = [
         en_name: "SoHyang Jeon",
         ko_bio: `GopherCon Korea 2023에 준비위원회로 참여하게 되어 기쁩니다!`,
         en_bio: `I'm excited to be a part of the organizing committee for GopherCon Korea 2023!`,
+        github: "https://github.com/jeonsoh",
         linkedin: "www.linkedin.com/in/sohyangjeon",
         profile_image: "SoHang_Jeon.png",
       },
