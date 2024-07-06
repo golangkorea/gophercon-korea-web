@@ -15,7 +15,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "eslint": "^9.6.0",
+    "eslint": "8.15.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2"
@@ -23,7 +23,6 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "npx organize-imports-cli",
-      "prettier --write .",
       "eslint --fix"
     ]
   }
