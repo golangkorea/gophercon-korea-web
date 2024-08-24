@@ -1,7 +1,7 @@
-import { SESSIONS } from "@/constants/sessions";
-import SessionCard from "@/container/session/_shared/sessionCard";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { SESSIONS } from "../../constants/sessions";
+import SessionCard from "./_shared/sessionCard";
 
 const Session = () => {
   const router = useRouter();
@@ -15,7 +15,7 @@ const Session = () => {
       <p className='w-full text-center text-3xl font-bold uppercase sm:hidden'>session</p>
       <div className='mt-20 flex w-full flex-wrap justify-around gap-y-8 px-32 max-lg:px-4'>
         <div className='sessionGradient relative h-[400px] w-[320px] rounded-xl border border-gray-200 shadow-2xl shadow-xl max-lg:hidden'>
-          <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-between p-4 text-white '>
+          <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-between p-4 text-white'>
             <p className='mb-4 text-3xl font-bold uppercase'>Session</p>
             <p className=''>{t("common:readTopics")}</p>
           </div>

@@ -1,8 +1,8 @@
-import { Session } from "@/constants/sessions";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { Session } from "../../../../constants/sessions";
 import Gopher from "/public/images/gopher.png";
 
 interface SessionCardProps {
@@ -90,8 +90,8 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
             {speaker.name}
           </div>
           <div className='absolute bottom-0 z-20 flex h-full w-full flex-col justify-end rounded-xl border border-gray-200 bg-overlay50 p-4 text-white shadow-xl'>
-            <p className='mb-4 '>{session.category}</p>
-            <p className='mb-4 text-xl font-bold '>{session.title}</p>
+            <p className='mb-4'>{session.category}</p>
+            <p className='mb-4 text-xl font-bold'>{session.title}</p>
             <p className=''>{`${speaker.name} / ${speaker.company}`}</p>
           </div>
         </div>

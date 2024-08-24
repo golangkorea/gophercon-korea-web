@@ -1,4 +1,3 @@
-import useCountdown from "@/hooks/useCountdown";
 import styled from "@emotion/styled";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import dayjs from "dayjs";
@@ -7,6 +6,7 @@ import { WithTranslation, withTranslation } from "next-i18next";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import useCountdown from "../../hooks/useCountdown";
 
 const LocationContainer = styled.main({
   width: "100%",

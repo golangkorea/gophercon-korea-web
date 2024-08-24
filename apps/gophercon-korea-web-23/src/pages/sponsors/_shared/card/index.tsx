@@ -1,8 +1,8 @@
-import { Sponsor } from "@/constants/sponsors";
 import styled from "@emotion/styled";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useWindowSize } from "react-use";
+import { Sponsor } from "../../../../constants/sponsors";
 
 interface SponsorCardProps extends Sponsor {}
 
@@ -20,18 +20,18 @@ interface SponsorOverlayStylesProps {
 
 const SponsorCardContainer = styled.div<SponsorCardContainerStyledProps>(
   ({ active }: SponsorCardContainerStyledProps) => ({
-    position: active ? "fixed" : "static",
+    position: active ? ("fixed" as const) : ("static" as const),
     top: active ? "50%" : "auto",
     height: active ? 800 : "auto",
     marginTop: active ? "-400px" : "auto",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column" as const,
     justifyContent: "center",
     alignItems: "center",
     maxWidth: 880,
     minWidth: 600,
     width: "40%",
-    textAlign: "center",
+    textAlign: "center" as const,
     fontSize: active ? 18 : 22,
     borderRadius: active ? 40 : 80,
     padding: 40,
@@ -42,7 +42,7 @@ const SponsorCardContainer = styled.div<SponsorCardContainerStyledProps>(
     transition: "background-position .3s ease, box-shadow .3s ease, transform .3s ease",
     transform: "scale(1)",
     zIndex: active ? 50 : 0,
-    boxSizing: "border-box",
+    boxSizing: "border-box" as const,
     "&:hover": {
       backgroundPosition: active ? "0 50%" : "50% 100%",
       boxShadow: active ? "none" : "0 30px 60px rgba(28, 28, 191, .5)",
@@ -62,8 +62,8 @@ const SponsorCardContainer = styled.div<SponsorCardContainerStyledProps>(
 
 const SponsorCardInner = styled.div<SponsorCardInnerStylesProps>(({ active }: SponsorCardInnerStylesProps) => ({
   height: "100%",
-  overflowY: active ? "auto" : "hidden",
-  textAlign: "left",
+  overflowY: active ? ("auto" as const) : ("hidden" as const),
+  textAlign: "left" as const,
 }));
 
 const SponsorName = styled.h3({
@@ -108,7 +108,7 @@ const SponsorLink = styled.a({
 });
 
 const SponsorOverlay = styled.div<SponsorOverlayStylesProps>(({ active }: SponsorOverlayStylesProps) => ({
-  position: "fixed",
+  position: "fixed" as const,
   left: 0,
   top: 0,
   width: "100%",

@@ -1,12 +1,12 @@
-import Accordion from "@/components/accordion";
-import Content from "@/components/content";
-import Layout from "@/components/layout";
-import { QNA } from "@/constants/qna";
-import { SEO } from "@/constants/seo";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
+import Accordion from "../../components/accordion";
+import Content from "../../components/content";
+import Layout from "../../components/layout";
+import { QNA } from "../../constants/qna";
+import { SEO } from "../../constants/seo";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Content from "@/components/content";
+import Content from "../../components/content";
 
 // DIAMOND
 
@@ -28,9 +28,9 @@ import Jetbrains from "/public/images/sponsors/community/logo_jetbrains.webp";
 import Modulabs from "/public/images/sponsors/space/modulabs.png";
 
 // PUBLISHER
-import { SPONSORS } from "@/constants/sponsors";
 import styled from "@emotion/styled";
 import { MouseEventHandler } from "react";
+import { SPONSORS } from "../../constants/sponsors";
 import Decoding from "/public/images/sponsors/publisher/logo_decoding.webp";
 import GoldenRabbit from "/public/images/sponsors/publisher/logo_golden_rabbit.png";
 import Hanbit from "/public/images/sponsors/publisher/logo_hanbitmedia.webp";

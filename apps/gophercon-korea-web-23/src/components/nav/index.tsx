@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import React, { useCallback, useEffect } from "react";
 import { RiCloseFill, RiMenuFill } from "react-icons/ri";
 
+interface NavbarProps extends WithTranslation {}
+
 interface NavLinkStyledProps {
   active?: boolean;
   transparent?: boolean;
@@ -83,7 +85,7 @@ const NavLink = styled.a<NavLinkStyledProps>(({ active, transparent }: NavLinkSt
   borderRadius: transparent ? 0 : 10,
   border: transparent ? "none" : "1px solid transparent",
   padding: transparent ? 0 : "6px 12px",
-  boxSizing: "border-box",
+  boxSizing: "border-box" as const,
   backgroundColor: active ? "rgba(0, 0, 0, .05)" : "auto",
   color: active ? "#0029FF" : "auto",
   "&:hover": {
@@ -134,7 +136,7 @@ const NavButtonGroup = styled.div({
 });
 
 const NavMobile = styled.div<NavMobileStyledProps>(({ active }: NavMobileStyledProps) => ({
-  position: "fixed",
+  position: "fixed" as const,
   display: "flex",
   width: "100vw",
   height: "50%",
@@ -142,25 +144,25 @@ const NavMobile = styled.div<NavMobileStyledProps>(({ active }: NavMobileStyledP
   zIndex: 20,
   alignItems: "center",
   justifyContent: "space-around",
-  flexDirection: "column",
+  flexDirection: "column" as const,
   paddingTop: 100,
   paddingLeft: 40,
   paddingRight: 40,
   paddingBottom: 40,
   backgroundColor: "rgba(255, 255, 255, .8)",
   backdropFilter: "blur(12px)",
-  boxSizing: "border-box",
+  boxSizing: "border-box" as const,
   transform: active ? "translate3d(0, 0, 0)" : "translate3d(0, -100%, 0)",
   transition: "transform .3s ease",
   "a, button": {
     display: "inline-block",
     width: "100%",
-    textAlign: "center",
+    textAlign: "center" as const,
   },
 }));
 
 const BlackOverlay = styled.div<BlackOverlayStyledProps>(({ active }: BlackOverlayStyledProps) => ({
-  position: "fixed",
+  position: "fixed" as const,
   width: "100%",
   height: active ? "100%" : 0,
   zIndex: 15,
@@ -168,7 +170,7 @@ const BlackOverlay = styled.div<BlackOverlayStyledProps>(({ active }: BlackOverl
   transition: "background-color .3s ease",
 }));
 
-const Navbar: React.FC<WithTranslation> = ({ t, i18n }) => {
+const Navbar: React.FC<NavbarProps> = ({ t, i18n }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const mobileNavRef = React.useRef<HTMLDivElement>(null);
   const { pathname } = useRouter();

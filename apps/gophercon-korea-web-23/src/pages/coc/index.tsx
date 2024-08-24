@@ -1,11 +1,11 @@
-import Content from "@/components/content";
-import Layout from "@/components/layout";
-import { SEO } from "@/constants/seo";
 import styled from "@emotion/styled";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
+import Content from "../../components/content";
+import Layout from "../../components/layout";
+import { SEO } from "../../constants/seo";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {

@@ -1,6 +1,6 @@
-import Navbar from "@/components/nav";
 import styled from "@emotion/styled";
 import React from "react";
+import Navbar from "../nav";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,7 +26,7 @@ const LayoutInner = styled.div<LayoutInnerStyledProps>(({ main }: LayoutInnerSty
   width: "100vw",
   height: main ? "100vh" : "calc(100vh - 60px)",
   marginTop: main ? 0 : 60,
-  overflowY: "auto",
+  overflowY: "auto" as const,
 }));
 
 const Layout: React.FC<LayoutProps> = ({ children, main }) => {

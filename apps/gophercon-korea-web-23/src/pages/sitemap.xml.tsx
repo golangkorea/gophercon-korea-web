@@ -1,5 +1,5 @@
-import { SESSIONS } from "@/constants/sessions";
 import type { GetServerSideProps } from "next";
+import { SESSIONS } from "../constants/sessions";
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // cache for up to 8 hours

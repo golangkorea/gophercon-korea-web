@@ -1,7 +1,3 @@
-import Content from "@/components/content";
-import Layout from "@/components/layout";
-import { SEO } from "@/constants/seo";
-import { SESSIONS } from "@/constants/sessions";
 import styled from "@emotion/styled";
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
@@ -9,6 +5,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
+import Content from "../../components/content";
+import Layout from "../../components/layout";
+import { SEO } from "../../constants/seo";
+import { SESSIONS } from "../../constants/sessions";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {

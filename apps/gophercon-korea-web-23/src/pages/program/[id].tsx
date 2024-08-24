@@ -1,7 +1,3 @@
-import Content from "@/components/content";
-import Layout from "@/components/layout";
-import { SEO } from "@/constants/seo";
-import { SESSIONS } from "@/constants/sessions";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
@@ -10,6 +6,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import React from "react";
+import Content from "../../components/content";
+import Layout from "../../components/layout";
+import { SEO } from "../../constants/seo";
+import { SESSIONS } from "../../constants/sessions";
 import Gopher from "/public/images/gopher.png";
 
 export const getStaticProps: GetStaticProps = async (context) => {

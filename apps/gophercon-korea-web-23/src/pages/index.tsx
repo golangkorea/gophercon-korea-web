@@ -1,12 +1,12 @@
-import Layout from "@/components/layout";
-import { SEO } from "@/constants/seo";
-import About from "@/container/about";
-import Location from "@/container/location";
-import Session from "@/container/session";
-import Sponsors from "@/container/sponsors";
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextSeo } from "next-seo";
+import Layout from "../components/layout";
+import { SEO } from "../constants/seo";
+import About from "../container/about";
+import Location from "../container/location";
+import Session from "../container/session";
+import Sponsors from "../container/sponsors";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
