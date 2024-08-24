@@ -41,27 +41,23 @@ const Title = styled.h1({
   color: "#0029FF",
 });
 
-const Link = styled.a<LinkStyledProps>(({ active, transparent }: LinkStyledProps) => ({
+const Link = styled.a({
   fontSize: 24,
   fontWeight: 600,
   cursor: "pointer",
-  outline: "none",
-  border: transparent ? "none" : "1px solid transparent",
   padding: 0,
   boxSizing: "border-box",
-  backgroundColor: active ? "rgba(0, 0, 0, .05)" : "auto",
-  color: active ? "#000" : "#555",
+  color: "#555",
   textDecoration: "none",
   transition: "color .2s ease, background-color .2s ease",
   "&:hover": {
     color: "#000",
   },
-}));
+});
 
 const HighlightLink = styled(Link)({
   backgroundColor: "#000",
   padding: "6px 12px",
-  backgroundColor: "#000",
   color: "#fff",
   "&:hover": {
     color: "#000",
@@ -71,15 +67,6 @@ const HighlightLink = styled(Link)({
 
 const Button = styled(Link.withComponent("button"))({
   cursor: "pointer",
-});
-
-const MenuButton = styled(Button)({
-  marginLeft: "auto",
-  fontSize: 30,
-  fontWeight: 800,
-  "@media (min-width: 1001px)": {
-    display: "none",
-  },
 });
 
 const Header: React.FC = () => (

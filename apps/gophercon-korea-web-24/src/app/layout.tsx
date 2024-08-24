@@ -3,7 +3,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-import { GlobalStyle, StyledComponentsRegistry } from "gophercon-common";
+import { EmotionStyleRegistry, GlobalStyle } from "gophercon-common";
 
 const LayoutContainer = styled.div({});
 
@@ -11,10 +11,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html>
       <body>
-        <StyledComponentsRegistry>
+        <EmotionStyleRegistry>
           <GlobalStyle />
           <LayoutContainer>{children}</LayoutContainer>
-        </StyledComponentsRegistry>
+        </EmotionStyleRegistry>
       </body>
     </html>
   );
