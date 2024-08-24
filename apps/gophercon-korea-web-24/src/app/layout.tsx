@@ -1,6 +1,11 @@
 "use client";
 
+import styled from "@emotion/styled";
+import React from "react";
+
 import { GlobalStyle, StyledComponentsRegistry } from "gophercon-common";
+
+const LayoutContainer = styled.div({});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
-          {children}
+          <LayoutContainer>{children}</LayoutContainer>
         </StyledComponentsRegistry>
       </body>
     </html>
