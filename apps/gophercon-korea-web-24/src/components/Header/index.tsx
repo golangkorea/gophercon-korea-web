@@ -1,3 +1,5 @@
+"use client";
+
 import LogoSVG from "@/assets/logo.svg";
 import styled from "@emotion/styled";
 import Image from "next/image";

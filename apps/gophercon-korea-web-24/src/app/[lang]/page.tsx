@@ -1,54 +1,14 @@
 "use client";
 
 import GopherSVG from "@/assets/gopher.svg";
+import styled from "@emotion/styled";
+import Section from "@/components/Section";
+import { useContext, useState, useRef, useEffect } from "react";
+import { GlobalContext } from "@/components/ThemeProvider";
+import Image from "next/image";
 import Content from "@/components/Content";
 import Header from "@/components/Header";
-import Section from "@/components/Section";
-import styled from "@emotion/styled";
-import localFont from "@next/font/local";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
-const pretendard = localFont({
-  src: [
-    {
-      path: "../assets/fonts/Pretendard-Thin.woff2",
-      weight: "100",
-    },
-    {
-      path: "../assets/fonts/Pretendard-ExtraLight.woff2",
-      weight: "200",
-    },
-    {
-      path: "../assets/fonts/Pretendard-Light.woff2",
-      weight: "300",
-    },
-    {
-      path: "../assets/fonts/Pretendard-Regular.woff2",
-      weight: "400",
-    },
-    {
-      path: "../assets/fonts/Pretendard-Medium.woff2",
-      weight: "500",
-    },
-    {
-      path: "../assets/fonts/Pretendard-SemiBold.woff2",
-      weight: "600",
-    },
-    {
-      path: "../assets/fonts/Pretendard-Bold.woff2",
-      weight: "700",
-    },
-    {
-      path: "../assets/fonts/Pretendard-ExtraBold.woff2",
-      weight: "800",
-    },
-    {
-      path: "../assets/fonts/Pretendard-Black.woff2",
-      weight: "900",
-    },
-  ],
-});
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 interface GradientPosition {
   baseX: number;
@@ -71,6 +31,7 @@ const Hero = styled.section({
   flexDirection: "column",
   rowGap: 80,
   textAlign: "center",
+  alignItems: "center",
 });
 
 const HeroTitle = styled.h1({
@@ -90,11 +51,12 @@ const HeroSubTitle = styled.h2({
   border: 0,
 });
 
-const HeroImage = styled(Image)({
-  marginLeft: 100,
-});
+const HeroImage = styled(Image)`
+  transform: translateX(10%);
+`;
 
 export default function Home() {
+  const dict = useContext(GlobalContext) as any;
   const [positions, setPositions] = useState<GradientPosition[]>([
     { baseX: 25, baseY: 25, offsetX: 0, offsetY: 0, directionX: 1, directionY: 1, speed: 0.2, maxDistance: 20 },
     { baseX: 50, baseY: 50, offsetX: 0, offsetY: 0, directionX: -1, directionY: -1, speed: 0.2, maxDistance: 20 },
@@ -179,15 +141,18 @@ export default function Home() {
   };
 
   return (
-    <Content className={pretendard.className}>
-      <Header />
-      <FullSection style={backgroundStyle}>
-        <Hero>
-          <HeroTitle>10월 12일 ~ 13일, Go 개발자들의 축제</HeroTitle>
-          <HeroSubTitle>하남시 미사, 더 릿에서 곧 만나요!</HeroSubTitle>
-          <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
-        </Hero>
-      </FullSection>
-    </Content>
+    <>
+      <Content>
+        <Header />
+        <FullSection style={backgroundStyle}>
+          <Hero>
+            <HeroTitle>{dict.home.prepare.title}</HeroTitle>
+            <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
+            <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
+          </Hero>
+        </FullSection>
+      </Content>
+      {/* <LocaleSwitcher /> */}
+    </>
   );
 }
