@@ -10,20 +10,26 @@ import { Metadata } from "next";
 import defaultMetadata from "../metadata";
 import { pretendard } from "../fonts";
 
-export interface LangProps {
-  lang: LocaleType;
+export interface LocaleProps {
+  locale: LocaleType;
 }
 
-export async function generateStaticParams(): Promise<Array<LangProps>> {
-  return [{ lang: "ko" }, { lang: "en" }];
+export async function generateStaticParams(): Promise<Array<LocaleProps>> {
+  return [{ locale: "ko" }, { locale: "en" }];
 }
 
 export const metadata: Metadata = defaultMetadata;
 
-export default async function RootLayout({ children, params }: { children: React.ReactNode; params: LangProps }) {
-  const dict = await getDictionary(params.lang);
+export default async function RootLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: LocaleProps;
+}) {
+  const dict = await getDictionary(locale);
   return (
-    <html lang={params.lang} className={pretendard.className}>
+    <html lang={locale} className={pretendard.className}>
       <body>
         <ContextProvider props={dict}>
           <EmotionStyleRegistry>
