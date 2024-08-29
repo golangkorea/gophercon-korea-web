@@ -1,0 +1,23 @@
+{
+  "home": {
+    "prepare": {
+      "title": "October 12th to 13th, a festival for Go developers in Korea",
+      "subTitle": "See you soon at The Rit in Misa, Hanam City!"
+    }
+  },
+  "CoC": {
+    "cart": "Toevoegen aan Winkelwagen"
+  },
+  "sponsor": {
+    "cart": "Toevoegen aan Winkelwagen"
+  },
+  "festival_intro": {
+    "cart": "Toevoegen aan Winkelwagen"
+  },
+  "festival_staff": {
+    "cart": "Toevoegen aan Winkelwagen"
+  },
+  "timetable": {
+    "cart": "Toevoegen aan Winkelwagen"
+  }
+}
