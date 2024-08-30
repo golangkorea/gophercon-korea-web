@@ -9,12 +9,11 @@ interface ContentProps {
 }
 
 const ContentContainer = styled.main({
-  display: "flex",
   position: "relative",
+  width: 1200,
   minHeight: "100vh",
-  justifyContent: "stretch",
-  alignItems: "stretch",
-  padding: 0,
+  padding: "140px 0 80px 0",
+  margin: "0 auto",
   boxSizing: "border-box",
 });
 
