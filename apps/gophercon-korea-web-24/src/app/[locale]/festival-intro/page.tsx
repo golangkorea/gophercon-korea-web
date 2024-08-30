@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+
 export const metadata = {
   title: "Intro",
   openGraph: {
@@ -6,5 +8,9 @@ export const metadata = {
 };
 
 export default function FestivalIntro() {
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }

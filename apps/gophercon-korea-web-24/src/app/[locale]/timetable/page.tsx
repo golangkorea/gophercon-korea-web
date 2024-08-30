@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+
 export const metadata = {
   title: "Timetable",
   openGraph: {
@@ -6,5 +8,9 @@ export const metadata = {
 };
 
 export default function Timetable() {
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
