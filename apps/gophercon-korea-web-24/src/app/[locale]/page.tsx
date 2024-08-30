@@ -34,7 +34,13 @@ const Hero = styled.section({
   alignItems: "center",
 });
 
-const HeroTitle = styled.h1({
+const FestivalTitle = styled.h1({
+  opacity: 0,
+  width: 0,
+  height: 0,
+});
+
+const HeroTitle = styled.h2({
   fontSize: 40,
   fontWeight: 900,
   padding: 0,
@@ -145,6 +151,7 @@ export default function Home() {
       <Content>
         <Header />
         <FullSection style={backgroundStyle}>
+          <FestivalTitle>GopherCon Korea 2024</FestivalTitle>
           <Hero>
             <HeroTitle>{dict.home.prepare.title}</HeroTitle>
             <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
