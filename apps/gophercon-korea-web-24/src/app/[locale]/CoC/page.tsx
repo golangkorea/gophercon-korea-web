@@ -1,6 +1,7 @@
 "use client";
 
 import Content from "@/components/Content";
+import Header from "@/components/Header";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import { useContext } from "react";
