@@ -4,6 +4,7 @@ const style: Interpolation<Theme> = {
   html: {
     fontSize: 18,
     fontSmoothing: "antialiased",
+    lineHeight: 1.6,
   },
   body: {
     color: "#000",
