@@ -3,6 +3,7 @@
 // TODO: SSR 적용 필요
 
 import GopherSVG from "@/assets/gopher.svg";
+import Header from "@/components/Header";
 import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
@@ -147,6 +148,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <FullSection style={backgroundStyle}>
         <FestivalTitle>GopherCon Korea 2024</FestivalTitle>
         <Hero>
