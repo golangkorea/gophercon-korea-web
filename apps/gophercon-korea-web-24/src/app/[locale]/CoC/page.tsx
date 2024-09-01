@@ -1,39 +1,18 @@
-<<<<<<< HEAD
-export const metadata = {
-  title: "CoC",
-  openGraph: {
-    title: "Gophercon Korea 2024 CoC",
-  },
-};
-
-export default function CoC() {
-  return <></>;
-=======
 "use client";
 
 import Content from "@/components/Content";
-import Header from "@/components/Header";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import { useContext } from "react";
-
-// TODO: SSR 적용 필요
-// export const metadata = {
-//   title: "CoC",
-//   openGraph: {
-//     title: "Gophercon Korea 2024 CoC",
-//   },
-// };
 
 const COCSection = styled.section({
   marginBottom: 80,
 });
 
 export default function CoC() {
-  const dict = useContext(GlobalContext) as any;
+  const { dict } = useContext(GlobalContext) as any;
   return (
     <>
-      <Header />
       <Content>
         <h1>{dict["CoC"]["title"]}</h1>
         <h2>{dict["CoC"]["titleCore"]}</h2>
@@ -174,5 +153,4 @@ export default function CoC() {
       </Content>
     </>
   );
->>>>>>> 16b0642b28645afe1fb8424a4d32e24c5d4bbb62
 }
