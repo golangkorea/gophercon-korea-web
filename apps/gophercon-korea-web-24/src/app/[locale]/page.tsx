@@ -1,14 +1,14 @@
 "use client";
 
+// TODO: SSR 적용 필요
+
 import GopherSVG from "@/assets/gopher.svg";
-import styled from "@emotion/styled";
-import Section from "@/components/Section";
-import { useContext, useState, useRef, useEffect } from "react";
-import { GlobalContext } from "@/components/ThemeProvider";
-import Image from "next/image";
-import Content from "@/components/Content";
 import Header from "@/components/Header";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
+import Section from "@/components/Section";
+import { GlobalContext } from "@/components/ThemeProvider";
+import styled from "@emotion/styled";
+import Image from "next/image";
+import { useContext, useEffect, useRef, useState } from "react";
 
 interface GradientPosition {
   baseX: number;
@@ -22,7 +22,7 @@ interface GradientPosition {
 }
 
 const FullSection = styled(Section)({
-  flex: 1,
+  height: "100vh",
   transition: "background 0.1s ease-out",
 });
 
@@ -34,7 +34,13 @@ const Hero = styled.section({
   alignItems: "center",
 });
 
-const HeroTitle = styled.h1({
+const FestivalTitle = styled.h1({
+  opacity: 0,
+  width: 0,
+  height: 0,
+});
+
+const HeroTitle = styled.h2({
   fontSize: 40,
   fontWeight: 900,
   padding: 0,
@@ -142,16 +148,15 @@ export default function Home() {
 
   return (
     <>
-      <Content>
-        <Header />
-        <FullSection style={backgroundStyle}>
-          <Hero>
-            <HeroTitle>{dict.home.prepare.title}</HeroTitle>
-            <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
-            <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
-          </Hero>
-        </FullSection>
-      </Content>
+      <Header />
+      <FullSection style={backgroundStyle}>
+        <FestivalTitle>GopherCon Korea 2024</FestivalTitle>
+        <Hero>
+          <HeroTitle>{dict.home.prepare.title}</HeroTitle>
+          <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
+          <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
+        </Hero>
+      </FullSection>
       {/* <LocaleSwitcher /> */}
     </>
   );

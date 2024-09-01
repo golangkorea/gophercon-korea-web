@@ -1,14 +1,13 @@
 import React from "react";
 
-import { getDictionary, LocaleType } from "./dictionaries/dictionaries";
+import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
 
+import { pretendard } from "@/app/fonts";
+import defaultMetadata from "@/app/metadata";
+import ContextProvider from "@/components/ThemeProvider";
 import { GlobalStyle } from "gophercon-common";
 import EmotionStyleRegistry from "gophercon-common/src/style/registry";
-import Header from "@/components/Header";
-import ContextProvider from "@/components/ThemeProvider";
 import { Metadata } from "next";
-import defaultMetadata from "../metadata";
-import { pretendard } from "../fonts";
 
 export interface LocaleProps {
   locale: LocaleType;
@@ -34,7 +33,6 @@ export default async function RootLayout({
         <ContextProvider props={dict}>
           <EmotionStyleRegistry>
             <GlobalStyle />
-            <Header />
             {children}
           </EmotionStyleRegistry>
         </ContextProvider>

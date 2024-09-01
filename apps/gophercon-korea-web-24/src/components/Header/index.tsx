@@ -1,9 +1,10 @@
 "use client";
 
 import LogoSVG from "@/assets/logo.svg";
+import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 
 interface LinkStyledProps {
   active?: boolean;
@@ -71,22 +72,28 @@ const Button = styled(Link.withComponent("button"))({
   cursor: "pointer",
 });
 
-const Header: React.FC = () => (
-  <HeaderContainer>
-    <Inner>
-      <Link href='/'>
-        <Image height={40} src={LogoSVG} alt={"GopherCon Korea 2024"} />
-      </Link>
-    </Inner>
-    <Inner>
-      <Link href='https://2023.gophercon.kr' target='_blank'>
-        지난 고퍼콘 보기
-      </Link>
-      <HighlightLink href='https://festa.io/events/5098' target='_blank'>
-        티켓 구매
-      </HighlightLink>
-    </Inner>
-  </HeaderContainer>
-);
+const Header: React.FC = () => {
+  const dict = useContext(GlobalContext) as any;
+  return (
+    <HeaderContainer>
+      <Inner>
+        <Link href='/'>
+          <Image height={40} src={LogoSVG} alt={"GopherCon Korea 2024"} />
+        </Link>
+      </Inner>
+      <Inner>
+        {/* TODO: 아래 Link에 CoC 부분을 locale을 반영한 링크를 걸수 있도록
+        locale을 얻어오는 부분을 Hook으로 제공받거나 CustomLink내에 locale을 불러오는 메커니즘을 내장 */}
+        <Link href='/CoC'>{dict["nav"]["coc"]}</Link>
+        <Link href='https://2023.gophercon.kr' target='_blank'>
+          {dict["nav"]["previousGopherCon"]}
+        </Link>
+        <HighlightLink href='https://festa.io/events/5098' target='_blank'>
+          {dict["nav"]["register"]}
+        </HighlightLink>
+      </Inner>
+    </HeaderContainer>
+  );
+};
 
 export default Header;
