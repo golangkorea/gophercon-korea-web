@@ -9,6 +9,11 @@ import { GlobalStyle } from "gophercon-common";
 import EmotionStyleRegistry from "gophercon-common/src/style/registry";
 import { Metadata } from "next";
 
+import enJson from "./dictionaries/en.json";
+
+// enJson과 koJson의 property는 같다고 상정
+export type LocaleData = Readonly<typeof enJson>;
+
 export interface LocaleProps {
   locale: LocaleType;
 }
@@ -26,11 +31,11 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: LocaleProps;
 }) {
-  const dict = await getDictionary(locale);
+  const dict = (await getDictionary(locale)) as LocaleData;
   return (
     <html lang={locale} className={pretendard.className}>
       <body>
-        <ContextProvider props={dict}>
+        <ContextProvider props={{ dict, locale }}>
           <EmotionStyleRegistry>
             <GlobalStyle />
             {children}
