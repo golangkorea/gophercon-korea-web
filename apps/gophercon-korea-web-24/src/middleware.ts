@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest } from "next/server";
 import { defaultLocale } from "./constants";
 
 const locales = new Set(["ko", "en"]);
@@ -25,6 +25,14 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  const isImageFile = (fileName: string): boolean => {
+    // 정규 표현식으로 .png, .svg, .jpg, .jpeg, .gif 파일 확장자 검사
+    const imageFilePattern = /\.(png|svg|jpe?g|gif)$/i;
+    return imageFilePattern.test(fileName);
+  };
+
+  if (isImageFile(pathname)) return NextResponse.next();
+
   const pathnameHasLocale = Array.from(locales).some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
@@ -43,7 +51,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)"],
 };
