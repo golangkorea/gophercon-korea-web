@@ -39,7 +39,6 @@ const pretendard = localFont({
       weight: "900",
     },
   ],
-  variable: "--font-pretendard",
 });
 
 const jakartaSans = localFont({
@@ -73,9 +72,9 @@ const jakartaSans = localFont({
       weight: "800",
     },
   ],
-  variable: "--font-jakartaSans",
 });
 
 const jakartaSans_fontFamily = jakartaSans.style.fontFamily;
+const pretendard_fontFamily = pretendard.style.fontFamily;
 
-export { pretendard, jakartaSans, jakartaSans_fontFamily };
+export { pretendard, jakartaSans, jakartaSans_fontFamily, pretendard_fontFamily };

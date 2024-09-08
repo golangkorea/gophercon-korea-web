@@ -3,7 +3,7 @@ import { EachCardProps, LevelType } from "../Carousel/data";
 import styled from "@emotion/styled";
 import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
-import { jakartaSans } from "@/app/fonts";
+import { jakartaSans, jakartaSans_fontFamily } from "@/app/fonts";
 
 export const EachCard: FC<EachCardProps> = ({ day, hour, level, name, theme, imgSrc }) => {
   const levelBgColor = colorObject[level];
@@ -12,7 +12,7 @@ export const EachCard: FC<EachCardProps> = ({ day, hour, level, name, theme, img
     <EachCardContainer>
       <Flex align='start' justify='start' gap={20}>
         <LevelContainer bgColor={levelBgColor}>
-          <Text color='#ffffff' size={16} weight={600} font={jakartaSans.variable}>
+          <Text color='#ffffff' size={16} weight={600} font={jakartaSans_fontFamily}>
             {level}
           </Text>
         </LevelContainer>
@@ -20,13 +20,13 @@ export const EachCard: FC<EachCardProps> = ({ day, hour, level, name, theme, img
           <SpeakerImage src={`/${imgSrc}`} alt={`speaker-image-${name}`} width={80} height={80} />
           <Flex align='start' gap={20}>
             <Flex direction='row' justify='start' gap={12} align='center'>
-              <Text weight={600} font={jakartaSans.style.fontFamily} color='#555555' size={24}>
+              <Text weight={600} font={jakartaSans_fontFamily} color='#555555' size={24}>
                 {day}
               </Text>
-              <Text size={24} color='#aaaaaa' font={jakartaSans.style.fontFamily}>
+              <Text size={24} color='#aaaaaa' font={jakartaSans_fontFamily}>
                 |
               </Text>
-              <Text size={24} weight={600} font={jakartaSans.style.fontFamily}>
+              <Text size={24} weight={600} font={jakartaSans_fontFamily}>
                 {hour}
               </Text>
             </Flex>
@@ -36,7 +36,7 @@ export const EachCard: FC<EachCardProps> = ({ day, hour, level, name, theme, img
           </Flex>
         </Flex>
         <Text color='#6630d9' size={24} weight={600}>
-          " {theme} "
+          &quot; {theme} &quot;
         </Text>
       </Flex>
     </EachCardContainer>
