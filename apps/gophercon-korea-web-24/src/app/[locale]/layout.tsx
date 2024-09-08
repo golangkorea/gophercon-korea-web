@@ -1,8 +1,6 @@
-import React from "react";
-
+import { ReactNode } from "react";
 import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
-
-import { pretendard } from "@/app/fonts";
+import { jakartaSans, pretendard } from "@/app/fonts";
 import defaultMetadata from "@/app/metadata";
 import ContextProvider from "@/components/ThemeProvider";
 import { GlobalStyle } from "gophercon-common";
@@ -23,13 +21,13 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: LocaleProps;
 }) {
   const dict = await getDictionary(locale);
   return (
-    <html lang={locale} className={pretendard.className}>
-      <body>
+    <html lang={locale}>
+      <body className={`${jakartaSans.variable} ${pretendard.variable}`}>
         <ContextProvider props={dict}>
           <EmotionStyleRegistry>
             <GlobalStyle />
