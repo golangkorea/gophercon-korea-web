@@ -31,8 +31,8 @@ export default async function RootLayout({
 }) {
   const dict = (await getDictionary(locale)) as LocaleData;
   return (
-    <html lang={locale}>
-      <body className={`${jakartaSans.variable} ${pretendard.variable}`}>
+    <html lang={locale} className={`${jakartaSans.className} ${pretendard.className}`}>
+      <body>
         <ContextProvider props={{ dict, locale }}>
           <EmotionStyleRegistry>
             <GlobalStyle />
