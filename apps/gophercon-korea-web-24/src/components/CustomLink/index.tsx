@@ -7,7 +7,7 @@ import { LinkStyledProps } from "../Header";
 type CustomLinkProps = {
   href: string;
   locale: LocaleType;
-  style: LinkStyledProps;
+  style?: LinkStyledProps;
   children: ReactNode;
   [key: string]: any;
 };
