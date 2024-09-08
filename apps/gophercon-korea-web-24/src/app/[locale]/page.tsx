@@ -9,6 +9,7 @@ import styled from "@emotion/styled";
 import { Flex } from "gophercon-common";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
+import { LocaleData } from "./layout";
 
 interface GradientPosition {
   baseX: number;
@@ -70,7 +71,7 @@ const HeroImage = styled(Image)`
 `;
 
 export default function Home() {
-  const dict = useContext(GlobalContext) as any;
+  const { dict } = useContext(GlobalContext);
   const [positions, setPositions] = useState<GradientPosition[]>([
     { baseX: 25, baseY: 25, offsetX: 0, offsetY: 0, directionX: 1, directionY: 1, speed: 0.2, maxDistance: 20 },
     { baseX: 50, baseY: 50, offsetX: 0, offsetY: 0, directionX: -1, directionY: -1, speed: 0.2, maxDistance: 20 },
