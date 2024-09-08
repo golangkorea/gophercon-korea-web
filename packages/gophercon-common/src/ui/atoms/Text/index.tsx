@@ -29,7 +29,7 @@ export const Text = <T extends ElementType = "span">({
   color = "black",
   spacing = 0,
   lineHeight = "normal",
-  font = "pretendard",
+  font,
   cursor = "auto",
   whiteSpace = "pre-wrap",
   align = "left",
