@@ -1,16 +1,5 @@
-import Header from "@/components/Header";
-
-export const metadata = {
-  title: "Sponsor",
-  openGraph: {
-    title: "Gophercon Korea 2024 Sponsor",
-  },
-};
+"use client";
 
 export default function Sponsor() {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <></>;
 }

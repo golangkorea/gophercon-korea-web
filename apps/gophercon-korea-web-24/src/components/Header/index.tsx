@@ -1,12 +1,14 @@
 "use client";
 
-import LogoSVG from "@/assets/logo.svg";
+import React, { useContext } from "react";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import React, { useContext } from "react";
+import { usePathname } from "next/navigation";
+import CustomLink from "../CustomLink";
+import LogoSVG from "@/assets/logo.svg";
 
-interface LinkStyledProps {
+export interface LinkStyledProps {
   active?: boolean;
   transparent?: boolean;
 }
@@ -72,28 +74,51 @@ const Button = styled(Link.withComponent("button"))({
   cursor: "pointer",
 });
 
+type PathProps = {
+  path: string;
+  name: string;
+};
+
+const headerPaths: PathProps[] = [
+  { path: "/CoC", name: "coc" },
+  // { path: "/festival-intro", name: "festival_intro" },
+  // { path: "/festival-staffs", name: "festival_staffs" },
+  // { path: "/sponsor", name: "sponsor" },
+  // { path: "/timetable", name: "timetable" },
+];
+
 const Header: React.FC = () => {
-  const dict = useContext(GlobalContext) as any;
+  const { dict, locale } = useContext(GlobalContext);
+  const pathname = usePathname();
+
   return (
     <HeaderContainer>
       <Inner>
-        <Link href='/'>
+        <CustomLink href='/' locale={locale}>
           <Image height={40} src={LogoSVG} alt={"GopherCon Korea 2024"} />
-        </Link>
+        </CustomLink>
       </Inner>
       <Inner>
-        {/* TODO: 아래 Link에 CoC 부분을 locale을 반영한 링크를 걸수 있도록
-        locale을 얻어오는 부분을 Hook으로 제공받거나 CustomLink내에 locale을 불러오는 메커니즘을 내장 */}
-        <Link href='/CoC'>{dict["nav"]["coc"]}</Link>
+        {headerPaths.map(({ path, name }) => {
+          const styleProps: LinkStyledProps = {
+            active: pathname === path,
+          };
+          return (
+            <CustomLink key={name} href={path} locale={locale} style={styleProps}>
+              {dict.nav[name as keyof typeof dict.nav]}
+            </CustomLink>
+          );
+        })}
+
         <Link href='https://2023.gophercon.kr' target='_blank'>
-          {dict["nav"]["previousGopherCon"]}
+          {dict.nav.previousGopherCon}
         </Link>
         <HighlightLink href='https://festa.io/events/5098' target='_blank'>
-          {dict["nav"]["register"]}
+          {dict.nav.register}
         </HighlightLink>
       </Inner>
     </HeaderContainer>
   );
 };
 
-export default Header;
+export default React.memo(Header);

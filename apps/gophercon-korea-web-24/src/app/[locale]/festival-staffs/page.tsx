@@ -1,16 +1,5 @@
-import Header from "@/components/Header";
-
-export const metadata = {
-  title: "Staffs",
-  openGraph: {
-    title: "Gophercon Korea 2024 Staffs",
-  },
-};
+"use client";
 
 export default function FestivalStaffs() {
-  return (
-    <>
-      <Header />
-    </>
-  );
+  return <></>;
 }
