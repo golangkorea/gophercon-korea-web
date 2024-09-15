@@ -1,6 +1,7 @@
 "use client";
 
 import GopherSVG from "@/assets/gopher.svg";
+import { AirplaneSVG } from "@/components/AirplaneSVG";
 import { Carousel } from "@/components/Carousel";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
@@ -166,10 +167,12 @@ export default function Home() {
             <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
             <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
           </Hero>
+          <AirplaneSVG />
           <Flex gap={20}>
             <Carousel direction='left' />
             <Carousel direction='right' />
           </Flex>
+          <div style={{ width: "100%", height: "500vh" }}></div>
         </ViewContainer>
       </FullSection>
     </>
