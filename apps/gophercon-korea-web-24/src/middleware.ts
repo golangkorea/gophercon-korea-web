@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, userAgent } from "next/server";
 import type { NextRequest } from "next/server";
 import { defaultLocale } from "./constants";
 
@@ -29,17 +29,31 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
-  if (pathnameHasLocale) return NextResponse.next();
+  const { device } = userAgent(request);
+  const viewport = device.type === "mobile" ? "mobile" : "desktop";
+
+  if (pathnameHasLocale) {
+    const response = NextResponse.next();
+    response.headers.set("device-type", viewport);
+    return response;
+  }
 
   const locale = getLocale(request);
 
   request.nextUrl.pathname = `/${locale}${pathname}`;
 
-  if (locale === defaultLocale) return NextResponse.rewrite(request.nextUrl);
+  if (locale === defaultLocale) {
+    const response = NextResponse.rewrite(request.nextUrl);
+    response.headers.set("device-type", viewport);
+    return response;
+  }
 
   // 그 외 로케일의 경우, 해당 로케일로 리디렉션
 
-  return NextResponse.redirect(request.nextUrl);
+  const response = NextResponse.redirect(request.nextUrl);
+  response.headers.set("device-type", viewport);
+
+  return response;
 }
 
 export const config = {
