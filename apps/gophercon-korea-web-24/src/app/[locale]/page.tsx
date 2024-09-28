@@ -1,13 +1,14 @@
 "use client";
 
 import GopherSVG from "@/assets/gopher.svg";
+import { Carousel } from "@/components/Carousel";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
+import { Flex } from "gophercon-common";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
-import { LocaleData } from "./layout";
 
 interface GradientPosition {
   baseX: number;
@@ -20,8 +21,16 @@ interface GradientPosition {
   maxDistance: number;
 }
 
+const ViewContainer = styled.div`
+  max-width: 2560px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
+
 const FullSection = styled(Section)({
-  height: "100vh",
+  height: "100%",
   transition: "background 0.1s ease-out",
 });
 
@@ -62,6 +71,7 @@ const HeroImage = styled(Image)`
 
 export default function Home() {
   const { dict } = useContext(GlobalContext);
+
   const [positions, setPositions] = useState<GradientPosition[]>([
     { baseX: 25, baseY: 25, offsetX: 0, offsetY: 0, directionX: 1, directionY: 1, speed: 0.2, maxDistance: 20 },
     { baseX: 50, baseY: 50, offsetX: 0, offsetY: 0, directionX: -1, directionY: -1, speed: 0.2, maxDistance: 20 },
@@ -149,14 +159,19 @@ export default function Home() {
     <>
       <Header />
       <FullSection style={backgroundStyle}>
-        <FestivalTitle>GopherCon Korea 2024</FestivalTitle>
-        <Hero>
-          <HeroTitle>{dict.home.prepare.title}</HeroTitle>
-          <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
-          <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
-        </Hero>
+        <ViewContainer>
+          <FestivalTitle>GopherCon Korea 2024</FestivalTitle>
+          <Hero>
+            <HeroTitle>{dict.home.prepare.title}</HeroTitle>
+            <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
+            <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
+          </Hero>
+          <Flex gap={20}>
+            <Carousel direction='left' />
+            <Carousel direction='right' />
+          </Flex>
+        </ViewContainer>
       </FullSection>
-      {/* <LocaleSwitcher /> */}
     </>
   );
 }
