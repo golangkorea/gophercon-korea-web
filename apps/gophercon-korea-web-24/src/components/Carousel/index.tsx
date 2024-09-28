@@ -43,19 +43,19 @@ const CarouselInner = styled.div<{ direction: CarouselDirection }>`
 
   @keyframes scroll-right {
     from {
-      transform: translateX(20px);
+      transform: translateX(0px);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(calc(-50% - 20px));
     }
   }
 
   @keyframes scroll-left {
     from {
-      transform: translateX(-50%);
+      transform: translateX(calc(-50% - 20px));
     }
     to {
-      transform: translateX(20px);
+      transform: translateX(0px);
     }
   }
 `;
