@@ -68,6 +68,7 @@ const HighlightLink = styled(Link)({
     color: "#000",
     backgroundColor: "#edeff1",
   },
+  fontSize: `20px`,
 });
 
 const Button = styled(Link.withComponent("button"))({
@@ -104,13 +105,17 @@ const Header: React.FC = () => {
             active: pathname === path,
           };
           return (
-            <CustomLink key={name} href={path} locale={locale} style={styleProps}>
+            <CustomLink fontWeight={700} color={"#555555"} key={name} href={path} locale={locale} style={styleProps}>
               {dict.nav[name as keyof typeof dict.nav]}
             </CustomLink>
           );
         })}
 
-        <Link href='https://2023.gophercon.kr' target='_blank'>
+        <Link
+          style={{ color: "#555555", fontSize: `20px`, fontWeight: 700 }}
+          href='https://2023.gophercon.kr'
+          target='_blank'
+        >
           {dict.nav.previousGopherCon}
         </Link>
         <HighlightLink href='https://festa.io/events/5098' target='_blank'>

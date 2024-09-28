@@ -7,7 +7,6 @@ import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
-import { LocaleData } from "./layout";
 
 interface GradientPosition {
   baseX: number;
