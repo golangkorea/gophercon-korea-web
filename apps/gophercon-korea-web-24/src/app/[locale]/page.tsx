@@ -4,7 +4,9 @@ import GopherSVG from "@/assets/gopher.svg";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
+import { useCheckMobile } from "@/hooks/useMediaquery";
 import styled from "@emotion/styled";
+import { headers } from "next/headers";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
 
@@ -24,43 +26,51 @@ const FullSection = styled(Section)({
   transition: "background 0.1s ease-out",
 });
 
-const Hero = styled.section({
-  display: "flex",
-  flexDirection: "column",
-  rowGap: 80,
-  textAlign: "center",
-  alignItems: "center",
-});
+const Hero = styled.section<{ isMobile: boolean }>`
+  display: flex;
+  flex-direction: column;
+  row-gap: ${({ isMobile }) => (isMobile ? "20px" : "40px")};
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+`;
 
-const FestivalTitle = styled.h1({
-  opacity: 0,
-  width: 0,
-  height: 0,
-});
+const FestivalTitle = styled.h1`
+  opacity: 0;
+  width: 0;
+  height: 0;
+`;
 
-const HeroTitle = styled.h2({
-  fontSize: 40,
-  fontWeight: 900,
-  padding: 0,
-  margin: 0,
-  border: 0,
-});
+const HeroTitle = styled.h2<{ isMobile: boolean }>`
+  font-size: ${({ isMobile }) => (isMobile ? "15px" : "30px")};
+  font-weight: 900;
+  padding: 0;
+  margin: 0;
+  border: 0;
+`;
 
-const HeroSubTitle = styled.h2({
-  fontSize: 32,
-  fontWeight: 700,
-  color: "#333",
-  padding: 0,
-  margin: 0,
-  border: 0,
-});
+const HeroSubTitle = styled.h2<{ isMobile: boolean }>`
+  font-size: ${({ isMobile }) => (isMobile ? "18px" : "32px")};
+  font-weight: 700;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  border: 0;
+`;
 
-const HeroImage = styled(Image)`
-  transform: translateX(10%);
+const HeroImage = styled(Image)<{ isMobile: boolean }>`
+  transform: ${({ isMobile }) => (isMobile ? "translateX(0%)" : "translateX(10%)")};
+`;
+
+const HeroImageContainer = styled.div<{ isMobile: boolean }>`
+  position: relative;
+  width: ${({ isMobile }) => (isMobile ? "100%" : "500px")};
+  height: ${({ isMobile }) => (isMobile ? "200px" : "300px")};
 `;
 
 export default function Home() {
-  const { dict } = useContext(GlobalContext);
+  const { dict, isDeviceMobile } = useContext(GlobalContext);
+  const isMobile = useCheckMobile(isDeviceMobile);
   const [positions, setPositions] = useState<GradientPosition[]>([
     { baseX: 25, baseY: 25, offsetX: 0, offsetY: 0, directionX: 1, directionY: 1, speed: 0.2, maxDistance: 20 },
     { baseX: 50, baseY: 50, offsetX: 0, offsetY: 0, directionX: -1, directionY: -1, speed: 0.2, maxDistance: 20 },
@@ -149,10 +159,18 @@ export default function Home() {
       <Header />
       <FullSection style={backgroundStyle}>
         <FestivalTitle>GopherCon Korea 2024</FestivalTitle>
-        <Hero>
-          <HeroTitle>{dict.home.prepare.title}</HeroTitle>
-          <HeroSubTitle>{dict.home.prepare.subTitle}</HeroSubTitle>
-          <HeroImage width={600} src={GopherSVG} alt={"Golang Gopher"} />
+        <Hero isMobile={isMobile}>
+          <HeroTitle isMobile={isMobile}>{dict.home.prepare.title}</HeroTitle>
+          <HeroSubTitle isMobile={isMobile}>{dict.home.prepare.subTitle}</HeroSubTitle>
+          <HeroImageContainer isMobile={isMobile}>
+            <HeroImage
+              isMobile={isMobile}
+              fill
+              src={GopherSVG}
+              alt={"Golang Gopher"}
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            />
+          </HeroImageContainer>
         </Hero>
       </FullSection>
       {/* <LocaleSwitcher /> */}

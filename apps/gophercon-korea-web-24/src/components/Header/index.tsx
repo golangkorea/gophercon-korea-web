@@ -7,6 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import CustomLink from "../CustomLink";
 import LogoSVG from "@/assets/logo.svg";
+import { useCheckMobile } from "@/hooks/useMediaquery";
 
 export interface LinkStyledProps {
   active?: boolean;
@@ -60,16 +61,19 @@ const Link = styled.a({
   },
 });
 
-const HighlightLink = styled(Link)({
-  backgroundColor: "#000",
-  padding: "6px 12px",
-  color: "#fff",
-  "&:hover": {
-    color: "#000",
-    backgroundColor: "#edeff1",
-  },
-  fontSize: `20px`,
-});
+const HighlightLink = styled(Link)<{ isMobile: boolean }>`
+  background-color: #000;
+  padding: 6px 12px;
+  color: #fff;
+
+  &:hover {
+    color: #000;
+    background-color: #edeff1;
+  }
+
+  // 조건부 스타일 예시
+  font-size: ${({ isMobile }) => (isMobile ? "12px" : "20px")};
+`;
 
 const Button = styled(Link.withComponent("button"))({
   cursor: "pointer",
@@ -89,7 +93,8 @@ const headerPaths: PathProps[] = [
 ];
 
 const Header: React.FC = () => {
-  const { dict, locale } = useContext(GlobalContext);
+  const { dict, locale, isDeviceMobile } = useContext(GlobalContext);
+  const isMobile = useCheckMobile(isDeviceMobile);
   const pathname = usePathname();
 
   return (
@@ -100,25 +105,39 @@ const Header: React.FC = () => {
         </CustomLink>
       </Inner>
       <Inner>
-        {headerPaths.map(({ path, name }) => {
-          const styleProps: LinkStyledProps = {
-            active: pathname === path,
-          };
-          return (
-            <CustomLink fontWeight={700} color={"#555555"} key={name} href={path} locale={locale} style={styleProps}>
-              {dict.nav[name as keyof typeof dict.nav]}
-            </CustomLink>
-          );
-        })}
+        {isMobile ? (
+          <></>
+        ) : (
+          <>
+            {headerPaths.map(({ path, name }) => {
+              const styleProps: LinkStyledProps = {
+                active: pathname === path,
+              };
+              return (
+                <CustomLink
+                  fontWeight={700}
+                  color={"#555555"}
+                  key={name}
+                  href={path}
+                  locale={locale}
+                  style={styleProps}
+                >
+                  {dict.nav[name as keyof typeof dict.nav]}
+                </CustomLink>
+              );
+            })}
 
-        <Link
-          style={{ color: "#555555", fontSize: `20px`, fontWeight: 700 }}
-          href='https://2023.gophercon.kr'
-          target='_blank'
-        >
-          {dict.nav.previousGopherCon}
-        </Link>
-        <HighlightLink href='https://festa.io/events/5098' target='_blank'>
+            <Link
+              style={{ fontSize: isMobile ? "12px" : "20px", fontWeight: 700 }}
+              href='https://2023.gophercon.kr'
+              target='_blank'
+            >
+              {dict.nav.previousGopherCon}
+            </Link>
+          </>
+        )}
+
+        <HighlightLink isMobile={isMobile} href='https://festa.io/events/5098' target='_blank'>
           {dict.nav.register}
         </HighlightLink>
       </Inner>
