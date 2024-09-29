@@ -6,6 +6,7 @@ import { Carousel } from "@/components/Carousel";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
+import { useCheckMobile } from "@/hooks/useMediaquery";
 import styled from "@emotion/styled";
 import { Flex } from "gophercon-common";
 import Image from "next/image";
@@ -43,11 +44,11 @@ const Hero = styled.section({
   alignItems: "center",
 });
 
-const FestivalTitle = styled.h1({
-  opacity: 0,
-  width: 0,
-  height: 0,
-});
+const FestivalTitle = styled.h1`
+  opacity: 0;
+  width: 0;
+  height: 0;
+`;
 
 const HeroTitle = styled.h2({
   fontSize: 40,
@@ -70,8 +71,15 @@ const HeroImage = styled(Image)`
   transform: translateX(10%);
 `;
 
+const HeroImageContainer = styled.div<{ isMobile: boolean }>`
+  position: relative;
+  width: ${({ isMobile }) => (isMobile ? "100%" : "500px")};
+  height: ${({ isMobile }) => (isMobile ? "200px" : "300px")};
+`;
+
 export default function Home() {
-  const { dict } = useContext(GlobalContext);
+  const { dict, isDeviceMobile } = useContext(GlobalContext);
+  const isMobile = useCheckMobile(isDeviceMobile);
 
   const [positions, setPositions] = useState<GradientPosition[]>([
     { baseX: 25, baseY: 25, offsetX: 0, offsetY: 0, directionX: 1, directionY: 1, speed: 0.2, maxDistance: 20 },

@@ -8,6 +8,7 @@ import EmotionStyleRegistry from "gophercon-common/src/style/registry";
 import { Metadata } from "next";
 
 import enJson from "./dictionaries/en.json";
+import { headers } from "next/headers";
 
 // enJson과 koJson의 property는 같다고 상정
 export type LocaleData = Readonly<typeof enJson>;
@@ -29,11 +30,17 @@ export default async function RootLayout({
   children: ReactNode;
   params: LocaleProps;
 }) {
+  const header = headers();
+  const isDeviceMobile = header.get("device-type") === "true";
   const dict = (await getDictionary(locale)) as LocaleData;
   return (
-    <html lang={locale} className={`${jakartaSans.className} ${pretendard.className}`}>
-      <body>
-        <ContextProvider props={{ dict, locale }}>
+    <html
+      lang={locale}
+      className={`${jakartaSans.className} ${pretendard.className}`}
+      style={{ fontSize: "16px !important" }}
+    >
+      <body style={{ minWidth: "320px" }}>
+        <ContextProvider props={{ dict, locale, isDeviceMobile }}>
           <EmotionStyleRegistry>
             <GlobalStyle />
             {children}

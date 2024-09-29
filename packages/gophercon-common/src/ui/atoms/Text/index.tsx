@@ -3,7 +3,7 @@ import React, { ComponentPropsWithRef, ElementType, ReactNode } from "react";
 type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | "normal" | "bold" | "bolder" | "lighter";
 
 interface BaseTextProps {
-  size?: number;
+  size?: number | string;
   weight?: FontWeight;
   children: ReactNode;
   spacing?: number;
