@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import CustomLink from "../CustomLink";
 import LogoSVG from "@/assets/logo.svg";
 import { useCheckMobile } from "@/hooks/useMediaquery";
+import { Text } from "gophercon-common";
 
 export interface LinkStyledProps {
   active?: boolean;
@@ -72,7 +73,7 @@ const HighlightLink = styled(Link)<{ isMobile: boolean }>`
   }
 
   // 조건부 스타일 예시
-  font-size: ${({ isMobile }) => (isMobile ? "12px" : "20px")};
+  font-size: 1.25rem;
 `;
 
 const Button = styled(Link.withComponent("button"))({
@@ -114,25 +115,22 @@ const Header: React.FC = () => {
                 active: pathname === path,
               };
               return (
-                <CustomLink
-                  fontWeight={700}
-                  color={"#555555"}
-                  key={name}
-                  href={path}
-                  locale={locale}
-                  style={styleProps}
-                >
-                  {dict.nav[name as keyof typeof dict.nav]}
+                <CustomLink key={name} href={path} locale={locale} style={styleProps}>
+                  <Text weight={700} color={"#555555"} size={isMobile ? "0.75" : "1.25rem"}>
+                    {dict.nav[name as keyof typeof dict.nav]}
+                  </Text>
                 </CustomLink>
               );
             })}
 
             <Link
-              style={{ fontSize: isMobile ? "12px" : "20px", fontWeight: 700 }}
               href='https://2023.gophercon.kr'
               target='_blank'
+              style={{ textDecoration: "none", fontSize: "1.25rem" }}
             >
-              {dict.nav.previousGopherCon}
+              <Text size={"1.25rem"} weight={700}>
+                {dict.nav.previousGopherCon}
+              </Text>
             </Link>
           </>
         )}

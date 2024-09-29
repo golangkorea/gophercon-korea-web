@@ -81,6 +81,8 @@
     "cart": "Toevoegen aan Winkelwagen"
   },
   "timetable": {
-    "detail": "detail"
+    "detail": "detail",
+    "nav_next": "Next",
+    "nav_before": "Previous"
   }
 }

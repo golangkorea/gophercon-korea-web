@@ -34,7 +34,11 @@ export default async function RootLayout({
   const isDeviceMobile = header.get("device-type") === "true";
   const dict = (await getDictionary(locale)) as LocaleData;
   return (
-    <html lang={locale} className={`${jakartaSans.className} ${pretendard.className}`}>
+    <html
+      lang={locale}
+      className={`${jakartaSans.className} ${pretendard.className}`}
+      style={{ fontSize: "16px !important" }}
+    >
       <body style={{ minWidth: "320px" }}>
         <ContextProvider props={{ dict, locale, isDeviceMobile }}>
           <EmotionStyleRegistry>

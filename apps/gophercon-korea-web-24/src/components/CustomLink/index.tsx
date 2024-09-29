@@ -10,30 +10,16 @@ type CustomLinkProps = {
   locale: LocaleType;
   style?: LinkStyledProps;
   children: ReactNode;
-  color?: string;
-  fontSize?: number;
-  fontWeight?: number;
   [key: string]: any;
 };
 
-export default function CustomLink({
-  href,
-  locale,
-  style,
-  color = "#000000",
-  fontSize = 20,
-  fontWeight = 700,
-  ...props
-}: CustomLinkProps) {
+export default function CustomLink({ href, locale, style, ...props }: CustomLinkProps) {
   const isDefaultLocale = locale === defaultLocale;
   const path = isDefaultLocale ? href : `/${locale}${href}`;
 
-  return <StyledLink fontWeight={fontWeight} href={path} color={color} fontSize={fontSize} {...props} />;
+  return <StyledLink href={path} {...props}></StyledLink>;
 }
 
-const StyledLink = styled(Link)<{ color: string; fontSize: number; fontWeight: number }>`
+const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${({ color }) => color};
-  font-size: ${({ fontSize }) => `${fontSize}px`};
-  font-weight: ${({ fontWeight }) => fontWeight};
 `;

@@ -81,6 +81,8 @@
     "cart": "Toevoegen aan Winkelwagen"
   },
   "timetable": {
-    "detail": "프로그램 상세"
+    "detail": "프로그램 상세",
+    "nav_next": "다음 세션",
+    "nav_before": "이전 세션"
   }
 }
