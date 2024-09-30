@@ -1,7 +1,7 @@
+import timetableList from "@/app/[locale]/programs/data";
 import styled from "@emotion/styled";
 import { FC, memo } from "react";
 import { EachCard } from "../EachCard";
-import cardList from "./data";
 
 type CarouselDirection = "left" | "right";
 
@@ -9,16 +9,18 @@ interface CarouselProps {
   direction?: CarouselDirection;
 }
 
+const speakerList = timetableList.filter((el) => !el.isSponsor && el.speaker && el.diff);
+
 const CarouselComponent: FC<CarouselProps> = ({ direction = "left" }: CarouselProps) => {
   return (
     <CarouselContainer>
       <CarouselInner direction={direction}>
-        {cardList.map((data, idx) => (
-          <EachCard {...data} key={`${data.name}-${idx}`} />
+        {speakerList.map((data, idx) => (
+          <EachCard {...data} key={`${data.time}-${idx}`} />
         ))}
         {/* 카드를 반복하여 무한 스크롤처럼 보이게 함 */}
-        {cardList.map((data, idx) => (
-          <EachCard {...data} key={`repeat-${data.name}-${idx}`} />
+        {speakerList.map((data, idx) => (
+          <EachCard {...data} key={`repeat-${data.time}-${idx}`} />
         ))}
       </CarouselInner>
     </CarouselContainer>
