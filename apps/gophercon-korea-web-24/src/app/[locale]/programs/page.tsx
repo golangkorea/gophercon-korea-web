@@ -37,11 +37,11 @@ export default function Timetable() {
                 <Text
                   color={targetDay === el.day ? "#000000" : "#999999"}
                   onClick={() => setTargetDay(el.day)}
-                  cursor='pointer'
                   font={pretendard_fontFamily}
                   size={"1.75rem"}
                   weight={700}
                   key={el.date}
+                  cursor='pointer'
                 >
                   {el.date}
                 </Text>
@@ -146,7 +146,7 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
                     </Flex>
                   </Td>
                   <Td>
-                    <CustomLink locale={locale} href={`/timetable/${el.title.en.replaceAll(" ", "-")}`}>
+                    <CustomLink locale={locale} href={`/programs/${el.title.en.replaceAll(" ", "-")}`}>
                       <Text cursor='pointer' align='center' color='#6630D9' weight={700}>
                         {dict.timetable.detail}
                       </Text>
