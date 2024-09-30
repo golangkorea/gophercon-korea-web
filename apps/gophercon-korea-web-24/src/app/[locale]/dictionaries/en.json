@@ -5,10 +5,10 @@
     "register": "Register"
   },
   "home": {
-    "prepare": {
-      "title": "October 12th to 13th, a festival for Go developers in Korea",
-      "subTitle": "See you soon at The Rit in Misa, Hanam City!"
-    }
+    "title1": "A Festival for Go Language Developers,",
+    "title2": "Welcome to GopherCon Korea!",
+    "title3": "Are you ready for the trip?",
+    "CTABTN": "Go to the event ticket page"
   },
   "CoC": {
     "title": "GopherCon Korea 2024 Code of Conduct (CoC)",
