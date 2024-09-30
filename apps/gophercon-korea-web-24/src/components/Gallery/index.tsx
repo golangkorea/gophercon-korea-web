@@ -37,7 +37,9 @@ const Gallery = forwardRef<HTMLDivElement, GalleryProps>(({ active, className },
           src={image}
           alt={`gallery-${idx}`}
           style={{
-            transform: active ? `rotate(${15 * idx - 30}deg)` : "rotate(0deg)",
+            transform: active
+              ? `rotate(${15 * idx - 30}deg) translate(0, ${150 * idx - 120}px)`
+              : "rotate(0deg) translate(0, 0)",
           }}
         />
       ))}
