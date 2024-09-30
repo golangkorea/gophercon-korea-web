@@ -17,7 +17,7 @@ import { useEffect, useRef, useState } from "react";
 
 const FullSection = styled(Section)({
   padding: 0,
-  maxWidth: 2560,
+  margin: "0 auto",
   overflow: "hidden",
   background: `
     radial-gradient(circle at 35% 7%, rgba(247, 61, 61, 0.15) 0px, transparent 25%),
@@ -27,11 +27,16 @@ const FullSection = styled(Section)({
   `,
 });
 
+const InnerSection = styled(Section)({
+  width: "100%",
+  maxWidth: 2400,
+  margin: "0 auto",
+});
+
 const ViewContainer = styled.div({
   position: "relative",
   margin: "0 auto",
   width: "100%",
-  minHeight: "500vh",
   overflow: "hidden",
 });
 
@@ -43,7 +48,7 @@ const AirplaneSVGIntro = styled(AirplaneSVG)<AirplaneSVGIntroStyledProps>(({ vis
   visibility: visible ? "visible" : "hidden",
   position: "absolute",
   width: "100%",
-  top: 600,
+  top: 760,
   left: 0,
 }));
 
@@ -84,7 +89,7 @@ const IntroSubTitle = styled.h2<TitleStyledProps>(({ animActive }) => ({
 }));
 
 const Ticket = styled.div({
-  marginTop: 100,
+  marginTop: 260,
   float: "right",
   display: "flex",
   alignItems: "stretch",
@@ -358,7 +363,7 @@ const CTAContainer = styled.div({
   textAlign: "center",
 });
 
-const CTAButton = styled.button({
+const CTAButton = styled.a({
   position: "relative",
   padding: "20px 40px",
   borderRadius: 999,
@@ -369,6 +374,7 @@ const CTAButton = styled.button({
   lineHeight: 1,
   margin: "0 auto",
   cursor: "pointer",
+  textDecoration: "none",
   zIndex: 3,
   transition: "bakcground-color .3 ease",
   "&:hover": {
@@ -451,128 +457,132 @@ const Home = () => {
     <>
       <Header />
       <FullSection>
-        <ViewContainer ref={contentRef}>
-          <Intro>
-            <IntroTitle animActive={isAnimActive}>
-              Go 언어 개발자의 축제
-              <br />
-              고퍼콘 코리아에 어서오세요!
-            </IntroTitle>
-            <IntroSubTitle animActive={isAnimActive}>여행 준비는 되셨나요?</IntroSubTitle>
-            <Ticket ref={ticketRef}>
-              <TicketLeft>
-                <TicketFields>
-                  <TicketField>
-                    <TicketFieldName>PASSANGER NAME</TicketFieldName>
-                    <TicketFieldValue>Gopher</TicketFieldValue>
-                  </TicketField>
-                  <TicketField>
-                    <TicketFieldName>FLIGHT</TicketFieldName>
-                    <TicketFieldValue>GO24</TicketFieldValue>
-                  </TicketField>
-                  <TicketField>
-                    <TicketFieldName>SEAT</TicketFieldName>
-                    <TicketFieldValue>12B</TicketFieldValue>
-                  </TicketField>
-                  <TicketField>
-                    <Image src={EventQRPng} width='120' alt='Event QR Code' />
-                  </TicketField>
-                </TicketFields>
-              </TicketLeft>
-              <TicketRight>
-                <TicketLabel>
-                  <Image src={LOGOWhite} height='26' alt='GopherCon Korea 2024' />
-                </TicketLabel>
-                <TicketFlightInfo>
-                  <TicketPoint style={{ float: "left" }}>
-                    <TicketPointDescription>Home</TicketPointDescription>
-                    <TicketPointCode>HOM</TicketPointCode>
-                  </TicketPoint>
-                  <TicketPoint style={{ float: "right" }}>
-                    <TicketPointDescription>GopherCon</TicketPointDescription>
-                    <TicketPointCode>GO</TicketPointCode>
-                  </TicketPoint>
-                  <AirplaneImage visible={!isAirplainVisible} src={airplane} alt='Airplane' width={50} height={50} />
-                </TicketFlightInfo>
-                <TicketDestinationInfo>
-                  <TicketDestinationInfoRow>
-                    <TicketField>
-                      <TicketFieldName>FLIGHT</TicketFieldName>
-                      <TicketFieldValue>GO24</TicketFieldValue>
-                    </TicketField>
-                    <TicketField>
-                      <TicketFieldName>TERMINAL</TicketFieldName>
-                      <TicketFieldValue>1</TicketFieldValue>
-                    </TicketField>
-                    <TicketField>
-                      <TicketFieldName>GATE</TicketFieldName>
-                      <TicketFieldValue>10A</TicketFieldValue>
-                    </TicketField>
-                    <TicketField>
-                      <TicketFieldName>SEAT</TicketFieldName>
-                      <TicketFieldValue>12B</TicketFieldValue>
-                    </TicketField>
-                  </TicketDestinationInfoRow>
-                  <TicketDestinationInfoRow>
+        <InnerSection>
+          <ViewContainer ref={contentRef}>
+            <Intro>
+              <IntroTitle animActive={isAnimActive}>
+                Go 언어 개발자의 축제
+                <br />
+                고퍼콘 코리아에 어서오세요!
+              </IntroTitle>
+              <IntroSubTitle animActive={isAnimActive}>여행 준비는 되셨나요?</IntroSubTitle>
+              <Ticket ref={ticketRef}>
+                <TicketLeft>
+                  <TicketFields>
                     <TicketField>
                       <TicketFieldName>PASSANGER NAME</TicketFieldName>
                       <TicketFieldValue>Gopher</TicketFieldValue>
                     </TicketField>
                     <TicketField>
-                      <TicketFieldName>BOARDING</TicketFieldName>
-                      <TicketFieldValue>11:00</TicketFieldValue>
+                      <TicketFieldName>FLIGHT</TicketFieldName>
+                      <TicketFieldValue>GO24</TicketFieldValue>
                     </TicketField>
-                  </TicketDestinationInfoRow>
-                </TicketDestinationInfo>
-              </TicketRight>
-            </Ticket>
-          </Intro>
-          <AirplaneSVGIntro visible={isAirplainVisible} />
-          <GallerySection ref={galleryRef} active={isGalleryActive} />
-          <Speakers>
-            <Carousel direction='left' />
-            <Carousel direction='right' />
-            <Carousel direction='left' />
-            <Carousel direction='right' />
-          </Speakers>
-          <HighlightedSection>
-            <HighlightedSectionNoise />
-            <HighlightedSectionOverlay />
-            <HighlightedSectionAnim />
-            <PassportShowcase>
-              <SponsorStamp ref={stampRef}>
-                <Sponsors>
-                  <SponsorPlatinumMark></SponsorPlatinumMark>
-                  <SponsorGoldMark></SponsorGoldMark>
-                  <SponsorGoldMark></SponsorGoldMark>
-                  <SponsorSilverMark></SponsorSilverMark>
-                  <SponsorSilverMark></SponsorSilverMark>
-                  <SponsorBronzeMark></SponsorBronzeMark>
-                  <SponsorBronzeMark></SponsorBronzeMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                </Sponsors>
-              </SponsorStamp>
-              <Passport ref={passportRef}>
-                <PassportTitle>PASSPORT</PassportTitle>
-                <PassportSymbol>
-                  <Image width={140} src={passportSymbolSVG} alt='Golang Passport' />
-                </PassportSymbol>
-                <PassportCameraMark>
-                  <Image width={32} src={cameraSVG} alt='Passport Chip Mark' />
-                </PassportCameraMark>
-              </Passport>
-            </PassportShowcase>
-            <MainDisplayText ref={mainDisplayTextRef}>You are ready to Go!</MainDisplayText>
-            <CTAContainer>
-              <CTAButton>행사 티켓 페이지로 이동</CTAButton>
-            </CTAContainer>
-          </HighlightedSection>
-        </ViewContainer>
+                    <TicketField>
+                      <TicketFieldName>SEAT</TicketFieldName>
+                      <TicketFieldValue>12B</TicketFieldValue>
+                    </TicketField>
+                    <TicketField>
+                      <Image src={EventQRPng} width='160' alt='Event QR Code' />
+                    </TicketField>
+                  </TicketFields>
+                </TicketLeft>
+                <TicketRight>
+                  <TicketLabel>
+                    <Image src={LOGOWhite} height='26' alt='GopherCon Korea 2024' />
+                  </TicketLabel>
+                  <TicketFlightInfo>
+                    <TicketPoint style={{ float: "left" }}>
+                      <TicketPointDescription>Home</TicketPointDescription>
+                      <TicketPointCode>HOM</TicketPointCode>
+                    </TicketPoint>
+                    <TicketPoint style={{ float: "right" }}>
+                      <TicketPointDescription>GopherCon</TicketPointDescription>
+                      <TicketPointCode>GO</TicketPointCode>
+                    </TicketPoint>
+                    <AirplaneImage visible={!isAirplainVisible} src={airplane} alt='Airplane' width={50} height={50} />
+                  </TicketFlightInfo>
+                  <TicketDestinationInfo>
+                    <TicketDestinationInfoRow>
+                      <TicketField>
+                        <TicketFieldName>FLIGHT</TicketFieldName>
+                        <TicketFieldValue>GO24</TicketFieldValue>
+                      </TicketField>
+                      <TicketField>
+                        <TicketFieldName>TERMINAL</TicketFieldName>
+                        <TicketFieldValue>1</TicketFieldValue>
+                      </TicketField>
+                      <TicketField>
+                        <TicketFieldName>GATE</TicketFieldName>
+                        <TicketFieldValue>10A</TicketFieldValue>
+                      </TicketField>
+                      <TicketField>
+                        <TicketFieldName>SEAT</TicketFieldName>
+                        <TicketFieldValue>12B</TicketFieldValue>
+                      </TicketField>
+                    </TicketDestinationInfoRow>
+                    <TicketDestinationInfoRow>
+                      <TicketField>
+                        <TicketFieldName>PASSANGER NAME</TicketFieldName>
+                        <TicketFieldValue>Gopher</TicketFieldValue>
+                      </TicketField>
+                      <TicketField>
+                        <TicketFieldName>BOARDING</TicketFieldName>
+                        <TicketFieldValue>11:00</TicketFieldValue>
+                      </TicketField>
+                    </TicketDestinationInfoRow>
+                  </TicketDestinationInfo>
+                </TicketRight>
+              </Ticket>
+            </Intro>
+            <AirplaneSVGIntro visible={isAirplainVisible} />
+            <GallerySection ref={galleryRef} active={isGalleryActive} />
+            <Speakers>
+              <Carousel direction='left' />
+              <Carousel direction='right' />
+              <Carousel direction='left' />
+              <Carousel direction='right' />
+            </Speakers>
+            <HighlightedSection>
+              <HighlightedSectionNoise />
+              <HighlightedSectionOverlay />
+              <HighlightedSectionAnim />
+              <PassportShowcase>
+                <SponsorStamp ref={stampRef}>
+                  <Sponsors>
+                    <SponsorPlatinumMark></SponsorPlatinumMark>
+                    <SponsorGoldMark></SponsorGoldMark>
+                    <SponsorGoldMark></SponsorGoldMark>
+                    <SponsorSilverMark></SponsorSilverMark>
+                    <SponsorSilverMark></SponsorSilverMark>
+                    <SponsorBronzeMark></SponsorBronzeMark>
+                    <SponsorBronzeMark></SponsorBronzeMark>
+                    <SponsorMark></SponsorMark>
+                    <SponsorMark></SponsorMark>
+                    <SponsorMark></SponsorMark>
+                    <SponsorMark></SponsorMark>
+                    <SponsorMark></SponsorMark>
+                    <SponsorMark></SponsorMark>
+                  </Sponsors>
+                </SponsorStamp>
+                <Passport ref={passportRef}>
+                  <PassportTitle>PASSPORT</PassportTitle>
+                  <PassportSymbol>
+                    <Image width={140} src={passportSymbolSVG} alt='Golang Passport' />
+                  </PassportSymbol>
+                  <PassportCameraMark>
+                    <Image width={32} src={cameraSVG} alt='Passport Chip Mark' />
+                  </PassportCameraMark>
+                </Passport>
+              </PassportShowcase>
+              <MainDisplayText ref={mainDisplayTextRef}>You are ready to Go!</MainDisplayText>
+              <CTAContainer>
+                <CTAButton href='https://festa.io/events/5098' target='_blank'>
+                  행사 티켓 페이지로 이동
+                </CTAButton>
+              </CTAContainer>
+            </HighlightedSection>
+          </ViewContainer>
+        </InnerSection>
       </FullSection>
     </>
   );
