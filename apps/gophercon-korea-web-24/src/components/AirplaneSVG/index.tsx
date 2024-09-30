@@ -1,9 +1,9 @@
 "use client";
 
+import airplane from "@/assets/airplane.svg";
 import styled from "@emotion/styled";
-import { useEffect, useRef } from "react";
-import airplane from "@/assets/airplane.png";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 export const AirplaneSVG = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
@@ -45,7 +45,7 @@ export const AirplaneSVG = () => {
         console.log(currentPoint.x);
         const nextPoint = path.getPointAtLength(Math.min(progress + 0.01, 1) * length);
 
-        const angle = calculateAngle(currentPoint.x, currentPoint.y, nextPoint.x, nextPoint.y);
+        const angle = calculateAngle(currentPoint.x, currentPoint.y, nextPoint.x, nextPoint.y) + 90;
 
         if (airplaneRef.current) {
           airplaneRef.current.style.transform = `translate(${currentPoint.x - 1290}px, ${currentPoint.y - 25}px) rotate(${angle}deg)`;

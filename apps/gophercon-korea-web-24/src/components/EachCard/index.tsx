@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { EachCardProps, LevelType } from "../Carousel/data";
+import { jakartaSans_fontFamily } from "@/app/fonts";
 import styled from "@emotion/styled";
 import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
-import { jakartaSans, jakartaSans_fontFamily } from "@/app/fonts";
+import { FC } from "react";
+import { EachCardProps } from "../Carousel/data";
 
 export const EachCard: FC<EachCardProps> = ({ day, hour, level, name, theme, imgSrc }) => {
   const levelBgColor = colorObject[level];
@@ -17,25 +17,25 @@ export const EachCard: FC<EachCardProps> = ({ day, hour, level, name, theme, img
           </Text>
         </LevelContainer>
         <Flex direction='row' gap={20} justify='start'>
-          <SpeakerImage src={`/${imgSrc}`} alt={`speaker-image-${name}`} width={80} height={80} />
+          <SpeakerImage src={`/${imgSrc}`} alt={`speaker-image-${name}`} width={60} height={60} />
           <Flex align='start' gap={20}>
             <Flex direction='row' justify='start' gap={12} align='center'>
-              <Text weight={600} font={jakartaSans_fontFamily} color='#555555' size={24}>
+              <Text weight={600} font={jakartaSans_fontFamily} color='#555555' size={20}>
                 {day}
               </Text>
-              <Text size={24} color='#aaaaaa' font={jakartaSans_fontFamily}>
+              <Text size={20} color='#aaaaaa' font={jakartaSans_fontFamily}>
                 |
               </Text>
-              <Text size={24} weight={600} font={jakartaSans_fontFamily}>
+              <Text size={20} weight={600} font={jakartaSans_fontFamily}>
                 {hour}
               </Text>
             </Flex>
-            <Text size={24} weight={600}>
+            <Text size={20} weight={600}>
               {name}님
             </Text>
           </Flex>
         </Flex>
-        <Text color='#6630d9' size={24} weight={600}>
+        <Text color='#6630d9' size={20} weight={600}>
           &quot; {theme} &quot;
         </Text>
       </Flex>
