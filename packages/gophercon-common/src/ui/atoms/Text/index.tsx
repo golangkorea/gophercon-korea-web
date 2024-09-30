@@ -3,7 +3,7 @@ import React, { ComponentPropsWithRef, ElementType, ReactNode } from "react";
 type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | "normal" | "bold" | "bolder" | "lighter";
 
 interface BaseTextProps {
-  size?: number;
+  size?: number | string;
   weight?: FontWeight;
   children: ReactNode;
   spacing?: number;
@@ -23,14 +23,14 @@ type TextProps<T extends ElementType> = BaseTextProps &
 
 export const Text = <T extends ElementType = "span">({
   as,
-  size = 18,
+  size = 16,
   children,
   weight = "normal",
   color = "black",
   spacing = 0,
   lineHeight = "normal",
-  font = "pretendard",
-  cursor = "auto",
+  font,
+  cursor = "inherit",
   whiteSpace = "pre-wrap",
   align = "left",
   margin = "0px",
@@ -45,10 +45,10 @@ export const Text = <T extends ElementType = "span">({
         fontSize: size,
         fontWeight: weight,
         color,
-        cursor,
         letterSpacing: spacing,
         lineHeight,
         whiteSpace,
+        cursor,
         fontFamily: font,
         textAlign: align,
         margin,

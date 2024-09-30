@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: "/CoC",
+      url: "/coc",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.2,
@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: "/timetable",
+      url: "/programs",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,

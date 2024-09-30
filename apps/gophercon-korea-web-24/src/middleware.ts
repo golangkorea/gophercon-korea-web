@@ -25,6 +25,14 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  const isImageFile = (fileName: string): boolean => {
+    // 정규 표현식으로 .png, .svg, .jpg, .jpeg, .gif 파일 확장자 검사
+    const imageFilePattern = /\.(png|svg|jpe?g|gif|webp)$/i;
+    return imageFilePattern.test(fileName);
+  };
+
+  if (isImageFile(pathname)) return NextResponse.next();
+
   const pathnameHasLocale = Array.from(locales).some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
