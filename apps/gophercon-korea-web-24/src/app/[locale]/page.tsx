@@ -5,6 +5,10 @@ import LOGOWhite from "@/assets/logo_white.svg";
 import { AirplaneSVG } from "@/components/AirplaneSVG";
 import { Carousel } from "@/components/Carousel";
 
+import airplane from "@/assets/airplane.svg";
+import cameraSVG from "@/assets/camera.svg";
+import passportSymbolSVG from "@/assets/passportSymbol.svg";
+import Gallery from "@/components/Gallery";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import styled from "@emotion/styled";
@@ -19,7 +23,7 @@ const FullSection = styled(Section)({
     radial-gradient(circle at 35% 7%, rgba(247, 61, 61, 0.15) 0px, transparent 25%),
     radial-gradient(circle at 70% 19%, rgba(102, 48, 217, 0.15) 0px, transparent 20%),
     radial-gradient(circle at 62% 28%, rgba(47, 255, 248, 0.15) 0px, transparent 20%),
-    radial-gradient(circle at 16% 52%, rgba(47, 154, 255, 0.3) 0px, transparent 30%)
+    radial-gradient(circle at 16% 40%, rgba(47, 154, 255, 0.3) 0px, transparent 30%)
   `,
 });
 
@@ -31,16 +35,28 @@ const ViewContainer = styled.div({
   overflow: "hidden",
 });
 
-const AirplaneSVGIntro = styled(AirplaneSVG)({
+interface AirplaneSVGIntroStyledProps {
+  visible?: boolean;
+}
+
+const AirplaneSVGIntro = styled(AirplaneSVG)<AirplaneSVGIntroStyledProps>(({ visible }) => ({
+  visibility: visible ? "visible" : "hidden",
   position: "absolute",
   width: "100%",
   top: 600,
   left: 0,
-});
+}));
 
 const Intro = styled.div({
   padding: "180px 80px",
   overflow: "hidden",
+});
+
+const GallerySection = styled(Gallery)({
+  marginLeft: "20vw",
+  marginTop: 140,
+  height: 400,
+  zIndex: 3,
 });
 
 interface TitleStyledProps {
@@ -93,6 +109,7 @@ const Speakers = styled.section({
   display: "flex",
   rowGap: 40,
   marginTop: 200,
+  paddingBottom: 300,
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
@@ -185,14 +202,159 @@ const TicketFieldValue = styled.p({
   fontWeight: 600,
 });
 
-const Gallery = styled.section({
-  height: 900,
+const PassportShowcase = styled.section({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  columnGap: 120,
+  position: "relative",
+  zIndex: 3,
+  height: 1200,
 });
 
-const PassportShowcase = styled.section({ height: 1200 });
+const SponsorStamp = styled.div({
+  display: "flex",
+  width: 360,
+  height: 540,
+  flexDirection: "column",
+  alignItems: "stretch",
+  borderRadius: 20,
+  padding: 20,
+  backgroundColor: "#0035c8",
+  overflow: "hidden",
+  boxSizing: "border-box",
+});
+
+const Passport = styled.div({
+  display: "flex",
+  width: 360,
+  height: 540,
+  flexDirection: "column",
+  rowGap: 40,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#0035c8",
+  borderRadius: "0 20px 20px 0",
+  overflow: "hidden",
+});
+
+const PassportTitle = styled.h2({
+  fontSize: "2rem",
+  fontWeight: 600,
+  color: "#ffffff",
+  textTransform: "uppercase",
+  border: "none",
+  margin: 0,
+  padding: 0,
+});
+
+const PassportSymbol = styled.div({
+  borderTop: "1px solid rgba(255, 255, 255, .15)",
+  borderBottom: "1px solid rgba(255, 255, 255, .15)",
+  padding: "40px 0",
+});
+
+const PassportCameraMark = styled.div({});
+
+const Sponsors = styled.div({
+  display: "grid",
+  justifyContent: "center",
+  alignItems: "center",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gap: "20px",
+});
+
+const SponsorMark = styled.div({
+  width: 70,
+  height: 70,
+  borderRadius: 999,
+  backgroundColor: "#ffffff",
+});
+
+const SponsorPlatinumMark = styled(SponsorMark)({
+  width: 240,
+  height: 80,
+  gridColumnStart: 1,
+  gridColumnEnd: 4,
+});
+
+const SponsorGoldMark = styled(SponsorMark)({
+  width: 90,
+  height: 90,
+  border: "3px solid #ecc675",
+});
+
+const SponsorSilverMark = styled(SponsorMark)({
+  width: 90,
+  height: 90,
+  border: "3px solid #aaaaaa",
+});
+
+const SponsorBronzeMark = styled(SponsorMark)({
+  border: "3px solid #873e23",
+});
+
+const MainDisplayText = styled.h1({
+  margin: 0,
+  padding: 0,
+  marginBottom: 200,
+  fontSize: "3rem",
+  color: "#ffffff",
+  textAlign: "center",
+  opacity: 0,
+  border: "none",
+});
+
+interface AirplaneImage {
+  visible?: boolean;
+}
+
+const AirplaneImage = styled(Image)<AirplaneImage>(({ visible }) => ({
+  visibility: visible ? "visible" : "hidden",
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  marginLeft: -25,
+  marginTop: -25,
+  transform: "rotate(90deg)",
+}));
+
+const HighlightedSection = styled.div({
+  position: "relative",
+  paddingTop: 300,
+  isolation: "isolate",
+});
+
+const HighlightedSectionNoise = styled.div({
+  position: "absolute",
+  top: 0,
+  width: "100%",
+  height: "100%",
+  background: "linear-gradient(transparent, #003239 300px), url(https://grainy-gradients.vercel.app/noise.svg)",
+  filter: "contrast(120%) brightness(200%)",
+});
+
+const HighlightedSectionAnim = styled.div({
+  position: "absolute",
+  bottom: 0,
+  width: "100%",
+  height: 600,
+  background:
+    "radial-gradient(ellipse at bottom, rgba(255, 255, 176, 0.15) 60px, transparent 60%), radial-gradient(ellipse at bottom, rgba(255, 180, 0, 0.15) 15px, transparent 30%)",
+});
+
+const HighlightedSectionOverlay = styled.div({
+  position: "absolute",
+  top: 0,
+  width: "100%",
+  height: "100%",
+  backgroundColor: "#ffffff",
+  mixBlendMode: "multiply",
+});
 
 const CTAContainer = styled.div({
-  padding: 80,
+  padding: "20px 0 160px",
   textAlign: "center",
 });
 
@@ -218,7 +380,14 @@ const Home = () => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const ticketRef = useRef<HTMLDivElement | null>(null);
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const stampRef = useRef<HTMLDivElement | null>(null);
+  const passportRef = useRef<HTMLDivElement | null>(null);
+  const mainDisplayTextRef = useRef<HTMLHeadingElement | null>(null);
+
   const [isAnimActive, setIsAnimActive] = useState<boolean>(false);
+  const [isAirplainVisible, setIsAirplainVisible] = useState<boolean>(false);
+  const [isGalleryActive, setIsGalleryActive] = useState<boolean>(false);
 
   useEffect(() => {
     setIsAnimActive(true);
@@ -232,8 +401,32 @@ const Home = () => {
         const elementHeight = contentRef.current!.offsetHeight;
 
         const ratio = getScrollRatio(scrollY - elementTop, elementTop, elementHeight);
+
+        console.log("ratio", ratio);
         if (ticketRef.current)
           ticketRef.current.style.transform = `translate(${Math.max(1000 - 800 * (ratio - 0.2) * 30, 100)}px, 0)`;
+        setIsAirplainVisible(ratio >= 0.2375);
+
+        if (galleryRef.current)
+          galleryRef.current.style.transform = `translate(${Math.min((ratio - 0.25) * 5600 - 560, 0)}px, 0)`;
+
+        if (stampRef.current) {
+          stampRef.current.style.transform = `translate(${Math.min((ratio - 0.75) * 1.25 * 15000 - 1500, 0)}px, 0)`;
+          stampRef.current.style.opacity = String((ratio - 0.75) * 12.5);
+        }
+
+        if (passportRef.current) {
+          passportRef.current.style.transform = `translate(${1500 - Math.min((ratio - 0.75) * 1.25 * 15000, 1500)}px, 0)`;
+          passportRef.current.style.opacity = String(Math.min((ratio - 0.75) * 12.5, 1));
+        }
+
+        if (mainDisplayTextRef.current) {
+          mainDisplayTextRef.current.style.transform = `translate(0, ${-Math.min((ratio - 0.91) * 12.5 * 50, 50)}px)`;
+          mainDisplayTextRef.current.style.opacity = String(Math.min((ratio - 0.91) * 12.5, 1));
+        }
+
+        setIsAirplainVisible(ratio >= 0.2375);
+        setIsGalleryActive(ratio >= 0.35);
       };
 
       const scrollHandler = () => {
@@ -252,7 +445,7 @@ const Home = () => {
         }
       };
     }
-  }, [setIsAnimActive]);
+  }, [setIsAnimActive, ticketRef, galleryRef]);
 
   return (
     <>
@@ -299,6 +492,7 @@ const Home = () => {
                     <TicketPointDescription>GopherCon</TicketPointDescription>
                     <TicketPointCode>GO</TicketPointCode>
                   </TicketPoint>
+                  <AirplaneImage visible={!isAirplainVisible} src={airplane} alt='Airplane' width={50} height={50} />
                 </TicketFlightInfo>
                 <TicketDestinationInfo>
                   <TicketDestinationInfoRow>
@@ -333,18 +527,51 @@ const Home = () => {
               </TicketRight>
             </Ticket>
           </Intro>
-          <AirplaneSVGIntro />
-          <Gallery></Gallery>
+          <AirplaneSVGIntro visible={isAirplainVisible} />
+          <GallerySection ref={galleryRef} active={isGalleryActive} />
           <Speakers>
             <Carousel direction='left' />
             <Carousel direction='right' />
             <Carousel direction='left' />
             <Carousel direction='right' />
           </Speakers>
-          <PassportShowcase></PassportShowcase>
-          <CTAContainer>
-            <CTAButton>행사 티켓 페이지로 이동</CTAButton>
-          </CTAContainer>
+          <HighlightedSection>
+            <HighlightedSectionNoise />
+            <HighlightedSectionOverlay />
+            <HighlightedSectionAnim />
+            <PassportShowcase>
+              <SponsorStamp ref={stampRef}>
+                <Sponsors>
+                  <SponsorPlatinumMark></SponsorPlatinumMark>
+                  <SponsorGoldMark></SponsorGoldMark>
+                  <SponsorGoldMark></SponsorGoldMark>
+                  <SponsorSilverMark></SponsorSilverMark>
+                  <SponsorSilverMark></SponsorSilverMark>
+                  <SponsorBronzeMark></SponsorBronzeMark>
+                  <SponsorBronzeMark></SponsorBronzeMark>
+                  <SponsorMark></SponsorMark>
+                  <SponsorMark></SponsorMark>
+                  <SponsorMark></SponsorMark>
+                  <SponsorMark></SponsorMark>
+                  <SponsorMark></SponsorMark>
+                  <SponsorMark></SponsorMark>
+                </Sponsors>
+              </SponsorStamp>
+              <Passport ref={passportRef}>
+                <PassportTitle>PASSPORT</PassportTitle>
+                <PassportSymbol>
+                  <Image width={140} src={passportSymbolSVG} alt='Golang Passport' />
+                </PassportSymbol>
+                <PassportCameraMark>
+                  <Image width={32} src={cameraSVG} alt='Passport Chip Mark' />
+                </PassportCameraMark>
+              </Passport>
+            </PassportShowcase>
+            <MainDisplayText ref={mainDisplayTextRef}>You are ready to Go!</MainDisplayText>
+            <CTAContainer>
+              <CTAButton>행사 티켓 페이지로 이동</CTAButton>
+            </CTAContainer>
+          </HighlightedSection>
         </ViewContainer>
       </FullSection>
     </>
