@@ -13,7 +13,8 @@ import Header from "@/components/Header";
 import Section from "@/components/Section";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { GlobalContext } from "@/components/ThemeProvider";
 
 const FullSection = styled(Section)({
   padding: 0,
@@ -383,6 +384,8 @@ const CTAButton = styled.a({
 });
 
 const Home = () => {
+  const { dict } = useContext(GlobalContext);
+
   const contentRef = useRef<HTMLDivElement | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const ticketRef = useRef<HTMLDivElement | null>(null);
@@ -408,7 +411,6 @@ const Home = () => {
 
         const ratio = getScrollRatio(scrollY - elementTop, elementTop, elementHeight);
 
-        console.log("ratio", ratio);
         if (ticketRef.current)
           ticketRef.current.style.transform = `translate(${Math.max(1000 - 800 * (ratio - 0.2) * 30, 100)}px, 0)`;
         setIsAirplainVisible(ratio >= 0.2375);
@@ -461,11 +463,11 @@ const Home = () => {
           <ViewContainer ref={contentRef}>
             <Intro>
               <IntroTitle animActive={isAnimActive}>
-                Go 언어 개발자의 축제
+                {dict.home.title1}
                 <br />
-                고퍼콘 코리아에 어서오세요!
+                {dict.home.title2}
               </IntroTitle>
-              <IntroSubTitle animActive={isAnimActive}>여행 준비는 되셨나요?</IntroSubTitle>
+              <IntroSubTitle animActive={isAnimActive}>{dict.home.title3}</IntroSubTitle>
               <Ticket ref={ticketRef}>
                 <TicketLeft>
                   <TicketFields>
@@ -577,7 +579,7 @@ const Home = () => {
               <MainDisplayText ref={mainDisplayTextRef}>You are ready to Go!</MainDisplayText>
               <CTAContainer>
                 <CTAButton href='https://festa.io/events/5098' target='_blank'>
-                  행사 티켓 페이지로 이동
+                  {dict.home.CTABTN}
                 </CTAButton>
               </CTAContainer>
             </HighlightedSection>

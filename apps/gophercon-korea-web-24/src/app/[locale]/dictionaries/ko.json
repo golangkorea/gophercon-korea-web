@@ -5,10 +5,10 @@
     "register": "등록하기"
   },
   "home": {
-    "prepare": {
-      "title": "10월 12일 ~ 13일, Go 개발자들의 축제",
-      "subTitle": "하남시 미사, 더 릿에서 곧 만나요!"
-    }
+    "title1": "Go 언어 개발자의 축제",
+    "title2": "고퍼콘 코리아에 어서오세요!",
+    "title3": "여행 준비는 되셨나요?",
+    "CTABTN": "행사 티켓 페이지로 이동"
   },
   "CoC": {
     "title": "GopherCon Korea 2024 행동강령 (CoC)",
