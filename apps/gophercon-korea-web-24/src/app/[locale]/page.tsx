@@ -410,8 +410,8 @@ const Home = () => {
 
         console.log("ratio", ratio);
         if (ticketRef.current)
-          ticketRef.current.style.transform = `translate(${Math.max(1000 - 800 * (ratio - 0.2) * 30, 100)}px, 0)`;
-        setIsAirplainVisible(ratio >= 0.2375);
+          ticketRef.current.style.transform = `translate(${Math.max(1000 - 800 * (ratio - 0.15) * 30, 100)}px, 0)`;
+        setIsAirplainVisible(ratio >= 0.19);
 
         if (galleryRef.current)
           galleryRef.current.style.transform = `translate(${Math.min((ratio - 0.25) * 5600 - 560, 0)}px, 0)`;
@@ -431,7 +431,6 @@ const Home = () => {
           mainDisplayTextRef.current.style.opacity = String(Math.min((ratio - 0.91) * 12.5, 1));
         }
 
-        setIsAirplainVisible(ratio >= 0.2375);
         setIsGalleryActive(ratio >= 0.35);
       };
 
