@@ -32,13 +32,7 @@ const SpeakerImage = styled(Image)`
   border-radius: 50%;
 `;
 
-export const EachCard: FC<Omit<TimeTableProps, "diff"> & Required<Pick<TimeTableProps, "diff">>> = ({
-  day,
-  time,
-  diff,
-  title,
-  speaker,
-}) => {
+export const EachCard: FC<TimeTableProps> = ({ day, time, diff, title, speaker }) => {
   const { locale } = useContext(GlobalContext);
   const levelBgColor = colorObject[diff?.en ?? "Beginner"];
 
@@ -47,7 +41,7 @@ export const EachCard: FC<Omit<TimeTableProps, "diff"> & Required<Pick<TimeTable
       <Flex align='start' justify='start' gap={20}>
         <LevelContainer bgColor={levelBgColor}>
           <Text color='#ffffff' size={16} weight={600} font={jakartaSans_fontFamily}>
-            {diff[locale]}
+            {diff ? diff[locale] : ""}
           </Text>
         </LevelContainer>
         <Flex direction='row' gap={20} justify='start'>
