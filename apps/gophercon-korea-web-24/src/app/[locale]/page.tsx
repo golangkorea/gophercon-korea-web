@@ -11,10 +11,10 @@ import passportSymbolSVG from "@/assets/passportSymbol.svg";
 import Gallery from "@/components/Gallery";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
+import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
-import { GlobalContext } from "@/components/ThemeProvider";
 
 const FullSection = styled(Section)({
   padding: 0,
@@ -32,6 +32,7 @@ const InnerSection = styled(Section)({
   width: "100%",
   maxWidth: 2400,
   margin: "0 auto",
+  padding: 0,
 });
 
 const ViewContainer = styled.div({
