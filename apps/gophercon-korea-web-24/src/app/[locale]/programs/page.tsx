@@ -9,9 +9,14 @@ import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import timetableList, { TargetDay, TimeTableProps } from "./data";
+import { useCheckMobile } from "@/hooks/useMediaquery";
 
 const TimeTableWrapper = styled.div`
-  padding: 80px 160px;
+  padding: 0px 80px 80px 80px;
+
+  @media (max-width: 768px) {
+    padding: 40px 20px; // Reduced padding for smaller screens
+  }
 `;
 
 const TimeTableContainer = styled.div`
@@ -24,7 +29,14 @@ const TimeTableSwitchDiv = styled.div``;
 
 const TimeTableDiv = styled.table`
   width: 100%;
+  border-collapse: collapse; // Ensure borders collapse nicely
+  @media (max-width: 768px) {
+    display: block; // Change display to block for responsive layout
+    overflow-x: auto; // Allow horizontal scrolling
+    white-space: nowrap; // Prevent text from wrapping
+  }
 `;
+
 const ColGroup = styled.colgroup``;
 const Col = styled.col<{ width: number }>`
   width: ${({ width }) => `${width}%`};
@@ -32,8 +44,13 @@ const Col = styled.col<{ width: number }>`
 const THead = styled.thead``;
 const TBody = styled.tbody``;
 const Th = styled.th`
-  text-aling: center;
+  text-align: center;
   padding: 15px 5px;
+
+  @media (max-width: 768px) {
+    padding: 10px 2px; // Reduced padding for smaller screens
+    font-size: 0.9rem; // Smaller font size for headings
+  }
 `;
 const Tr = styled.tr<{ isEvent?: boolean; isHead?: boolean }>`
   background-color: ${({ isEvent, isHead }) => (isHead ? "#f1f1f1" : isEvent ? "#f2fbff" : "#ffffff")};
@@ -43,6 +60,11 @@ const Td = styled.td<{ isEvent?: boolean }>`
   vertical-align: middle;
   padding: 20px 5px 20px ${({ isEvent }) => (isEvent ? "5px" : "30px")};
   border-bottom: 1px solid #d2d2d2;
+
+  @media (max-width: 768px) {
+    padding: 10px 5px; // Reduced padding for smaller screens
+    font-size: 0.7rem; // Smaller font size for data cells
+  }
 `;
 
 const SpeakerImage = styled(Image)`
@@ -50,14 +72,15 @@ const SpeakerImage = styled(Image)`
 `;
 
 const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDay: TargetDay }) => {
-  const { dict, locale } = useContext(GlobalContext);
+  const { dict, locale, isDeviceMobile } = useContext(GlobalContext);
+  const isMobile = useCheckMobile(isDeviceMobile);
   const list_per_day = list.filter((el) => el.day === targetDay);
   return (
     <TimeTableDiv>
       <ColGroup>
         <Col width={20} />
-        <Col width={45} />
-        <Col width={20} />
+        <Col width={40} />
+        <Col width={25} />
         <Col width={15} />
       </ColGroup>
       <THead>
@@ -102,7 +125,12 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
               {!isEvent && (
                 <>
                   <Td isEvent={true} style={{ textAlign: "center" }}>
-                    <Flex direction='row' gap={20} justify='center' align='center'>
+                    <Flex
+                      direction={isMobile ? "column" : "row"}
+                      gap={isMobile ? 10 : 20}
+                      justify='center'
+                      align='center'
+                    >
                       <SpeakerImage
                         width={60}
                         height={60}
@@ -135,29 +163,34 @@ const Programs = () => {
     { day: "DAY 1", date: "10.12(SAT)" },
     { day: "DAY 2", date: "10.13(SUN)" },
   ];
+  const { isDeviceMobile } = useContext(GlobalContext);
+  const isMobile = useCheckMobile(isDeviceMobile);
+
   return (
     <Section>
       <TimeTableContainer>
-        <Flex align='center' justify='center'>
-          <TimeTableSwitchDiv>
-            <Flex direction='row' gap={80}>
-              {switch_data.map((el) => (
-                <Text
-                  color={targetDay === el.day ? "#000000" : "#999999"}
-                  onClick={() => setTargetDay(el.day)}
-                  cursor='pointer'
-                  font={pretendard_fontFamily}
-                  size={"1.75rem"}
-                  weight={700}
-                  key={el.date}
-                >
-                  {el.date}
-                </Text>
-              ))}
-            </Flex>
-          </TimeTableSwitchDiv>
-          <TimetablePerDay list={timetableList} targetDay={targetDay} />
-        </Flex>
+        <TimeTableWrapper>
+          <Flex align='center' justify='center'>
+            <TimeTableSwitchDiv>
+              <Flex direction='row' gap={isMobile ? 20 : 80}>
+                {switch_data.map((el) => (
+                  <Text
+                    color={targetDay === el.day ? "#000000" : "#999999"}
+                    onClick={() => setTargetDay(el.day)}
+                    cursor='pointer'
+                    font={pretendard_fontFamily}
+                    size={isMobile ? "1.25rem" : "1.75rem"}
+                    weight={700}
+                    key={el.date}
+                  >
+                    {el.date}
+                  </Text>
+                ))}
+              </Flex>
+            </TimeTableSwitchDiv>
+            <TimetablePerDay list={timetableList} targetDay={targetDay} />
+          </Flex>
+        </TimeTableWrapper>
       </TimeTableContainer>
     </Section>
   );
