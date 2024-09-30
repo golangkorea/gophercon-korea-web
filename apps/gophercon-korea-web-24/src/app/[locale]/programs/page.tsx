@@ -2,6 +2,7 @@
 
 import { pretendard_fontFamily } from "@/app/fonts";
 import CustomLink from "@/components/CustomLink";
+import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import { Flex, Text } from "gophercon-common";
@@ -20,40 +21,6 @@ const TimeTableContainer = styled.div`
 `;
 
 const TimeTableSwitchDiv = styled.div``;
-
-export default function Timetable() {
-  const [targetDay, setTargetDay] = useState<TargetDay>("DAY 1");
-  const switch_data: { day: TargetDay; date: string }[] = [
-    { day: "DAY 1", date: "10.12(SAT)" },
-    { day: "DAY 2", date: "10.13(SUN)" },
-  ];
-  return (
-    <TimeTableWrapper>
-      <TimeTableContainer>
-        <Flex align='center' justify='center'>
-          <TimeTableSwitchDiv>
-            <Flex direction='row' gap={80}>
-              {switch_data.map((el) => (
-                <Text
-                  color={targetDay === el.day ? "#000000" : "#999999"}
-                  onClick={() => setTargetDay(el.day)}
-                  cursor='pointer'
-                  font={pretendard_fontFamily}
-                  size={"1.75rem"}
-                  weight={700}
-                  key={el.date}
-                >
-                  {el.date}
-                </Text>
-              ))}
-            </Flex>
-          </TimeTableSwitchDiv>
-          <TimetablePerDay list={timetableList} targetDay={targetDay} />
-        </Flex>
-      </TimeTableContainer>
-    </TimeTableWrapper>
-  );
-}
 
 const TimeTableDiv = styled.table`
   width: 100%;
@@ -146,7 +113,7 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
                     </Flex>
                   </Td>
                   <Td>
-                    <CustomLink locale={locale} href={`/timetable/${el.title.en.replaceAll(" ", "-")}`}>
+                    <CustomLink locale={locale} href={`/programs/${el.title.en.replaceAll(" ", "-")}`}>
                       <Text cursor='pointer' align='center' color='#6630D9' weight={700}>
                         {dict.timetable.detail}
                       </Text>
@@ -161,3 +128,39 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
     </TimeTableDiv>
   );
 };
+
+const Programs = () => {
+  const [targetDay, setTargetDay] = useState<TargetDay>("DAY 1");
+  const switch_data: { day: TargetDay; date: string }[] = [
+    { day: "DAY 1", date: "10.12(SAT)" },
+    { day: "DAY 2", date: "10.13(SUN)" },
+  ];
+  return (
+    <Section>
+      <TimeTableContainer>
+        <Flex align='center' justify='center'>
+          <TimeTableSwitchDiv>
+            <Flex direction='row' gap={80}>
+              {switch_data.map((el) => (
+                <Text
+                  color={targetDay === el.day ? "#000000" : "#999999"}
+                  onClick={() => setTargetDay(el.day)}
+                  cursor='pointer'
+                  font={pretendard_fontFamily}
+                  size={"1.75rem"}
+                  weight={700}
+                  key={el.date}
+                >
+                  {el.date}
+                </Text>
+              ))}
+            </Flex>
+          </TimeTableSwitchDiv>
+          <TimetablePerDay list={timetableList} targetDay={targetDay} />
+        </Flex>
+      </TimeTableContainer>
+    </Section>
+  );
+};
+
+export default Programs;
