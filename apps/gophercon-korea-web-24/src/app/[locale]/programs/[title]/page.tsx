@@ -10,14 +10,11 @@ import Image from "next/image";
 import { FC, useContext } from "react";
 import timetableList, { DiffProps } from "../data";
 
-const TechTalkWrapper = styled.div`
-  margin-top: 160px;
-`;
-
 const TechTalkContainer = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0px 100px;
+  padding: 140px 80px 80px 80px;
+  width: 100%;
 `;
 
 const PresentDescWrapper = styled.div`
@@ -91,7 +88,7 @@ const BottomNav: FC<BottomNavProps> = ({ idx, locale, action, action_title }) =>
   const { dict } = useContext(GlobalContext);
   return (
     <BottomNavWrapper action={action}>
-      <CustomLink href={`/timetable/${action_title}`} locale={locale}>
+      <CustomLink href={`/programs/${action_title}`} locale={locale}>
         <Flex direction='row' gap={10} justify={action === "before" ? "left" : "right"}>
           {action === "before" ? (
             <>
