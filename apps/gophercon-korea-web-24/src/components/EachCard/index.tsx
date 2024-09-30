@@ -49,8 +49,8 @@ const EachCardContainer = styled.div`
   overflow: hidden;
   positon: relative;
   border-radius: 40px;
-  width: 400px;
-  height: 300px;
+  width: 340px;
+  height: 200px;
 `;
 
 const colorObject = {

@@ -2,7 +2,7 @@ import { Interpolation, Theme } from "@emotion/react";
 
 const style: Interpolation<Theme> = {
   html: {
-    fontSize: 18,
+    fontSize: 16,
     fontSmoothing: "antialiased",
   },
   body: {

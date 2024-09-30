@@ -1,5 +1,6 @@
 "use client";
 
+import { pretendard_fontFamily } from "@/app/fonts";
 import CustomLink from "@/components/CustomLink";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
@@ -7,7 +8,6 @@ import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import timetableList, { TargetDay, TimeTableProps } from "./data";
-import { pretendard_fontFamily } from "@/app/fonts";
 
 const TimeTableWrapper = styled.div`
   padding: 80px 160px;
@@ -96,22 +96,22 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
       <THead>
         <Tr isHead={true}>
           <Th>
-            <Text size={"1.25rem"} weight={700} font={pretendard_fontFamily}>
+            <Text weight={700} font={pretendard_fontFamily}>
               TIME
             </Text>
           </Th>
           <Th style={{ textAlign: "left", paddingLeft: "30px" }}>
-            <Text size={"1.25rem"} weight={700} font={pretendard_fontFamily}>
+            <Text weight={700} font={pretendard_fontFamily}>
               TITLE
             </Text>
           </Th>
           <Th>
-            <Text size={"1.25rem"} weight={700} font={pretendard_fontFamily}>
+            <Text weight={700} font={pretendard_fontFamily}>
               SPEAKER
             </Text>
           </Th>
           <Th>
-            <Text size={"1.25rem"} weight={700} font={pretendard_fontFamily}>
+            <Text weight={700} font={pretendard_fontFamily}>
               LINK
             </Text>
           </Th>
@@ -123,12 +123,12 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
           return (
             <Tr key={`timetable-${idx}`} isEvent={isEvent}>
               <Td isEvent={true}>
-                <Text size={"1.25rem"} weight={700} font={pretendard_fontFamily}>
+                <Text weight={700} font={pretendard_fontFamily}>
                   {el.time}
                 </Text>
               </Td>
               <Td isEvent={isEvent} colSpan={isEvent ? 3 : 1}>
-                <Text size={"1.25rem"} weight={700} font={pretendard_fontFamily}>
+                <Text weight={700} font={pretendard_fontFamily}>
                   {el.title[locale]}
                 </Text>
               </Td>
@@ -142,14 +142,12 @@ const TimetablePerDay = ({ list, targetDay }: { list: TimeTableProps[]; targetDa
                         src={`/speakers/${el.speaker!.avatar}`}
                         alt={el.speaker!.name[locale]}
                       />
-                      <Text size={"1.25rem"} weight={700}>
-                        {el.speaker!.name[locale]}
-                      </Text>
+                      <Text weight={700}>{el.speaker!.name[locale]}</Text>
                     </Flex>
                   </Td>
                   <Td>
                     <CustomLink locale={locale} href={`/timetable/${el.title.en.replaceAll(" ", "-")}`}>
-                      <Text cursor='pointer' align='center' color='#6630D9' size={"1.25rem"} weight={700}>
+                      <Text cursor='pointer' align='center' color='#6630D9' weight={700}>
                         {dict.timetable.detail}
                       </Text>
                     </CustomLink>

@@ -1,7 +1,7 @@
-import { FC, memo } from "react";
 import styled from "@emotion/styled";
-import cardList from "./data";
+import { FC, memo } from "react";
 import { EachCard } from "../EachCard";
+import cardList from "./data";
 
 type CarouselDirection = "left" | "right";
 
@@ -27,17 +27,15 @@ const CarouselComponent: FC<CarouselProps> = ({ direction = "left" }: CarouselPr
 
 export const Carousel = memo(CarouselComponent);
 
-const CarouselContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 387px;
-  transform: rotate(10deg);
-`;
+const CarouselContainer = styled.div({
+  display: "flex",
+  width: "100%",
+  transform: "rotate(10deg)",
+});
 
 const CarouselInner = styled.div<{ direction: CarouselDirection }>`
   display: flex;
   gap: 40px;
-  position: absolute;
   left: 0px;
   animation: ${({ direction }) => (direction === "right" ? "scroll-right" : "scroll-left")} 20s linear infinite;
 

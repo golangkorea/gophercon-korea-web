@@ -23,14 +23,13 @@ type TextProps<T extends ElementType> = BaseTextProps &
 
 export const Text = <T extends ElementType = "span">({
   as,
-  size = 18,
+  size = 16,
   children,
   weight = "normal",
   color = "black",
   spacing = 0,
   lineHeight = "normal",
   font,
-  cursor = "auto",
   whiteSpace = "pre-wrap",
   align = "left",
   margin = "0px",
@@ -45,7 +44,6 @@ export const Text = <T extends ElementType = "span">({
         fontSize: size,
         fontWeight: weight,
         color,
-        cursor,
         letterSpacing: spacing,
         lineHeight,
         whiteSpace,

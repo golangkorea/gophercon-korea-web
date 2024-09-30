@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useContext } from "react";
+import LogoSVG from "@/assets/logo.svg";
 import { GlobalContext } from "@/components/ThemeProvider";
+import { useCheckMobile } from "@/hooks/useMediaquery";
 import styled from "@emotion/styled";
+import { Text } from "gophercon-common";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import React, { useContext } from "react";
 import CustomLink from "../CustomLink";
-import LogoSVG from "@/assets/logo.svg";
-import { useCheckMobile } from "@/hooks/useMediaquery";
-import { Text } from "gophercon-common";
 
 export interface LinkStyledProps {
   active?: boolean;
@@ -73,7 +73,7 @@ const HighlightLink = styled(Link)<{ isMobile: boolean }>`
   }
 
   // 조건부 스타일 예시
-  font-size: 1.25rem;
+  font-size: 1rem;
 `;
 
 const Button = styled(Link.withComponent("button"))({
@@ -86,11 +86,11 @@ type PathProps = {
 };
 
 const headerPaths: PathProps[] = [
-  { path: "/CoC", name: "coc" },
+  { path: "/coc", name: "coc" },
   // { path: "/festival-intro", name: "festival_intro" },
   // { path: "/festival-staffs", name: "festival_staffs" },
   // { path: "/sponsor", name: "sponsor" },
-  // { path: "/timetable", name: "timetable" },
+  // { path: "/programs", name: "programs" },
 ];
 
 const Header: React.FC = () => {
@@ -135,7 +135,12 @@ const Header: React.FC = () => {
           </>
         )}
 
-        <HighlightLink isMobile={isMobile} href='https://festa.io/events/5098' target='_blank'>
+        <HighlightLink
+          isMobile={isMobile}
+          href='https://festa.io/events/5098'
+          style={{ textDecoration: "none", fontSize: "1.25rem" }}
+          target='_blank'
+        >
           {dict.nav.register}
         </HighlightLink>
       </Inner>

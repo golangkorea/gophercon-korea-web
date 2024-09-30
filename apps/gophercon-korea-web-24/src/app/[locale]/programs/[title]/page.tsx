@@ -1,13 +1,14 @@
 "use client";
 
+import { jakartaSans_fontFamily, pretendard_fontFamily } from "@/app/fonts";
+import CustomLink from "@/components/CustomLink";
+import Section from "@/components/Section";
+import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
-import timetableList, { DiffProps } from "../data";
 import { Flex, Text } from "gophercon-common";
-import { jakartaSans_fontFamily, pretendard, pretendard_fontFamily } from "@/app/fonts";
 import Image from "next/image";
 import { FC, useContext } from "react";
-import { GlobalContext } from "@/components/ThemeProvider";
-import CustomLink from "@/components/CustomLink";
+import timetableList, { DiffProps } from "../data";
 
 const TechTalkWrapper = styled.div`
   margin-top: 160px;
@@ -127,22 +128,16 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
   const nav_style = isThereNoPrev ? "right" : isThereNoNext ? "left" : "space-between";
 
   return (
-    <TechTalkWrapper>
+    <Section>
       <TechTalkContainer>
         <Flex align='start' justify='start' gap={50}>
           <Text size={"2rem"} weight={700}>
             {titleByLocale[locale]}
           </Text>
           <Flex direction='row' gap={10} justify='start'>
-            <Text size={"1.25rem"} weight={700}>
-              {day}
-            </Text>
-            <Text size={"1.25rem"} weight={700}>
-              {day === "DAY 1" ? "2024. 10. 12" : "2024. 10. 13"}
-            </Text>
-            <Text size={"1.25rem"} weight={700}>
-              {time}
-            </Text>
+            <Text weight={700}>{day}</Text>
+            <Text weight={700}>{day === "DAY 1" ? "2024. 10. 12" : "2024. 10. 13"}</Text>
+            <Text weight={700}>{time}</Text>
           </Flex>
           <PresentDescWrapper>
             <Text size={"1.5rem"} weight={700} font={pretendard_fontFamily} lineHeight='160%'>
@@ -165,7 +160,7 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
                         <Text size={"1.5rem"} weight={700}>{`${speaker!.name[locale]}님`}</Text>
                         <DiffLabel diff={diff!} locale={locale} />
                       </Flex>
-                      <Text size={"1.25rem"} weight={700}>{`${speaker!.intro![locale]}`}</Text>
+                      <Text weight={700}>{`${speaker!.intro![locale]}`}</Text>
                     </Flex>
                   </Flex>
                 </BottomSpeakerInnerContainer>
@@ -194,6 +189,6 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
           </BottomContainer>
         </Flex>
       </TechTalkContainer>
-    </TechTalkWrapper>
+    </Section>
   );
 }
