@@ -11,18 +11,23 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const ViewContainer = styled.div({
-  position: "relative",
+const FullSection = styled(Section)({
+  padding: 0,
   maxWidth: 2560,
-  margin: "0 auto",
-  width: "100%",
-  height: "100%",
+  overflow: "hidden",
   background: `
     radial-gradient(circle at 35% 7%, rgba(247, 61, 61, 0.15) 0px, transparent 25%),
     radial-gradient(circle at 70% 19%, rgba(102, 48, 217, 0.15) 0px, transparent 20%),
     radial-gradient(circle at 62% 28%, rgba(47, 255, 248, 0.15) 0px, transparent 20%),
     radial-gradient(circle at 16% 52%, rgba(47, 154, 255, 0.3) 0px, transparent 30%)
   `,
+});
+
+const ViewContainer = styled.div({
+  position: "relative",
+  margin: "0 auto",
+  width: "100%",
+  minHeight: "500vh",
   overflow: "hidden",
 });
 
@@ -180,12 +185,33 @@ const TicketFieldValue = styled.p({
   fontWeight: 600,
 });
 
-const Gallery = styled.div({
+const Gallery = styled.section({
   height: 900,
 });
 
-const FullSection = styled(Section)({
-  height: "500vh",
+const PassportShowcase = styled.section({ height: 1200 });
+
+const CTAContainer = styled.div({
+  padding: 80,
+  textAlign: "center",
+});
+
+const CTAButton = styled.button({
+  position: "relative",
+  padding: "20px 40px",
+  borderRadius: 999,
+  color: "#ffffff",
+  fontSize: "1.725rem",
+  fontWeight: 600,
+  backgroundColor: "#000000",
+  lineHeight: 1,
+  margin: "0 auto",
+  cursor: "pointer",
+  zIndex: 3,
+  transition: "bakcground-color .3 ease",
+  "&:hover": {
+    backgroundColor: "#222222",
+  },
 });
 
 const Home = () => {
@@ -315,6 +341,10 @@ const Home = () => {
             <Carousel direction='left' />
             <Carousel direction='right' />
           </Speakers>
+          <PassportShowcase></PassportShowcase>
+          <CTAContainer>
+            <CTAButton>행사 티켓 페이지로 이동</CTAButton>
+          </CTAContainer>
         </ViewContainer>
       </FullSection>
     </>
