@@ -262,21 +262,37 @@ const Sponsors = styled.div({
   justifyContent: "center",
   alignItems: "center",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "20px 40px",
+  gap: "20px",
 });
 
 const SponsorMark = styled.div({
-  width: 80,
-  height: 80,
+  width: 70,
+  height: 70,
   borderRadius: 999,
   backgroundColor: "#ffffff",
 });
 
 const SponsorPlatinumMark = styled(SponsorMark)({
-  width: 140,
+  width: 240,
   height: 80,
   gridColumnStart: 1,
-  gridColumnEnd: 3,
+  gridColumnEnd: 4,
+});
+
+const SponsorGoldMark = styled(SponsorMark)({
+  width: 90,
+  height: 90,
+  border: "3px solid #ecc675",
+});
+
+const SponsorSilverMark = styled(SponsorMark)({
+  width: 90,
+  height: 90,
+  border: "3px solid #aaaaaa",
+});
+
+const SponsorBronzeMark = styled(SponsorMark)({
+  border: "3px solid #873e23",
 });
 
 const MainDisplayText = styled.h1({
@@ -527,12 +543,12 @@ const Home = () => {
               <SponsorStamp ref={stampRef}>
                 <Sponsors>
                   <SponsorPlatinumMark></SponsorPlatinumMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
-                  <SponsorMark></SponsorMark>
+                  <SponsorGoldMark></SponsorGoldMark>
+                  <SponsorGoldMark></SponsorGoldMark>
+                  <SponsorSilverMark></SponsorSilverMark>
+                  <SponsorSilverMark></SponsorSilverMark>
+                  <SponsorBronzeMark></SponsorBronzeMark>
+                  <SponsorBronzeMark></SponsorBronzeMark>
                   <SponsorMark></SponsorMark>
                   <SponsorMark></SponsorMark>
                   <SponsorMark></SponsorMark>
