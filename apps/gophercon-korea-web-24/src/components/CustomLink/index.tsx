@@ -8,7 +8,6 @@ import { LinkStyledProps } from "../Header";
 type CustomLinkProps = {
   href: string;
   locale: LocaleType;
-  style?: LinkStyledProps;
   children: ReactNode;
   [key: string]: any;
 };
@@ -17,7 +16,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-export default function CustomLink({ href, locale, style, ...props }: CustomLinkProps) {
+export default function CustomLink({ href, locale, ...props }: CustomLinkProps) {
   const isDefaultLocale = locale === defaultLocale;
   const path = isDefaultLocale ? href : `/${locale}${href}`;
 

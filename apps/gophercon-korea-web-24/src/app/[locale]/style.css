@@ -5,6 +5,7 @@ html {
 
 body {
   min-width: 320px !important;
+  overflow: visible;
 }
 
 @media (max-width: 600px) {

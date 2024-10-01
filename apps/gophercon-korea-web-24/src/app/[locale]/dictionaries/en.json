@@ -2,7 +2,9 @@
   "nav": {
     "previousGopherCon": "Previous GopherCon",
     "coc": "Code of Conduct (CoC)",
-    "register": "Register"
+    "register": "Register",
+    "sponsor": "Sponsors",
+    "programs": "Programs"
   },
   "home": {
     "title1": "A Festival for Go Language Developers,",

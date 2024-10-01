@@ -2,7 +2,9 @@
   "nav": {
     "previousGopherCon": "지난 고퍼콘 보기",
     "coc": "행동 강령 (CoC)",
-    "register": "등록하기"
+    "register": "등록하기",
+    "sponsor": "스폰서",
+    "programs": "프로그램"
   },
   "home": {
     "title1": "Go 언어 개발자의 축제",

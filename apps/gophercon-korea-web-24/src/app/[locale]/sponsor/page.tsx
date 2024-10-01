@@ -284,7 +284,13 @@ const Sponsor = () => {
   }, [queryValue]);
 
   useEffect(() => {
+    // 페이지에 접속했을 때 overflow를 hidden으로 설정
     document.body.style.overflow = "hidden";
+
+    // 컴포넌트 언마운트 시 overflow를 visible로 복원
+    return () => {
+      document.body.style.overflow = "visible";
+    };
   }, []);
 
   return (
