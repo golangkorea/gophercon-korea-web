@@ -11,10 +11,10 @@ import passportSymbolSVG from "@/assets/passportSymbol.svg";
 import Gallery from "@/components/Gallery";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
+import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
-import { GlobalContext } from "@/components/ThemeProvider";
 
 const FullSection = styled(Section)({
   padding: 0,
@@ -32,6 +32,7 @@ const InnerSection = styled(Section)({
   width: "100%",
   maxWidth: 2400,
   margin: "0 auto",
+  padding: 0,
 });
 
 const ViewContainer = styled.div({
@@ -412,8 +413,8 @@ const Home = () => {
         const ratio = getScrollRatio(scrollY - elementTop, elementTop, elementHeight);
 
         if (ticketRef.current)
-          ticketRef.current.style.transform = `translate(${Math.max(1000 - 800 * (ratio - 0.2) * 30, 100)}px, 0)`;
-        setIsAirplainVisible(ratio >= 0.2375);
+          ticketRef.current.style.transform = `translate(${Math.max(1000 - 800 * (ratio - 0.15) * 30, 100)}px, 0)`;
+        setIsAirplainVisible(ratio >= 0.19);
 
         if (galleryRef.current)
           galleryRef.current.style.transform = `translate(${Math.min((ratio - 0.25) * 5600 - 560, 0)}px, 0)`;
@@ -433,7 +434,6 @@ const Home = () => {
           mainDisplayTextRef.current.style.opacity = String(Math.min((ratio - 0.91) * 12.5, 1));
         }
 
-        setIsAirplainVisible(ratio >= 0.2375);
         setIsGalleryActive(ratio >= 0.35);
       };
 
