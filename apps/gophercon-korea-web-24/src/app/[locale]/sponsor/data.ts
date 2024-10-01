@@ -234,7 +234,7 @@ const sponsorList: SponsorProps[] = [
       ko: "이지스퍼블리싱",
       en: "EasysPublishing",
     },
-    imgSrc: "logo_EasysPublish.png",
+    imgSrc: "logo_EasysPublishing.png",
     grade: PUBLISHER_GRADE,
     desc: {
       ko: "이지스퍼블리싱은 IT와 교육 출판 분야에서 혁신적인 비전을 가진 회사로, 지식을 쉽게 전달하는 것을 목표로 하고 있습니다. 주로 IT 입문서와 교육 교재를 출간하며, 다양한 독자층이 쉽게 학습할 수 있도록 돕고 있습니다. 이지스퍼블리싱은 'Do It' 시리즈 등을 통해 실용적이고 실천 가능한 학습 콘텐츠를 제공하고 있으며, 교육 출판을 통해 미래 인재 양성에 기여하고자 합니다. 이번 행사를 통해 이지스퍼블리싱은 더 많은 사람들에게 지식을 전파하고 교육 기회를 넓히는 데 동참할 것입니다.",
