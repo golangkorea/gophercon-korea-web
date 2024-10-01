@@ -56,15 +56,16 @@ interface DiffLabelProps {
   locale: "ko" | "en";
 }
 
+const DiffColor = {
+  Beginner: "#00B555",
+  Intermediate: "#FF8000",
+  Advanced: "#FF4D4D",
+};
+
 const DiffLabel: FC<DiffLabelProps> = ({ diff, locale }) => {
-  const color = {
-    Beginner: "#00B555",
-    Intermediate: "#FF8000",
-    Advanced: "#FF4D4D",
-  };
   const targetText = diff[locale];
   return (
-    <DiffLabelContainer bgColor={color[diff.en]}>
+    <DiffLabelContainer bgColor={DiffColor[diff.en]}>
       <Text font={locale === "ko" ? pretendard_fontFamily : jakartaSans_fontFamily} size={"1.5rem"} color={"#ffffff"}>
         {targetText}
       </Text>

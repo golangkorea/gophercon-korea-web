@@ -14,6 +14,7 @@ const SectionContainer = styled.section({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  overflow: "hidden",
 });
 
 const Section: React.FC<SectionProps> = ({ className, style, children }) => (

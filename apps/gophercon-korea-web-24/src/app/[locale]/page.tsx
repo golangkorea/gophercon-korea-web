@@ -19,7 +19,6 @@ import { useContext, useEffect, useRef, useState } from "react";
 const FullSection = styled(Section)({
   padding: 0,
   margin: "0 auto",
-  overflow: "hidden",
   background: `
     radial-gradient(circle at 35% 7%, rgba(247, 61, 61, 0.15) 0px, transparent 25%),
     radial-gradient(circle at 70% 19%, rgba(102, 48, 217, 0.15) 0px, transparent 20%),
