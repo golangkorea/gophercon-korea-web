@@ -126,7 +126,7 @@ const headerPaths: PathProps[] = [
   // { path: "/festival-intro", name: "festival_intro" },
   // { path: "/festival-staffs", name: "festival_staffs" },
   { path: "/programs", name: "programs" },
-  { path: "/sponsor", name: "sponsor" },
+  // { path: "/sponsor", name: "sponsor" },
 ];
 
 const MobileNavWrapper = styled.div({
