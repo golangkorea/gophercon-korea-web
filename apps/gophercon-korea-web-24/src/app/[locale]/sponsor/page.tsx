@@ -292,12 +292,12 @@ const Sponsor = () => {
       {sponsorData && <SponsorModal {...sponsorData} />}
       <SponsorWrapper isModal={isModal}>
         <Flex gap={80}>
-          {sponsorGradeList.map((grade) => {
+          {sponsorGradeList.map((grade, idx) => {
             const targetData = sponsorList.filter((info) => info.grade.en === grade);
             const targetColor = sponsorColor[grade];
             const isSolo = targetData.length === 1;
             return (
-              <Flex width='100%' align='center' justify='center' gap={40}>
+              <Flex key={`${grade}-${idx}`} width='100%' align='center' justify='center' gap={40}>
                 <Flex align='start' justify='start' gap={20}>
                   <Text font={pretendard_fontFamily} size={"2.5rem"} weight={700}>
                     {grade}
