@@ -117,7 +117,7 @@ const sponsorList: SponsorProps[] = [
       ko: "화이트큐브",
       en: "whitecube",
     },
-    imgSrc: "logo_Challengers.png",
+    imgSrc: "logo_challengers.png",
     grade: GOLD_GRADE,
     link: "https://biz-challengers.com/",
     desc: {
@@ -130,7 +130,7 @@ const sponsorList: SponsorProps[] = [
       ko: "테스트뱅크",
       en: "Testbank",
     },
-    imgSrc: "logo_Testbank.png",
+    imgSrc: "logo_testbank.png",
     grade: SILVER_GRADE,
     link: "https://www.testbank.ai",
     desc: {
@@ -169,7 +169,7 @@ const sponsorList: SponsorProps[] = [
       ko: "오픈업",
       en: "Open Up",
     },
-    imgSrc: "logo_OpenUp.png",
+    imgSrc: "logo_openUp.png",
     grade: BRONZE_GRADE,
     desc: {
       ko: "OpenUP, 오픈소스 소프트웨어 통합 지원 센터는 정보통신산업진흥원(NIPA) 소속의 오픈소스 지원 및 진흥을 담당하는 조직 입니다.\n오픈소스 소프트웨어를 개발, 공유, 활용하기를 원하는 개발자, 기업, 정부 등을 체계정으로 지원하고, 수요(기업, 공공기관) 및 공급(개발자, 기업)의 선순환 구조를 이루어, 오픈소스 소프트웨어 활성화의 허브 역할을 수행하는 기관입니다.",
@@ -221,7 +221,7 @@ const sponsorList: SponsorProps[] = [
       ko: "한빛미디어",
       en: "Hanbit Media",
     },
-    imgSrc: "logo_Hanbit.png",
+    imgSrc: "logo_hanbit.png",
     grade: PUBLISHER_GRADE,
     desc: {
       ko: "한빛미디어(주)는 책으로 여는 IT 세상을 만들고 있습니다.\n우리 시대의 주역들을 위한 프로그래밍, 컴퓨터 공학, IT 에세이는 물론 일반 사용자를 위한 IT 활용서와 실용서까지 다양한 분야의 책으로 IT 세상을 만들어 가고 있습니다.\nIT 전문가와 미래의 전문가를 꿈꾸는 이의 동반자로 30년 한 길을 걸어온 한빛미디어(주)는 앞으로도 여러분과 함께 그려가는 멋진 미래를 꿈꾸며  '책으로 여는 IT 세상'을 만들어 가겠습니다.",
