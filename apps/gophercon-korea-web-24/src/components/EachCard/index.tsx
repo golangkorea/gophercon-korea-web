@@ -64,7 +64,8 @@ export const EachCard: FC<TimeTableProps> = ({ day, time, diff, title, speaker }
               </Text>
             </Flex>
             <Text size={20} weight={600}>
-              {speaker?.name[locale]}님
+              {speaker?.name[locale]}
+              {locale === "ko" ? "님" : ""}
             </Text>
           </Flex>
         </Flex>

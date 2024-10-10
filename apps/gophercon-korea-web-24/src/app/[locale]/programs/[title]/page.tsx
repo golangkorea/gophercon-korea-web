@@ -155,7 +155,10 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
                     />
                     <Flex justify='start' align='start' gap={20}>
                       <Flex direction='row' gap={40} justify='start'>
-                        <Text size={"1.5rem"} weight={700}>{`${speaker!.name[locale]}님`}</Text>
+                        <Text
+                          size={"1.5rem"}
+                          weight={700}
+                        >{`${speaker!.name[locale]}${locale === "ko" ? "님" : ""}`}</Text>
                         <DiffLabel diff={diff!} locale={locale} />
                       </Flex>
                       <Text weight={700}>{`${speaker!.intro![locale]}`}</Text>
