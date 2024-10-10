@@ -49,7 +49,7 @@ const Title = styled.h1({
 });
 
 const Link = styled.a({
-  fontSize: 24,
+  fontSize: "1.25em",
   fontWeight: 600,
   cursor: "pointer",
   padding: 0,
@@ -75,14 +75,14 @@ const HighlightLink = styled(Link)<{ isMobile: boolean }>`
   // 조건부 스타일 예시
   font-size: 1rem;
 
-  @media (max-width: 800px) {
+  @media (max-width: 960px) {
     display: none;
   }
 `;
 
 const MobileMenu = styled.div({
   display: "none",
-  "@media (max-width: 800px)": {
+  "@media (max-width: 960px)": {
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
@@ -97,7 +97,7 @@ const MobileNavs = styled.div({
   left: "0px",
   display: "none",
   backgroundColor: "rgba(255, 255, 255, 1)",
-  "@media (max-width: 800px)": {
+  "@media (max-width: 960px)": {
     display: "block",
   },
 });
@@ -109,9 +109,9 @@ const Button = styled(Link.withComponent("button"))({
 const LinkLists = styled.div({
   display: "flex",
   justifyContent: "start",
-  gap: "10px",
+  columnGap: "1em",
   alignItems: "center",
-  "@media (max-width: 800px)": {
+  "@media (max-width: 960px)": {
     display: "none",
   },
 });

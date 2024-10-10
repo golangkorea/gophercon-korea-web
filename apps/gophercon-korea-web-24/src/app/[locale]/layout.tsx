@@ -1,15 +1,15 @@
-import { ReactNode } from "react";
 import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
+import GopherCon24Styles from "@/app/[locale]/styles";
 import { jakartaSans, pretendard } from "@/app/fonts";
 import defaultMetadata from "@/app/metadata";
 import ContextProvider from "@/components/ThemeProvider";
 import { GlobalStyle } from "gophercon-common";
 import EmotionStyleRegistry from "gophercon-common/src/style/registry";
 import { Metadata } from "next";
-import "./style.css";
+import { ReactNode } from "react";
 
-import enJson from "./dictionaries/en.json";
 import { headers } from "next/headers";
+import enJson from "./dictionaries/en.json";
 
 // enJson과 koJson의 property는 같다고 상정
 export type LocaleData = Readonly<typeof enJson>;
@@ -40,6 +40,7 @@ export default async function RootLayout({
         <ContextProvider props={{ dict, locale, isDeviceMobile }}>
           <EmotionStyleRegistry>
             <GlobalStyle />
+            <GopherCon24Styles />
             {children}
           </EmotionStyleRegistry>
         </ContextProvider>
