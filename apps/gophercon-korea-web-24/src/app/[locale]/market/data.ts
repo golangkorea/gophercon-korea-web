@@ -12,16 +12,16 @@ export interface GoodsProps {
 export const goodsList: GoodsProps[] = [
   {
     name: {
-      ko: "고퍼\n대형 인형",
-      en: "Large Gopher\nPlush",
+      ko: "고퍼 대형 인형",
+      en: "Large Gopher Plush",
     },
     price: "85,000",
     imgSrc: "market_bigdoll.png",
   },
   {
     name: {
-      ko: "고퍼\n고리 인형",
-      en: "Gopher\nKeychain Plush",
+      ko: "고퍼 고리 인형",
+      en: "Gopher Keychain Plush",
     },
     price: "25,000",
     imgSrc: "market_ringdoll.png",
@@ -36,8 +36,8 @@ export const goodsList: GoodsProps[] = [
   },
   {
     name: {
-      ko: "고퍼\n금속 뱃지",
-      en: "Gopher\nMetal Badge",
+      ko: "고퍼 금속 뱃지",
+      en: "Gopher Metal Badge",
     },
     price: "6,000",
     imgSrc: "market_badge.png",
@@ -52,16 +52,16 @@ export const goodsList: GoodsProps[] = [
   },
   {
     name: {
-      ko: "고퍼콘\n텀블러",
-      en: "GopherCon\nTumbler",
+      ko: "고퍼콘 텀블러",
+      en: "GopherCon Tumbler",
     },
     price: "15,000",
     imgSrc: "market_tumbler.png",
   },
   {
     name: {
-      ko: "고퍼 키캡\n& 키링 세트",
-      en: "Gopher Keycap &\nKeyring Set",
+      ko: "고퍼 키캡 & 키링 세트",
+      en: "Gopher Keycap & Keyring Set",
     },
     price: "12,000",
     imgSrc: "market_keyring.png",
