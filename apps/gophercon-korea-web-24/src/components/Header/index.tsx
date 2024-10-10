@@ -123,11 +123,11 @@ type PathProps = {
 
 const headerPaths: PathProps[] = [
   { path: "/coc", name: "coc" },
-  { path: "/market", name: "market" },
   // { path: "/festival-intro", name: "festival_intro" },
   // { path: "/festival-staffs", name: "festival_staffs" },
   { path: "/programs", name: "programs" },
   { path: "/sponsor", name: "sponsor" },
+  { path: "/market", name: "market" },
 ];
 
 const MobileNavWrapper = styled.div({
