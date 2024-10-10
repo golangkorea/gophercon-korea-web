@@ -1,6 +1,7 @@
 "use client";
 
 import LogoSVG from "@/assets/logo.svg";
+import CustomLink from "@/components/CustomLink";
 import { GlobalContext } from "@/components/ThemeProvider";
 import { useCheckMobile } from "@/hooks/useMediaquery";
 import styled from "@emotion/styled";
@@ -8,7 +9,6 @@ import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useContext, useState } from "react";
-import CustomLink from "../CustomLink";
 
 export interface LinkStyledProps {
   active?: boolean;
@@ -49,7 +49,7 @@ const Title = styled.h1({
 });
 
 const Link = styled.a({
-  fontSize: 24,
+  fontSize: "1.25em",
   fontWeight: 600,
   cursor: "pointer",
   padding: 0,
@@ -75,14 +75,14 @@ const HighlightLink = styled(Link)<{ isMobile: boolean }>`
   // 조건부 스타일 예시
   font-size: 1rem;
 
-  @media (max-width: 800px) {
+  @media (max-width: 960px) {
     display: none;
   }
 `;
 
 const MobileMenu = styled.div({
   display: "none",
-  "@media (max-width: 800px)": {
+  "@media (max-width: 960px)": {
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
@@ -97,7 +97,7 @@ const MobileNavs = styled.div({
   left: "0px",
   display: "none",
   backgroundColor: "rgba(255, 255, 255, 1)",
-  "@media (max-width: 800px)": {
+  "@media (max-width: 960px)": {
     display: "block",
   },
 });
@@ -109,9 +109,9 @@ const Button = styled(Link.withComponent("button"))({
 const LinkLists = styled.div({
   display: "flex",
   justifyContent: "start",
-  gap: "10px",
+  columnGap: "1em",
   alignItems: "center",
-  "@media (max-width: 800px)": {
+  "@media (max-width: 960px)": {
     display: "none",
   },
 });
@@ -132,14 +132,23 @@ const headerPaths: PathProps[] = [
 
 const MobileNavWrapper = styled.div({
   width: "100%",
-  borderBottom: "1px solid #151515",
+  borderBottom: "1px solid #cccccc",
 });
 
-const MobileNavInner = styled.div({
+const MobileNavInner = styled(CustomLink)<{ isActive?: boolean }>(({ isActive }) => ({
   padding: "20px",
   display: "flex",
   justifyContent: "center",
-});
+  backgroundColor: "#ffffff",
+  color: isActive ? "#000000" : "#333333",
+  fontWeight: isActive ? 800 : 600,
+  fontSize: "1.25em",
+  "&:hover": {
+    color: "#000000",
+    fontWeight: 800,
+    backgroundColor: "#fafafa",
+  },
+}));
 
 const Header: React.FC = () => {
   const { dict, locale, isDeviceMobile } = useContext(GlobalContext);
@@ -197,12 +206,8 @@ const Header: React.FC = () => {
 
               return (
                 <MobileNavWrapper key={`${path}-${idx}`}>
-                  <MobileNavInner>
-                    <CustomLink key={name} href={path} locale={locale}>
-                      <Text weight={700} color={isActive ? "#000000" : "#555555"} size={isMobile ? "0.75" : "1.25rem"}>
-                        {dict.nav[name as keyof typeof dict.nav]}
-                      </Text>
-                    </CustomLink>
+                  <MobileNavInner key={name} href={path} locale={locale} isActive={isActive}>
+                    {dict.nav[name as keyof typeof dict.nav]}
                   </MobileNavInner>
                 </MobileNavWrapper>
               );

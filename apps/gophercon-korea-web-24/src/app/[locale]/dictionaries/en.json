@@ -1,7 +1,7 @@
 {
   "nav": {
-    "previousGopherCon": "Previous GopherCon",
-    "coc": "Code of Conduct (CoC)",
+    "previousGopherCon": "GopherCon 2023",
+    "coc": "CoC",
     "register": "Register",
     "sponsor": "Sponsors",
     "programs": "Programs",
@@ -87,7 +87,7 @@
     "title": "FLEA MARKET"
   },
   "timetable": {
-    "detail": "detail",
+    "detail": "Detail",
     "nav_next": "Next",
     "nav_before": "Previous"
   }

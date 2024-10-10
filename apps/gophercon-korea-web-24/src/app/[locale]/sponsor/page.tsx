@@ -1,16 +1,14 @@
 "use client";
-import Section from "@/components/Section";
-import styled from "@emotion/styled";
-import { FC, KeyboardEvent, useContext, useEffect, useMemo } from "react";
-import { sponsorList, SponsorProps, sponsorColor, GradeColor, GradeEn } from "./data";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Flex, Text } from "gophercon-common";
 import { pretendard_fontFamily } from "@/app/fonts";
-import useModalScroll from "@/hooks/useModalScroll";
-import Image from "next/image";
+import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
-import CustomLink from "@/components/CustomLink";
+import styled from "@emotion/styled";
+import { Flex, Text } from "gophercon-common";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FC, useContext, useEffect, useMemo } from "react";
+import { GradeColor, GradeEn, sponsorColor, sponsorList, SponsorProps } from "./data";
 
 type ColorObject = {
   [key in GradeEn]: number;
@@ -105,15 +103,15 @@ const SponsorModalWrapper = styled.div({
 
 const SponsorModalOuter = styled.div({
   backgroundColor: "#ffffff",
-  padding: "80px",
-  borderRadius: "80px",
+  padding: 80,
+  borderRadius: 40,
   width: "70vw",
   maxWidth: "1000px",
   margin: "0 auto",
   position: "relative",
   "@media (max-width: 1100px)": {
-    padding: "40px",
-    borderRadius: "20px",
+    padding: 40,
+    borderRadius: 20,
   },
 });
 
@@ -122,11 +120,11 @@ const SponsorModalInner = styled.div({});
 const ModalCloseBtn = styled(Image)({
   cursor: "pointer",
   position: "absolute",
-  right: "30px",
-  top: "30px",
-  "@media (max-width: 1100px)": {
-    right: "10px",
-    top: "10px",
+  right: -40,
+  top: -40,
+  "@media (max-width: 960px)": {
+    right: 10,
+    top: 10,
   },
 });
 
@@ -145,16 +143,16 @@ const SponsorModalImage = styled.img({
   objectFit: "contain",
   width: "auto",
   height: "100%",
-  "@media (max-width: 500px)": {
-    height: "auto",
+  "@media (max-width: 960px)": {
     width: "100%",
+    maxHeight: 140,
   },
 });
 
 const SponsorModalLabel: FC<ModalLableProps> = ({ bgColor, label }) => {
   return (
     <SponsorModalLabelWrapper bgColor={bgColor}>
-      <Text weight={700} size={"1.5rem"}>
+      <Text weight={700} size={"1.25rem"}>
         {label}
       </Text>
     </SponsorModalLabelWrapper>
@@ -172,20 +170,29 @@ const SponsorModalImageWrapper = styled.div({
 
 const SponsorModalCTA = styled.div({
   width: "100%",
-  backgroundColor: "#6630D9",
+  backgroundColor: "#6630d9",
   display: "flex",
   justifyContent: "center",
   borderRadius: "20px",
+  "&:hover": {
+    backgroundColor: "#7234e1",
+  },
 });
 
-const SponsorModalCTAInner = styled.div({
+const SponsorModalCTAInner = styled(Link)({
   padding: "20px",
+  fontSize: "1.5em",
+  fontWeight: 600,
+  textAlign: "center",
+  color: "#ffffff",
+  cursor: "pointer",
 });
 
 const SponsorDescWrapper = styled.div({
   height: "200px",
   overflowY: "scroll",
   width: "100%",
+  lineHeight: 1.6,
 });
 
 const SponsorLabelFlex = styled.div({
@@ -238,21 +245,22 @@ const SponsorModal: FC<SponsorProps> = ({ imgSrc, grade, desc, link, name }) => 
                 </Flex>
               </SponsorModalImageWrapper>
               <SponsorDescWrapper>
-                <Text size={"1.5rem"} weight={700}>
+                <Text size={"1.25rem"} weight={700}>
                   {desc[locale]}
                 </Text>
               </SponsorDescWrapper>
               <SponsorModalCTA id='cta'>
-                <SponsorModalCTAInner>
-                  <Link href={link} target='_blank' style={{ textDecoration: "none", width: "100%" }} id='cta'>
-                    <Text align='center' size={"1.5rem"} color='#ffffff' id='cta'>
-                      {dict.sponsor.cta}
-                    </Text>
-                  </Link>
+                <SponsorModalCTAInner
+                  href={link}
+                  target='_blank'
+                  style={{ textDecoration: "none", width: "100%" }}
+                  id='cta'
+                >
+                  {dict.sponsor.cta}
                 </SponsorModalCTAInner>
               </SponsorModalCTA>
             </SponsorLabelFlex>
-            <ModalCloseBtn onClick={closeModal} src={"/modalClose.svg"} alt='modalClose' width={30} height={30} />
+            <ModalCloseBtn onClick={closeModal} src={"/modalClose.svg"} alt='modalClose' width={40} height={40} />
           </SponsorModalInner>
         </SponsorModalOuter>
       </Flex>

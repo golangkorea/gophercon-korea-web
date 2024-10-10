@@ -17,7 +17,7 @@ const style: Interpolation<Theme> = {
     outline: 0,
   },
   p: {
-    lineHeight: "1.5rem",
+    lineHeight: "1.5",
     marginTop: "1.5rem",
     marginBottom: 0,
   },
@@ -50,7 +50,7 @@ const style: Interpolation<Theme> = {
     },
   },
   blockquote: {
-    lineHeight: "1.5rem",
+    lineHeight: "1.5",
     marginTop: "1.5rem",
     marginBottom: "1.5rem",
   },
