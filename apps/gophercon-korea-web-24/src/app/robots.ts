@@ -6,7 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/CoC", "/festival-intro", "/festival-staffs", "/sponsor", "/timetable"],
       },
     ],
     sitemap: `/sitemap.xml`,

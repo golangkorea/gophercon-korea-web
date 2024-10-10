@@ -2,7 +2,9 @@
   "nav": {
     "previousGopherCon": "지난 고퍼콘 보기",
     "coc": "행동 강령 (CoC)",
-    "register": "등록하기"
+    "register": "등록하기",
+    "sponsor": "스폰서",
+    "programs": "프로그램"
   },
   "home": {
     "title1": "Go 언어 개발자의 축제",
@@ -72,7 +74,7 @@
     "titleParticipantsStatement4Desc2": "혹은 위에 언급되지 않았으나 필요한 조치가 이루어질 수 있음을 공지드립니다."
   },
   "sponsor": {
-    "cart": "Toevoegen aan Winkelwagen"
+    "cta": "홈페이지 가기"
   },
   "festival_intro": {
     "cart": "Toevoegen aan Winkelwagen"

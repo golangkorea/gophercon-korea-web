@@ -2,7 +2,9 @@
   "nav": {
     "previousGopherCon": "Previous GopherCon",
     "coc": "Code of Conduct (CoC)",
-    "register": "Register"
+    "register": "Register",
+    "sponsor": "Sponsors",
+    "programs": "Programs"
   },
   "home": {
     "title1": "A Festival for Go Language Developers,",
@@ -72,7 +74,7 @@
     "titleParticipantsStatement4Desc2": "Alternatively, please be advised that we may take necessary action not mentioned above."
   },
   "sponsor": {
-    "cart": "Toevoegen aan Winkelwagen"
+    "cta": "Homepage"
   },
   "festival_intro": {
     "cart": "Toevoegen aan Winkelwagen"

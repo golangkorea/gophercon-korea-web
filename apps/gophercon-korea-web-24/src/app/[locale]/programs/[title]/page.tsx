@@ -56,15 +56,16 @@ interface DiffLabelProps {
   locale: "ko" | "en";
 }
 
+const DiffColor = {
+  Beginner: "#00B555",
+  Intermediate: "#FF8000",
+  Advanced: "#FF4D4D",
+};
+
 const DiffLabel: FC<DiffLabelProps> = ({ diff, locale }) => {
-  const color = {
-    Beginner: "#00B555",
-    Intermediate: "#FF8000",
-    Advanced: "#FF4D4D",
-  };
   const targetText = diff[locale];
   return (
-    <DiffLabelContainer bgColor={color[diff.en]}>
+    <DiffLabelContainer bgColor={DiffColor[diff.en]}>
       <Text font={locale === "ko" ? pretendard_fontFamily : jakartaSans_fontFamily} size={"1.5rem"} color={"#ffffff"}>
         {targetText}
       </Text>
@@ -154,7 +155,10 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
                     />
                     <Flex justify='start' align='start' gap={20}>
                       <Flex direction='row' gap={40} justify='start'>
-                        <Text size={"1.5rem"} weight={700}>{`${speaker!.name[locale]}님`}</Text>
+                        <Text
+                          size={"1.5rem"}
+                          weight={700}
+                        >{`${speaker!.name[locale]}${locale === "ko" ? "님" : ""}`}</Text>
                         <DiffLabel diff={diff!} locale={locale} />
                       </Flex>
                       <Text weight={700}>{`${speaker!.intro![locale]}`}</Text>

@@ -47,4 +47,6 @@ const Gallery = forwardRef<HTMLDivElement, GalleryProps>(({ active, className },
   );
 });
 
+Gallery.displayName = "Gallery";
+
 export default Gallery;
