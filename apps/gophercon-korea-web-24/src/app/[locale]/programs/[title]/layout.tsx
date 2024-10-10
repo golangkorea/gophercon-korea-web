@@ -12,6 +12,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = params.title.replaceAll("-", " ");
   return {
     title,
+    openGraph: {
+      title: `GopherCon Korea 2024 : ${title}`,
+    },
   };
 }
 

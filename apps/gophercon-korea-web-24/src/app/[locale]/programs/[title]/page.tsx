@@ -10,17 +10,24 @@ import Image from "next/image";
 import { FC, useContext } from "react";
 import timetableList, { DiffProps } from "../data";
 
-const TechTalkContainer = styled.div`
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 140px 80px 80px 80px;
-  width: 100%;
-`;
+const TechTalkContainer = styled.div({
+  maxWidth: "1440px",
+  margin: "0 auto",
+  padding: "140px 60px 80px 60px",
+  width: "100%",
+  "@media (max-width: 768px)": {
+    padding: "0px",
+  },
+});
 
-const PresentDescWrapper = styled.div`
-  padding-top: 120px;
-  min-height: 480px;
-`;
+const PresentDescWrapper = styled.div({
+  paddingTop: "120px",
+  minHeight: "480px",
+  "@media (max-width: 600px)": {
+    paddingTop: "0px",
+    minHeight: "300px",
+  },
+});
 
 const BottomContainer = styled.div`
   width: 100%;
@@ -31,10 +38,13 @@ const BottomSpeakerContainer = styled.div`
   width: 100%;
 `;
 
-const BottomSpeakerInnerContainer = styled.div`
-  padding: 40px 80px;
-  border-bottom: 1px solid #e2e2e2;
-`;
+const BottomSpeakerInnerContainer = styled.div({
+  padding: "40px 80px",
+  borderBottom: "1px solid #e2e2e2",
+  "@media (max-width: 550px)": {
+    padding: "20px",
+  },
+});
 
 const SpeakerImage = styled(Image)`
   border-radius: 50%;
@@ -112,6 +122,40 @@ const BottomNav: FC<BottomNavProps> = ({ idx, locale, action, action_title }) =>
   );
 };
 
+const TechTalkInner = styled.div({
+  display: "flex",
+  alignItems: "start",
+  justifyContent: "start",
+  gap: "50px",
+  padding: "40px",
+  flexDirection: "column",
+  "@media (max-width: 550px)": {
+    padding: "20px",
+  },
+});
+
+const BottomSpeakerInnerResponsive = styled.div({
+  display: "flex",
+  alignItems: "start",
+  justifyContent: "center",
+  gap: "50px",
+  flexDirection: "row",
+  "@media (max-width: 550px)": {
+    flexDirection: "column",
+  },
+});
+
+const SpeakerNameDiffContainer = styled.div({
+  display: "flex",
+  justifyContent: "start",
+  alignItems: "center",
+  flexDirection: "row",
+  gap: "40px",
+  "@media (max-width: 550px)": {
+    gap: "10px",
+  },
+});
+
 export default function TechTalkDetail({ params }: { params: { title: string; locale: "en" | "ko" } }) {
   const { title, locale } = params;
   const data = timetableList.find((el) => el.title.en.replaceAll(" ", "-") === title)!;
@@ -128,7 +172,7 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
   return (
     <Section>
       <TechTalkContainer>
-        <Flex align='start' justify='start' gap={50}>
+        <TechTalkInner>
           <Text size={"2rem"} weight={700}>
             {titleByLocale[locale]}
           </Text>
@@ -146,7 +190,7 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
             <Flex>
               <BottomSpeakerContainer>
                 <BottomSpeakerInnerContainer>
-                  <Flex direction='row' justify='start' align='center' gap={40}>
+                  <BottomSpeakerInnerResponsive>
                     <SpeakerImage
                       width={100}
                       height={100}
@@ -154,16 +198,16 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
                       alt={speaker!.name[locale]}
                     />
                     <Flex justify='start' align='start' gap={20}>
-                      <Flex direction='row' gap={40} justify='start'>
+                      <SpeakerNameDiffContainer>
                         <Text
                           size={"1.5rem"}
                           weight={700}
                         >{`${speaker!.name[locale]}${locale === "ko" ? "님" : ""}`}</Text>
                         <DiffLabel diff={diff!} locale={locale} />
-                      </Flex>
+                      </SpeakerNameDiffContainer>
                       <Text weight={700}>{`${speaker!.intro![locale]}`}</Text>
                     </Flex>
-                  </Flex>
+                  </BottomSpeakerInnerResponsive>
                 </BottomSpeakerInnerContainer>
               </BottomSpeakerContainer>
               <BottomNavContainer>
@@ -188,7 +232,7 @@ export default function TechTalkDetail({ params }: { params: { title: string; lo
               </BottomNavContainer>
             </Flex>
           </BottomContainer>
-        </Flex>
+        </TechTalkInner>
       </TechTalkContainer>
     </Section>
   );
