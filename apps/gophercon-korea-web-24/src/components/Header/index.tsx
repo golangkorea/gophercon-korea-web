@@ -126,7 +126,7 @@ const headerPaths: PathProps[] = [
   // { path: "/festival-intro", name: "festival_intro" },
   // { path: "/festival-staffs", name: "festival_staffs" },
   { path: "/programs", name: "programs" },
-  // { path: "/sponsor", name: "sponsor" },
+  { path: "/sponsor", name: "sponsor" },
 ];
 
 const MobileNavWrapper = styled.div({
@@ -191,11 +191,11 @@ const Header: React.FC = () => {
       {mobileModal && (
         <MobileNavs>
           <Flex>
-            {headerPaths.map(({ path, name }) => {
+            {headerPaths.map(({ path, name }, idx) => {
               const isActive = pathname === path;
 
               return (
-                <MobileNavWrapper>
+                <MobileNavWrapper key={`${path}-${idx}`}>
                   <MobileNavInner>
                     <CustomLink key={name} href={path} locale={locale}>
                       <Text weight={700} color={isActive ? "#000000" : "#555555"} size={isMobile ? "0.75" : "1.25rem"}>

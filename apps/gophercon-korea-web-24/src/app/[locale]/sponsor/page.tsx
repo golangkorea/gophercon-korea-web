@@ -214,7 +214,7 @@ const SponsorModal: FC<SponsorProps> = ({ imgSrc, grade, desc, link, name }) => 
     return () => {
       document.body.removeEventListener("keydown", keydownHandler);
     };
-  }, []);
+  });
 
   const closeModal = (e: any) => {
     if (e?.target.id === "cta") return;
@@ -311,8 +311,8 @@ const Sponsor = () => {
                   <SponsorDivider {...targetColor} />
                 </Flex>
                 <SponsorFlex justify={isSolo ? "center" : "space-between"}>
-                  {targetData.map((data) => (
-                    <EachSponsorButton {...data} />
+                  {targetData.map((data, idx) => (
+                    <EachSponsorButton key={`${data.name}-${idx}`} {...data} />
                   ))}
                 </SponsorFlex>
               </Flex>

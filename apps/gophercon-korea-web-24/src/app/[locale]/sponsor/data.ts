@@ -91,7 +91,7 @@ const sponsorList: SponsorProps[] = [
       ko: "구글 Go",
       en: "Google Go",
     },
-    imgSrc: "logo_GoogleGo.png",
+    imgSrc: "logo_GoogleGo.svg",
     grade: PLATINUM_GRADE,
     desc: {
       ko: "Google Go 팀은 현대 소프트웨어 개발의 복잡성을 줄이고, 효율적인 성능을 제공하기 위해 Google에서 개발한 프로그래밍 언어인 Go(또는 Golang)를 설계 및 관리하는 팀입니다. 우리의 목표는 개발자들이 더욱 빠르고 효율적으로 소프트웨어를 구축할 수 있도록 돕는 것입니다.",
@@ -104,7 +104,7 @@ const sponsorList: SponsorProps[] = [
       ko: "트웰브랩스",
       en: "Twelve Labs",
     },
-    imgSrc: "logo_TwelveLabs.png",
+    imgSrc: "logo_TwelveLabs.svg",
     grade: GOLD_GRADE,
     desc: {
       ko: "트웰브랩스는 최첨단 영상이해 AI 솔루션을 제공하는 기업입니다. 영상 콘텐츠를 사람처럼 이해하는 독자적인 멀티모달 파운데이션 모델을 개발해, 영성 검색, 요약, Q&A, 분석 솔루션을 쉽게 통합 가능한 API의 형태로 제공하고 있습니다. 다양한 기업들과 개발자들이 방대한 영상 자산에서 필요한 순간들을 검색하고, 인사이트를 추출하면서 영상 자산을 최대치로 활용할 수 있게 돕고 있습니다.",
@@ -117,7 +117,7 @@ const sponsorList: SponsorProps[] = [
       ko: "화이트큐브",
       en: "whitecube",
     },
-    imgSrc: "logo_challengers.png",
+    imgSrc: "logo_challengers.svg",
     grade: GOLD_GRADE,
     link: "https://biz-challengers.com/",
     desc: {
@@ -130,7 +130,7 @@ const sponsorList: SponsorProps[] = [
       ko: "테스트뱅크",
       en: "Testbank",
     },
-    imgSrc: "logo_testbank.png",
+    imgSrc: "logo_testbank.svg",
     grade: SILVER_GRADE,
     link: "https://www.testbank.ai",
     desc: {
@@ -143,7 +143,7 @@ const sponsorList: SponsorProps[] = [
       ko: "메가존소프트",
       en: "MegazoneSoft",
     },
-    imgSrc: "logo_MegazoneSoft.png",
+    imgSrc: "logo_MegazoneSoft.svg",
     grade: SILVER_GRADE,
     link: "https://www.megazonesoft.com/",
     desc: {
@@ -156,7 +156,7 @@ const sponsorList: SponsorProps[] = [
       ko: "당근",
       en: "Daagng",
     },
-    imgSrc: "logo_Daangn.png",
+    imgSrc: "logo_Daangn.svg",
     grade: BRONZE_GRADE,
     link: "https://www.daangn.com/",
     desc: {
@@ -169,11 +169,11 @@ const sponsorList: SponsorProps[] = [
       ko: "오픈업",
       en: "Open Up",
     },
-    imgSrc: "logo_openUp.png",
+    imgSrc: "logo_openUp.svg",
     grade: BRONZE_GRADE,
     desc: {
-      ko: "OpenUP, 오픈소스 소프트웨어 통합 지원 센터는 정보통신산업진흥원(NIPA) 소속의 오픈소스 지원 및 진흥을 담당하는 조직 입니다.\n오픈소스 소프트웨어를 개발, 공유, 활용하기를 원하는 개발자, 기업, 정부 등을 체계정으로 지원하고, 수요(기업, 공공기관) 및 공급(개발자, 기업)의 선순환 구조를 이루어, 오픈소스 소프트웨어 활성화의 허브 역할을 수행하는 기관입니다.",
-      en: "OpenUP, the Open Source Software Integrated Support Center, is an organization under the National IT Industry Promotion Agency (NIPA) that is responsible for supporting and promoting open source software.\nIt systematically supports developers, companies, and government entities that wish to develop, share, and utilize open source software. By creating a virtuous cycle between demand (enterprises, public institutions) and supply (developers, companies), it serves as a hub for the activation and advancement of open source software.",
+      ko: "오픈소스SW 통합지원센터(Open UP) 운영을 통하여 오픈소스 SW 핵심 분야 프로젝트 개발을 촉진하고\n우수개발자 양성으로 공개SW 생태계의 구심점이자 허브 역할 수행함으로써 공개SW 인력양성, 저변확대 등 오픈소스 활성화를 위해 노력하고 있습니다.",
+      en: "The Open Source Software Integration Support Center (Open UP) fosters key project development\nand nurtures exceptional developers in the open source domain, serving as a hub to enhance workforce development and broaden community participation.",
     },
     link: "https://www.oss.kr/open_up_intro",
   },
@@ -182,7 +182,7 @@ const sponsorList: SponsorProps[] = [
       ko: "우분투 한국 커뮤니티",
       en: "Ubuntu Korea",
     },
-    imgSrc: "logo_UbuntuKorea.png",
+    imgSrc: "logo_UbuntuKorea.svg",
     grade: COMMUNITY_GRADE,
     link: "https://ubuntu-kr.org/",
     desc: {
@@ -195,7 +195,7 @@ const sponsorList: SponsorProps[] = [
       ko: "AWS 한국사용자모임",
       en: "AWSKRUG",
     },
-    imgSrc: "logo_AWSKRUG.png",
+    imgSrc: "logo_AWSKRUG.svg",
     grade: COMMUNITY_GRADE,
     link: "https://awskrug.github.io/",
     desc: {
@@ -208,7 +208,7 @@ const sponsorList: SponsorProps[] = [
       ko: "파이콘 한국",
       en: "Pycon Korea",
     },
-    imgSrc: "logo_PyConKorea.png",
+    imgSrc: "logo_PyConKorea.svg",
     grade: COMMUNITY_GRADE,
     desc: {
       ko: "2014년, 한국에서 첫 파이콘이 열린 이후로 파이써니스타들은 파이콘이라는 만남의 장에 파이썬이라는 하나의 공통점으로 뭉쳐 각자의 순간들을 나누고, 새로운 순간들을 함께 만들어왔습니다.\n여러분의 소중한 순간이 모여 파이콘은 점점 성장해올 수 있었고, 어느덧 10번째 파이콘 한국을 앞두고 있습니다.\n파이썬과 행복했던 순간들, 파이썬이기에 가능했던 순간들, 여러분이 소중한 순간순간들을 가지고 모여 함께 새로운 순간들을 만들어 내길 바랍니다.",
@@ -221,7 +221,7 @@ const sponsorList: SponsorProps[] = [
       ko: "한빛미디어",
       en: "Hanbit Media",
     },
-    imgSrc: "logo_hanbit.png",
+    imgSrc: "logo_hanbit.svg",
     grade: PUBLISHER_GRADE,
     desc: {
       ko: "한빛미디어(주)는 책으로 여는 IT 세상을 만들고 있습니다.\n우리 시대의 주역들을 위한 프로그래밍, 컴퓨터 공학, IT 에세이는 물론 일반 사용자를 위한 IT 활용서와 실용서까지 다양한 분야의 책으로 IT 세상을 만들어 가고 있습니다.\nIT 전문가와 미래의 전문가를 꿈꾸는 이의 동반자로 30년 한 길을 걸어온 한빛미디어(주)는 앞으로도 여러분과 함께 그려가는 멋진 미래를 꿈꾸며  '책으로 여는 IT 세상'을 만들어 가겠습니다.",
@@ -234,7 +234,7 @@ const sponsorList: SponsorProps[] = [
       ko: "이지스퍼블리싱",
       en: "EasysPublishing",
     },
-    imgSrc: "logo_EasysPublishing.png",
+    imgSrc: "logo_EasysPublishing.svg",
     grade: PUBLISHER_GRADE,
     desc: {
       ko: "이지스퍼블리싱은 IT와 교육 출판 분야에서 혁신적인 비전을 가진 회사로, 지식을 쉽게 전달하는 것을 목표로 하고 있습니다. 주로 IT 입문서와 교육 교재를 출간하며, 다양한 독자층이 쉽게 학습할 수 있도록 돕고 있습니다. 이지스퍼블리싱은 'Do It' 시리즈 등을 통해 실용적이고 실천 가능한 학습 콘텐츠를 제공하고 있으며, 교육 출판을 통해 미래 인재 양성에 기여하고자 합니다. 이번 행사를 통해 이지스퍼블리싱은 더 많은 사람들에게 지식을 전파하고 교육 기회를 넓히는 데 동참할 것입니다.",
