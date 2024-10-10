@@ -133,7 +133,7 @@ const timetableList: TimeTableProps[] = [
       en: "Sponsor Talk",
     },
     speaker: {
-      name: { ko: "스폰서사 추후 공개", en: "변규현" },
+      name: { ko: "스폰서사 추후 공개", en: "Sponsor" },
       company: {
         ko: "",
         en: "",
@@ -249,7 +249,7 @@ const timetableList: TimeTableProps[] = [
       en: "Sponsor Talk",
     },
     speaker: {
-      name: { ko: "스폰서사 추후 공개", en: "변규현" },
+      name: { ko: "스폰서사 추후 공개", en: "Sponsor" },
       company: {
         ko: "",
         en: "",
@@ -355,7 +355,7 @@ const timetableList: TimeTableProps[] = [
       en: "Sponsor Talk",
     },
     speaker: {
-      name: { ko: "스폰서사 추후 공개", en: "변규현" },
+      name: { ko: "스폰서사 추후 공개", en: "Sponsor" },
       company: {
         ko: "",
         en: "",
@@ -396,7 +396,7 @@ const timetableList: TimeTableProps[] = [
       en: "Sponsor Talk",
     },
     speaker: {
-      name: { ko: "스폰서사 추후 공개", en: "변규현" },
+      name: { ko: "스폰서사 추후 공개", en: "Sponsor" },
       company: {
         ko: "",
         en: "",
@@ -462,7 +462,7 @@ const timetableList: TimeTableProps[] = [
       en: "Sponsor Talk",
     },
     speaker: {
-      name: { ko: "스폰서사 추후 공개", en: "변규현" },
+      name: { ko: "스폰서사 추후 공개", en: "Sponsor" },
       company: {
         ko: "",
         en: "",
