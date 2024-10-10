@@ -1,16 +1,14 @@
 "use client";
-import Section from "@/components/Section";
-import styled from "@emotion/styled";
-import { FC, KeyboardEvent, useContext, useEffect, useMemo } from "react";
-import { sponsorList, SponsorProps, sponsorColor, GradeColor, GradeEn } from "./data";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Flex, Text } from "gophercon-common";
 import { pretendard_fontFamily } from "@/app/fonts";
-import useModalScroll from "@/hooks/useModalScroll";
-import Image from "next/image";
+import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
-import CustomLink from "@/components/CustomLink";
+import styled from "@emotion/styled";
+import { Flex, Text } from "gophercon-common";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FC, useContext, useEffect, useMemo } from "react";
+import { GradeColor, GradeEn, sponsorColor, sponsorList, SponsorProps } from "./data";
 
 type ColorObject = {
   [key in GradeEn]: number;
@@ -105,8 +103,8 @@ const SponsorModalWrapper = styled.div({
 
 const SponsorModalOuter = styled.div({
   backgroundColor: "#ffffff",
-  padding: "80px",
-  borderRadius: "80px",
+  padding: 80,
+  borderRadius: 80,
   width: "70vw",
   maxWidth: "1000px",
   margin: "0 auto",

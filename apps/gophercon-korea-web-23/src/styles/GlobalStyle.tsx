@@ -14,7 +14,7 @@ const style: Interpolation<Global> = {
     outline: 0,
   },
   p: {
-    lineHeight: "1.5rem",
+    lineHeight: "1.5",
     marginTop: "1.5rem",
     marginBottom: 0,
   },
@@ -47,7 +47,7 @@ const style: Interpolation<Global> = {
     },
   },
   blockquote: {
-    lineHeight: "1.5rem",
+    lineHeight: "1.5",
     marginTop: "1.5rem",
     marginBottom: "1.5rem",
   },
