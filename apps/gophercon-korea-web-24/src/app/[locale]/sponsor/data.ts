@@ -242,6 +242,19 @@ const sponsorList: SponsorProps[] = [
     },
     link: "https://www.easyspub.co.kr/",
   },
+  {
+    name: {
+      ko: "골든래빗",
+      en: "GoldenRabbit",
+    },
+    imgSrc: "logo_GoldenRabbit.svg",
+    grade: PUBLISHER_GRADE,
+    desc: {
+      ko: "우리는 모두의 가치가 성장하는 시간을 만듭니다. 더 나은 나를 만드는 시간, 가치가 성장하는 시간이 되는 책을 만듭니다.\n골든래빗은 나눌수록 더 커지는 지식을 글로 정리하고, 더 큰 가치를 담아 책으로 제공하는 출판사입니다. IT모바일과 경제경영 주제를 비롯한 다양한 영역의 지식도 책으로 담아 출간하고 있습니다.",
+      en: "At Golden Rabbit, we create time for everyone's value to grow. We make books that help you become a better version of yourself and allow your values to thrive.\nGolden Rabbit is a publishing company that organizes knowledge, which grows larger when shared, into written form and delivers it through books enriched with greater value. We publish books on various topics, including IT & mobile, economics, and management, as well as other areas of knowledge.",
+    },
+    link: "https://goldenrabbit.co.kr/",
+  },
 ];
 
 export { sponsorColor, sponsorList };

@@ -2,23 +2,25 @@ import { LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
 import { defaultLocale } from "@/constants";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import { ReactNode } from "react";
-import { LinkStyledProps } from "../Header";
+import React, { ReactNode } from "react";
 
 type CustomLinkProps = {
   href: string;
   locale: LocaleType;
   children: ReactNode;
+  className?: string;
   [key: string]: any;
 };
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
+const StyledLink = styled(Link)({
+  textDecoration: "none",
+});
 
-export default function CustomLink({ href, locale, ...props }: CustomLinkProps) {
+const CustomLink: React.FC<CustomLinkProps> = ({ href, locale, className, ...props }: CustomLinkProps) => {
   const isDefaultLocale = locale === defaultLocale;
   const path = isDefaultLocale ? href : `/${locale}${href}`;
 
-  return <StyledLink href={path} {...props}></StyledLink>;
-}
+  return <StyledLink className={className} href={path} {...props}></StyledLink>;
+};
+
+export default CustomLink;

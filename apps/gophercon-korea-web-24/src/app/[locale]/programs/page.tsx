@@ -4,26 +4,25 @@ import { pretendard_fontFamily } from "@/app/fonts";
 import CustomLink from "@/components/CustomLink";
 import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
+import { useCheckMobile } from "@/hooks/useMediaquery";
 import styled from "@emotion/styled";
 import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import timetableList, { TargetDay, TimeTableProps } from "./data";
-import { useCheckMobile } from "@/hooks/useMediaquery";
 
-const TimeTableWrapper = styled.div`
-  padding: 0px 80px 80px 80px;
+const TimeTableWrapper = styled.div({
+  padding: "0px 80px",
+  "@media (max-width: 960px)": {
+    padding: "40px 20px",
+  },
+});
 
-  @media (max-width: 768px) {
-    padding: 40px 20px; // Reduced padding for smaller screens
-  }
-`;
-
-const TimeTableContainer = styled.div`
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-`;
+const TimeTableContainer = styled.div({
+  width: "100%",
+  maxWidth: 1400,
+  margin: "0 auto",
+});
 
 const TimeTableSwitchDiv = styled.div``;
 

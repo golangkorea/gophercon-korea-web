@@ -1,10 +1,11 @@
 {
   "nav": {
-    "previousGopherCon": "Previous GopherCon",
-    "coc": "Code of Conduct (CoC)",
+    "previousGopherCon": "GopherCon 2023",
+    "coc": "CoC",
     "register": "Register",
     "sponsor": "Sponsors",
-    "programs": "Programs"
+    "programs": "Programs",
+    "market": "Market"
   },
   "home": {
     "title1": "A Festival for Go Language Developers,",
@@ -82,8 +83,11 @@
   "festival_staffs": {
     "cart": "Toevoegen aan Winkelwagen"
   },
+  "market": {
+    "title": "FLEA MARKET"
+  },
   "timetable": {
-    "detail": "detail",
+    "detail": "Detail",
     "nav_next": "Next",
     "nav_before": "Previous"
   }
