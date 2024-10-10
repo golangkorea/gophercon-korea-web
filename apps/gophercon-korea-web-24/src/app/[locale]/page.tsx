@@ -213,10 +213,14 @@ const PassportShowcase = styled.section({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-  columnGap: 120,
+  gap: 120,
   position: "relative",
   zIndex: 3,
   height: 1200,
+  "@media (max-width: 960px)": {
+    flexDirection: "column",
+    height: 1800,
+  },
 });
 
 const SponsorStamp = styled.div({
@@ -272,10 +276,16 @@ const Sponsors = styled.div({
 });
 
 const SponsorMark = styled.div({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   width: 70,
   height: 70,
   borderRadius: 999,
   backgroundColor: "#ffffff",
+  "& img": {
+    width: "85%",
+  },
 });
 
 const SponsorPlatinumMark = styled(SponsorMark)({
@@ -348,6 +358,10 @@ const HighlightedSectionAnim = styled.div({
   height: 600,
   background:
     "radial-gradient(ellipse at bottom, rgba(255, 255, 176, 0.15) 60px, transparent 60%), radial-gradient(ellipse at bottom, rgba(255, 180, 0, 0.15) 15px, transparent 30%)",
+  "@media (max-width: 960px)": {
+    background:
+      "radial-gradient(circle at bottom, rgba(255, 255, 176, 0.15) 60px, transparent 60%), radial-gradient(circle at bottom, rgba(255, 180, 0, 0.15) 15px, transparent 30%)",
+  },
 });
 
 const HighlightedSectionOverlay = styled.div({
@@ -377,9 +391,19 @@ const CTAButton = styled.a({
   cursor: "pointer",
   textDecoration: "none",
   zIndex: 3,
-  transition: "bakcground-color .3 ease",
+  transition: "background-color .6s ease",
+  boxShadow: "0 2px 10px rgba(255, 255, 200, 0.2)",
   "&:hover": {
     backgroundColor: "#222222",
+  },
+  animation: "dim 0.6s infinite alternate",
+  "@keyframes dim": {
+    "0%": {
+      boxShadow: "0 2px 10px rgba(255, 255, 200, 0.2), 0 0 30px rgba(255, 255, 200, 0.1)",
+    },
+    "100%": {
+      boxShadow: "0 2px 20px rgba(255, 255, 200, 0.3), 0 0 50px rgba(255, 255, 200, 0.2)",
+    },
   },
 });
 
@@ -550,19 +574,45 @@ const Home = () => {
               <PassportShowcase>
                 <SponsorStamp ref={stampRef}>
                   <Sponsors>
-                    <SponsorPlatinumMark></SponsorPlatinumMark>
-                    <SponsorGoldMark></SponsorGoldMark>
-                    <SponsorGoldMark></SponsorGoldMark>
-                    <SponsorSilverMark></SponsorSilverMark>
-                    <SponsorSilverMark></SponsorSilverMark>
-                    <SponsorBronzeMark></SponsorBronzeMark>
-                    <SponsorBronzeMark></SponsorBronzeMark>
-                    <SponsorMark></SponsorMark>
-                    <SponsorMark></SponsorMark>
-                    <SponsorMark></SponsorMark>
-                    <SponsorMark></SponsorMark>
-                    <SponsorMark></SponsorMark>
-                    <SponsorMark></SponsorMark>
+                    <SponsorPlatinumMark>
+                      <img src='/logo/logo_GoogleGo.svg' alt='Google Go' />
+                    </SponsorPlatinumMark>
+                    <SponsorGoldMark>
+                      <img src='/logo/logo_TwelveLabs.svg' alt='TwelveLabs' />
+                    </SponsorGoldMark>
+                    <SponsorGoldMark>
+                      <img src='/logo/logo_challengers.svg' alt='Challengers' />
+                    </SponsorGoldMark>
+                    <SponsorSilverMark>
+                      <img src='/logo/logo_testbank.svg' alt='TestBank' />
+                    </SponsorSilverMark>
+                    <SponsorSilverMark>
+                      <img src='/logo/logo_MegazoneSoft.svg' alt='Megazone Soft' />
+                    </SponsorSilverMark>
+                    <SponsorBronzeMark>
+                      <img src='/logo/logo_openUp.svg' alt='Megazone Soft' />
+                    </SponsorBronzeMark>
+                    <SponsorBronzeMark>
+                      <img src='/logo/logo_Daangn.svg' alt='Daangn' />
+                    </SponsorBronzeMark>
+                    <SponsorMark>
+                      <img src='/logo/logo_AWSKRUG.svg' alt='AWSKRUG' />
+                    </SponsorMark>
+                    <SponsorMark>
+                      <img src='/logo/logo_UbuntuKorea.svg' alt='Ubuntu Korea' />
+                    </SponsorMark>
+                    <SponsorMark>
+                      <img src='/logo/logo_PyConKorea.svg' alt='PyCon Korea' />
+                    </SponsorMark>
+                    <SponsorMark>
+                      <img src='/logo/logo_hanbit.svg' alt='Hanbit' />
+                    </SponsorMark>
+                    <SponsorMark>
+                      <img src='/logo/logo_EasysPublishing.svg' alt='Easys Publishing' />
+                    </SponsorMark>
+                    <SponsorMark>
+                      <img src='/logo/logo_GoldenRabbit.svg' alt='Golden Rabbit' />
+                    </SponsorMark>
                   </Sponsors>
                 </SponsorStamp>
                 <Passport ref={passportRef}>
