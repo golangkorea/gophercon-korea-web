@@ -40,7 +40,7 @@ export default async function RootLayout({
         <ContextProvider props={{ dict, locale, isDeviceMobile }}>
           <EmotionStyleRegistry>
             <GlobalStyle />
-            <GopherCon24Styles />
+            <GopherCon24Styles locale={locale} />
             {children}
           </EmotionStyleRegistry>
         </ContextProvider>
