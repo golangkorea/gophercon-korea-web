@@ -123,6 +123,7 @@ type PathProps = {
 
 const headerPaths: PathProps[] = [
   { path: "/coc", name: "coc" },
+  { path: "/market", name: "market" },
   // { path: "/festival-intro", name: "festival_intro" },
   // { path: "/festival-staffs", name: "festival_staffs" },
   { path: "/programs", name: "programs" },

@@ -4,7 +4,8 @@
     "coc": "행동 강령 (CoC)",
     "register": "등록하기",
     "sponsor": "스폰서",
-    "programs": "프로그램"
+    "programs": "프로그램",
+    "market": "플리마켓"
   },
   "home": {
     "title1": "Go 언어 개발자의 축제",
@@ -81,6 +82,9 @@
   },
   "festival_staff": {
     "cart": "Toevoegen aan Winkelwagen"
+  },
+  "market": {
+    "title": "플리마켓"
   },
   "timetable": {
     "detail": "상세",

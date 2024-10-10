@@ -4,7 +4,8 @@
     "coc": "Code of Conduct (CoC)",
     "register": "Register",
     "sponsor": "Sponsors",
-    "programs": "Programs"
+    "programs": "Programs",
+    "market": "Market"
   },
   "home": {
     "title1": "A Festival for Go Language Developers,",
@@ -81,6 +82,9 @@
   },
   "festival_staffs": {
     "cart": "Toevoegen aan Winkelwagen"
+  },
+  "market": {
+    "title": "FLEA MARKET"
   },
   "timetable": {
     "detail": "detail",
