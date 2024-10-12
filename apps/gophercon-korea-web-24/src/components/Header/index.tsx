@@ -80,6 +80,22 @@ const HighlightLink = styled(Link)<{ isMobile: boolean }>`
   }
 `;
 
+const HighlightYoutube = styled.div<{ isMobile: boolean }>`
+  background-color: #000;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 1.25rem;
+  &:hover {
+    color: #000;
+    background-color: #edeff1;
+  }
+
+  font-weight: 700;
+  @media (max-width: 960px) {
+    display: none;
+  }
+`;
+
 const MobileMenu = styled.div({
   display: "none",
   "@media (max-width: 960px)": {
