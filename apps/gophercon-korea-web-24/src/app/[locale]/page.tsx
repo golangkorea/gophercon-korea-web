@@ -4,7 +4,6 @@ import EventQRPng from "@/assets/eventQR.png";
 import LOGOWhite from "@/assets/logo_white.svg";
 import { AirplaneSVG } from "@/components/AirplaneSVG";
 import { Carousel } from "@/components/Carousel";
-
 import airplane from "@/assets/airplane.svg";
 import cameraSVG from "@/assets/camera.svg";
 import passportSymbolSVG from "@/assets/passportSymbol.svg";
@@ -15,6 +14,7 @@ import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
+import { keyframes } from "@emotion/react";
 
 const FullSection = styled(Section)({
   padding: 0,
@@ -407,6 +407,81 @@ const CTAButton = styled.a({
   },
 });
 
+const slideUp = keyframes`
+  0% {
+    transform: translate(-50%, 0%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -20%);
+    opacity: 1;
+  }
+`;
+
+const ToastDiv = styled.div`
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  animation: ${slideUp} 1s ease-out;
+`;
+
+const ToastButton = styled.div({
+  padding: "20px 40px",
+  backgroundColor: "black",
+  borderRadius: "20px",
+  color: "white",
+  fontSize: "1.25rem",
+});
+
+const CloseImage = styled(Image)({
+  position: "absolute",
+  top: -40,
+  right: 0,
+  "@media (max-width: 550px)": {
+    width: 15,
+    height: 15,
+    top: -40,
+  },
+  cursor: "pointer",
+});
+
+const YoutubeModalBlur = styled.div`
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const YoutubeModalInner = styled.div({
+  width: "70%",
+  aspectRatio: "16 / 9",
+  position: "relative",
+  "@media (max-width: 550px)": {
+    width: "90%",
+  },
+});
+
+const YoutubeTitle = styled.span({
+  position: "absolute",
+  top: -40,
+  left: 0,
+  fontSize: "1.5rem",
+  color: "white",
+  "@media (max-width: 550px)": {
+    fontSize: "1.125rem",
+  },
+});
+
+const YoutubeIFrame = styled.iframe``;
+
 const Home = () => {
   const { dict } = useContext(GlobalContext);
 
@@ -421,6 +496,11 @@ const Home = () => {
   const [isAnimActive, setIsAnimActive] = useState<boolean>(false);
   const [isAirplainVisible, setIsAirplainVisible] = useState<boolean>(false);
   const [isGalleryActive, setIsGalleryActive] = useState<boolean>(false);
+  const [youtubeModal, setYoutubeModal] = useState<boolean>(true);
+
+  const closeYoutubeModal = () => {
+    setYoutubeModal(false);
+  };
 
   useEffect(() => {
     setIsAnimActive(true);
@@ -480,6 +560,35 @@ const Home = () => {
 
   return (
     <>
+      {youtubeModal && (
+        <YoutubeModalBlur>
+          <YoutubeModalInner>
+            <YoutubeTitle>{dict.nav.youtube}</YoutubeTitle>
+            <CloseImage
+              onClick={closeYoutubeModal}
+              src={"/closeModal_white.svg"}
+              alt='modal_close'
+              width={25}
+              height={25}
+            />
+            <iframe
+              src='https://www.youtube.com/embed/zdMuLvK0pNg?si=f-PI13m5omoqocsd'
+              title='YouTube video player'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerPolicy='strict-origin-when-cross-origin'
+              allowFullScreen
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }}
+            ></iframe>
+          </YoutubeModalInner>
+        </YoutubeModalBlur>
+      )}
+
       <Header />
       <FullSection>
         <InnerSection>
