@@ -572,7 +572,7 @@ const Home = () => {
               height={25}
             />
             <iframe
-              src='https://www.youtube.com/embed/zdMuLvK0pNg?si=f-PI13m5omoqocsd'
+              src='https://www.youtube.com/embed/DEZsPOSzNM0?si=f-PI13m5omoqocsd'
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
               referrerPolicy='strict-origin-when-cross-origin'
