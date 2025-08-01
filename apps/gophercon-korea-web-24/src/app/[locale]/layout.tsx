@@ -1,15 +1,7 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
 import GopherCon24Styles from "@/app/[locale]/styles";
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 import { jakartaSans, pretendard } from "@/app/fonts";
 import defaultMetadata from "@/app/metadata";
-import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
-import GopherCon24Styles from "@/app/[locale]/styles";
 import ContextProvider from "@/components/ThemeProvider";
 import { GlobalStyle } from "gophercon-common";
 import EmotionStyleRegistry from "gophercon-common/src/style/registry";

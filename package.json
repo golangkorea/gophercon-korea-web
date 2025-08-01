@@ -12,15 +12,9 @@
     "build:25": "pnpm --filter gophercon-korea-web-25... build"
   },
   "devDependencies": {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     "eslint": "8.57.0",
     "eslint-config-react-app": "^7.0.1",
     "lint-staged": "^15.2.9",
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   },

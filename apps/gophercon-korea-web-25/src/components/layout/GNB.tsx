@@ -1,13 +1,5 @@
 import { GNB_MENU_ITEMS } from "@/constants/menu";
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 import { css, Theme } from "@emotion/react";
-=======
-import { Theme, css } from "@emotion/react";
->>>>>>> Stashed changes
-=======
-import { css, Theme } from "@emotion/react";
->>>>>>> Stashed changes
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
