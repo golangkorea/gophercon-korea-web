@@ -27,7 +27,6 @@ const syntaxStyle: { [key: string]: React.CSSProperties } = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
-    fontSize: "1.2rem",
   },
   'pre[class*="language-"]': {
     color: "#c5c8c6",
@@ -46,10 +45,8 @@ const syntaxStyle: { [key: string]: React.CSSProperties } = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
-    padding: "80px",
     margin: 0,
     overflow: "auto",
-    height: "100vh",
     backgroundColor: "#1e1e1e",
   },
   comment: { color: "#6a9955" },
@@ -88,23 +85,32 @@ const syntaxStyle: { [key: string]: React.CSSProperties } = {
 const NotFound = () => {
   const { t } = useTranslation();
   const [message, setMessage] = useState("Click me!");
-  const [clickCount, setClickCount] = useState(0);
   const [isGameActive, setGameActive] = useState(false);
+  const clickTimestamps = useRef<number[]>([]);
 
   const funMessages = t("page_title.not_found_messages", { returnObjects: true });
 
   const handleClick = () => {
-    const newClickCount = clickCount + 1;
-    setClickCount(newClickCount);
+    const now = Date.now();
+    clickTimestamps.current.push(now);
 
-    if (newClickCount >= 7) {
-      setGameActive(true);
-      setMessage("Game Start!");
-    } else {
-      if (Array.isArray(funMessages)) {
-        const randomIndex = Math.floor(Math.random() * funMessages.length);
-        setMessage(`${funMessages[randomIndex]} (${7 - newClickCount})`);
+    if (clickTimestamps.current.length > 3) {
+      clickTimestamps.current.shift();
+    }
+
+    if (clickTimestamps.current.length === 3) {
+      const timeDiff = clickTimestamps.current[2] - clickTimestamps.current[0];
+      if (timeDiff <= 500) {
+        setGameActive(true);
+        setMessage("Game Start!");
+        clickTimestamps.current = [];
+        return;
       }
+    }
+
+    if (Array.isArray(funMessages)) {
+      const randomIndex = Math.floor(Math.random() * funMessages.length);
+      setMessage(funMessages[randomIndex]);
     }
   };
 
@@ -124,9 +130,11 @@ func main() {
         <Game onGameOver={() => setGameActive(false)} />
       ) : (
         <>
-          <SyntaxHighlighter language={"go"} style={syntaxStyle}>
-            {codeString}
-          </SyntaxHighlighter>
+          <CodeSnippetContainer>
+            <SyntaxHighlighter language={"go"} style={syntaxStyle}>
+              {codeString}
+            </SyntaxHighlighter>
+          </CodeSnippetContainer>
           <OverlayContainer>
             <ArtworkContainer onClick={handleClick}>
               <ArtworkImage src={notFoundSvg} alt='Character looking for a map' />
@@ -147,8 +155,37 @@ const ENEMY_HEIGHT = 64;
 const BULLET_WIDTH = 60;
 const BULLET_HEIGHT = 20;
 
+const PLAYER_RADIUS = (PLAYER_WIDTH / 2) * 0.7;
+const ENEMY_RADIUS = (ENEMY_WIDTH / 2) * 0.8;
+const PLAYER_BULLET_RADIUS = (BULLET_WIDTH / 2) * 0.6;
+const ENEMY_BULLET_RADIUS = (BULLET_WIDTH / 2) * 0.6;
+const POWERUP_RADIUS = 30;
+
 const playerBulletWords = ["go", "recover", "defer", "chan", "select", "T", "any"];
 const enemyBulletWords = ["error", "panic", "nil", "fatal", "leak", "race"];
+
+type PowerUpType = "rapid-fire" | "shield";
+interface PowerUp {
+  x: number;
+  y: number;
+  type: PowerUpType;
+}
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  color: string;
+}
+interface Star {
+  x: number;
+  y: number;
+  speed: number;
+  size: number;
+  color: string;
+  baseAlpha: number;
+}
 
 const Game = ({ onGameOver }: { onGameOver: () => void }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -162,6 +199,7 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     rotation: 0,
   });
   const bulletsRef = useRef<{ x: number; y: number; text: string }[]>([]);
+  const starsRef = useRef<Star[]>([]);
   const enemyBulletsRef = useRef<{ x: number; y: number; dx: number; dy: number; text: string; ay: number }[]>([]);
   const enemiesRef = useRef<
     {
@@ -182,20 +220,39 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
   const playerImageRef = useRef<HTMLImageElement | null>(null);
   const enemyImageRef = useRef<HTMLImageElement | null>(null);
   const joystickRef = useRef({ active: false, startX: 0, startY: 0, dx: 0, dy: 0 });
+  const bgLightnessRef = useRef(10);
+  const powerUpsRef = useRef<PowerUp[]>([]);
+  const explosionsRef = useRef<Particle[]>([]);
+  const playerShieldRef = useRef({ active: false, radius: (PLAYER_WIDTH / 2) * 1.2 });
+  const rapidFireEndTimeRef = useRef(0);
 
-  useEffect(() => {
-    const pImg = new Image();
-    pImg.src = mePng;
-    pImg.onload = () => (playerImageRef.current = pImg);
+  const createExplosion = useCallback((x: number, y: number, count: number, color: string) => {
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 5 + 1;
+      explosionsRef.current.push({
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 60,
+        color,
+      });
+    }
+  }, []);
 
-    const eImg = new Image();
-    eImg.src = enemyPng;
-    eImg.onload = () => (enemyImageRef.current = eImg);
-
-    const checkMobile = () => window.innerWidth < 768;
-    setIsMobile(checkMobile());
-    window.addEventListener("resize", () => setIsMobile(checkMobile()));
-    return () => window.removeEventListener("resize", () => setIsMobile(checkMobile()));
+  const fireBullet = useCallback(() => {
+    const now = Date.now();
+    const fireRate = now < rapidFireEndTimeRef.current ? 100 : 200;
+    if (now - lastShotTimeRef.current > fireRate) {
+      const word = playerBulletWords[Math.floor(Math.random() * playerBulletWords.length)];
+      bulletsRef.current.push({
+        x: playerRef.current.x + PLAYER_WIDTH / 2,
+        y: playerRef.current.y,
+        text: word,
+      });
+      lastShotTimeRef.current = now;
+    }
   }, []);
 
   const gameLoop = useCallback(() => {
@@ -204,7 +261,15 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     const ctx = canvas.getContext("2d");
     if (!ctx || isGameOver) return;
 
-    if (isMobile) {
+    const difficulty = Math.floor(score / 100);
+    const targetBgLightness = Math.min(10 + difficulty * 2, 30);
+    bgLightnessRef.current += (targetBgLightness - bgLightnessRef.current) * 0.02;
+    const backgroundColor = `hsl(240, 50%, ${bgLightnessRef.current}%)`;
+
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    if (window.innerWidth < 768) {
       const moveX = joystickRef.current.dx * 7;
       playerRef.current.x += moveX;
       playerRef.current.rotation = moveX * 0.05;
@@ -217,6 +282,9 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       playerRef.current.rotation = moveX * 0.05;
       if (keysPressed.current["ArrowUp"]) playerRef.current.y -= 5;
       if (keysPressed.current["ArrowDown"]) playerRef.current.y += 5;
+      if (keysPressed.current[" "]) {
+        fireBullet();
+      }
     }
     playerRef.current.x = Math.max(10, Math.min(canvas.width - PLAYER_WIDTH - 10, playerRef.current.x));
     playerRef.current.y = Math.max(10, Math.min(canvas.height - PLAYER_HEIGHT - 30, playerRef.current.y));
@@ -230,11 +298,9 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       .filter((b) => b.y < canvas.height && b.y > 0 && b.x > 0 && b.x < canvas.width);
 
     const now = Date.now();
-    const difficulty = Math.floor(score / 100);
     const bulletSpeedMultiplier = 1 + Math.min(difficulty * 0.1, 1);
 
     enemiesRef.current.forEach((e) => {
-      // Steer towards targetX
       const turnSpeed = 0.04;
       if (e.x < e.targetX) {
         e.dx += turnSpeed;
@@ -242,11 +308,10 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
         e.dx -= turnSpeed;
       }
 
-      // Clamp horizontal speed and apply some friction/damping
       e.dx = Math.max(-2.5, Math.min(2.5, e.dx));
-      e.dx *= 0.99; // friction
+      e.dx *= 0.99;
 
-      e.rotation = e.dx * 0.15; // Rotate based on horizontal speed
+      e.rotation = e.dx * 0.15;
 
       e.x += e.dx;
       e.y += e.dy;
@@ -269,7 +334,6 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
         e.lastFired = now;
       }
 
-      // If close to target or out of bounds, get a new target
       if (Math.abs(e.x - e.targetX) < 50 || e.x <= 0 || e.x >= canvas.width - ENEMY_WIDTH) {
         e.targetX = Math.random() * (canvas.width - ENEMY_WIDTH);
       }
@@ -282,12 +346,13 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     bulletsRef.current.forEach((bullet, bulletIndex) => {
       for (const enemy of enemiesRef.current) {
         if (hitEnemyIds.has(enemy.id)) continue;
-        if (
-          bullet.x - BULLET_WIDTH / 2 < enemy.x + ENEMY_WIDTH &&
-          bullet.x + BULLET_WIDTH / 2 > enemy.x &&
-          bullet.y - BULLET_HEIGHT < enemy.y + ENEMY_HEIGHT &&
-          bullet.y > enemy.y
-        ) {
+
+        const dx = bullet.x - (enemy.x + ENEMY_WIDTH / 2);
+        const dy = bullet.y - BULLET_HEIGHT / 2 - (enemy.y + ENEMY_HEIGHT / 2);
+        const distanceSq = dx * dx + dy * dy;
+        const radiiSumSq = (PLAYER_BULLET_RADIUS + ENEMY_RADIUS) ** 2;
+
+        if (distanceSq < radiiSumSq) {
           hitEnemyIds.add(enemy.id);
           bulletsToRemove.add(bulletIndex);
           break;
@@ -296,36 +361,154 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     });
 
     if (hitEnemyIds.size > 0) {
+      enemiesRef.current.forEach((enemy) => {
+        if (hitEnemyIds.has(enemy.id)) {
+          createExplosion(enemy.x + ENEMY_WIDTH / 2, enemy.y + ENEMY_HEIGHT / 2, 30, "#ffcc00");
+          if (Math.random() < 0.1) {
+            const itemX = Math.max(30, Math.min(canvas.width - 30, enemy.x + ENEMY_WIDTH / 2));
+            powerUpsRef.current.push({
+              x: itemX,
+              y: enemy.y + ENEMY_HEIGHT / 2,
+              type: Math.random() < 0.5 ? "rapid-fire" : "shield",
+            });
+          }
+        }
+      });
       bulletsRef.current = bulletsRef.current.filter((_, i) => !bulletsToRemove.has(i));
       enemiesRef.current = enemiesRef.current.filter((e) => !hitEnemyIds.has(e.id));
       setScore((s) => s + hitEnemyIds.size * 10);
     }
 
+    const playerR = playerShieldRef.current.active ? playerShieldRef.current.radius : PLAYER_RADIUS;
+    const enemiesToDestroyOnShieldHit = new Set<number>();
     for (const enemy of enemiesRef.current) {
-      if (
-        playerRef.current.x < enemy.x + ENEMY_WIDTH &&
-        playerRef.current.x + PLAYER_WIDTH > enemy.x &&
-        playerRef.current.y < enemy.y + ENEMY_HEIGHT &&
-        playerRef.current.y + PLAYER_HEIGHT > enemy.y
-      ) {
-        setGameOver(true);
+      const dx = playerRef.current.x + PLAYER_WIDTH / 2 - (enemy.x + ENEMY_WIDTH / 2);
+      const dy = playerRef.current.y + PLAYER_HEIGHT / 2 - (enemy.y + ENEMY_HEIGHT / 2);
+      const distanceSq = dx * dx + dy * dy;
+      const radiiSumSq = (playerR + ENEMY_RADIUS) ** 2;
+      if (distanceSq < radiiSumSq) {
+        if (playerShieldRef.current.active) {
+          playerShieldRef.current.active = false;
+          enemiesToDestroyOnShieldHit.add(enemy.id);
+          createExplosion(enemy.x + ENEMY_WIDTH / 2, enemy.y + ENEMY_HEIGHT / 2, 30, "#ffcc00");
+          createExplosion(
+            playerRef.current.x + PLAYER_WIDTH / 2,
+            playerRef.current.y + PLAYER_HEIGHT / 2,
+            50,
+            "#4d94ff",
+          );
+        } else {
+          createExplosion(
+            playerRef.current.x + PLAYER_WIDTH / 2,
+            playerRef.current.y + PLAYER_HEIGHT / 2,
+            100,
+            "#ff4d4d",
+          );
+          setGameOver(true);
+        }
         break;
       }
     }
+    if (enemiesToDestroyOnShieldHit.size > 0) {
+      enemiesRef.current = enemiesRef.current.filter((e) => !enemiesToDestroyOnShieldHit.has(e.id));
+    }
 
-    for (const bullet of enemyBulletsRef.current) {
-      if (
-        playerRef.current.x < bullet.x + BULLET_WIDTH / 2 &&
-        playerRef.current.x + PLAYER_WIDTH > bullet.x - BULLET_WIDTH / 2 &&
-        playerRef.current.y < bullet.y &&
-        playerRef.current.y + PLAYER_HEIGHT > bullet.y - BULLET_HEIGHT
-      ) {
-        setGameOver(true);
-        break;
+    if (!isGameOver) {
+      const bulletsToDestroyOnShieldHit = new Set<any>();
+      for (const bullet of enemyBulletsRef.current) {
+        const dx = playerRef.current.x + PLAYER_WIDTH / 2 - bullet.x;
+        const dy = playerRef.current.y + PLAYER_HEIGHT / 2 - (bullet.y - BULLET_HEIGHT / 2);
+        const distanceSq = dx * dx + dy * dy;
+        const radiiSumSq = (playerR + ENEMY_BULLET_RADIUS) ** 2;
+        if (distanceSq < radiiSumSq) {
+          if (playerShieldRef.current.active) {
+            playerShieldRef.current.active = false;
+            bulletsToDestroyOnShieldHit.add(bullet);
+            createExplosion(
+              playerRef.current.x + PLAYER_WIDTH / 2,
+              playerRef.current.y + PLAYER_HEIGHT / 2,
+              50,
+              "#4d94ff",
+            );
+          } else {
+            createExplosion(
+              playerRef.current.x + PLAYER_WIDTH / 2,
+              playerRef.current.y + PLAYER_HEIGHT / 2,
+              100,
+              "#ff4d4d",
+            );
+            setGameOver(true);
+          }
+          break;
+        }
+      }
+      if (bulletsToDestroyOnShieldHit.size > 0) {
+        enemyBulletsRef.current = enemyBulletsRef.current.filter((b) => !bulletsToDestroyOnShieldHit.has(b));
       }
     }
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    powerUpsRef.current = powerUpsRef.current.map((p) => ({ ...p, y: p.y + 2 })).filter((p) => p.y < canvas.height);
+
+    const powerUpsToRemove = new Set<PowerUp>();
+    powerUpsRef.current.forEach((powerUp) => {
+      const dx = playerRef.current.x + PLAYER_WIDTH / 2 - powerUp.x;
+      const dy = playerRef.current.y + PLAYER_HEIGHT / 2 - powerUp.y;
+      const distanceSq = dx * dx + dy * dy;
+      const radiiSumSq = (PLAYER_RADIUS + POWERUP_RADIUS) ** 2;
+
+      if (distanceSq < radiiSumSq) {
+        powerUpsToRemove.add(powerUp);
+        if (powerUp.type === "shield") {
+          playerShieldRef.current.active = true;
+        } else if (powerUp.type === "rapid-fire") {
+          rapidFireEndTimeRef.current = Date.now() + 3000;
+        }
+      }
+    });
+
+    if (powerUpsToRemove.size > 0) {
+      powerUpsRef.current = powerUpsRef.current.filter((p) => !powerUpsToRemove.has(p));
+    }
+
+    explosionsRef.current = explosionsRef.current
+      .map((p) => ({ ...p, x: p.x + p.vx, y: p.y + p.vy, vx: p.vx * 0.98, vy: p.vy * 0.98, life: p.life - 1 }))
+      .filter((p) => p.life > 0);
+
+    const starSpeedMultiplier = 1 + Math.min(difficulty * 0.1, 1);
+
+    starsRef.current.forEach((star) => {
+      star.y += star.speed * starSpeedMultiplier;
+
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+
+      const flicker = Math.random() > 0.99 ? Math.random() * 0.7 + 0.3 : 1;
+      const alpha = star.baseAlpha * flicker;
+
+      ctx.fillStyle = star.color;
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size / 2, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    if (playerShieldRef.current.active) {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(
+        playerRef.current.x + PLAYER_WIDTH / 2,
+        playerRef.current.y + PLAYER_HEIGHT / 2,
+        playerShieldRef.current.radius,
+        0,
+        Math.PI * 2,
+      );
+      ctx.fillStyle = "rgba(77, 148, 255, 0.3)";
+      ctx.fill();
+      ctx.restore();
+    }
     if (playerImageRef.current) {
       ctx.save();
       ctx.translate(playerRef.current.x + PLAYER_WIDTH / 2, playerRef.current.y + PLAYER_HEIGHT / 2);
@@ -345,7 +528,30 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     });
     ctx.shadowBlur = 0;
 
-    // Draw enemy bullets
+    powerUpsRef.current.forEach((p) => {
+      ctx.save();
+      if (p.type === "shield") {
+        const outerRadius = POWERUP_RADIUS * 0.6;
+        const innerRadius = POWERUP_RADIUS * 0.35;
+        ctx.strokeStyle = "rgba(77, 148, 255, 0.9)";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, outerRadius, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, innerRadius, 0, Math.PI * 2);
+        ctx.stroke();
+      } else if (p.type === "rapid-fire") {
+        ctx.fillStyle = "rgba(255, 204, 0, 0.9)";
+        const barWidth = POWERUP_RADIUS * 0.7;
+        const barHeight = POWERUP_RADIUS * 0.15;
+        ctx.fillRect(p.x - barWidth / 2, p.y - POWERUP_RADIUS * 0.35, barWidth, barHeight);
+        ctx.fillRect(p.x - barWidth / 2, p.y - POWERUP_RADIUS * 0.05, barWidth, barHeight);
+        ctx.fillRect(p.x - barWidth / 2, p.y + POWERUP_RADIUS * 0.25, barWidth, barHeight);
+      }
+      ctx.restore();
+    });
+
     ctx.fillStyle = "#ff5555";
     ctx.shadowColor = "red";
     ctx.shadowBlur = 8;
@@ -364,16 +570,46 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       });
     }
 
+    ctx.save();
+    explosionsRef.current.forEach((p) => {
+      ctx.globalAlpha = Math.max(0, p.life / 60);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+    });
+    ctx.restore();
+
     animationFrameId.current = requestAnimationFrame(gameLoop);
-  }, [isGameOver, isMobile, score]);
+  }, [isGameOver, score, fireBullet, createExplosion]);
 
   useEffect(() => {
+    const pImg = new Image();
+    pImg.src = mePng;
+    pImg.onload = () => (playerImageRef.current = pImg);
+
+    const eImg = new Image();
+    eImg.src = enemyPng;
+    eImg.onload = () => (enemyImageRef.current = eImg);
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      setIsMobile(window.innerWidth < 768);
+
+      const colors = ["#FFFFFF", "#B0C4DE", "#FFFACD"];
+      starsRef.current = [];
+      for (let i = 0; i < 400; i++) {
+        starsRef.current.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          speed: Math.random() * 1.5 + 0.5,
+          size: Math.random() * 2 + 1,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          baseAlpha: Math.random() * 0.5 + 0.3,
+        });
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -408,23 +644,12 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     return () => clearInterval(interval);
   }, [isGameOver]);
 
-  const fireBullet = useCallback(() => {
-    const now = Date.now();
-    if (now - lastShotTimeRef.current > 200) {
-      const word = playerBulletWords[Math.floor(Math.random() * playerBulletWords.length)];
-      bulletsRef.current.push({
-        x: playerRef.current.x + PLAYER_WIDTH / 2,
-        y: playerRef.current.y,
-        text: word,
-      });
-      lastShotTimeRef.current = now;
-    }
-  }, []);
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if ([" ", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+      }
       keysPressed.current[e.key] = true;
-      if (e.key === " " && !isGameOver) fireBullet();
     };
     const handleKeyUp = (e: KeyboardEvent) => {
       keysPressed.current[e.key] = false;
@@ -435,7 +660,7 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
     };
-  }, [isGameOver, fireBullet]);
+  }, []);
 
   const handleJoystickStart = (e: React.TouchEvent<HTMLDivElement>) => {
     joystickRef.current.active = true;
@@ -461,9 +686,10 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
   };
 
   return (
-    <GameContainer>
+    <GameContainer isGameOver={isGameOver}>
       <canvas ref={canvasRef} />
       <Score>Score: {score}</Score>
+      {!isGameOver && <InGameHomeLink to='/'>Go Home</InGameHomeLink>}
       {isGameOver && (
         <GameOverScreen>
           <h1>Game Over</h1>
@@ -490,6 +716,27 @@ const NotFoundContainer = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+`;
+
+const CodeSnippetContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+
+  pre {
+    height: 100% !important;
+    padding: 80px !important;
+    font-size: 1.2rem !important;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      padding: 60px 20px !important;
+      font-size: 1rem !important;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      padding: 40px 15px !important;
+      font-size: 0.85rem !important;
+    }
+  }
 `;
 
 const OverlayContainer = styled.div`
@@ -556,16 +803,16 @@ const Score = styled.div`
   font-family: "Pretendard", sans-serif;
 `;
 
-const GameContainer = styled.div`
+const GameContainer = styled.div<{ isGameOver: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #0a0a1a;
+  background: #000;
   overflow: hidden;
   z-index: 2000;
-  cursor: none;
+  cursor: default;
   canvas {
     display: block;
   }
@@ -652,6 +899,24 @@ const FireButton = styled.div`
 
   &:active {
     background-color: rgba(255, 50, 50, 0.6);
+  }
+`;
+
+const InGameHomeLink = styled(Link)`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: "Pretendard", sans-serif;
+  z-index: 2002;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 `;
 
