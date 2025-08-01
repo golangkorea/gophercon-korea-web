@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Sessions = () => {
   const { t, i18n } = useTranslation(undefined, { keyPrefix: "program" });
-  const lang = i18n.language as "ko" | "en";
+  const lang = i18n.language.startsWith("ko") ? "ko" : "en";
 
   const [difficultyFilter, setDifficultyFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");

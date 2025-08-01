@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
-import localFont from "@next/font/local";
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
+import localFont from "next/font/local";
 import Script from "next/script";
 
 const pretendard = localFont({

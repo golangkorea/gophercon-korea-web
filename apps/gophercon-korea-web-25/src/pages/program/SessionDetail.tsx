@@ -9,7 +9,7 @@ import { Link, useParams } from "react-router-dom";
 const SessionDetail = () => {
   const { sessionId } = useParams<{ sessionId: string }>();
   const { t, i18n } = useTranslation(undefined, { keyPrefix: "program" });
-  const lang = i18n.language as "ko" | "en";
+  const lang = i18n.language.startsWith("ko") ? "ko" : "en";
 
   const session = sessions.find((s) => s.id === sessionId);
 
