@@ -1,6 +1,6 @@
+import { Metadata } from "next";
 import { ReactNode } from "react";
 import timetableList from "../data";
-import { Metadata } from "next";
 
 type Props = {
   params: { title: string };

@@ -1,20 +1,20 @@
 "use client";
 
-import EventQRPng from "@/assets/eventQR.png";
-import LOGOWhite from "@/assets/logo_white.svg";
-import { AirplaneSVG } from "@/components/AirplaneSVG";
-import { Carousel } from "@/components/Carousel";
 import airplane from "@/assets/airplane.svg";
 import cameraSVG from "@/assets/camera.svg";
+import EventQRPng from "@/assets/eventQR.png";
+import LOGOWhite from "@/assets/logo_white.svg";
 import passportSymbolSVG from "@/assets/passportSymbol.svg";
+import { AirplaneSVG } from "@/components/AirplaneSVG";
+import { Carousel } from "@/components/Carousel";
 import Gallery from "@/components/Gallery";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
-import { keyframes } from "@emotion/react";
 
 const FullSection = styled(Section)({
   padding: 0,
@@ -496,7 +496,7 @@ const Home = () => {
   const [isAnimActive, setIsAnimActive] = useState<boolean>(false);
   const [isAirplainVisible, setIsAirplainVisible] = useState<boolean>(false);
   const [isGalleryActive, setIsGalleryActive] = useState<boolean>(false);
-  const [youtubeModal, setYoutubeModal] = useState<boolean>(true);
+  const [youtubeModal, setYoutubeModal] = useState<boolean>(false);
 
   const closeYoutubeModal = () => {
     setYoutubeModal(false);

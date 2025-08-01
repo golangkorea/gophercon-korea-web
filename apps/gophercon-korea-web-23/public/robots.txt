@@ -1,3 +1,5 @@
-# https://www.gophercon.kr/robots.txt
+# https://2023.gophercon.kr/robots.txt
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://2023.gophercon.kr/sitemap.xml

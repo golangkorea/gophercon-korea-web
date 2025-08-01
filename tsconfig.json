@@ -18,5 +18,10 @@
   },
   "exclude": ["node_modules"],
   "include": [],
-  "references": [{ "path": "./apps/gophercon-korea-web-23" }, { "path": "./apps/gophercon-korea-web-24" }]
+  "references": [
+    { "path": "./apps/gophercon-korea-web-23" },
+    { "path": "./apps/gophercon-korea-web-24" },
+    { "path": "./apps/gophercon-korea-web-25" },
+    { "path": "./packages/gophercon-common" }
+  ]
 }

@@ -1,0 +1,206 @@
+import { PageContainer } from "@/components/common/PageContainer";
+import Seo from "@/components/common/Seo";
+import { sessions } from "@/data/program";
+import styled from "@emotion/styled";
+import { useTranslation } from "react-i18next";
+import { RiArrowLeftLine, RiBarChart2Line, RiUserSmileLine } from "react-icons/ri";
+import { Link, useParams } from "react-router-dom";
+
+const SessionDetail = () => {
+  const { sessionId } = useParams<{ sessionId: string }>();
+  const { t, i18n } = useTranslation(undefined, { keyPrefix: "program" });
+  const lang = i18n.language.startsWith("ko") ? "ko" : "en";
+
+  const session = sessions.find((s) => s.id === sessionId);
+
+  if (!session) {
+    return (
+      <PageContainer>
+        <p>Session not found.</p>
+      </PageContainer>
+    );
+  }
+
+  return (
+    <PageContainer>
+      <Seo title={session.title[lang]} description={session.description[lang]} />
+      <BackLink to='/program/sessions'>
+        <RiArrowLeftLine />
+        {t("back_to_sessions")}
+      </BackLink>
+      <Header>
+        <CategoryTag category={session.category.en.toLowerCase()}>{session.category[lang]}</CategoryTag>
+        <Title>{session.title[lang]}</Title>
+      </Header>
+
+      <Layout>
+        <MainContent>
+          <h3>{t("session_details")}</h3>
+          <Description>{session.description[lang]}</Description>
+        </MainContent>
+        <Sidebar>
+          <SpeakerCard>
+            <h4>{t("speaker")}</h4>
+            <SpeakerImageContainer>
+              {session.speaker.image ? (
+                <SpeakerImage src={session.speaker.image} alt={session.speaker.name[lang]} />
+              ) : (
+                <RiUserSmileLine size={80} color='#c0c0c0' />
+              )}
+            </SpeakerImageContainer>
+            <SpeakerName>{session.speaker.name[lang]}</SpeakerName>
+            <Company>{session.speaker.company[lang]}</Company>
+            <SpeakerIntro>{session.speaker.intro[lang]}</SpeakerIntro>
+          </SpeakerCard>
+          <SessionInfoCard>
+            <h4>{t("session_info")}</h4>
+            <InfoItem>
+              <RiBarChart2Line />
+              <span>{session.difficulty[lang]}</span>
+            </InfoItem>
+          </SessionInfoCard>
+        </Sidebar>
+      </Layout>
+    </PageContainer>
+  );
+};
+
+const BackLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+const Header = styled.div`
+  text-align: center;
+  margin-bottom: 4rem;
+`;
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const MainContent = styled.div`
+  h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.border};
+  }
+`;
+
+const Sidebar = styled.aside`
+  position: sticky;
+  top: 120px;
+  align-self: start;
+`;
+
+const BaseCard = styled.div`
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const SpeakerCard = styled(BaseCard)`
+  text-align: center;
+`;
+
+const SessionInfoCard = styled(BaseCard)``;
+
+const CategoryTag = styled.span<{ category: string }>`
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  background-color: ${({ theme, category }) => (theme.colors.category as any)[category] || theme.colors.primary};
+  margin-bottom: 1rem;
+`;
+
+const Title = styled.h1`
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+`;
+
+const SpeakerImageContainer = styled.div`
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  border: 2px solid ${({ theme }) => theme.colors.border};
+`;
+
+const SpeakerImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const SpeakerName = styled.h2`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+const Company = styled.span`
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-bottom: 1rem;
+  display: block;
+`;
+
+const SpeakerIntro = styled.p`
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  white-space: pre-wrap;
+`;
+
+const Description = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+`;
+
+const InfoItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+
+  svg {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+export default SessionDetail;

@@ -8,8 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "eslintConfig": {
+    "extends": "next/core-web-vitals"
+  },
   "dependencies": {
-    "gophercon-common": "0.1.0",
+    "gophercon-common": "workspace:^",
     "next": "14.2.6",
     "react": "^18",
     "react-dom": "^18",
