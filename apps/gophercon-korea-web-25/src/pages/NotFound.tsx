@@ -1,7 +1,7 @@
 import notFoundSvg from "@/assets/not-found.svg";
 import Seo from "@/components/common/Seo";
 import styled from "@emotion/styled";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -84,9 +84,18 @@ const syntaxStyle: { [key: string]: React.CSSProperties } = {
 
 const NotFound = () => {
   const { t } = useTranslation();
-  const [message, setMessage] = useState("Click me!");
+  const [message, setMessage] = useState<string | null>(null);
   const [isGameActive, setGameActive] = useState(false);
   const clickTimestamps = useRef<number[]>([]);
+
+  const initialMessage = useMemo(() => {
+    const initialMessages = t("page_title.not_found_initial_messages", { returnObjects: true });
+    if (Array.isArray(initialMessages) && initialMessages.length > 0) {
+      const randomIndex = Math.floor(Math.random() * initialMessages.length);
+      return initialMessages[randomIndex];
+    }
+    return "";
+  }, [t]);
 
   const funMessages = t("page_title.not_found_messages", { returnObjects: true });
 
@@ -102,7 +111,6 @@ const NotFound = () => {
       const timeDiff = clickTimestamps.current[2] - clickTimestamps.current[0];
       if (timeDiff <= 500) {
         setGameActive(true);
-        setMessage("Game Start!");
         clickTimestamps.current = [];
         return;
       }
@@ -113,6 +121,8 @@ const NotFound = () => {
       setMessage(funMessages[randomIndex]);
     }
   };
+
+  const displayMessage = message ?? initialMessage;
 
   const codeString = `package main
 
@@ -138,7 +148,7 @@ func main() {
           <OverlayContainer>
             <ArtworkContainer onClick={handleClick}>
               <ArtworkImage src={notFoundSvg} alt='Character looking for a map' />
-              <SpeechBubble>{message}</SpeechBubble>
+              <SpeechBubble>{displayMessage}</SpeechBubble>
             </ArtworkContainer>
             <HomeLink to='/'>Go Home</HomeLink>
           </OverlayContainer>
@@ -223,7 +233,7 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
   const bgLightnessRef = useRef(10);
   const powerUpsRef = useRef<PowerUp[]>([]);
   const explosionsRef = useRef<Particle[]>([]);
-  const playerShieldRef = useRef({ active: false, radius: (PLAYER_WIDTH / 2) * 1.2 });
+  const playerShieldEndTimeRef = useRef(0);
   const rapidFireEndTimeRef = useRef(0);
 
   const createExplosion = useCallback((x: number, y: number, count: number, color: string) => {
@@ -262,6 +272,10 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     if (!ctx || isGameOver) return;
 
     const difficulty = Math.floor(score / 100);
+    const now = Date.now();
+    const isShieldActive = playerShieldEndTimeRef.current > now;
+    const isRapidFireActive = rapidFireEndTimeRef.current > now;
+
     const targetBgLightness = Math.min(10 + difficulty * 2, 30);
     bgLightnessRef.current += (targetBgLightness - bgLightnessRef.current) * 0.02;
     const backgroundColor = `hsl(240, 50%, ${bgLightnessRef.current}%)`;
@@ -297,7 +311,6 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       })
       .filter((b) => b.y < canvas.height && b.y > 0 && b.x > 0 && b.x < canvas.width);
 
-    const now = Date.now();
     const bulletSpeedMultiplier = 1 + Math.min(difficulty * 0.1, 1);
 
     enemiesRef.current.forEach((e) => {
@@ -379,7 +392,8 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       setScore((s) => s + hitEnemyIds.size * 10);
     }
 
-    const playerR = playerShieldRef.current.active ? playerShieldRef.current.radius : PLAYER_RADIUS;
+    const SHIELD_RADIUS = (PLAYER_WIDTH / 2) * 1.2;
+    const playerR = isShieldActive ? SHIELD_RADIUS : PLAYER_RADIUS;
     const enemiesToDestroyOnShieldHit = new Set<number>();
     for (const enemy of enemiesRef.current) {
       const dx = playerRef.current.x + PLAYER_WIDTH / 2 - (enemy.x + ENEMY_WIDTH / 2);
@@ -387,8 +401,8 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       const distanceSq = dx * dx + dy * dy;
       const radiiSumSq = (playerR + ENEMY_RADIUS) ** 2;
       if (distanceSq < radiiSumSq) {
-        if (playerShieldRef.current.active) {
-          playerShieldRef.current.active = false;
+        if (isShieldActive) {
+          playerShieldEndTimeRef.current = 0;
           enemiesToDestroyOnShieldHit.add(enemy.id);
           createExplosion(enemy.x + ENEMY_WIDTH / 2, enemy.y + ENEMY_HEIGHT / 2, 30, "#ffcc00");
           createExplosion(
@@ -421,8 +435,8 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
         const distanceSq = dx * dx + dy * dy;
         const radiiSumSq = (playerR + ENEMY_BULLET_RADIUS) ** 2;
         if (distanceSq < radiiSumSq) {
-          if (playerShieldRef.current.active) {
-            playerShieldRef.current.active = false;
+          if (isShieldActive) {
+            playerShieldEndTimeRef.current = 0;
             bulletsToDestroyOnShieldHit.add(bullet);
             createExplosion(
               playerRef.current.x + PLAYER_WIDTH / 2,
@@ -459,7 +473,7 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       if (distanceSq < radiiSumSq) {
         powerUpsToRemove.add(powerUp);
         if (powerUp.type === "shield") {
-          playerShieldRef.current.active = true;
+          playerShieldEndTimeRef.current = now + 5000;
         } else if (powerUp.type === "rapid-fire") {
           rapidFireEndTimeRef.current = Date.now() + 3000;
         }
@@ -495,19 +509,59 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     });
     ctx.globalAlpha = 1;
 
-    if (playerShieldRef.current.active) {
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(
-        playerRef.current.x + PLAYER_WIDTH / 2,
-        playerRef.current.y + PLAYER_HEIGHT / 2,
-        playerShieldRef.current.radius,
-        0,
-        Math.PI * 2,
-      );
-      ctx.fillStyle = "rgba(77, 148, 255, 0.3)";
-      ctx.fill();
-      ctx.restore();
+    if (isShieldActive) {
+      const remainingTime = playerShieldEndTimeRef.current - now;
+      let showShield = true;
+      if (remainingTime < 2000) {
+        const blinkInterval = remainingTime < 700 ? 100 : 200;
+        if (Math.floor(now / blinkInterval) % 2 !== 0) {
+          showShield = false;
+        }
+      }
+
+      if (showShield) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(
+          playerRef.current.x + PLAYER_WIDTH / 2,
+          playerRef.current.y + PLAYER_HEIGHT / 2,
+          SHIELD_RADIUS,
+          0,
+          Math.PI * 2,
+        );
+        ctx.fillStyle = "rgba(77, 148, 255, 0.3)";
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    if (isRapidFireActive) {
+      const remainingTime = rapidFireEndTimeRef.current - now;
+      let showAura = true;
+      if (remainingTime < 1500) {
+        const blinkInterval = remainingTime < 500 ? 100 : 150;
+        if (Math.floor(now / blinkInterval) % 2 !== 0) {
+          showAura = false;
+        }
+      }
+
+      if (showAura) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(
+          playerRef.current.x + PLAYER_WIDTH / 2,
+          playerRef.current.y + PLAYER_HEIGHT / 2,
+          PLAYER_RADIUS * 1.1,
+          0,
+          Math.PI * 2,
+        );
+        ctx.fillStyle = "rgba(255, 204, 0, 0.25)";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(255, 204, 0, 0.7)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+      }
     }
     if (playerImageRef.current) {
       ctx.save();
@@ -615,11 +669,16 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     window.addEventListener("resize", handleResize);
     handleResize();
 
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     animationFrameId.current = requestAnimationFrame(gameLoop);
 
     return () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
-      window.removeEventListener("resize", handleResize);
     };
   }, [gameLoop]);
 

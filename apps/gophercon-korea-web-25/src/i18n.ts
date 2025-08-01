@@ -32,6 +32,12 @@ const resources = {
         sponsorship_faq: "Sponsorship FAQ",
         venue: "Venue",
         not_found: "Page Not Found",
+        not_found_initial_messages: [
+          "Hmm... this map seems to be wrong... *squeak*",
+          "Where to 'go' now... what to do...",
+          "This place isn't on my map!",
+          "Oops. Wrong turn, I guess. *squeak*",
+        ],
         not_found_messages: [
           "I told you, this path is a no-go!",
           "Stop poking me, will ya! *squeak*",
@@ -618,6 +624,12 @@ const resources = {
         sponsorship_faq: "후원 관련 자주 묻는 질문",
         venue: "장소",
         not_found: "페이지를 찾을 수 없습니다",
+        not_found_initial_messages: [
+          "흠... 이 지도는 영 아닌데... 찍.",
+          "여긴 어디인`고`... 나는 누구인`고`...",
+          "내 지도엔 이런 곳 없어!",
+          "이런, 길을 잘못 들었다 찍.",
+        ],
         not_found_messages: [
           "이 길은 아니라고!",
           "자꾸 누르지 말아라 찍!",
@@ -661,7 +673,7 @@ const resources = {
           "여긴 인터넷도 안 터진다 찍.",
           "404라고! 못 알아듣는`고`야?",
           "이건 버그라고! 명백한 버그야!",
-          "여기까지 온 `고`퍼는 네가 처음이야.",
+          "여기까지 온 고퍼는 네가 처음이야.",
           "내 러버덕도 포기했다`고`.",
           "그만`고` 돌아가`고`!",
           "에러 핸들링 좀 하라`고`!",
