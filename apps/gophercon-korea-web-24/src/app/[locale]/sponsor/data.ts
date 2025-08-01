@@ -121,7 +121,7 @@ const sponsorList: SponsorProps[] = [
     grade: GOLD_GRADE,
     link: "https://biz-challengers.com/",
     desc: {
-      ko: "화이트큐브는 대한민국 1등 습관앱으로 시작하여 뷰티득템앱으로, 고객의 명확한 니즈를 기반으로 끊임없이 혁신하고 있습니다.\nver.2 챌린저스에서는, 앱 유저들에게는 돈 걱정 없이 자기 관리를 할 수 있는 뷰티 득템앱으로, 동시에 기업 고객에게는 브랜드 성장 과정에서의 어려움을 함께 해결하며, ROAS 200%와 같은 확실한 성과를 보장하는 브랜딩 서포터로서의 '대체 불가의 가치'를 제공하고 있습니다.\nPMF를 찾으며, 2023년 연간 흑자 전환과 2024년 상반기 작년 연매출 초과 달성(YoY 100%) 등 성장의 가속을 이루어내고 있습니다. 또한 글로벌 확장과 신사업 재투자를 통해 또 한 번의 도약을 준비하고 있습니다. 저희의 비전은, 세상을 더 나은 방향으로 업그레이드하는 것입니다.",
+      ko: "화이트큐브는 대한민국 1등 습관앱으로 시작하여 뷰티 득템 앱으로, 고객의 명확한 니즈를 기반으로 끊임없이 혁신하고 있습니다.\nver.2 챌린저스에서는, 앱 유저들에게는 돈 걱정 없이 자기 관리를 할 수 있는 뷰티 득템 앱으로, 동시에 기업 고객에게는 브랜드 성장 과정에서의 어려움을 함께 해결하며, ROAS 200%와 같은 확실한 성과를 보장하는 브랜딩 서포터로서의 '대체 불가의 가치'를 제공하고 있습니다.\nPMF를 찾으며, 2023년 연간 흑자 전환과 2024년 상반기 작년 연매출 초과 달성(YoY 100%) 등 성장의 가속을 이루어내고 있습니다. 또한 글로벌 확장과 신사업 재투자를 통해 또 한 번의 도약을 준비하고 있습니다. 저희의 비전은, 세상을 더 나은 방향으로 업그레이드하는 것입니다.",
       en: "Whitecube started as Korea’s top habit app and has continually innovated based on clear customer needs to evolve into a beauty rewards app.\nIn its ver.2 iteration, Challengers offers users a platform to manage themselves and explore beauty products without financial concerns, while also providing brands with an unbeatable value as a branding supporter. We help overcome challenges in brand growth and guarantee results such as ROAS 200%.\nAchieving product-market fit, we have seen accelerated growth with a transition to profitability in 2023 and exceeding last year's annual revenue in the first half of 2024 (YoY 100%). We are also preparing for another leap with global expansion and reinvestment in new businesses. Our vision is to upgrade the world to a better direction.",
     },
   },
@@ -154,7 +154,7 @@ const sponsorList: SponsorProps[] = [
   {
     name: {
       ko: "당근",
-      en: "Daagng",
+      en: "Daangn",
     },
     imgSrc: "logo_Daangn.svg",
     grade: BRONZE_GRADE,
@@ -238,7 +238,7 @@ const sponsorList: SponsorProps[] = [
     grade: PUBLISHER_GRADE,
     desc: {
       ko: "이지스퍼블리싱은 IT와 교육 출판 분야에서 혁신적인 비전을 가진 회사로, 지식을 쉽게 전달하는 것을 목표로 하고 있습니다. 주로 IT 입문서와 교육 교재를 출간하며, 다양한 독자층이 쉽게 학습할 수 있도록 돕고 있습니다. 이지스퍼블리싱은 'Do It' 시리즈 등을 통해 실용적이고 실천 가능한 학습 콘텐츠를 제공하고 있으며, 교육 출판을 통해 미래 인재 양성에 기여하고자 합니다. 이번 행사를 통해 이지스퍼블리싱은 더 많은 사람들에게 지식을 전파하고 교육 기회를 넓히는 데 동참할 것입니다.",
-      en: "EasysPublishing is a company with an innovative vision in the field of IT and educational publishing, aiming to make knowledge easily accessible. The company primarily publishes introductory IT books and educational materials to help a diverse range of readers learn effectively. Through its 'Do It' series and other publications, easypublishing provides practical and actionable learning content, contributing to the development of future talents in education publishing. By participating in this event, easypublishing aims to disseminate knowledge to a broader audience and expand educational opportunities.",
+      en: "EasysPublishing is a company with an innovative vision in the field of IT and educational publishing, aiming to make knowledge easily accessible. The company primarily publishes introductory IT books and educational materials to help a diverse range of readers learn effectively. Through its 'Do It' series and other publications, EasysPublishing provides practical and actionable learning content, contributing to the development of future talents in education publishing. By participating in this event, EasysPublishing aims to disseminate knowledge to a broader audience and expand educational opportunities.",
     },
     link: "https://www.easyspub.co.kr/",
   },

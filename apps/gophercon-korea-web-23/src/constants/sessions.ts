@@ -106,7 +106,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       description:
         "테스트 관련 패키지(testing, testify, httptest)들에 대해 알아봅니다.\n \
         테스트 코드 작성 방법(서브테스트, TestMain, 네이밍/스타일, 블랙박스 테스트), 서버 mocking, 커버리지 100% 달성하는 방법을 논의합니다.\n \
-        그외의 테스트 관련 주제(패닉, 고루틴, race, benchmark, github actions)에 대한 경험을 공유합니다.",
+        그 외의 테스트 관련 주제(패닉, 고루틴, race, benchmark, github actions)에 대한 경험을 공유합니다.",
       speaker: {
         name: "김정민",
         company: "삼성SDS",
@@ -168,9 +168,10 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       startTime: "14:00",
       endTime: "14:30",
       title: "컨텍스트를 이용한 상태관리",
+      title: "컨텍스트를 이용한 상태 관리",
       category: "Main Talk",
       description:
-        "현재 배포된 컨텍스트 패키지의 기능과 곧 추가될 기능을 합쳐 고 언어에서 활용할 수 있는 기초적인 상태관리 방법에 대한 발표입니다. 컨텍스트 타입을 알아보고, 어떤 곳에 활용할 수 있는 지 간단한 예시를 통해 알아봅시다!",
+        "현재 배포된 컨텍스트 패키지의 기능과 곧 추가될 기능을 합쳐 고 언어에서 활용할 수 있는 기초적인 상태 관리 방법에 대한 발표입니다. 컨텍스트 타입을 알아보고, 어떤 곳에 활용할 수 있는 지 간단한 예시를 통해 알아봅시다!",
       speaker: {
         name: "권용민",
         company: "AfreecaTV",
@@ -395,12 +396,12 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       title: "Golang으로 서버 모니터링 툴 개발",
       category: "Main Talk",
       description:
-        "Golang으로 /proc 디렉토리에 접근해, 커널 지표로 서버모니터링을 개발하는 방법에 대해 공유드립니다. 대부분의 모니터링 툴이 Java로 구현이 되어있어 이와 비교하는 내용도 포함됩니다.",
+        "Golang으로 /proc 디렉토리에 접근해, 커널 지표로 서버 모니터링을 개발하는 방법에 대해 공유드립니다. 대부분의 모니터링 툴이 Java로 구현되어 있어 이와 비교하는 내용도 포함됩니다.",
       speaker: {
         name: "최정민",
         company: "와탭랩스",
         description:
-          "안녕하세요 와탭랩스라는 모니터링을 SaaS로 제공하는 회사에서 DevOps엔지니어로 약 2년째 재직 중입니다. 운영과정에 필요한 툴을 만드는 과정에서 Golang과 Python을 적극 활용합니다.",
+          "안녕하세요 와탭랩스라는 모니터링을 SaaS로 제공하는 회사에서 DevOps 엔지니어로 약 2년째 재직 중입니다. 운영과정에 필요한 툴을 만드는 과정에서 Golang과 Python을 적극 활용합니다.",
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4NmDhd5Ymi3AxtxV94p5vwcddduSMeGA6Sbcub9TUH3Jw6Dh1fIjR-DnS4y4rkOD_YRSy8hHw1zWw7_T_biKTLD2uO3ymw0aBdbRMaDfMuw4hJHQVgIckqqpXWeVK8IH5EJlgmmK0oNxxfsyUJ6i_mqL2fiRx3A0cFKk6cpQDnJVg-n-KFRH9o8HOnvbGgkHipDNsh_KsJhdk6f1CmYQCXGQHYBeqVTM_4QocB-fs-poeI_xwepKv5omfTFae2eXHrEA42BBNh1eB5Q7K6teu3PbDcx1SbE4aWj3KAcSf4ncE9QqfzazA4JUcmlSRDnlXMKHfRsPToOKrBlpVjyuJ5kBwKphBkOaq67FWvcmk32VKQy4v_1cxoYmBeqjDCef1RBHpxjZjCKz1_wDNdeTYNnDhC-TJLDrZMRwfwjyZtK-wrJvLknE_Se1sR7nMbVJFo90N5HOOA9obQDtwjSvjdZsOT8TEUqgxPwyV7CW4DQg7N39TGY2CRGda0HIjTLQfxzn2-HFSUwdr3geLJW2TpWTN0uLeT2RhgEIZwM5O6u6qLkUmJuzJd5tu54oblxJFF5XxQi8rCSjtAouAsU6d9yE2dlx5pXCMJ3Pp3Varu6h3CRAPiwO4_IlNpkp_slBDXqHZfCRg-pC48cFvM1ax71iN-OwQ0iWoVo-epNtQiJ26dm4Z6mEXD1Q6XdbNlMKWe7AzxGDuckL4079fVFIlKRVywtn8LIF77ST8cZNYa86T-w8ccnUWGlpApHxAd0gCq9X5dRPcfW4j1TKWoamIWs4DB1rMCMALAaeJe_9BayBEfH4tb92uIxHWHUfnyGHx6nWZFiH7V37w0vM3hLqXPCY30ufUSZyNiGjLnI3JPhVRnQfQLJRiiDzM_e4JZrvnxIWgn79tvdYhTNk_TYp7f9RYFp_FYOk-iUdYzm1ZXHKCuR-_YV4FGApZD3oeN927ngyy1QpJC85ZK275MAhAwS_anaFr207WndcBq0k1mtOSEe3jlw54LeOYYA7QXIWXX6o8ELoGdbQDPTASYZhEcAFbtDicWkefH2tjrreCQEE-bn2SgneAJPdthsvl1o1jh40LXIToDlQt8RFXR_5G_lJ0xD9xjMnpk34RdrddHYLG9SJyZjxGinfaKyQSqmYYjmFYXjbdeYQ2btwaGnApNV8NV2V2oYMRNCBGlQQ9v8sxdhDwea7pG1D6SwmzwMoiDv-w4VPuvXOKKD8SiV8EMQ3ATwpuSmXhyejTQV1T_Ux8jU2z7N6Iwzs9yI5ZrKjiajRvrZjII5oVqnvqrGWwsHveU2OcEmKr4qsc9Jez5d2A-vyvTEBAvwEd5a7JN4hOZT8Hicv6Ew3fqPP7YQeb4ThmwKlnsGYQ3_M8zNmbabkWAJ",
       },
@@ -433,7 +434,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         name: "김수빈",
         company: "비바리퍼블리카 (TOSS)",
         description:
-          "현재 비바리퍼블리카에서 서버 개발자로 일하고 있는 김수빈입니다. 저는 팀 내에서 다른 개발자 분들의 개발 생산성을 개선하는 플랫폼 엔지니어링을 주로 하고 있는데요, 그 과정에서 얻은 여러 경혐들을 공유 드리고자 합니다.",
+          "현재 비바리퍼블리카에서 서버 개발자로 일하고 있는 김수빈입니다. 저는 팀 내에서 다른 개발자 분들의 개발 생산성을 개선하는 플랫폼 엔지니어링을 주로 하고 있는데요, 그 과정에서 얻은 여러 경험들을 공유 드리고자 합니다.",
         profileImage:
           "https://lh3.googleusercontent.com/fife/AKsag4MYDZ6R9Vg13arCDpSkbrePrIox0POZZdKyCXebA9KqjQWeUUs8TfMTNlEfVaCheJDW6Z-t8ONATx1YHWPiweZppA34C7F8uvkaci7p2g34swAJPARIZcQF9K1yiXS7spGI430CFgWPL1YhHURwe7sm-0Dl7wNgKswZkhcrFgtCx8H8loqnjLBaYfSfEhrAIxmxpBqpb519eUyAAzyONwaxLOPRRAoGQeVr8-Bta2Z7S0iD5UVcQGRSjKBKo9yvv5rN3TzI_7yU7d3et_d_4E6ccVGV0XSuagLkrwosy0ZBkirmyKyRKoLKuBEHSPzflLLaanUvmnTpm_EtHRMvsWC1hsZt0xnxbCuNy0AfAXfa0dBsUk8vyxZzTK3BuZ6DfaE95hvN892NYxONSQ9usP1oXbx1XBrigIjOlrLgrfxGnYiy2diiITJfTbuCP9TV1JidySlj6-x6iWIRLqIINRESG_ezO-cXRHVGq3n8bfFHc_jUfuRzirxV07hMRfKBIDVSbwU2frT8dq_1udyjCsgkbI5yq1D4BTRDjuwA_tRxVCIEIzknQKtjVVap4x12j1stEpJvXiiReA_-6rNSqfMfAIotZvWLw7BcZVP3oZpBrKNOCJ1iPNHs4nw3gmUhmct25nKwr1KgEaDMfZIiUNTRpmXAKXyp53pYjRhvfYlLgJjzW4Gtlj3BRJQmnAvgX7q3HdotDup824Dml7e4cN3wS1ePwoQc2_pthcHzS9vJjzxTEJuDqu1A2_mOCSOofPDonL_EqxYdR_3mhsHe-1m98KgFmc5RCO-gjwKqX0wtZWKjWP62j9b2ixGUJ71hIJ5iqURjelb8CECZ0pAh3Fyf8dhSUL09r5Wyf7aj9niQoPWQp0DxBLck6ho3ppyTGKoVmqyDbBWvogHc83sRLlOcgqWGBrbNGNK7KVtS_jYjw-X8JLN-uz-icW4DLktalXhWsC_7m_6inBtS3J7bnnFZm4ch0XaP-TX4szeOv8jUn3fpAgY2rvn2j5g4lWxoKDCJ_DOBTlZU-OXtwxQ5sVKqMbzjuxuaHVP1LLN6oDcSn9eJpg9mvf_aUgIOZyJcvA9RrBkXytCxdsMmpAtV3cl5c-gXcCYz_Me7NxYi7pH-3TKjBoIE0XKFH1A0r11wxSA4cn57HOB7Y8yKLUpNlDURUJSXUGsYUbUQl8BrRt8joCDhvojGXSut_xD0rxSJmaP8PhYZu3djSiUJZenY0IcIp7Yqn3I2EAxCnEBSW3M1cHWpj75eT-QlmsztLkiFdW6U2ZkrTgqVcjqIUsX79QG8xCK45pQyZwZJWtLUM8vgIXW-DHc08SCbTx_F8hLfg7SO-6LzBd5_BleuvFVGBDr79pkZOPIBgNha5p0aqSGPauCEqCsn4Ev_VJM8-x0AGOVIjc12DursR34PupxS",
       },
@@ -498,7 +499,7 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
         company: "오스모시스",
         description:
           '분산 시스템, p2p 네트워킹, 그리고 블록체인을 사랑하는 Gopher입니다.\n \
-          현재 Osmosis에서 블록체인 엔지니어링을 맡고 있으며, 합의 알고리즘과 Proof-of-Stake(POS) 블록체인을 만들수 있는 오픈 소스 프레임워크를 개발하고 있습니다. 고언어 개발자를 위한 "버그 없는 프로그램을 만드는 방법:테스팅의 관점으로, 근데 이제 블록체인을 곁들인"를 주제로 한 발표를 준비해보았습니다. 버그없는 프로그램을 만드는 비밀에 대해 알려드리고 싶습니다.\n \
+          현재 Osmosis에서 블록체인 엔지니어링을 맡고 있으며, 합의 알고리즘과 Proof-of-Stake(POS) 블록체인을 만들 수 있는 오픈 소스 프레임워크를 개발하고 있습니다. 고 언어 개발자를 위한 "버그 없는 프로그램을 만드는 방법:테스팅의 관점으로, 근데 이제 블록체인을 곁들인"를 주제로 한 발표를 준비해보았습니다. 버그 없는 프로그램을 만드는 비밀에 대해 알려드리고 싶습니다.\n \
           －－＝＝(/･_･)/==≡≡卍',
         profileImage: "https://drive.google.com/uc?id=1gm2boS_ocpHDc0RB6qoR5agls14S363v",
       },

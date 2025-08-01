@@ -71,7 +71,7 @@ const timetableList: TimeTableProps[] = [
     day: "DAY 1",
     time: "11:30 - 12:00",
     title: {
-      ko: "Go언어 프로젝트 가이드 A-Z",
+      ko: "Go 언어 프로젝트 가이드 A-Z",
       en: "Go Project Guide A-Z",
     },
     desc: {
@@ -191,7 +191,7 @@ const timetableList: TimeTableProps[] = [
       en: "Developing Monitoring Services with Golang Web Framework Gin",
     },
     desc: {
-      ko: `- Golang web framework인 gin을 모니터링하기 위한 gin미들웨어(metric, trace)를 개발하는 방법에 대해 공유드립니다.
+      ko: `- Golang web framework인 gin을 모니터링하기 위한 gin 미들웨어(metric, trace)를 개발하는 방법에 대해 공유드립니다.
 - gin 미들웨어에 대한 기본적인 개념과 web framework를 모니터링하려면 어떤 지표가 필요한지에 대한 설명이 포함됩니다.
 - 실제로 개발한 미들웨어를 간단한 어플리케이션들에 적용시켜 모니터링을 해보는 데모도 준비가 되어있습니다.`,
       en: `- I'll share how to build monitoring solutions for the Gin web framework using custom-built middleware for metrics and trace.
@@ -260,7 +260,7 @@ const timetableList: TimeTableProps[] = [
     day: "DAY 1",
     time: "16:00 - 17:00",
     title: {
-      ko: "k8s LMA venti-stack 개발기 파트: 2",
+      ko: "k8s LMA venti-stack 개발기 파트 2",
       en: "K8s LMA Venti-Stack Development Part 2",
     },
     desc: {
@@ -393,7 +393,7 @@ const timetableList: TimeTableProps[] = [
       en: "Building Go Server Architecture of Challengers with a Side of Rebranding",
     },
     desc: {
-      ko: `- 스폰서 세션이라 결국 회사에 대한 얘기도 해야하기 때문에 너무 테크니컬한 주제보다는 회사의 이야기를 주로 할 예정입니다.
+      ko: `- 스폰서 세션이라 결국 회사에 대한 얘기도 해야 하기 때문에 너무 테크니컬한 주제보다는 회사의 이야기를 주로 할 예정입니다.
 - 회사가 리브랜딩 과정에서 고퍼로서 느낄 수 있었던 점들을, 같은 고민을 해본 적 있거나 앞으로 할 사람들과 가볍게 공유하는 자리를 가지려고 합니다.`,
       en: `- As this is a sponsor session, the focus will be more on the company rather than diving too deep into technical topics.
 - I plan to share my experiences and thoughts on the rebranding process from the perspective of a Gopher, with those who have faced or will face similar challenges.`,
@@ -406,7 +406,7 @@ const timetableList: TimeTableProps[] = [
         en: "Whitecube / Challengers",
       },
       intro: {
-        ko: `- 백엔드 개발 경력 9년 차에 접어들고, Go를 사용한지는 5년이 조금 안되었습니다.
+        ko: `- 백엔드 개발 경력 9년 차에 접어들고, Go를 사용한 지는 5년이 조금 안되었습니다.
 - 이번이 컨퍼런스 발표 경험이나 기타 활동을 해보는 첫 번째 기회입니다.`,
         en: `- I have nearly 9 years of experience in backend development and have been using Go for just under 5 years.
 - This is my first time speaking at a conference or participating in similar activities.`,

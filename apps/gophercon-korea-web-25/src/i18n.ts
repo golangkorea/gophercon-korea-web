@@ -262,12 +262,12 @@ const resources = {
         list_desc:
           "GopherCon Korea is made possible by a dedicated team of volunteers from the Go community. Meet the passionate individuals who work tirelessly to bring this event to life.",
         list: [
-          { name: "Jechang Park", role: "Organizer", avatar: "jaichang-park" },
-          { name: "Euisun You", role: "Organizer", avatar: "uiseon-yu" },
+          { name: "Jaichang Park", role: "Organizer", avatar: "jaichang-park" },
+          { name: "Uiseon Yu", role: "Organizer", avatar: "uiseon-yu" },
           { name: "Jaegyu Lee", role: "Organizer", avatar: "jq-lee" },
-          { name: "Jinseok Lee", role: "Organizer", avatar: "jhin-lee" },
+          { name: "Jhinseok Lee", role: "Organizer", avatar: "jhin-lee" },
           { name: "Hyunseo Jeong", role: "Organizer", avatar: "hyunseo-jung" },
-          { name: "Seongmin Han", role: "Organizer", avatar: "sungmin-han" },
+          { name: "Sungmin Han", role: "Organizer", avatar: "sungmin-han" },
           { name: "Wooseok Han", role: "Organizer", avatar: "wooseok-han" },
         ],
       },
@@ -693,7 +693,7 @@ const resources = {
       about: {
         title: "Golang Korea와 GopherCon Korea",
         content:
-          "Golang Korea는 한국의 Go 언어 개발자 커뮤니티입니다. 약 7,800명의 구성원으로 이루어져있는 Golang Korea 커뮤니티는, Go 프로그래밍 언어에 대해서 지식을 공유하거나 이야기 할 수 있는 장을 만들어나가고 있으며, 연례 행사 GopherCon Korea를 주관합니다.",
+          "Golang Korea는 한국의 Go 언어 개발자 커뮤니티입니다. 약 7,800명의 구성원으로 이루어져 있는 Golang Korea 커뮤니티는, Go 프로그래밍 언어에 대해서 지식을 공유하거나 이야기 할 수 있는 장을 만들어나가고 있으며, 연례 행사 GopherCon Korea를 주관합니다.",
         content2:
           "Go 언어 사용자의 최대 크기의 연례 행사인 고퍼콘(GopherCon)이 2014년 시작해 세계 각국에서 매년 열리고 있습니다. Golang Korea에서는 2023년 8월 국내에서 최초로 GopherCon Korea 2023을 성공적으로 개최하였습니다. GopherCon Korea는 앞으로도 국내 Go 개발자들의 최대 축제로 만들어 건강한 Go 생태계를 마련하고자 합니다.",
         slogan: "Go for Everyone, Everywhere",
@@ -727,7 +727,7 @@ const resources = {
         titleCoreDesc:
           "GopherCon Korea 2025 행사는 직장인 학생을 나누지 않고 다 함께 모여 네트워킹과 이벤트를 참여할 수 있는 단체입니다. 행사가 참여자 모두에게 좋은 경험과 즐거움이 되길 바라며 이에 따라 아래와 같은 행동 강령을 요청드립니다.",
         titleCoreDesc2:
-          "행동강령은 GopherCon Korea 2025 행사의 모든 참여자에게 해당하며 위반 시 운영진, 스태프로 부터 퇴장 등의 제재를 받을 수 있습니다. 또한, 행동강령 위반 사례에 대한 내용은 공개될 수 있습니다.",
+          "행동강령은 GopherCon Korea 2025 행사의 모든 참여자에게 해당하며 위반 시 운영진, 스태프로부터 퇴장 등의 제재를 받을 수 있습니다. 또한, 행동강령 위반 사례에 대한 내용은 공개될 수 있습니다.",
         titleCoreStatement1: "친절과 배려로 따뜻하고 건전한 커뮤니티를 만들어갑니다.",
         titleCoreStatement1Unit1: "우리는 혐오와 차별적인 표현, 공격적인 발언을 하지 않습니다.",
         titleCoreStatement1Unit2:
@@ -747,7 +747,7 @@ const resources = {
         titleParticipantsStatement1Unit2Sub1Unit1: "예시: 동의 없이 손을 잡거나 어깨동무를 하는 행위 등.",
         titleParticipantsStatement1Unit2Sub2: "대화에 욕설, 비속어, 은어를 포함하지 마세요.",
         titleParticipantsStatement1Unit2Sub2Unit1:
-          "가까운 지인과이 대화이더라도 주변 사람에게 불편함을 주거나 위협이 될 수 있습니다.",
+          "가까운 지인과의 대화이더라도 주변 사람에게 불편함을 주거나 위협이 될 수 있습니다.",
         titleParticipantsStatement1Unit2Sub3:
           "화를 내거나 과격한 몸짓, 언성을 높이는 행위 등으로 상대방을 위협하지 마세요.",
         titleParticipantsStatement1Unit2Sub4:
@@ -771,7 +771,7 @@ const resources = {
         titleParticipantsStatement1Unit3Sub5: "타인의 명시적인 허가 없이 무단으로 타인의 사진을 촬영하지 않습니다.",
         titleParticipantsStatement2: "B) 대응 및 조치",
         titleParticipantsStatement2Desc:
-          "행사에 참여하며, 다른 참여자 분께 어떠한 문제가 발생하거나 다른 참여자 분께서 문제에 처한 것을 보셨거나, 불편 사항이 있으시면 GopherCon Korea 준비위원회(이하 준비위)에게 도움을 요청해 주세요. 위급한 사항이라면 준비위에게 도움을 청함과 동시에 경찰, 소방서 등 도움이 필요한 관할 기간에 신고하여 주세요.",
+          "행사에 참여하며, 다른 참여자 분께 어떠한 문제가 발생하거나 다른 참여자 분께서 문제에 처한 것을 보셨거나, 불편 사항이 있으시면 GopherCon Korea 준비위원회(이하 준비위)에게 도움을 요청해 주세요. 위급한 사항이라면 준비위에게 도움을 청함과 동시에 경찰, 소방서 등 도움이 필요한 관할 기관에 신고하여 주세요.",
         titleParticipantsStatement2Unit1: "대표 연락처: gophercon-korea-staffs@googlegroups.com",
         titleParticipantsStatement2Unit2:
           "오프라인 공간에서 준비위는 준비위임을 인지할 수 있는 눈에 띄는 복장을 입고 있을 것입니다. 온라인 공간 혹은 대면으로 이야기할 수 없는 상태인 경우에는 상단의 메일을 통해 연락하실 수 있습니다.",
@@ -1045,17 +1045,17 @@ const resources = {
         closing_sincerely: "Golang Korea 드림",
         about_gophercon_title: "고퍼콘에 대하여",
         about_gophercon_content:
-          "Go 언어 사용자들을 고퍼(Gopher)라고 부르며, 고퍼들을 위해 세계 각국의 Go언어 커뮤니티에서 주관하는 연례행사인 GopherCon이 2014년 시작해 미국, 독일, 영국, 중국, 일본, 브라질, 이스라엘, 인도, 캐나다, 이탈리아, 싱가포르 등 세계 각국에서 매년 열리고 있습니다.\n국내에서는 다가오는 11월 9일에 GopherCon Korea 2025를 개최할 예정입니다.",
+          "Go 언어 사용자들을 고퍼(Gopher)라고 부르며, 고퍼들을 위해 세계 각국의 Go 언어 커뮤니티에서 주관하는 연례 행사인 GopherCon이 2014년 시작해 미국, 독일, 영국, 중국, 일본, 브라질, 이스라엘, 인도, 캐나다, 이탈리아, 싱가포르 등 세계 각국에서 매년 열리고 있습니다.\n국내에서는 다가오는 11월 9일에 GopherCon Korea 2025를 개최할 예정입니다.",
         timeline_title: "후원 일정",
         timeline_schedule:
           "일정 : 후원신청서 등록/검증 (8~9월) ➡️ 후원사 확정 안내 및 전자계약 (상호 협의) ➡️ 후원금 입금 마감 (상호 협의) ➡️ 후원사 참여 안내 및 홍보",
         timeline_registration:
-          "등록 : 후원 신청 시 후원사 검증을 거쳐 1주 이내 등록 결과를 공유하며, 신청시간을 기준으로 구좌별 선착순 등록을 원칙으로 합니다. 전자계약 후 2주 이내 입금이 완료된 이후 후원사로 최종 확정됩니다.",
+          "등록 : 후원 신청 시 후원사 검증을 거쳐 1주 이내 등록 결과를 공유하며, 신청 시간을 기준으로 구좌별 선착순 등록을 원칙으로 합니다. 전자계약 후 2주 이내 입금이 완료된 이후 후원사로 최종 확정됩니다.",
         timeline_contact:
           "문의 : 후원과 관련한 혜택, 방식 등의 내용에 대해서는 GopherCon Korea 2025 주최 측과 긴밀한 협의가 가능합니다. (golang-korea-organizers@googlegroups.com)",
         process_title: "후원 절차",
         process_intro:
-          "후원은 폼을 기입하고 나서 4단계로 진행됩니다.\n(*커뮤니티 및 출판사 구좌의 경우 절차가 설명보다 약식화 되어 진행됩니다.)",
+          "후원은 폼을 기입하고 나서 4단계로 진행됩니다.\n(*커뮤니티 및 출판사 구좌의 경우 절차가 설명보다 약식화되어 진행됩니다.)",
         process_steps: [
           { title: "후원 논의", desc: "후원에 대한 문의 답변 및 이후 절차 안내를 위한 메일 송부가 진행됩니다." },
           { title: "계약 진행", desc: "전자 결재를 통한 서명을 통해 후원 계약을 진행합니다." },
@@ -1088,7 +1088,7 @@ const resources = {
           {
             title: "제4조 후원 계약의 해지 및 후원 금액의 일부 취소",
             content:
-              "후원사는 Golang Korea에게 다음 각 호의 기간에 따른 위약금을 지급하고 후원 계약을 해지할 수 있으며, 이미 후원금을 지급한 경우 Golang Korea는 위약금을 제외한 후원금을 반환합니다. 단, 후원 금액 중 일부를 취소하는 경우 취소를 요청한 금액에 다음 각 호에 따른 위약금 산정 비율이 적용됩니다. 후원 서비스 제공의 경우, 후원사의 상용 서비스의 금액을 기준으로 후원 금액을 산정하여 적용합니다.\n\n- 위약금 산정-\n1.  계약 체결일 - 행사일 90일 전 : 후원금액의 10%\n2.  행사일 89일 - 행사일 60일 전 : 후원금액의 20%\n3.  행사일 59일 - 행사일 30일 전 : 후원금액의 50%\n4.  행사일 29일 - 행사일 8일 전 : 후원금액의 80%\n5.  행사일 7일 전 – 행사 당일 : 후원금액의 100%",
+              "후원사는 Golang Korea에게 다음 각 호의 기간에 따른 위약금을 지급하고 후원 계약을 해지할 수 있으며, 이미 후원금을 지급한 경우 Golang Korea는 위약금을 제외한 후원금을 반환합니다. 단, 후원 금액 중 일부를 취소하는 경우 취소를 요청한 금액에 다음 각 호에 따른 위약금 산정 비율이 적용됩니다. 후원 서비스 제공의 경우, 후원사의 상용 서비스의 금액을 기준으로 후원 금액을 산정하여 적용합니다.\n\n- 위약금 산정 -\n1.  계약 체결일 - 행사일 90일 전 : 후원금액의 10%\n2.  행사일 89일 - 행사일 60일 전 : 후원금액의 20%\n3.  행사일 59일 - 행사일 30일 전 : 후원금액의 50%\n4.  행사일 29일 - 행사일 8일 전 : 후원금액의 80%\n5.  행사일 7일 전 – 행사 당일 : 후원금액의 100%",
           },
           {
             title: "제5조 행동강령 위반에 따른 후원 계약의 해지 및 손해배상",

@@ -32,7 +32,7 @@ export const sessions: Session[] = [
     },
     speaker: {
       name: { en: "I. M. Gopher", ko: "임고퍼" },
-      company: { en: "Error-Free Solutions", ko: "에러없는 솔루션" },
+      company: { en: "Error-Free Solutions", ko: "에러 없는 솔루션" },
       intro: {
         en: "An evangelist for explicit error handling. Believes that a well-handled error is a feature, not a bug.",
         ko: "명시적 에러 핸들링의 전도사. 잘 처리된 에러는 버그가 아닌 기능이라고 믿습니다.",
