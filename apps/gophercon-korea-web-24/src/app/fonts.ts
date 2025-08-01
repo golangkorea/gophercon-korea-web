@@ -1,4 +1,4 @@
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 
 const pretendard = localFont({
   src: [
@@ -77,4 +77,4 @@ const jakartaSans = localFont({
 const jakartaSans_fontFamily = jakartaSans.style.fontFamily;
 const pretendard_fontFamily = pretendard.style.fontFamily;
 
-export { pretendard, jakartaSans, jakartaSans_fontFamily, pretendard_fontFamily };
+export { jakartaSans, jakartaSans_fontFamily, pretendard, pretendard_fontFamily };
