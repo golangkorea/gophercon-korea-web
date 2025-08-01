@@ -82,35 +82,12 @@ const HeroSection = styled.div`
 const MainTitle = styled.h1`
   font-size: 6rem;
   font-weight: 900;
-  background: linear-gradient(45deg, #007d9c, #00c9a7);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
->>>>>>> Stashed changes
-=======
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
->>>>>>> Stashed changes
-  color: transparent;
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1rem;
   letter-spacing: -1px;
 
   span {
     display: inline-block;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    background: inherit;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     opacity: 0;
     animation-name: ${letterAnimation};
     animation-duration: 0.6s;
