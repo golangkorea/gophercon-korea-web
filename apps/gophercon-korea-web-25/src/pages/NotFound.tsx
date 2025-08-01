@@ -208,14 +208,18 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       const moveX = joystickRef.current.dx * 7;
       playerRef.current.x += moveX;
       playerRef.current.rotation = moveX * 0.05;
+      playerRef.current.y += joystickRef.current.dy * 5;
     } else {
       let moveX = 0;
       if (keysPressed.current["ArrowLeft"]) moveX = -7;
       if (keysPressed.current["ArrowRight"]) moveX = 7;
       playerRef.current.x += moveX;
       playerRef.current.rotation = moveX * 0.05;
+      if (keysPressed.current["ArrowUp"]) playerRef.current.y -= 5;
+      if (keysPressed.current["ArrowDown"]) playerRef.current.y += 5;
     }
     playerRef.current.x = Math.max(10, Math.min(canvas.width - PLAYER_WIDTH - 10, playerRef.current.x));
+    playerRef.current.y = Math.max(10, Math.min(canvas.height - PLAYER_HEIGHT - 30, playerRef.current.y));
 
     bulletsRef.current = bulletsRef.current.map((b) => ({ ...b, y: b.y - 10 })).filter((b) => b.y > 0);
     enemyBulletsRef.current = enemyBulletsRef.current
@@ -436,6 +440,7 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
   const handleJoystickStart = (e: React.TouchEvent<HTMLDivElement>) => {
     joystickRef.current.active = true;
     joystickRef.current.startX = e.touches[0].clientX;
+    joystickRef.current.startY = e.touches[0].clientY;
   };
 
   const handleJoystickMove = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -443,11 +448,16 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
     const currentX = e.touches[0].clientX;
     const dx = currentX - joystickRef.current.startX;
     joystickRef.current.dx = Math.max(-1, Math.min(1, dx / 50));
+
+    const currentY = e.touches[0].clientY;
+    const dy = currentY - joystickRef.current.startY;
+    joystickRef.current.dy = Math.max(-1, Math.min(1, dy / 50));
   };
 
   const handleJoystickEnd = () => {
     joystickRef.current.active = false;
     joystickRef.current.dx = 0;
+    joystickRef.current.dy = 0;
   };
 
   return (
@@ -464,7 +474,9 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
       {isMobile && !isGameOver && (
         <MobileControls>
           <Joystick onTouchStart={handleJoystickStart} onTouchMove={handleJoystickMove} onTouchEnd={handleJoystickEnd}>
-            <JoystickKnob style={{ transform: `translateX(${joystickRef.current.dx * 20}px)` }} />
+            <JoystickKnob
+              style={{ transform: `translate(${joystickRef.current.dx * 20}px, ${joystickRef.current.dy * 20}px)` }}
+            />
           </Joystick>
           <FireButton onTouchStart={fireBullet} />
         </MobileControls>
