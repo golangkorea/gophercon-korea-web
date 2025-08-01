@@ -1,9 +1,9 @@
 "use client";
 
+import Section from "@/components/Section";
+import styled from "@emotion/styled";
 import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import styled from "styled-components";
-import Section from "@/components/Section";
 
 const syntaxStyle: { [key: string]: React.CSSProperties } = {
   'code[class*="language-"]': {
