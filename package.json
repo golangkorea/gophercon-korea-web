@@ -3,18 +3,21 @@
   "private": true,
   "version": "1.0.0",
   "license": "MIT",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
   "scripts": {
-    "web23": "yarn workspace gophercon-korea-web-23",
-    "web24": "yarn workspace gophercon-korea-web-24"
+    "dev:23": "pnpm --filter gophercon-korea-web-23 dev",
+    "dev:24": "pnpm --filter gophercon-korea-web-24 dev",
+    "dev:25": "pnpm --filter gophercon-korea-web-25 dev",
+    "build:23": "pnpm --filter gophercon-korea-web-23... build",
+    "build:24": "pnpm --filter gophercon-korea-web-24... build",
+    "build:25": "pnpm --filter gophercon-korea-web-25... build"
   },
   "devDependencies": {
+<<<<<<< Updated upstream
     "eslint": "8.57.0",
     "eslint-config-react-app": "^7.0.1",
     "lint-staged": "^15.2.9",
+=======
+>>>>>>> Stashed changes
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   },
@@ -32,5 +35,10 @@
       "eslint --fix"
     ]
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "pnpm": {
+    "overrides": {
+      "@types/react": "18.3.3",
+      "@types/react-dom": "18.3.0"
+    }
+  }
 }

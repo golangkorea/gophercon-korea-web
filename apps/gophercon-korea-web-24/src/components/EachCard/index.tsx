@@ -1,5 +1,9 @@
-import { jakartaSans_fontFamily } from "@/app/fonts";
 import { TimeTableProps } from "@/app/[locale]/programs/data";
+import { jakartaSans_fontFamily } from "@/app/fonts";
+<<<<<<< Updated upstream
+import { TimeTableProps } from "@/app/[locale]/programs/data";
+=======
+>>>>>>> Stashed changes
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import { Flex, Text } from "gophercon-common";

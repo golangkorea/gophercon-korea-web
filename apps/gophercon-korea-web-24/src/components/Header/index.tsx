@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< Updated upstream
 import LogoSVG from "@/assets/logo.svg";
 import CustomLink from "@/components/CustomLink";
 import { GlobalContext } from "@/components/ThemeProvider";
@@ -9,6 +10,17 @@ import { Flex, Text } from "gophercon-common";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useContext, useState } from "react";
+=======
+import LogoSVG from "@/assets/logo.svg";
+import CustomLink from "@/components/CustomLink";
+import { GlobalContext } from "@/components/ThemeProvider";
+import { useCheckMobile } from "@/hooks/useMediaquery";
+import styled from "@emotion/styled";
+import { Flex, Text } from "gophercon-common";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import React, { useContext, useState } from "react";
+>>>>>>> Stashed changes
 
 export interface LinkStyledProps {
   active?: boolean;

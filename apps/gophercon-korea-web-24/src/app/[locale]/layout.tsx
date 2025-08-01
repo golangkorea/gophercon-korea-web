@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";
+import GopherCon24Styles from "@/app/[locale]/styles";
+>>>>>>> Stashed changes
 import { jakartaSans, pretendard } from "@/app/fonts";
 import defaultMetadata from "@/app/metadata";
 import { getDictionary, LocaleType } from "@/app/[locale]/dictionaries/dictionaries";

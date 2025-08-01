@@ -7,7 +7,11 @@ import styled from "@emotion/styled";
 import { Space, Text } from "gophercon-common";
 import Image from "next/image";
 import { FC, useContext } from "react";
+<<<<<<< Updated upstream
 import { goodsList, GoodsProps } from "./data";
+=======
+import { GoodsProps, goodsList } from "./data";
+>>>>>>> Stashed changes
 
 const MarketContainer = styled.div({
   width: "100%",
