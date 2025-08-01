@@ -2,17 +2,19 @@
   "name": "gophercon-common",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "echo 'build script not implemented yet'"
+  },
+  "dependencies": {
+    "emotion-reset": "^3.0.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "@emotion/react": "^11.13.3"
   },
   "devDependencies": {
+    "@types/react": "^18.3.3",
     "typescript": "^5.5.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "next/core-web-vitals"
-    ]
   }
 }
