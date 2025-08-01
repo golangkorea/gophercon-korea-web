@@ -8,9 +8,13 @@ import { Space, Text } from "gophercon-common";
 import Image from "next/image";
 import { FC, useContext } from "react";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { goodsList, GoodsProps } from "./data";
 =======
 import { GoodsProps, goodsList } from "./data";
+>>>>>>> Stashed changes
+=======
+import { goodsList, GoodsProps } from "./data";
 >>>>>>> Stashed changes
 
 const MarketContainer = styled.div({

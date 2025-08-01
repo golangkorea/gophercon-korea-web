@@ -362,7 +362,11 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
 
     animationFrameId.current = requestAnimationFrame(gameLoop);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   }, [isGameOver, isMobile, score]);
+=======
+  }, [isGameOver, isMobile]);
+>>>>>>> Stashed changes
 =======
   }, [isGameOver, isMobile]);
 >>>>>>> Stashed changes
