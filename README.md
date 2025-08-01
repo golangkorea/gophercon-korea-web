@@ -1,37 +1,73 @@
-# Gophercon Korea Websites
+# GopherCon Korea Web Monorepo
 
-위 프로젝트는 각 연도별 `gophercon korea website` 를 효율적으로 관리하기 위한 모노레포입니다.
+This project is a monorepo for managing GopherCon Korea websites.
 
-## 시작하기
+## Tech Stack
 
-1. 루트 디렉토리에서 `yarn`
+- **Package Manager**: PNPM Workspaces
+- **Language**: TypeScript
+- **Linting/Formatting**: ESLint, Prettier
 
-2. 원하는 연도의 프로젝트를 실행
-   - ex) `yarn web23 dev` : 23년도 프로젝트를 dev 모드로 실행
-   - ex) `yarn web24 start` : 24년도 프로젝트를 production 모드로 실행
+## Project Structure
 
-## 폴더 구조
+- `apps/`: Contains the website applications for each year.
+  - `gophercon-korea-web-23`: Next.js
+  - `gophercon-korea-web-24`: Next.js
+  - `gophercon-korea-web-25`: React
+- `packages/`: Contains shared packages used across multiple apps.
+  - `gophercon-common`: Common components and utilities
 
-```
-.husky
-apps       
-│  ├── gophercon-korea-web-23
-│  └── gophercon-korea-web-24
-node_modules
-packages
-│  └── gophercon-common
-│      ├── src   
-│      │   ├── style
-│      │   └── ui
-│      ├── index.ts
-│      └── package.json
-.eslintrc.json
-.gitignore
-.prettierrc
-package.json
-tsconfig.json
-yarn.lock
+## Getting Started
+
+### 1. Install Dependencies
+
+Run the following command from the project root directory.
+
+```bash
+pnpm install
 ```
 
-- packages의 경우 gopeher-common의 src내 style과 ui 관련 컴포넌트를 apps 내부에서 사용하기 위해 의존성 첨부함
-- 외부적으로 통일할 필요가 있는 설정인 경우 루트 디렉토리에 함께 설정함
+### 2. Build Shared Packages
+
+You must build the `gophercon-common` package first so that other apps can use it.
+
+```bash
+pnpm --filter gophercon-common build
+```
+
+### 3. Run Development Server
+
+Run the development server for a specific year's website.
+
+```bash
+# Run the 2025 website
+pnpm dev:25
+```
+
+## Deployment
+
+Each application in the apps directory can be deployed separately to Vercel.
+When setting up a new Vercel project, make sure to configure it from the monorepo root.
+
+### Build & Development Settings
+
+Here are the recommended settings for each project on Vercel:
+
+#### gophercon-korea-web-25 (Create React App)
+
+- Build Command: `pnpm build:25`
+- Output Directory: `apps/gophercon-korea-web-25/build`
+
+#### gophercon-korea-web-24 (Next.js)
+
+- Build Command: `pnpm build:24`
+- Output Directory: `.next`
+  (Vercel will automatically detect this when the framework is set to Next.js)
+
+#### gophercon-korea-web-23 (Next.js)
+
+- Build Command: `pnpm build:23`
+- Output Directory: `.next`
+  (Vercel will automatically detect this when the framework is set to Next.js)
+
+The `build:*` scripts in the root package.json ensure that both the target application and its local dependencies (like gophercon-common) are built correctly.

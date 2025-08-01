@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Static Pages -->
+  <url>
+    <loc>https://gophercon.kr/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/about</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/about?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/about?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/program/sessions</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/program/sessions?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/program/sessions?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/program/schedule</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/program/schedule?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/program/schedule?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/organizers</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/organizers?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/organizers?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/sponsorship/guide</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/sponsorship/guide?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/sponsorship/guide?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/sponsorship/form</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/sponsorship/form?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/sponsorship/form?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/sponsorship/faq</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/sponsorship/faq?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/sponsorship/faq?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/venue</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/venue?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/venue?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/coc</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/coc?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/coc?lang=en" />
+  </url>
+
+  <!-- Dynamic Session Pages (TBD) -->
+  <url>
+    <loc>https://gophercon.kr/program/sessions/TBD-1</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/program/sessions/TBD-1?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/program/sessions/TBD-1?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/program/sessions/TBD-2</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/program/sessions/TBD-2?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/program/sessions/TBD-2?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/program/sessions/TBD-3</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/program/sessions/TBD-3?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/program/sessions/TBD-3?lang=en" />
+  </url>
+  <url>
+    <loc>https://gophercon.kr/program/sessions/TBD-4</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gophercon.kr/program/sessions/TBD-4?lang=ko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gophercon.kr/program/sessions/TBD-4?lang=en" />
+  </url>
+</urlset>

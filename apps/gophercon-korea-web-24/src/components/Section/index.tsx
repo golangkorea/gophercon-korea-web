@@ -10,9 +10,11 @@ interface SectionProps {
 }
 
 const SectionContainer = styled.section({
+  padding: "140px 0 80px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  overflow: "hidden",
 });
 
 const Section: React.FC<SectionProps> = ({ className, style, children }) => (

@@ -1,14 +1,18 @@
 {
   "nav": {
-    "previousGopherCon": "Previous GopherCon",
-    "coc": "Code of Conduct (CoC)",
-    "register": "Register"
+    "previousGopherCon": "GopherCon 2023",
+    "coc": "CoC",
+    "register": "Register",
+    "sponsor": "Sponsors",
+    "programs": "Programs",
+    "market": "Market",
+    "youtube": "Watch GopherCon Korea 2024 Live!"
   },
   "home": {
-    "prepare": {
-      "title": "October 12th to 13th, a festival for Go developers in Korea",
-      "subTitle": "See you soon at The Rit in Misa, Hanam City!"
-    }
+    "title1": "A Festival for Go Language Developers,",
+    "title2": "Welcome to GopherCon Korea!",
+    "title3": "Are you ready for the trip?",
+    "CTABTN": "Go to the event ticket page"
   },
   "CoC": {
     "title": "GopherCon Korea 2024 Code of Conduct (CoC)",
@@ -72,7 +76,7 @@
     "titleParticipantsStatement4Desc2": "Alternatively, please be advised that we may take necessary action not mentioned above."
   },
   "sponsor": {
-    "cart": "Toevoegen aan Winkelwagen"
+    "cta": "Homepage"
   },
   "festival_intro": {
     "cart": "Toevoegen aan Winkelwagen"
@@ -80,8 +84,11 @@
   "festival_staffs": {
     "cart": "Toevoegen aan Winkelwagen"
   },
+  "market": {
+    "title": "FLEA MARKET"
+  },
   "timetable": {
-    "detail": "detail",
+    "detail": "Detail",
     "nav_next": "Next",
     "nav_before": "Previous"
   }

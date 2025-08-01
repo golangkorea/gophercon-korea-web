@@ -1,6 +1,6 @@
-import { FC, memo } from "react";
+import timetableList from "@/app/[locale]/programs/data";
 import styled from "@emotion/styled";
-import cardList from "./data";
+import { FC, memo } from "react";
 import { EachCard } from "../EachCard";
 
 type CarouselDirection = "left" | "right";
@@ -9,16 +9,18 @@ interface CarouselProps {
   direction?: CarouselDirection;
 }
 
+const speakerList = timetableList.filter((el) => !el.isSponsor && el.speaker && el.diff);
+
 const CarouselComponent: FC<CarouselProps> = ({ direction = "left" }: CarouselProps) => {
   return (
     <CarouselContainer>
       <CarouselInner direction={direction}>
-        {cardList.map((data, idx) => (
-          <EachCard {...data} key={`${data.name}-${idx}`} />
+        {speakerList.map((data, idx) => (
+          <EachCard {...data} key={`${data.time}-${idx}`} />
         ))}
         {/* 카드를 반복하여 무한 스크롤처럼 보이게 함 */}
-        {cardList.map((data, idx) => (
-          <EachCard {...data} key={`repeat-${data.name}-${idx}`} />
+        {speakerList.map((data, idx) => (
+          <EachCard {...data} key={`repeat-${data.time}-${idx}`} />
         ))}
       </CarouselInner>
     </CarouselContainer>
@@ -27,17 +29,15 @@ const CarouselComponent: FC<CarouselProps> = ({ direction = "left" }: CarouselPr
 
 export const Carousel = memo(CarouselComponent);
 
-const CarouselContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 387px;
-  transform: rotate(10deg);
-`;
+const CarouselContainer = styled.div({
+  display: "flex",
+  width: "100%",
+  transform: "rotate(10deg)",
+});
 
 const CarouselInner = styled.div<{ direction: CarouselDirection }>`
   display: flex;
   gap: 40px;
-  position: absolute;
   left: 0px;
   animation: ${({ direction }) => (direction === "right" ? "scroll-right" : "scroll-left")} 20s linear infinite;
 

@@ -34,10 +34,6 @@ export default function Document() {
         <meta name='description' content={description} />
         <meta name='twitter:description' content={description} />
 
-        <meta name='twitter:card' content='summary_large_image' />
-        {/*<meta name='twitter:image' content={"/ogImage.png"} />*/}
-        {/*<meta property='og:image' content={"/ogImage.png"} />*/}
-
         <meta name='twitter:card' content='summary' />
 
         <meta name='keywords' content='Golang, Gopher, GopherCon Korea, 고퍼콘, 고퍼콘 코리아' />

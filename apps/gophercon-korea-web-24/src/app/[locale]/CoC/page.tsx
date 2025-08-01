@@ -1,9 +1,13 @@
 "use client";
 
-import Content from "@/components/Content";
+import Section from "@/components/Section";
 import { GlobalContext } from "@/components/ThemeProvider";
 import styled from "@emotion/styled";
 import { useContext } from "react";
+
+const Inner = styled.div({
+  padding: "0px 80px",
+});
 
 const COCSection = styled.section({
   marginBottom: 80,
@@ -12,8 +16,8 @@ const COCSection = styled.section({
 export default function CoC() {
   const { dict } = useContext(GlobalContext) as any;
   return (
-    <>
-      <Content>
+    <Section>
+      <Inner>
         <h1>{dict["CoC"]["title"]}</h1>
         <h2>{dict["CoC"]["titleCore"]}</h2>
         <COCSection>
@@ -150,7 +154,7 @@ export default function CoC() {
           </ul>
           {dict["CoC"]["titleParticipantsStatement4Desc2"]}
         </COCSection>
-      </Content>
-    </>
+      </Inner>
+    </Section>
   );
 }

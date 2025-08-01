@@ -1,14 +1,18 @@
 {
   "nav": {
-    "previousGopherCon": "지난 고퍼콘 보기",
-    "coc": "행동 강령 (CoC)",
-    "register": "등록하기"
+    "previousGopherCon": "GopherCon 2023",
+    "coc": "CoC",
+    "register": "등록하기",
+    "sponsor": "스폰서",
+    "programs": "프로그램",
+    "market": "플리마켓",
+    "youtube": "GopherCon Korea 2024 라이브 보기"
   },
   "home": {
-    "prepare": {
-      "title": "10월 12일 ~ 13일, Go 개발자들의 축제",
-      "subTitle": "하남시 미사, 더 릿에서 곧 만나요!"
-    }
+    "title1": "Go 언어 개발자의 축제",
+    "title2": "고퍼콘 코리아에 어서오세요!",
+    "title3": "여행 준비는 되셨나요?",
+    "CTABTN": "행사 티켓 페이지로 이동"
   },
   "CoC": {
     "title": "GopherCon Korea 2024 행동강령 (CoC)",
@@ -72,7 +76,7 @@
     "titleParticipantsStatement4Desc2": "혹은 위에 언급되지 않았으나 필요한 조치가 이루어질 수 있음을 공지드립니다."
   },
   "sponsor": {
-    "cart": "Toevoegen aan Winkelwagen"
+    "cta": "홈페이지 가기"
   },
   "festival_intro": {
     "cart": "Toevoegen aan Winkelwagen"
@@ -80,8 +84,11 @@
   "festival_staff": {
     "cart": "Toevoegen aan Winkelwagen"
   },
+  "market": {
+    "title": "플리마켓"
+  },
   "timetable": {
-    "detail": "프로그램 상세",
+    "detail": "상세",
     "nav_next": "다음 세션",
     "nav_before": "이전 세션"
   }
