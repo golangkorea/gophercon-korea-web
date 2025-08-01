@@ -1,4 +1,5 @@
 import LogoSVG from "@/assets/logo.svg";
+import LogoGopherSVG from "@/assets/logoGopher.svg";
 import GNB from "@/components/layout/GNB";
 import MobileNav from "@/components/layout/MobileNav";
 import styled from "@emotion/styled";
@@ -6,10 +7,6 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RiCloseLine, RiMenuLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-
-const breakpoints = {
-  tablet: "1024px",
-};
 
 const Header = () => {
   const { i18n } = useTranslation();
@@ -22,7 +19,8 @@ const Header = () => {
     <>
       <HeaderContainer>
         <Logo to='/'>
-          <img src={LogoSVG} alt='GopherCon Korea Logo' style={{ height: 50 }} />
+          <DesktopLogo src={LogoSVG} alt='GopherCon Korea Logo' />
+          <MobileLogo src={LogoGopherSVG} alt='GopherCon Korea Logo' />
         </Logo>
         <NavWrapper>
           <DesktopNav>
@@ -62,6 +60,10 @@ const HeaderContainer = styled.header(({ theme }) => ({
   backdropFilter: "blur(10px)",
   borderBottom: "1px solid #eee",
   zIndex: 1000,
+
+  [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+    padding: "0 1rem",
+  },
 }));
 
 const Logo = styled(Link)({
@@ -71,17 +73,33 @@ const Logo = styled(Link)({
   fontWeight: "bold",
 });
 
+const DesktopLogo = styled.img`
+  height: 50px;
+  display: block;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
+`;
+
+const MobileLogo = styled.img`
+  height: 50px;
+  display: none;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: block;
+  }
+`;
+
 const NavWrapper = styled.div({
   display: "flex",
   alignItems: "center",
   gap: "2rem",
 });
 
-const DesktopNav = styled.div({
-  [`@media (max-width: ${breakpoints.tablet})`]: {
-    display: "none",
-  },
-});
+const DesktopNav = styled.div`
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: none;
+  }
+`;
 
 const RightSection = styled.div({
   display: "flex",
@@ -107,15 +125,15 @@ const LangButton = styled.button<{ $active: boolean }>(({ $active, theme }) => (
   },
 }));
 
-const MobileMenuButton = styled.button({
-  display: "none",
-  background: "none",
-  border: "none",
-  cursor: "pointer",
-  [`@media (max-width: ${breakpoints.tablet})`]: {
-    display: "block",
-    alignItems: "center",
-  },
-});
+const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    display: flex;
+    align-items: center;
+  }
+`;
 
 export default Header;

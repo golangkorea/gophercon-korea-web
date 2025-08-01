@@ -166,6 +166,11 @@ const ControlsContainer = styled.div`
 const FilterContainer = styled.div`
   display: flex;
   gap: 2rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const FilterGroup = styled.div`
@@ -194,6 +199,10 @@ const LegendItems = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 1rem;
+  }
 `;
 
 const LegendItem = styled.div`
@@ -221,6 +230,11 @@ const TimelineItem = styled.div<{ type: "session" | "break"; category: string }>
   gap: 1rem;
   margin-bottom: 2rem;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    grid-template-columns: 70px 20px 1fr;
+    gap: 0.5rem;
+  }
+
   h4 {
     font-size: 1.4rem;
     font-weight: bold;
@@ -228,10 +242,18 @@ const TimelineItem = styled.div<{ type: "session" | "break"; category: string }>
     color: ${({ theme, type, category }) =>
       type === "session" ? (theme.colors.category as any)[category] : theme.colors.textSecondary};
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    h4 {
+      font-size: 1.1rem;
+    }
+    p {
+      font-size: 0.9rem;
+    }
+  }
 
   p {
     line-height: 1.6;
-    color: ${({ theme }) => theme.colors.textSecondary};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   ${({ type }) =>
@@ -246,6 +268,10 @@ const Time = styled.div`
   font-weight: 500;
   text-align: right;
   padding-top: 0.2rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Line = styled.div`
@@ -273,6 +299,11 @@ const Content = styled.div<{ category: string }>`
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: ${({ theme }) => theme.shadows.small};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1rem;
+  }
+
   transition: ${({ theme }) => theme.transition};
   &:hover {
     box-shadow: ${({ theme }) => theme.shadows.medium};
@@ -290,6 +321,7 @@ const Meta = styled.div`
   margin-top: 1rem;
   font-size: 0.9rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   span {
     display: flex;
