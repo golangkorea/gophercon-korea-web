@@ -167,7 +167,6 @@ export const SESSIONS: Record<"ko" | "en", Session[]> = {
       date: "08-05",
       startTime: "14:00",
       endTime: "14:30",
-      title: "컨텍스트를 이용한 상태관리",
       title: "컨텍스트를 이용한 상태 관리",
       category: "Main Talk",
       description:

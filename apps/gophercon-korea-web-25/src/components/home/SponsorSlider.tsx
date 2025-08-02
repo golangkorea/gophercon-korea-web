@@ -2,7 +2,6 @@ import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
 
-// NOTE: 실제 후원사가 정해지면 로고 이미지로 교체될 예정입니다.
 const sponsors = [
   { name: "Sponsor A" },
   { name: "Sponsor B" },
@@ -14,12 +13,12 @@ const sponsors = [
   { name: "Sponsor H" },
 ];
 
-const slideAnimation = keyframes`
+const slideAnimation = (sponsorCount: number) => keyframes`
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(calc(-250px * ${sponsorCount}));
   }
 `;
 
@@ -66,7 +65,7 @@ const SliderWrapper = styled.div`
 const SliderTrack = styled.div`
   display: flex;
   width: calc(250px * ${sponsors.length * 2});
-  animation: ${slideAnimation} 40s linear infinite;
+  animation: ${slideAnimation(sponsors.length)} 40s linear infinite;
 `;
 
 const SponsorLogo = styled.div`

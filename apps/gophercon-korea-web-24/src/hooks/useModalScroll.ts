@@ -1,17 +1,21 @@
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 
 export default function useModalScroll() {
-  // 모달이 열렸을 때 스크롤을 막는다
+  const scrollPosition = useRef(0);
+
   const lockScroll = useCallback(() => {
+    scrollPosition.current = window.scrollY;
     document.body.style.cssText = `
       position: fixed;
-
+      top: -${scrollPosition.current}px;
+      width: 100%;
+      overflow-y: scroll;
     `;
   }, []);
 
-  // 모달이 닫혔을 때 스크롤을 활성화 한다.
   const openScroll = useCallback(() => {
-    document.body.style.cssText = ""; // 스타일 초기화
+    document.body.style.cssText = "";
+    window.scrollTo(0, scrollPosition.current);
   }, []);
 
   return { lockScroll, openScroll };

@@ -69,7 +69,6 @@ const SponsorshipForm = () => {
         <SubTitle>{t("process_title")}</SubTitle>
         <p style={{ whiteSpace: "pre-wrap", marginBottom: "2rem" }}>{t("process_intro")}</p>
         <ProcessGrid>
-          {" "}
           {Array.isArray(processSteps) &&
             (processSteps as { title: string; desc: string }[]).map((step, index) => (
               <ProcessCard key={index}>
