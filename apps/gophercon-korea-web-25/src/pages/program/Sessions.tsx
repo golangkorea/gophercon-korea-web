@@ -4,7 +4,7 @@ import { sessions } from "@/data/program";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RiBarChart2Line, RiInformationLine, RiUserLine } from "react-icons/ri";
+import { RiBarChart2Line, RiInformationLine, RiMapPin2Line, RiTimeLine, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Sessions = () => {
@@ -67,14 +67,22 @@ const Sessions = () => {
                 <CategoryLabel category={session.category.en.toLowerCase()}>{session.category[lang]}</CategoryLabel>
                 <h3>{session.title[lang]}</h3>
               </CardHeader>
-              <p>{session.description[lang]}</p>
+              <p>{session.description[lang] || t("description_placeholder")}</p>
               <CardFooter>
                 <SpeakerInfo>
                   <RiUserLine /> {session.speaker.name[lang]} ({session.speaker.company[lang]})
                 </SpeakerInfo>
-                <Tag>
-                  <RiBarChart2Line /> {session.difficulty[lang]}
-                </Tag>
+                <MetaGrid>
+                  <Tag>
+                    <RiTimeLine /> {session.time}
+                  </Tag>
+                  <Tag>
+                    <RiMapPin2Line /> {session.track[lang]}
+                  </Tag>
+                  <Tag>
+                    <RiBarChart2Line /> {session.difficulty[lang]}
+                  </Tag>
+                </MetaGrid>
               </CardFooter>
             </SessionCard>
           </SessionCardLink>
@@ -206,6 +214,12 @@ const SpeakerInfo = styled.span`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+`;
+
+const MetaGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
 `;
 
 const Tag = styled.span`

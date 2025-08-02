@@ -4,10 +4,12 @@ import { Garland } from "@/components/home/Garland";
 import IntroAnimation from "@/components/home/IntroAnimation";
 import MainBackground from "@/components/home/MainBackground";
 import SponsorSlider from "@/components/home/SponsorSlider";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { RiCheckLine, RiFileCopyLine } from "react-icons/ri";
 
 const letterAnimation = keyframes`
   from {
@@ -32,12 +34,15 @@ const fadeInUp = keyframes`
 `;
 
 const Home = () => {
-  const { t } = useTranslation(undefined, { keyPrefix: "home" });
-  const titleText = t("title");
+  const { t } = useTranslation();
+  const titleText = t("home.title");
   const titleAnimationEndDelay = titleText.length * 0.06 + 0.5;
-  const { particles, handleClick, handleAnimationEnd } = useClickableGolob();
+  const { particles, handleClick, handleAnimationEnd, addParticle } = useClickableGolob(20);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { copy: copyAddress, copyStatus: addressCopyStatus } = useCopyToClipboard();
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,18 +53,46 @@ const Home = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const isMobile = windowSize.width <= 768;
+  const mousePositionRef = useRef(mousePosition);
+  mousePositionRef.current = mousePosition;
+
+  useEffect(() => {
+    if (isMouseOver && !isMobile) {
+      const intervalId = setInterval(() => {
+        if (heroRef.current) {
+          const { x, y } = mousePositionRef.current;
+          addParticle(x, y, heroRef.current.getBoundingClientRect());
+        }
+      }, 300);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [isMouseOver, isMobile, addParticle]);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     setMousePosition({ x: e.clientX, y: e.clientY });
   };
 
-  const garlandParallaxFactor = -0.03;
+  const garlandParallaxFactor = -0.02;
   const garlandOffsetX = windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * garlandParallaxFactor : 0;
-  const garlandRotateFactor = 0.005;
+  const garlandRotateFactor = 0.003;
   const garlandRotate = windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * garlandRotateFactor : 0;
+
+  const titleParallaxFactor = 0.012;
+  const titleOffsetX = windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * titleParallaxFactor : 0;
+  const titleOffsetY = windowSize.height > 0 ? (mousePosition.y - windowSize.height / 2) * titleParallaxFactor : 0;
+
+  const subtitleParallaxFactor = 0.018;
+  const subtitleOffsetX = windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * subtitleParallaxFactor : 0;
+  const subtitleOffsetY =
+    windowSize.height > 0 ? (mousePosition.y - windowSize.height / 2) * subtitleParallaxFactor : 0;
+
+  const venueFullAddress = t("sponsorship_form.event_overview_venue").split(": ")[1] || "";
 
   return (
     <PageWrapper>
-      <Seo description={t("subtitle")} />
+      <Seo description={t("home.subtitle")} />
       <HomeContainer>
         <GarlandContainer
           style={{
@@ -98,8 +131,14 @@ const Home = () => {
           mousePosition={mousePosition}
           windowSize={windowSize}
         />
-        <HeroSection onClick={handleClick} onMouseMove={handleMouseMove}>
-          <TopContentContainer>
+        <HeroSection
+          ref={heroRef}
+          onClick={isMobile ? handleClick : undefined}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsMouseOver(true)}
+          onMouseLeave={() => setIsMouseOver(false)}
+        >
+          <TopContentContainer style={{ transform: `translate3d(${titleOffsetX}px, ${titleOffsetY}px, 0)` }}>
             <MainTitle>
               {titleText.split("").map((char, index) => (
                 <span key={`${char}-${index}`} style={{ animationDelay: `${0.3 + index * 0.06}s` }}>
@@ -109,12 +148,17 @@ const Home = () => {
             </MainTitle>
           </TopContentContainer>
 
-          <BottomContentContainer>
-            <Subtitle style={{ animationDelay: `${titleAnimationEndDelay}s` }}>{t("subtitle")}</Subtitle>
+          <BottomContentContainer style={{ transform: `translate3d(${subtitleOffsetX}px, ${subtitleOffsetY}px, 0)` }}>
+            <Subtitle style={{ animationDelay: `${titleAnimationEndDelay}s` }}>{t("home.subtitle")}</Subtitle>
             <InfoContainer style={{ animationDelay: `${titleAnimationEndDelay + 0.3}s` }}>
-              <InfoItem>{t("date")}</InfoItem>
+              <InfoItem>{t("home.date")}</InfoItem>
               <InfoDivider />
-              <InfoItem>{t("venue")}</InfoItem>
+              <VenueInfoItemWrapper onClick={() => copyAddress(venueFullAddress)}>
+                <InfoItem>{t("home.venue")}</InfoItem>
+                <CopyButton title={venueFullAddress}>
+                  {addressCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+                </CopyButton>
+              </VenueInfoItemWrapper>
             </InfoContainer>
           </BottomContentContainer>
         </HeroSection>
@@ -147,14 +191,15 @@ const HeroSection = styled.div`
   height: 100%;
   position: relative;
   text-align: center;
-  cursor: pointer;
-  user-select: none;
+  cursor: default;
+  touch-action: manipulation;
   padding: 8vh 0;
   box-sizing: border-box;
   z-index: 5;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 8vh 0;
+    cursor: pointer;
   }
 `;
 
@@ -167,8 +212,8 @@ const MainTitle = styled.h1`
   background-color: white;
   padding: 1rem 2.5rem;
   border-radius: 20px;
-  border: 4px solid #1e293b;
-  box-shadow: 12px 12px 0px #1e293b;
+  border: 4px solid #000000;
+  box-shadow: 12px 12px 0px #000000;
   transition: all 0.2s ease-in-out;
 
   span {
@@ -190,7 +235,7 @@ const MainTitle = styled.h1`
     font-size: 2.8rem;
     padding: 0.75rem 1.5rem;
     border-width: 3px;
-    box-shadow: 8px 8px 0px #1e293b;
+    box-shadow: 8px 8px 0px #000000;
   }
 `;
 
@@ -199,6 +244,7 @@ const TopContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  transition: transform 0.3s ease-out;
 `;
 
 const GarlandContainer = styled.div`
@@ -219,7 +265,7 @@ const GarlandWrapper = styled.div<{ side: "left" | "right" }>`
   position: absolute;
   top: 40px;
   width: 120%;
-  ${({ side }) => (side === "left" ? "left: -10%;" : "right: -10%;")}
+  ${({ side }) => (side === "left" ? "left: -10%; z-index: 1;" : "right: -10%; z-index: 0;")}
   transform-origin: center top;
   transform-origin: ${({ side }) => (side === "left" ? "top left" : "top right")};
   transition: transform 0.3s ease-out;
@@ -245,14 +291,14 @@ const BottomContentContainer = styled.div`
   background-color: white;
   padding: 1.5rem 2.5rem;
   border-radius: 20px;
-  border: 4px solid #1e293b;
-  box-shadow: 12px 12px 0px #1e293b;
-  transition: all 0.2s ease-in-out;
+  border: 4px solid #000000;
+  box-shadow: 12px 12px 0px #000000;
+  transition: all 0.3s ease-out;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 1rem 1.5rem;
     border-width: 3px;
-    box-shadow: 8px 8px 0px #1e293b;
+    box-shadow: 8px 8px 0px #000000;
   }
 `;
 
@@ -273,10 +319,33 @@ const InfoItem = styled.p`
   color: #000;
 `;
 
+const VenueInfoItemWrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  &:hover button {
+    opacity: 1;
+  }
+`;
+
 const InfoDivider = styled.div`
   width: 1px;
   height: 1.2rem;
   background-color: ${({ theme }) => theme.colors.border};
+`;
+
+const CopyButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
 `;
 
 export default Home;

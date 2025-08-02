@@ -5,6 +5,9 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      common: {
+        copied: "Copied!",
+      },
       nav: {
         about: "About",
         program: "Program",
@@ -20,6 +23,8 @@ const resources = {
         past_gophercons: "Past GopherCons",
         "2024": "2024",
         "2023": "2023",
+        buy_ticket: "Buy Ticket",
+        buy_ticket_soon: "Ticket sales will open soon.",
       },
       page_title: {
         about: "About",
@@ -227,6 +232,15 @@ const resources = {
         legend: "Legend",
         session: "Session",
         break: "Break / Event",
+        dummy_sns_messages: {
+          github: "This Gopher's code is under construction. (Placeholder)",
+          linkedin: "This Gopher is `defer`ring networking for now. (Placeholder)",
+          twitter: "This Gopher's tweet `chan`nel is not open yet. (Placeholder)",
+          facebook: "This Gopher's profile is currently `nil`. (Placeholder)",
+          instagram: "Still `select`ing the perfect photo. (Placeholder)",
+          youtube: "This Gopher's videos are un`go`ing production. (Placeholder)",
+        },
+        description_placeholder: "The session description will be updated soon.",
       },
       venue: {
         title: "How to Get Here",
@@ -441,7 +455,7 @@ const resources = {
           'Under the slogan "Go for Everyone," we’re working to build a more inclusive and vibrant Go community.',
         event_overview_title: "Event Overview",
         event_overview_date: "Date: Sunday, November 9, 2025",
-        event_overview_venue: "Venue: Seoul, South Korea",
+        event_overview_venue: "Venue: COEX, Magok (143 Magokjungang-ro, Gangseo-gu, Seoul)",
         event_overview_attendance: "Expected Scale:",
         event_overview_offline: "Offline: 400+ attendees",
         event_overview_online: "Online: Replay will be provided",
@@ -597,6 +611,9 @@ const resources = {
   },
   ko: {
     translation: {
+      common: {
+        copied: "복사되었습니다!",
+      },
       nav: {
         about: "소개",
         program: "프로그램",
@@ -612,6 +629,8 @@ const resources = {
         past_gophercons: "지난 고퍼콘",
         "2024": "2024년",
         "2023": "2023년",
+        buy_ticket: "티켓 구매",
+        buy_ticket_soon: "티켓 구매는 곧 오픈될 예정입니다.",
       },
       page_title: {
         about: "소개",
@@ -814,6 +833,15 @@ const resources = {
         legend: "범례",
         session: "세션",
         break: "휴식 / 이벤트",
+        dummy_sns_messages: {
+          github: "이 고퍼의 코드는 아직 공사중입니다. (예시 링크)",
+          linkedin: "이 고퍼는 네트워킹을 잠시 `defer` 했습니다. (예시 링크)",
+          twitter: "이 고퍼의 트윗 `chan`nel은 아직 닫혀있습니다. (예시 링크)",
+          facebook: "이 고퍼의 프로필은 현재 `nil` 입니다. (예시 링크)",
+          instagram: "완벽한 사진을 `select` 하는 중입니다. (예시 링크)",
+          youtube: "영상이 준비되`고` 있습니다. (예시 링크)",
+        },
+        description_placeholder: "세션 설명이 곧 업데이트될 예정입니다.",
       },
       venue: {
         title: "오시는 길",
@@ -1026,7 +1054,7 @@ const resources = {
           '"Go for Everyone"이라는 슬로건 아래, 우리는 더욱 포용적이고 활기찬 Go 커뮤니티를 만들어가고자 합니다.',
         event_overview_title: "행사 개요",
         event_overview_date: "일시: 2025년 11월 9일 (일)",
-        event_overview_venue: "장소: 서울",
+        event_overview_venue: "장소: 코엑스 마곡 (서울 강서구 마곡중앙로 143)",
         event_overview_attendance: "예상 규모:",
         event_overview_offline: "오프라인: 400명 이상",
         event_overview_online: "온라인: 다시보기 제공 예정",

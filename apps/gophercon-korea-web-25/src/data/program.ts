@@ -7,9 +7,19 @@ export interface Session {
     company: { en: string; ko: string };
     intro: { en: string; ko: string };
     image?: string;
+    sns?: {
+      github?: string;
+      linkedin?: string;
+      twitter?: string;
+      facebook?: string;
+      instagram?: string;
+      youtube?: string;
+    };
   };
   difficulty: { en: "Beginner" | "Intermediate" | "Advanced"; ko: "초급" | "중급" | "고급" };
   category: { en: string; ko: string };
+  time: string;
+  track: { en: string; ko: string };
 }
 
 export interface ScheduleItem {
@@ -37,9 +47,16 @@ export const sessions: Session[] = [
         en: "An evangelist for explicit error handling. Believes that a well-handled error is a feature, not a bug.",
         ko: "명시적 에러 핸들링의 전도사. 잘 처리된 에러는 버그가 아닌 기능이라고 믿습니다.",
       },
+      sns: {
+        github: "https://github.com/@@gopher@@",
+        youtube: "https://youtube.com/@@gopher@@",
+        instagram: "https://instagram.com/@@gopher@@",
+      },
     },
     difficulty: { en: "Intermediate", ko: "중급" },
     category: { en: "Core", ko: "코어" },
+    time: "11:30 - 12:00",
+    track: { en: "Main Hall", ko: "메인 홀" },
   },
   {
     id: "TBD-2",
@@ -58,9 +75,14 @@ export const sessions: Session[] = [
         en: "A performance tuning expert who lives in the flame graph. Can spot a memory leak from a mile away.",
         ko: "플레임 그래프 속에서 사는 성능 튜닝 전문가. 1마일 밖에서도 메모리 누수를 발견할 수 있습니다.",
       },
+      sns: {
+        linkedin: "https://www.linkedin.com/in/@@gopher@@",
+      },
     },
     difficulty: { en: "Beginner", ko: "초급" },
     category: { en: "Profiling", ko: "프로파일링" },
+    time: "12:00 - 12:30",
+    track: { en: "Main Hall", ko: "메인 홀" },
   },
   {
     id: "TBD-3",
@@ -79,9 +101,14 @@ export const sessions: Session[] = [
         en: "A minimalist who believes the best code is the code you don't write. Prefers simplicity over magic.",
         ko: "최고의 코드는 작성하지 않은 코드라고 믿는 미니멀리스트. 마법보다는 단순함을 선호합니다.",
       },
+      sns: {
+        twitter: "https://twitter.com/@@gopher@@",
+      },
     },
     difficulty: { en: "Advanced", ko: "고급" },
     category: { en: "Framework", ko: "프레임워크" },
+    time: "13:30 - 14:10",
+    track: { en: "Main Hall", ko: "메인 홀" },
   },
   {
     id: "TBD-4",
@@ -89,10 +116,7 @@ export const sessions: Session[] = [
       en: "Generics Saved My Keyboard: A Tale of Less Typing",
       ko: "제네릭이 제 키보드를 살렸습니다: 타이핑 절약 실화",
     },
-    description: {
-      en: "Remember the days of `interface{}` and type assertions? We've come a long way. This session celebrates the arrival of generics in Go. We'll explore practical use cases, how they simplify code, and share tips for writing clean, reusable, and type-safe generic functions. (This is placeholder data)",
-      ko: "`interface{}`와 타입 단언의 시대를 기억하시나요? 우리는 먼 길을 왔습니다. 이 세션은 Go에 제네릭이 도입된 것을 기념합니다. 실용적인 사용 사례, 코드를 단순화하는 방법, 그리고 깔끔하고 재사용 가능하며 타입-안전한 제네릭 함수 작성 팁을 공유합니다. (이 데이터는 임시 정보입니다)",
-    },
+    description: { en: "", ko: "" },
     speaker: {
       name: { en: "Gena Rics", ko: "제나 릭스" },
       company: { en: "TypeSafe & Sound", ko: "타입안전보장" },
@@ -103,6 +127,8 @@ export const sessions: Session[] = [
     },
     difficulty: { en: "Beginner", ko: "초급" },
     category: { en: "Community", ko: "커뮤니티" },
+    time: "14:20 - 14:50",
+    track: { en: "Main Hall", ko: "메인 홀" },
   },
 ];
 

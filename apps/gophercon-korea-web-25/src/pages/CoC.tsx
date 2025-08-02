@@ -1,10 +1,14 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
+import { RiCheckLine, RiFileCopyLine } from "react-icons/ri";
 
 const CoC = () => {
   const { t } = useTranslation();
+  const { copy: copyEmail, copyStatus: emailCopyStatus } = useCopyToClipboard();
+  const email = t("coc.titleParticipantsStatement2Unit1").split(": ")[1] || "";
 
   return (
     <PageContainer>
@@ -55,7 +59,14 @@ const CoC = () => {
 
           <Statement>{t("coc.titleParticipantsStatement2")}</Statement>
           <Description>{t("coc.titleParticipantsStatement2Desc")}</Description>
-          <SubStatement>{t("coc.titleParticipantsStatement2Unit1")}</SubStatement>
+          <SubStatement>
+            <CopyableContainer>
+              <span>{t("coc.titleParticipantsStatement2Unit1")}</span>
+              <CopyButton onClick={() => copyEmail(email)} title='Copy email'>
+                {emailCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+              </CopyButton>
+            </CopyableContainer>
+          </SubStatement>
           <SubStatement>{t("coc.titleParticipantsStatement2Unit2")}</SubStatement>
           <SubStatement>{t("coc.titleParticipantsStatement2Unit3")}</SubStatement>
           <SubStatement>{t("coc.titleParticipantsStatement2Unit4")}</SubStatement>
@@ -171,6 +182,29 @@ const Example = styled.p`
   background-color: #f9f9f9;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+const CopyableContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover button {
+    opacity: 0.7;
+  }
+`;
+
+const CopyButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 1.2rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
 `;
 
 export default CoC;

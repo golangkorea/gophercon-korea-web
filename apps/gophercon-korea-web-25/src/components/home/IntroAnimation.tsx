@@ -51,15 +51,15 @@ const float3 = keyframes`
 `;
 
 const shadowFloatUp = keyframes`
-  0% { transform: scale(1) translate3d(0, 0, 0); opacity: 0.25; }
-  50% { transform: scale(0.85) translate3d(0, 10px, 0); opacity: 0.15; }
-  100% { transform: scale(1) translate3d(0, 0, 0); opacity: 0.25; }
+  0% { transform: scale(1) translate3d(0, 0, 0); background-color: rgba(30, 41, 59, 0.25); }
+  50% { transform: scale(0.85) translate3d(0, 10px, 0); background-color: rgba(30, 41, 59, 0.15); }
+  100% { transform: scale(1) translate3d(0, 0, 0); background-color: rgba(30, 41, 59, 0.25); }
 `;
 
 const shadowFloatDown = keyframes`
-  0% { transform: scale(1) translate3d(0, 0, 0); opacity: 0.25; }
-  50% { transform: scale(1.1) translate3d(0, -5px, 0); opacity: 0.4; }
-  100% { transform: scale(1) translate3d(0, 0, 0); opacity: 0.25; }
+  0% { transform: scale(1) translate3d(0, 0, 0); background-color: rgba(30, 41, 59, 0.25); }
+  50% { transform: scale(1.1) translate3d(0, -5px, 0); background-color: rgba(30, 41, 59, 0.4); }
+  100% { transform: scale(1) translate3d(0, 0, 0); background-color: rgba(30, 41, 59, 0.25); }
 `;
 
 const AnimationContainer = styled.div`
@@ -128,7 +128,6 @@ const Shadow = styled.div<{
   height: 10px;
   background-color: rgba(30, 41, 59, 0.25);
   border-radius: 50%;
-  z-index: -1;
   animation: ${({ shadowAnimation }) => shadowAnimation} 4s ease-in-out infinite;
   animation-delay: ${({ animationDelay }) => animationDelay};
 `;
@@ -174,6 +173,12 @@ const IntroAnimation = ({
 }) => {
   const isMobile = windowSize.width <= 768;
 
+  const mainGopherParallaxFactor = 0.01;
+  const mainGopherOffsetX =
+    windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * mainGopherParallaxFactor : 0;
+  const mainGopherOffsetY =
+    windowSize.height > 0 ? (mousePosition.y - windowSize.height / 2) * mainGopherParallaxFactor : 0;
+
   return (
     <AnimationContainer>
       {assets.map((asset, index) => {
@@ -210,6 +215,7 @@ const IntroAnimation = ({
               finalRotate={asset.r}
             >
               <FloatingAssetContainer style={{ transform: `scale(${scale})` }}>
+                <Shadow shadowAnimation={shadowAnimation} animationDelay={`${scatterDelay + 1}s`} />
                 <FloatingAssetImg
                   src={asset.src}
                   alt=''
@@ -218,13 +224,14 @@ const IntroAnimation = ({
                   animationDelay={`${scatterDelay + 1}s`}
                   blurAmount={blurAmount}
                 />
-                <Shadow shadowAnimation={shadowAnimation} animationDelay={`${scatterDelay + 1}s`} />
               </FloatingAssetContainer>
             </ScatterWrapper>
           </ParallaxLayer>
         );
       })}
-      <MainGopher src={gopherParty} alt='Gopher Party' animationDelay={`${startDelay}s`} />
+      <ParallaxLayer style={{ transform: `translate3d(${mainGopherOffsetX}px, ${mainGopherOffsetY}px, 0)` }}>
+        <MainGopher src={gopherParty} alt='Gopher Party' animationDelay={`${startDelay}s`} />
+      </ParallaxLayer>
     </AnimationContainer>
   );
 };

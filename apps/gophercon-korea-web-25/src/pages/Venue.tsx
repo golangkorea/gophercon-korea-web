@@ -1,7 +1,7 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import styled from "@emotion/styled";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RiCheckLine, RiFileCopyLine } from "react-icons/ri";
 
@@ -13,16 +13,11 @@ interface SubwayLine {
 
 const Venue = () => {
   const { t } = useTranslation();
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied">("idle");
+  const { copy: copyEmail, copyStatus: emailCopyStatus } = useCopyToClipboard();
+  const { copy: copyAddress, copyStatus: addressCopyStatus } = useCopyToClipboard();
   const email = t("venue.contact_email");
+  const address = t("venue.address");
   const subwayLines = t("venue.subway_lines", { returnObjects: true });
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email).then(() => {
-      setCopyStatus("copied");
-      setTimeout(() => setCopyStatus("idle"), 2000);
-    });
-  };
 
   return (
     <PageContainer>
@@ -41,7 +36,12 @@ const Venue = () => {
         <InfoContainer>
           <Card>
             <InfoTitle>{t("venue.address_title")}</InfoTitle>
-            <Address>{t("venue.address")}</Address>
+            <CopyableContainer>
+              <Address>{address}</Address>
+              <CopyButton onClick={() => copyAddress(address)} title='Copy address'>
+                {addressCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+              </CopyButton>
+            </CopyableContainer>
           </Card>
           <Card>
             <InfoTitle>{t("venue.transportation_title")}</InfoTitle>
@@ -65,12 +65,12 @@ const Venue = () => {
           </Card>
           <Card>
             <InfoTitle>{t("venue.contact_title")}</InfoTitle>
-            <ContactContainer>
+            <CopyableContainer>
               <ContactLink href={`mailto:${email}`}>{email}</ContactLink>
-              <CopyButton onClick={handleCopy} title='Copy email'>
-                {copyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+              <CopyButton onClick={() => copyEmail(email)} title='Copy email'>
+                {emailCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
               </CopyButton>
-            </ContactContainer>
+            </CopyableContainer>
           </Card>
         </InfoContainer>
       </Grid>
@@ -187,7 +187,7 @@ const CopyButton = styled.button`
   font-size: 1.2rem;
 `;
 
-const ContactContainer = styled.div`
+const CopyableContainer = styled.div`
   display: flex;
   align-items: center;
 

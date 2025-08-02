@@ -683,6 +683,13 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
   }, [gameLoop]);
 
   useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onGameOver();
+      }
+    };
+    window.addEventListener("keydown", handleEsc);
+
     if (isGameOver) return;
     const interval = setInterval(() => {
       const canvas = canvasRef.current;
@@ -700,8 +707,11 @@ const Game = ({ onGameOver }: { onGameOver: () => void }) => {
         rotation: 0,
       });
     }, 1500);
-    return () => clearInterval(interval);
-  }, [isGameOver]);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isGameOver, onGameOver]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -872,6 +882,7 @@ const GameContainer = styled.div<{ isGameOver: boolean }>`
   overflow: hidden;
   z-index: 2000;
   cursor: default;
+  touch-action: manipulation;
   canvas {
     display: block;
   }

@@ -39,9 +39,18 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
     setOpenSubMenu(openSubMenu === labelKey ? null : labelKey);
   };
 
+  const handleCtaClick = () => {
+    alert(t("nav.buy_ticket_soon"));
+    onClose();
+  };
+
   return (
     <NavContainer isOpen={isOpen}>
       <NavList>
+        <li>
+          <MobileCtaButton onClick={handleCtaClick}>{t("nav.buy_ticket")}</MobileCtaButton>
+        </li>
+        <Divider />
         {GNB_MENU_ITEMS.map((menu) => (
           <li key={menu.labelKey}>
             {menu.subMenus ? (
@@ -100,6 +109,26 @@ const NavContainer = styled.nav<{ isOpen: boolean }>(({ isOpen, theme }) => ({
     display: "none",
   },
 }));
+
+const MobileCtaButton = styled.button`
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.7;
+`;
+
+const Divider = styled.hr`
+  border: none;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  margin: 1rem 0;
+`;
 const NavList = styled.ul({ listStyle: "none", margin: 0, padding: 0 });
 const MenuLink = styled(Link)(({ theme }) => ({
   display: "block",

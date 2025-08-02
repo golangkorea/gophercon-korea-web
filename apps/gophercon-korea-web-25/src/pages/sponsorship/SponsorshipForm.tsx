@@ -1,8 +1,9 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
-import { RiExternalLinkLine } from "react-icons/ri";
+import { RiCheckLine, RiExternalLinkLine, RiFileCopyLine } from "react-icons/ri";
 
 const SponsorshipForm = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "sponsorship_form" });
@@ -10,6 +11,10 @@ const SponsorshipForm = () => {
   const whyJoinList = t("why_join_list", { returnObjects: true });
   const processSteps = t("process_steps", { returnObjects: true });
   const termsArticles = t("terms_articles", { returnObjects: true });
+  const { copy: copyContactEmail, copyStatus: contactEmailStatus } = useCopyToClipboard();
+  const { copy: copyTimelineEmail, copyStatus: timelineEmailStatus } = useCopyToClipboard();
+  const contactEmail = t("to_join_contact").split(": ")[1] || "";
+  const timelineEmail = t("timeline_contact").match(/\(([^)]+)\)/)?.[1] || "";
 
   return (
     <PageContainer>
@@ -49,7 +54,14 @@ const SponsorshipForm = () => {
         <SubTitle>{t("to_join_title")}</SubTitle>
         <InfoList>
           <li>{t("to_join_deadline")}</li>
-          <li>{t("to_join_contact")}</li>
+          <li>
+            <CopyableContainer>
+              <span>{t("to_join_contact")}</span>
+              <CopyButton onClick={() => copyContactEmail(contactEmail)} title='Copy email'>
+                {contactEmailStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+              </CopyButton>
+            </CopyableContainer>
+          </li>
         </InfoList>
       </Card>
 
@@ -62,7 +74,16 @@ const SponsorshipForm = () => {
         <SubTitle>{t("timeline_title")}</SubTitle>
         <p>{t("timeline_schedule")}</p>
         <p>{t("timeline_registration")}</p>
-        <p>{t("timeline_contact")}</p>
+        <p>
+          <CopyableContainer>
+            <span>{t("timeline_contact")}</span>
+            {timelineEmail && (
+              <CopyButton onClick={() => copyTimelineEmail(timelineEmail)} title='Copy email'>
+                {timelineEmailStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+              </CopyButton>
+            )}
+          </CopyableContainer>
+        </p>
       </Card>
 
       <Card>
@@ -138,6 +159,29 @@ const Card = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 40px 20px;
   }
+`;
+
+const CopyableContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover button {
+    opacity: 0.7;
+  }
+`;
+
+const CopyButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 1.2rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
 `;
 
 const LetterCard = styled(Card)`

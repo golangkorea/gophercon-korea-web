@@ -9,7 +9,7 @@ import { RiCloseLine, RiMenuLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const changeLanguage = (lang: "ko" | "en") => i18n.changeLanguage(lang);
@@ -27,6 +27,10 @@ const Header = () => {
             <GNB />
           </DesktopNav>
           <RightSection>
+            <CtaButtonWrapper>
+              <CtaButton disabled>{t("nav.buy_ticket")}</CtaButton>
+              <Tooltip>{t("nav.buy_ticket_soon")}</Tooltip>
+            </CtaButtonWrapper>
             <LanguageSelector>
               <LangButton $active={i18n.language.startsWith("ko")} onClick={() => changeLanguage("ko")}>
                 KOR
@@ -106,6 +110,60 @@ const RightSection = styled.div({
   alignItems: "center",
   gap: "1.5rem",
 });
+
+const CtaButton = styled.button`
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+`;
+
+const Tooltip = styled.span`
+  visibility: hidden;
+  width: max-content;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.9rem;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+`;
+
+const CtaButtonWrapper = styled.div`
+  position: relative;
+  &:hover > ${Tooltip} {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
 
 const LanguageSelector = styled.div({
   display: "flex",

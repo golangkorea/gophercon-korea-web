@@ -53,13 +53,9 @@ export const useClickableGolob = (limit = 10) => {
   const [particles, setParticles] = useState<Particle[]>([]);
   const particleIdCounter = useRef(0);
 
-  const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      const { currentTarget, clientX, clientY } = event;
-      if (!currentTarget) return;
-
-      const rect = currentTarget.getBoundingClientRect();
-
+  const addParticle = useCallback(
+    (clientX: number, clientY: number, containerRect: DOMRect | null) => {
+      if (!containerRect) return;
       setParticles((prevParticles) => {
         if (prevParticles.length >= limit) {
           return prevParticles;
@@ -72,8 +68,8 @@ export const useClickableGolob = (limit = 10) => {
 
         const newParticle: Particle = {
           id: particleIdCounter.current++,
-          x: clientX - rect.left,
-          y: clientY - rect.top,
+          x: clientX - containerRect.left,
+          y: clientY - containerRect.top,
           src: golobImages[Math.floor(Math.random() * golobImages.length)],
           endX: Math.cos(angle) * distance,
           endY: Math.sin(angle) * distance,
@@ -86,9 +82,17 @@ export const useClickableGolob = (limit = 10) => {
     [limit],
   );
 
+  const handleClick = useCallback(
+    (event: React.MouseEvent<HTMLElement>) => {
+      if (!event.currentTarget) return;
+      addParticle(event.clientX, event.clientY, event.currentTarget.getBoundingClientRect());
+    },
+    [addParticle],
+  );
+
   const handleAnimationEnd = useCallback((id: number) => {
     setParticles((prev) => prev.filter((p) => p.id !== id));
   }, []);
 
-  return { particles, handleClick, handleAnimationEnd };
+  return { particles, handleClick, handleAnimationEnd, addParticle };
 };

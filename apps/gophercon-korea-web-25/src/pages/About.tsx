@@ -1,5 +1,6 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 import styled from "@emotion/styled";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -10,7 +11,7 @@ import photo3 from "@/assets/gallery/item3.webp";
 import photo4 from "@/assets/gallery/item4.webp";
 import photo5 from "@/assets/gallery/item5.webp";
 import { keyframes } from "@emotion/css";
-import { RiGlobalLine, RiShareLine, RiTeamLine, RiYoutubeLine } from "react-icons/ri";
+import { RiCheckLine, RiFileCopyLine, RiGlobalLine, RiShareLine, RiTeamLine, RiYoutubeLine } from "react-icons/ri";
 
 const photos = [photo1, photo2, photo3, photo4, photo5];
 
@@ -68,25 +69,42 @@ const ScrollAnimatedSection: FC<{ children: ReactNode; delay?: number }> = ({ ch
 };
 
 const About = () => {
-  const { t } = useTranslation();
-  const values = t("about.values", { returnObjects: true }) as { title: string; desc: string }[];
+  const { t } = useTranslation(undefined, { keyPrefix: "about" });
+  const valuesData = t("values", { returnObjects: true });
+  const values = Array.isArray(valuesData) ? (valuesData as { title: string; desc: string }[]) : [];
   const valueIcons = [RiTeamLine, RiShareLine, RiGlobalLine];
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { copy: copyVenue, copyStatus: venueCopyStatus } = useCopyToClipboard();
+  const venueAddress = t("venue").split(": ")[1] || "";
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    if (selectedImage) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage]);
 
   return (
     <PageContainer>
-      <Seo title={t("about.title")} description={t("about.content")} />
+      <Seo title={t("title")} description={t("content")} />
       <ScrollAnimatedSection>
         <Section as='header' style={{ paddingBottom: "60px", marginBottom: "60px" }}>
-          <PageTitle>{t("about.title")}</PageTitle>
-          <Slogan>"{t("about.slogan")}"</Slogan>
+          <PageTitle>{t("title")}</PageTitle>
+          <Slogan>"{t("slogan")}"</Slogan>
         </Section>
       </ScrollAnimatedSection>
 
       <ScrollAnimatedSection>
         <Section>
           <Card>
-            <SectionTitle>{t("about.past_conferences_title")}</SectionTitle>
+            <SectionTitle>{t("past_conferences_title")}</SectionTitle>
             <PastConferenceGrid>
               <PastConferenceLink
                 href='https://www.youtube.com/watch?v=zdMuLvK0pNg'
@@ -95,7 +113,7 @@ const About = () => {
               >
                 <RiYoutubeLine size={40} />
                 <h3>GopherCon Korea 2024</h3>
-                <p>{t("about.watch_now")}</p>
+                <p>{t("watch_now")}</p>
               </PastConferenceLink>
               <PastConferenceLink
                 href='https://www.youtube.com/watch?v=75X_eBW0mog&list=PLxEDm5GRSh4Mks_ECe5g3PAppNWGC96F4'
@@ -104,7 +122,7 @@ const About = () => {
               >
                 <RiYoutubeLine size={40} />
                 <h3>GopherCon Korea 2023</h3>
-                <p>{t("about.watch_now")}</p>
+                <p>{t("watch_now")}</p>
               </PastConferenceLink>
             </PastConferenceGrid>
           </Card>
@@ -115,13 +133,18 @@ const About = () => {
         <Section>
           <CenteredCard>
             <MainContent>
-              <p>{t("about.content")}</p>
-              <p>{t("about.content2")}</p>
+              <p>{t("content")}</p>
+              <p>{t("content2")}</p>
             </MainContent>
             <InfoCard>
-              <InfoItem>{t("about.date")}</InfoItem>
-              <InfoDivider />
-              <InfoItem>{t("about.venue")}</InfoItem>
+              <CopyableContainer>
+                <InfoItem>{t("date")}</InfoItem>
+                <InfoDivider />
+                <InfoItem>{t("venue")}</InfoItem>
+                <CopyButton onClick={() => copyVenue(venueAddress)} title='Copy address'>
+                  {venueCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
+                </CopyButton>
+              </CopyableContainer>
             </InfoCard>
           </CenteredCard>
         </Section>
@@ -130,7 +153,7 @@ const About = () => {
       <ScrollAnimatedSection>
         <Section>
           <Card>
-            <SectionTitle>{t("about.photos_title")}</SectionTitle>
+            <SectionTitle>{t("photos_title")}</SectionTitle>
             <PhotoGallery>
               {photos.map((photo, index) => (
                 <PhotoItem key={index} imageUrl={photo} onClick={() => setSelectedImage(photo)} />
@@ -143,7 +166,7 @@ const About = () => {
       <ScrollAnimatedSection>
         <Section>
           <Card>
-            <SectionTitle>{t("about.mission_title")}</SectionTitle>
+            <SectionTitle>{t("mission_title")}</SectionTitle>
             <ValuesGrid>
               {values.map((value, index) => {
                 const Icon = valueIcons[index];
@@ -165,9 +188,9 @@ const About = () => {
       <ScrollAnimatedSection>
         <Section>
           <Card>
-            <SectionTitle>{t("about.gdg_partnership_title")}</SectionTitle>
+            <SectionTitle>{t("gdg_partnership_title")}</SectionTitle>
             <MainContent style={{ textAlign: "center", maxWidth: 800, margin: "0 auto" }}>
-              <p>{t("about.gdg_partnership_content")}</p>
+              <p>{t("gdg_partnership_content")}</p>
             </MainContent>
           </Card>
         </Section>
@@ -245,6 +268,26 @@ const InfoCard = styled.div`
   border-radius: 12px;
 `;
 
+const CopyableContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  &:hover button {
+    opacity: 0.7;
+  }
+`;
+
+const CopyButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0;
+  transition: opacity 0.2s;
+  padding: 0 0 0 12px;
+  font-size: 1.2rem;
+`;
+
 const InfoItem = styled.span`
   font-size: 1.2rem;
   font-weight: 500;
@@ -313,10 +356,9 @@ const PhotoGallery = styled.div`
   height: 400px;
   gap: 10px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
-    height: 60vh;
-    max-height: 500px;
+    height: auto;
   }
 `;
 
@@ -332,6 +374,11 @@ const PhotoItem = styled.div<{ imageUrl: string }>`
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex: none;
+    height: 250px;
+  }
 
   &:hover {
     transform: scale(1.02);
