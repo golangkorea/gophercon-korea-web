@@ -9,6 +9,7 @@ import crowdSurfingRight from "@/assets/intro/crowd_surfing_right_purple_gopher.
 import gopherParty from "@/assets/intro/gopher_party.svg";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import { useMemo } from "react";
 
 const popIn = keyframes`
   from {
@@ -143,7 +144,6 @@ const MainGopher = styled.img<{ animationDelay: string }>`
   opacity: 0;
   animation: ${popIn} 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: ${({ animationDelay }) => animationDelay};
-  z-index: 4;
 
   @media (max-width: 768px) {
     max-width: 90vw;
@@ -173,6 +173,52 @@ const IntroAnimation = ({
 }) => {
   const isMobile = windowSize.width <= 768;
 
+  const assetElements = useMemo(() => {
+    return assets.map((asset, index) => {
+      const scatterDelay = startDelay + 0.2 + index * 0.05;
+      const parallaxFactor = asset.pFactor;
+
+      const minFactor = 0.015;
+      const maxFactor = 0.05;
+      const minScale = 0.8;
+      const maxScale = 1.25;
+      const maxBlur = 2.0;
+
+      const mobileFactor = isMobile ? 0.5 : 1;
+      const assetTx = `calc(${asset.tx} * ${mobileFactor})`;
+      const assetTy = `calc(${asset.ty} * ${mobileFactor})`;
+
+      const normalizedFactor = (parallaxFactor - minFactor) / (maxFactor - minFactor); // 0 to 1
+      const scale = minScale + (maxScale - minScale) * normalizedFactor;
+      const blurAmount = maxBlur * (1 - normalizedFactor);
+      const zIndex = 1 + Math.floor(normalizedFactor * 9); // z-index from 1 to 10
+
+      const offsetX = windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * parallaxFactor : 0;
+      const offsetY = windowSize.height > 0 ? (mousePosition.y - windowSize.height / 2) * parallaxFactor : 0;
+
+      const isFloatingUp = asset.float === float1;
+      const shadowAnimation = isFloatingUp ? shadowFloatUp : shadowFloatDown;
+
+      return {
+        key: index,
+        parallaxTransform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
+        zIndex,
+        scatterDelay: `${scatterDelay}s`,
+        assetTx,
+        assetTy,
+        assetR: asset.r,
+        scale,
+        shadowAnimation,
+        shadowAnimationDelay: `${scatterDelay + 1}s`,
+        assetSrc: asset.src,
+        assetSize: `${parseInt(asset.size) * mobileFactor}px`,
+        assetFloatAnimation: asset.float,
+        assetAnimationDelay: `${scatterDelay + 1}s`,
+        blurAmount,
+      };
+    });
+  }, [startDelay, mousePosition.x, mousePosition.y, windowSize.width, windowSize.height, isMobile]);
+
   const mainGopherParallaxFactor = 0.01;
   const mainGopherOffsetX =
     windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * mainGopherParallaxFactor : 0;
@@ -181,55 +227,51 @@ const IntroAnimation = ({
 
   return (
     <AnimationContainer>
-      {assets.map((asset, index) => {
-        const scatterDelay = startDelay + 0.2 + index * 0.05;
-        const parallaxFactor = asset.pFactor;
+      {/* Render all shadows first on a base layer */}
+      {assetElements.map((el) => (
+        <ParallaxLayer key={`shadow-${el.key}`} style={{ transform: el.parallaxTransform, zIndex: 0 }}>
+          <ScatterWrapper
+            animationDelay={el.scatterDelay}
+            finalTranslateX={el.assetTx}
+            finalTranslateY={el.assetTy}
+            finalRotate={el.assetR}
+          >
+            <FloatingAssetContainer style={{ transform: `scale(${el.scale})` }}>
+              <img
+                src={el.assetSrc}
+                alt=''
+                style={{ visibility: "hidden", width: el.assetSize, height: "auto", display: "block" }}
+              />
+              <Shadow shadowAnimation={el.shadowAnimation} animationDelay={el.shadowAnimationDelay} />
+            </FloatingAssetContainer>
+          </ScatterWrapper>
+        </ParallaxLayer>
+      ))}
 
-        const minFactor = 0.015;
-        const maxFactor = 0.05;
-        const minScale = 0.8;
-        const maxScale = 1.25;
-        const maxBlur = 2.0;
+      {/* Then render all balloons with their respective z-index */}
+      {assetElements.map((el) => (
+        <ParallaxLayer key={`balloon-${el.key}`} style={{ transform: el.parallaxTransform, zIndex: el.zIndex }}>
+          <ScatterWrapper
+            animationDelay={el.scatterDelay}
+            finalTranslateX={el.assetTx}
+            finalTranslateY={el.assetTy}
+            finalRotate={el.assetR}
+          >
+            <FloatingAssetContainer style={{ transform: `scale(${el.scale})` }}>
+              <FloatingAssetImg
+                src={el.assetSrc}
+                alt=''
+                size={el.assetSize}
+                floatAnimation={el.assetFloatAnimation}
+                animationDelay={el.assetAnimationDelay}
+                blurAmount={el.blurAmount}
+              />
+            </FloatingAssetContainer>
+          </ScatterWrapper>
+        </ParallaxLayer>
+      ))}
 
-        const mobileFactor = isMobile ? 0.5 : 1;
-        const assetTx = `calc(${asset.tx} * ${mobileFactor})`;
-        const assetTy = `calc(${asset.ty} * ${mobileFactor})`;
-
-        const normalizedFactor = (parallaxFactor - minFactor) / (maxFactor - minFactor); // 0 to 1
-        const scale = minScale + (maxScale - minScale) * normalizedFactor;
-        const blurAmount = maxBlur * (1 - normalizedFactor);
-        const zIndex = 1 + Math.floor(normalizedFactor * 9); // z-index from 1 to 10
-
-        const offsetX = windowSize.width > 0 ? (mousePosition.x - windowSize.width / 2) * parallaxFactor : 0;
-        const offsetY = windowSize.height > 0 ? (mousePosition.y - windowSize.height / 2) * parallaxFactor : 0;
-
-        const isFloatingUp = asset.float === float1;
-        const shadowAnimation = isFloatingUp ? shadowFloatUp : shadowFloatDown;
-
-        return (
-          <ParallaxLayer key={index} style={{ transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`, zIndex }}>
-            <ScatterWrapper
-              animationDelay={`${scatterDelay}s`}
-              finalTranslateX={assetTx}
-              finalTranslateY={assetTy}
-              finalRotate={asset.r}
-            >
-              <FloatingAssetContainer style={{ transform: `scale(${scale})` }}>
-                <Shadow shadowAnimation={shadowAnimation} animationDelay={`${scatterDelay + 1}s`} />
-                <FloatingAssetImg
-                  src={asset.src}
-                  alt=''
-                  size={`${parseInt(asset.size) * mobileFactor}px`}
-                  floatAnimation={asset.float}
-                  animationDelay={`${scatterDelay + 1}s`}
-                  blurAmount={blurAmount}
-                />
-              </FloatingAssetContainer>
-            </ScatterWrapper>
-          </ParallaxLayer>
-        );
-      })}
-      <ParallaxLayer style={{ transform: `translate3d(${mainGopherOffsetX}px, ${mainGopherOffsetY}px, 0)` }}>
+      <ParallaxLayer style={{ transform: `translate3d(${mainGopherOffsetX}px, ${mainGopherOffsetY}px, 0)`, zIndex: 4 }}>
         <MainGopher src={gopherParty} alt='Gopher Party' animationDelay={`${startDelay}s`} />
       </ParallaxLayer>
     </AnimationContainer>
