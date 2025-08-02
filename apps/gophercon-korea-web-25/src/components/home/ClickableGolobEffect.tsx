@@ -29,7 +29,7 @@ export const GolobParticle = styled.img<{
   endHue: number;
 }>`
   position: absolute;
-  width: 48px;
+  width: 32px;
   height: auto;
   pointer-events: none;
   animation: ${({ endX, endY, rotation, endHue }) => scatterAndFade(endX, endY, rotation, endHue)} 1.5s ease-out
