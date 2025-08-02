@@ -17,6 +17,7 @@ const Venue = () => {
   const { copy: copyAddress, copyStatus: addressCopyStatus } = useCopyToClipboard();
   const email = t("venue.contact_email");
   const address = t("venue.address");
+  const venueName = t("home.venue");
   const subwayLines = t("venue.subway_lines", { returnObjects: true });
 
   return (
@@ -37,8 +38,11 @@ const Venue = () => {
           <Card>
             <InfoTitle>{t("venue.address_title")}</InfoTitle>
             <CopyableContainer>
-              <Address>{address}</Address>
-              <CopyButton onClick={() => copyAddress(address)} title='Copy address'>
+              <AddressWrapper>
+                <VenueName>{venueName}</VenueName>
+                <Address>{address}</Address>
+              </AddressWrapper>
+              <CopyButton onClick={() => copyAddress(`${venueName}, ${address}`)} title='Copy address'>
                 {addressCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
               </CopyButton>
             </CopyableContainer>
@@ -125,10 +129,23 @@ const InfoTitle = styled.h3`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-const Address = styled.p`
+const AddressWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const VenueName = styled.strong`
   font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+`;
+
+const Address = styled.p`
+  font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.6;
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
 
 const TransportSection = styled.div`

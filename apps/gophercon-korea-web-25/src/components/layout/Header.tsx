@@ -137,7 +137,7 @@ const Tooltip = styled.span`
   padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  top: 125%;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -148,12 +148,12 @@ const Tooltip = styled.span`
   &::after {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #333 transparent transparent transparent;
+    border-color: transparent transparent #333 transparent;
   }
 `;
 

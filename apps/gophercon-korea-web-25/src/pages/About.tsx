@@ -74,8 +74,11 @@ const About = () => {
   const values = Array.isArray(valuesData) ? (valuesData as { title: string; desc: string }[]) : [];
   const valueIcons = [RiTeamLine, RiShareLine, RiGlobalLine];
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t: tRoot } = useTranslation();
   const { copy: copyVenue, copyStatus: venueCopyStatus } = useCopyToClipboard();
-  const venueAddress = t("venue").split(": ")[1] || "";
+  const venueName = t("venue").split(": ")[1] || "";
+  const venueAddress = tRoot("venue.address");
+  const fullVenueInfo = `${venueName}, ${venueAddress}`;
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -141,7 +144,7 @@ const About = () => {
                 <InfoItem>{t("date")}</InfoItem>
                 <InfoDivider />
                 <InfoItem>{t("venue")}</InfoItem>
-                <CopyButton onClick={() => copyVenue(venueAddress)} title='Copy address'>
+                <CopyButton onClick={() => copyVenue(fullVenueInfo)} title='Copy address'>
                   {venueCopyStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
                 </CopyButton>
               </CopyableContainer>
