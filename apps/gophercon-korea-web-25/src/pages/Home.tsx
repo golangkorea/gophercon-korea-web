@@ -154,7 +154,7 @@ const HeroSection = styled.div`
   z-index: 5;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 4vh 0;
+    padding: 8vh 0;
   }
 `;
 

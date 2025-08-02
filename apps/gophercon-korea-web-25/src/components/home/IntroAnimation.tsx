@@ -128,7 +128,7 @@ const Shadow = styled.div<{
   height: 10px;
   background-color: rgba(30, 41, 59, 0.25);
   border-radius: 50%;
-  z-index: 0;
+  z-index: -1;
   animation: ${({ shadowAnimation }) => shadowAnimation} 4s ease-in-out infinite;
   animation-delay: ${({ animationDelay }) => animationDelay};
 `;
@@ -157,7 +157,7 @@ const assets = [
   { src: balloon2, size: "80px", tx: "35vw", ty: "-35vh", r: "15deg", float: float2, pFactor: 0.04 },
   { src: balloon3, size: "90px", tx: "-30vw", ty: "25vh", r: "-25deg", float: float3, pFactor: 0.03 },
   { src: balloon4, size: "120px", tx: "30vw", ty: "30vh", r: "10deg", float: float1, pFactor: 0.035 },
-  { src: balloon5, size: "70px", tx: "15vw", ty: "-40vh", r: "5deg", float: float2, pFactor: 0.046 },
+  { src: balloon5, size: "70px", tx: "25vw", ty: "-45vh", r: "5deg", float: float2, pFactor: 0.046 },
   { src: balloon6, size: "85px", tx: "-20vw", ty: "-20vh", r: "-30deg", float: float3, pFactor: 0.042 },
   { src: crowdSurfingLeft, size: "200px", tx: "-35vw", ty: "10vh", r: "-15deg", float: float1, pFactor: 0.05 },
   { src: crowdSurfingRight, size: "200px", tx: "35vw", ty: "5vh", r: "15deg", float: float2, pFactor: 0.048 },
