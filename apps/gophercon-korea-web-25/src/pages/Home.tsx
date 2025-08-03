@@ -181,6 +181,7 @@ const HomeContainer = styled.div`
   padding: 0;
   max-width: none;
   height: calc(100vh - 80px);
+  overflow: hidden;
 `;
 
 const HeroSection = styled.div`
