@@ -201,6 +201,10 @@ const BackLink = styled(Link)`
 const Header = styled.div`
   text-align: center;
   margin-bottom: 4rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: 2.5rem;
+  }
 `;
 
 const Layout = styled.div`
@@ -241,6 +245,10 @@ const BaseCard = styled.div`
     font-weight: bold;
     margin-bottom: 1.5rem;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 1.5rem;
+  }
 `;
 
 const SpeakerCard = styled(BaseCard)`
@@ -264,6 +272,15 @@ const Title = styled.h1`
   font-size: 3.5rem;
   font-weight: bold;
   line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+    line-height: 1.3;
+  }
 `;
 
 const SpeakerSubtitle = styled.div`

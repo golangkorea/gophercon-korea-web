@@ -184,9 +184,10 @@ const IntroAnimation = ({
       const maxScale = 1.25;
       const maxBlur = 2.0;
 
-      const mobileFactor = isMobile ? 0.5 : 1;
-      const assetTx = `calc(${asset.tx} * ${mobileFactor})`;
-      const assetTy = `calc(${asset.ty} * ${mobileFactor})`;
+      const mobileSizeFactor = isMobile ? 0.6 : 1;
+      const mobileTranslateFactor = isMobile ? 0.85 : 1;
+      const assetTx = `calc(${asset.tx} * ${mobileTranslateFactor})`;
+      const assetTy = `calc(${asset.ty} * ${mobileTranslateFactor})`;
 
       const normalizedFactor = (parallaxFactor - minFactor) / (maxFactor - minFactor); // 0 to 1
       const scale = minScale + (maxScale - minScale) * normalizedFactor;
@@ -211,7 +212,7 @@ const IntroAnimation = ({
         shadowAnimation,
         shadowAnimationDelay: `${scatterDelay + 1}s`,
         assetSrc: asset.src,
-        assetSize: `${parseInt(asset.size) * mobileFactor}px`,
+        assetSize: `${parseInt(asset.size) * mobileSizeFactor}px`,
         assetFloatAnimation: asset.float,
         assetAnimationDelay: `${scatterDelay + 1}s`,
         blurAmount,

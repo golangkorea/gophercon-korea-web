@@ -97,7 +97,8 @@ const Grid = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
     & > div:first-of-type {
-      height: 500px;
+      /* This is the Card containing the map */
+      aspect-ratio: 4 / 3;
     }
   }
 `;

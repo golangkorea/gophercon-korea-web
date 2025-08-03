@@ -6,7 +6,7 @@ export interface Session {
     name: { en: string; ko: string };
     company: { en: string; ko: string };
     intro: { en: string; ko: string };
-    image?: string;
+    image: string;
     sns?: {
       github?: string;
       linkedin?: string;
@@ -47,6 +47,7 @@ export const sessions: Session[] = [
         en: "An evangelist for explicit error handling. Believes that a well-handled error is a feature, not a bug.",
         ko: "명시적 에러 핸들링의 전도사. 잘 처리된 에러는 버그가 아닌 기능이라고 믿습니다.",
       },
+      image: "i-m-gopher",
       sns: {
         github: "https://github.com/@@gopher@@",
         youtube: "https://youtube.com/@@gopher@@",
@@ -75,6 +76,7 @@ export const sessions: Session[] = [
         en: "A performance tuning expert who lives in the flame graph. Can spot a memory leak from a mile away.",
         ko: "플레임 그래프 속에서 사는 성능 튜닝 전문가. 1마일 밖에서도 메모리 누수를 발견할 수 있습니다.",
       },
+      image: "dr-profile",
       sns: {
         linkedin: "https://www.linkedin.com/in/@@gopher@@",
       },
@@ -101,6 +103,7 @@ export const sessions: Session[] = [
         en: "A minimalist who believes the best code is the code you don't write. Prefers simplicity over magic.",
         ko: "최고의 코드는 작성하지 않은 코드라고 믿는 미니멀리스트. 마법보다는 단순함을 선호합니다.",
       },
+      image: "standard-library-stan",
       sns: {
         twitter: "https://twitter.com/@@gopher@@",
       },
@@ -124,6 +127,7 @@ export const sessions: Session[] = [
         en: "Loves types, hates `any`. Has written `funcT any T` more times than they can count.",
         ko: "타입을 사랑하고 `any`를 싫어합니다. 셀 수 없이 많이 `funcT any T`를 작성했습니다.",
       },
+      image: "gena-rics",
     },
     difficulty: { en: "Beginner", ko: "초급" },
     category: { en: "Community", ko: "커뮤니티" },

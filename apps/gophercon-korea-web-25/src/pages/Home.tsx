@@ -198,7 +198,7 @@ const HeroSection = styled.div`
   z-index: 5;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 8vh 0;
+    padding: 8vh 1rem;
     cursor: pointer;
   }
 `;
@@ -232,8 +232,8 @@ const MainTitle = styled.h1`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 2.8rem;
-    padding: 0.75rem 1.5rem;
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    padding: 0.75rem 1.2rem;
     border-width: 3px;
     box-shadow: 8px 8px 0px #000000;
   }
@@ -299,6 +299,8 @@ const BottomContentContainer = styled.div`
     padding: 1rem 1.5rem;
     border-width: 3px;
     box-shadow: 8px 8px 0px #000000;
+    width: 100%;
+    box-sizing: border-box;
   }
 `;
 

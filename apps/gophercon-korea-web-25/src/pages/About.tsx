@@ -218,11 +218,16 @@ const Section = styled.section`
 
 const Slogan = styled.h2`
   text-align: center;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-style: italic;
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.primary};
   font-weight: 500;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
 `;
 
 const Card = styled.div`
@@ -305,10 +310,14 @@ const InfoDivider = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: 30px;
+  }
 `;
 
 const ValuesGrid = styled.div`

@@ -13,12 +13,12 @@ const sponsors = [
   { name: "Sponsor H" },
 ];
 
-const slideAnimation = (sponsorCount: number) => keyframes`
+const slideAnimation = (itemWidth: number, sponsorCount: number) => keyframes`
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-250px * ${sponsorCount}));
+    transform: translateX(calc(-${itemWidth}px * ${sponsorCount}));
   }
 `;
 
@@ -60,12 +60,24 @@ const SliderWrapper = styled.div`
     right: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 80%);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    &:before,
+    &:after {
+      width: 100px;
+    }
+  }
 `;
 
 const SliderTrack = styled.div`
   display: flex;
   width: calc(250px * ${sponsors.length * 2});
-  animation: ${slideAnimation(sponsors.length)} 40s linear infinite;
+  animation: ${slideAnimation(250, sponsors.length)} 40s linear infinite;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: calc(180px * ${sponsors.length * 2});
+    animation-name: ${slideAnimation(180, sponsors.length)};
+  }
 `;
 
 const SponsorLogo = styled.div`
@@ -91,6 +103,14 @@ const SponsorLogo = styled.div`
     opacity: 1;
     transform: scale(1.1);
     color: ${({ theme }) => theme.colors.primary};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 180px;
+    padding: 0 20px;
+    span {
+      font-size: 1.2rem;
+    }
   }
 `;
 

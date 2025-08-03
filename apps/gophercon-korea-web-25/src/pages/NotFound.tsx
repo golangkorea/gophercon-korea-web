@@ -899,12 +899,21 @@ const GameOverScreen = styled.div`
   cursor: default;
 
   h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 10vw, 4rem);
     margin-bottom: 1rem;
   }
   h2 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem);
     margin-bottom: 2rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      margin-bottom: 1.5rem;
+    }
   }
   button {
     padding: 12px 24px;
