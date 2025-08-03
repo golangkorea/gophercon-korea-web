@@ -1,3 +1,4 @@
+import GopherHead from "@/components/common/GopherHead";
 import { PageContainer } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
 import { sessions } from "@/data/program";
@@ -15,10 +16,11 @@ import {
   RiTimeLine,
   RiTwitterFill,
   RiUserLine,
-  RiUserSmileLine,
   RiYoutubeFill,
 } from "react-icons/ri";
 import { Link, useParams } from "react-router-dom";
+
+const profileImages: { [key: string]: any } = {};
 
 const SessionDetail = () => {
   const { sessionId } = useParams<{ sessionId: string }>();
@@ -38,6 +40,7 @@ const SessionDetail = () => {
 
   const isDummySns = (url: string) => url.includes("@@gopher@@");
   const dummySnsMessages = t("dummy_sns_messages", { returnObjects: true }) as { [key: string]: string };
+  const speakerImageSrc = profileImages[session.speaker.image];
 
   return (
     <PageContainer>
@@ -80,10 +83,10 @@ const SessionDetail = () => {
           <SpeakerCard>
             <h4>{t("speaker")}</h4>
             <SpeakerImageContainer>
-              {session.speaker.image ? (
-                <SpeakerImage src={session.speaker.image} alt={session.speaker.name[lang]} />
+              {speakerImageSrc ? (
+                <SpeakerImage src={speakerImageSrc} alt={session.speaker.name[lang]} />
               ) : (
-                <RiUserSmileLine size={80} color='#c0c0c0' />
+                <GopherHead />
               )}
             </SpeakerImageContainer>
             <SpeakerName>{session.speaker.name[lang]}</SpeakerName>
