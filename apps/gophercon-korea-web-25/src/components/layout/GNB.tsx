@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 
+const SHOW_FLEA_MARKET_MENU = false;
+
 const subMenuLinkStyles = (theme: Theme, $active: boolean) => css`
   display: block;
   padding: 0.8rem 1.5rem;
@@ -77,12 +79,19 @@ const GNB = () => {
             </MenuItem>
           );
         })}
+        {SHOW_FLEA_MARKET_MENU && (
+          <MenuItem>
+            <MenuLink to='/flea-market' $active={location.pathname.startsWith("/flea-market")}>
+              {t("nav.flea_market")}
+            </MenuLink>
+          </MenuItem>
+        )}
       </MenuList>
     </Nav>
   );
 };
 
-const Nav = styled.nav({});
+const Nav = styled.nav``;
 const MenuList = styled.ul({ margin: 0, padding: 0, listStyle: "none", display: "flex", gap: "2.5rem" });
 const MenuItem = styled.li({ position: "relative" });
 const MenuLink = styled(Link)<{ $active?: boolean }>(({ $active, theme }) => ({

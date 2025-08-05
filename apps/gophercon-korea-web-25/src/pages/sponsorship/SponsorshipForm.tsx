@@ -55,8 +55,9 @@ const SponsorshipForm = () => {
         <InfoList>
           <li>{t("to_join_deadline")}</li>
           <li>
-            <CopyableContainer>
-              <span>{t("to_join_contact")}</span>
+            {t("to_join_contact").split(contactEmail)[0]}
+            <CopyableContainer style={{ display: "inline-flex" }}>
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               <CopyButton onClick={() => copyContactEmail(contactEmail)} title='Copy email'>
                 {contactEmailStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
               </CopyButton>
@@ -75,14 +76,16 @@ const SponsorshipForm = () => {
         <p>{t("timeline_schedule")}</p>
         <p>{t("timeline_registration")}</p>
         <p>
-          <CopyableContainer>
-            <span>{t("timeline_contact")}</span>
-            {timelineEmail && (
+          {t("timeline_contact").split(`(${timelineEmail})`)[0]}
+          {timelineEmail && (
+            <CopyableContainer style={{ display: "inline-flex" }}>
+              (<a href={`mailto:${timelineEmail}`}>{timelineEmail}</a>
               <CopyButton onClick={() => copyTimelineEmail(timelineEmail)} title='Copy email'>
                 {timelineEmailStatus === "copied" ? <RiCheckLine color='green' /> : <RiFileCopyLine />}
               </CopyButton>
-            )}
-          </CopyableContainer>
+              ){t("timeline_contact").split(`(${timelineEmail})`)[1]}
+            </CopyableContainer>
+          )}
         </p>
       </Card>
 
@@ -167,7 +170,15 @@ const CopyableContainer = styled.div`
   gap: 0.5rem;
 
   &:hover button {
-    opacity: 0.7;
+    opacity: 1;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -175,10 +186,10 @@ const CopyButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.text};
-  opacity: 0;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  opacity: 0.4;
   transition: opacity 0.2s;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding: 0;
   display: inline-flex;
   align-items: center;

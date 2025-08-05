@@ -18,6 +18,7 @@ const resources = {
         sponsorship_guide: "Sponsorship Guide",
         sponsorship_faq: "Sponsorship FAQ",
         sponsorship_form: "Sponsorship Form",
+        flea_market: "Flea Market",
         venue: "Venue",
         coc: "CoC",
         past_gophercons: "Past GopherCons",
@@ -35,6 +36,7 @@ const resources = {
         sponsorship_guide: "Sponsorship Guide",
         sponsorship_form: "Sponsorship Application",
         sponsorship_faq: "Sponsorship FAQ",
+        flea_market: "Flea Market",
         venue: "Venue",
         not_found: "Page Not Found",
         not_found_initial_messages: [
@@ -289,8 +291,9 @@ const resources = {
           { name: "Sungmin Han", role: "Organizer", avatar: "sungmin-han" },
           { name: "Wooseok Han", role: "Organizer", avatar: "wooseok-han" },
         ],
+        preparatory_committee_list: [],
         artwork_credit:
-          "The organizers' avatars can be created at <0>Gopherize.me</0>. The Gopher character was originally contributed by <1>Renee French</1>, and you can find more details at <2>go.dev/blog/gopher</2>.",
+          "The organizers' avatars were created with <0>Gopherize.me</0> (Artwork by <3>Ashley McNamara</3>).<4/>The original Gopher character was contributed by <1>Renee French</1>. For more details, please see <2>go.dev/blog/gopher</2>.",
       },
       sponsorship_guide: {
         title: "Sponsorship Guide",
@@ -560,6 +563,28 @@ const resources = {
         gophercon_intro_en_link: "https://drive.google.com/file/d/1ETZZNo08roCagv4T7EES-djeiTqKDu2e/view?usp=sharing",
         golangkorea_intro_en_link: "https://drive.google.com/file/d/1g8ZxVTTzxD4VEeckh1nT2HLCd-EiwtK_/view?usp=sharing",
       },
+      flea_market: {
+        title: "Flea Market",
+        description:
+          "At the GopherCon Korea 2025 venue, we will be operating a flea market booth with a variety of official merchandise. Come and find special goods to remember the conference!",
+        items_title: "Featured Items",
+        notice_title: "Gopher's Secret Stash",
+        notice_content:
+          "Psst! These are just a few of the treasures we're preparing. The final lineup is still being polished by our artisan gophers. Come to the venue to see the real deal!",
+        price_coming_soon: "Price to be announced",
+        items: [
+          { name: "Gopher Crochet Doll (Large)", image: "gopher-crochet-large", price: "KRW 50,000" },
+          { name: "Gopher Bag Charm Doll (Small)", image: "gopher-bag-charm", price: "KRW 25,000" },
+          { name: "Gopher Figure", image: "gopher-figure", price: "KRW 35,000" },
+          { name: "Gopher Keychain", image: "gopher-keychain", price: "KRW 15,000" },
+          { name: "GopherCon Korea Metal Badge", image: "gophercon-badge", price: "KRW 12,000" },
+          { name: "GopherCon Mug", image: "gophercon-mug", price: "KRW 20,000" },
+          { name: "Gopher Sticker Set", image: "gopher-stickers", price: "KRW 8,000" },
+          { name: "Gopher T-shirt", image: "gopher-tshirt", price: "KRW 30,000" },
+          { name: "Gopher Tumbler", image: "gopher-tumbler", price: "KRW 22,000" },
+          { name: "Gopher Metal Badge", image: "gopher-metal-badge", price: "KRW 10,000" },
+        ],
+      },
       sponsorship_faq: {
         title: "Sponsorship FAQ",
         description:
@@ -624,6 +649,7 @@ const resources = {
         sponsorship_guide: "후원사 안내",
         sponsorship_faq: "후원 FAQ",
         sponsorship_form: "후원사 신청",
+        flea_market: "플리마켓",
         venue: "장소",
         coc: "행동 강령",
         past_gophercons: "지난 고퍼콘",
@@ -641,6 +667,7 @@ const resources = {
         sponsorship_guide: "후원사 안내",
         sponsorship_form: "후원사 신청",
         sponsorship_faq: "후원 관련 자주 묻는 질문",
+        flea_market: "플리마켓",
         venue: "장소",
         not_found: "페이지를 찾을 수 없습니다",
         not_found_initial_messages: [
@@ -890,8 +917,9 @@ const resources = {
           { name: "한성민", role: "오거나이저", avatar: "sungmin-han" },
           { name: "한우석", role: "오거나이저", avatar: "wooseok-han" },
         ],
+        preparatory_committee_list: [],
         artwork_credit:
-          "오거나이저의 아바타는 <0>Gopherize.me</0>에서 만들 수 있습니다. 고퍼 캐릭터는 <1>Renee French</1>의 기여로 부터 시작되었으며, 더 자세한 내용은 <2>go.dev/blog/gopher</2>를 참고해주세요.",
+          "오거나이저의 아바타는 <0>Gopherize.me</0>를 통해 만들었습니다 (아트워크 by <3>Ashley McNamara</3>).<4/>오리지널 고퍼 캐릭터는 <1>Renee French</1>의 기여로부터 시작되었으며, 자세한 내용은 <2>go.dev/blog/gopher</2>를 참고해주세요.",
       },
       sponsorship_guide: {
         title: "후원사 안내",
@@ -1155,6 +1183,28 @@ const resources = {
         golangkorea_intro_ko_link: "https://drive.google.com/file/d/1Z_c7IDGuyTaW50Et0S0nRyPRoScu3c2D/view?usp=sharing",
         gophercon_intro_en_link: "https://drive.google.com/file/d/1ETZZNo08roCagv4T7EES-djeiTqKDu2e/view?usp=sharing",
         golangkorea_intro_en_link: "https://drive.google.com/file/d/1g8ZxVTTzxD4VEeckh1nT2HLCd-EiwtK_/view?usp=sharing",
+      },
+      flea_market: {
+        title: "플리마켓",
+        description:
+          "고퍼콘 코리아 2025 행사장에서는 다양한 공식 굿즈를 판매하는 플리마켓 부스가 운영됩니다. 컨퍼런스를 기념할 특별한 굿즈들을 만나보세요!",
+        items_title: "주요 판매 상품",
+        notice_title: "고퍼의 비밀 상점",
+        notice_content:
+          "쉿! 이 상품들은 저희가 준비 중인 보물들의 일부랍니다. 최종 라인업은 장인 고퍼들이 열심히 다듬고 있어요. 행사장에서 실물을 확인하세요!",
+        price_coming_soon: "가격 공개 예정",
+        items: [
+          { name: "고퍼 코바늘 인형 (대형)", image: "gopher-crochet-large", price: "50,000원" },
+          { name: "고퍼 가방고리 인형 (소형)", image: "gopher-bag-charm", price: "25,000원" },
+          { name: "고퍼 피규어", image: "gopher-figure", price: "35,000원" },
+          { name: "고퍼 열쇠고리", image: "gopher-keychain", price: "15,000원" },
+          { name: "고퍼콘 코리아 금속뱃지", image: "gophercon-badge", price: "12,000원" },
+          { name: "고퍼콘 머그컵", image: "gophercon-mug", price: "20,000원" },
+          { name: "고퍼 스티커 세트", image: "gopher-stickers", price: "8,000원" },
+          { name: "고퍼 티셔츠", image: "gopher-tshirt", price: "30,000원" },
+          { name: "고퍼 텀블러", image: "gopher-tumbler", price: "22,000원" },
+          { name: "고퍼 금속 뱃지", image: "gopher-metal-badge", price: "10,000원" },
+        ],
       },
       sponsorship_faq: {
         title: "후원 관련 자주 묻는 질문",

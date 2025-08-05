@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import About from "@/pages/About";
 import CoC from "@/pages/CoC";
+import FleaMarket from "@/pages/FleaMarket";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import Organizers from "@/pages/Organizers";
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
       { path: "/sponsorship/guide", element: <SponsorshipGuide /> },
       { path: "/sponsorship/form", element: <SponsorshipForm /> },
       { path: "/sponsorship/faq", element: <SponsorshipFAQ /> },
+      { path: "/flea-market", element: <FleaMarket /> },
       { path: "/venue", element: <Venue /> },
     ],
   },

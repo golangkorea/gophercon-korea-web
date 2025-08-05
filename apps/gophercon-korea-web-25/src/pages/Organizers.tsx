@@ -4,6 +4,12 @@ import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 
+import gopherDefault1 from "@/assets/profile/gopher-default1.webp";
+import gopherDefault2 from "@/assets/profile/gopher-default2.webp";
+import gopherDefault3 from "@/assets/profile/gopher-default3.webp";
+import gopherDefault4 from "@/assets/profile/gopher-default4.webp";
+import gopherDefault5 from "@/assets/profile/gopher-default5.webp";
+import gopherDefault6 from "@/assets/profile/gopher-default6.webp";
 import hyunseoJung from "@/assets/profile/hyunseo-jung.webp";
 import jaichangPark from "@/assets/profile/jaichang-park.webp";
 import jhinLee from "@/assets/profile/jhin-lee.webp";
@@ -31,6 +37,15 @@ const profileImages: { [key: string]: any } = {
   "wooseok-han": wooseokHan,
 };
 
+const defaultGopherImages = [
+  gopherDefault1,
+  gopherDefault2,
+  gopherDefault3,
+  gopherDefault4,
+  gopherDefault5,
+  gopherDefault6,
+];
+
 interface Organizer {
   name: string;
   role: string;
@@ -39,12 +54,18 @@ interface Organizer {
 
 const Organizers = () => {
   const { t } = useTranslation(undefined, { keyPrefix: "organizers" });
-  const [shuffledOrganizers, setShuffledOrganizers] = useState<Organizer[]>([]);
+  const [shuffledMembers, setShuffledMembers] = useState<Organizer[]>([]);
 
   useEffect(() => {
-    const organizerList = t("list", { returnObjects: true });
-    if (Array.isArray(organizerList)) {
-      setShuffledOrganizers(shuffleArray(organizerList as Organizer[]));
+    const organizerList = (t("list", { returnObjects: true }) as Organizer[]) || [];
+    const prepList = (t("preparatory_committee_list", { returnObjects: true }) as Organizer[]) || [];
+
+    let allMembers: Organizer[] = [];
+    if (Array.isArray(organizerList)) allMembers = allMembers.concat(organizerList);
+    if (Array.isArray(prepList)) allMembers = allMembers.concat(prepList);
+
+    if (allMembers.length > 0) {
+      setShuffledMembers(shuffleArray(allMembers));
     }
   }, [t]);
 
@@ -54,13 +75,16 @@ const Organizers = () => {
       <PageTitle>{t("title")}</PageTitle>
       <Description>{t("list_desc")}</Description>
       <OrganizerGrid>
-        {shuffledOrganizers.map((organizer) => (
-          <OrganizerCard key={organizer.name}>
-            <ProfileImage imageUrl={profileImages[organizer.avatar]} />
-            <Name>{organizer.name}</Name>
-            <Role>{organizer.role}</Role>
-          </OrganizerCard>
-        ))}
+        {shuffledMembers.map((member, index) => {
+          const imageUrl = profileImages[member.avatar] || defaultGopherImages[index % defaultGopherImages.length];
+          return (
+            <OrganizerCard key={member.name}>
+              <ProfileImage imageUrl={imageUrl} />
+              <Name>{member.name}</Name>
+              <Role>{member.role}</Role>
+            </OrganizerCard>
+          );
+        })}
       </OrganizerGrid>
       <ArtworkCredit>
         <Trans
@@ -69,6 +93,8 @@ const Organizers = () => {
             <a href='https://gopherize.me/' target='_blank' rel='noopener noreferrer' />,
             <a href='http://reneefrench.blogspot.co.uk/' target='_blank' rel='noopener noreferrer' />,
             <a href='https://go.dev/blog/gopher' target='_blank' rel='noopener noreferrer' />,
+            <a href='https://x.com/ashleymcnamara' target='_blank' rel='noopener noreferrer' />,
+            <br />,
           ]}
         />
       </ArtworkCredit>

@@ -1,11 +1,12 @@
 import { GNB_MENU_ITEMS } from "@/constants/menu";
 import { css, Theme } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RiArrowDownLine, RiArrowUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
+const SHOW_FLEA_MARKET_MENU = false;
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
@@ -52,43 +53,52 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
         </li>
         <Divider />
         {GNB_MENU_ITEMS.map((menu) => (
-          <li key={menu.labelKey}>
-            {menu.subMenus ? (
-              <>
-                <MenuButton onClick={() => toggleSubMenu(menu.labelKey)}>
+          <Fragment key={menu.labelKey}>
+            <li>
+              {menu.subMenus ? (
+                <>
+                  <MenuButton onClick={() => toggleSubMenu(menu.labelKey)}>
+                    {t(menu.labelKey)}
+                    {openSubMenu === menu.labelKey ? <RiArrowUpLine /> : <RiArrowDownLine />}
+                  </MenuButton>
+                  {openSubMenu === menu.labelKey && (
+                    <SubMenuList>
+                      {menu.subMenus.map((subMenu) => (
+                        <li key={subMenu.labelKey}>
+                          {subMenu.isExternal ? (
+                            <SubMenuExternalLink
+                              href={subMenu.path}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              onClick={onClose}
+                            >
+                              {t(subMenu.labelKey) || subMenu.labelKey}
+                            </SubMenuExternalLink>
+                          ) : (
+                            <SubMenuInternalLink to={subMenu.path} onClick={handleLinkClick}>
+                              {t(subMenu.labelKey)}
+                            </SubMenuInternalLink>
+                          )}
+                        </li>
+                      ))}
+                    </SubMenuList>
+                  )}
+                </>
+              ) : (
+                <MenuLink to={menu.path} onClick={handleLinkClick}>
                   {t(menu.labelKey)}
-                  {openSubMenu === menu.labelKey ? <RiArrowUpLine /> : <RiArrowDownLine />}
-                </MenuButton>
-                {openSubMenu === menu.labelKey && (
-                  <SubMenuList>
-                    {menu.subMenus.map((subMenu) => (
-                      <li key={subMenu.labelKey}>
-                        {subMenu.isExternal ? (
-                          <SubMenuExternalLink
-                            href={subMenu.path}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            onClick={onClose}
-                          >
-                            {t(subMenu.labelKey) || subMenu.labelKey}
-                          </SubMenuExternalLink>
-                        ) : (
-                          <SubMenuInternalLink to={subMenu.path} onClick={handleLinkClick}>
-                            {t(subMenu.labelKey)}
-                          </SubMenuInternalLink>
-                        )}
-                      </li>
-                    ))}
-                  </SubMenuList>
-                )}
-              </>
-            ) : (
-              <MenuLink to={menu.path} onClick={handleLinkClick}>
-                {t(menu.labelKey)}
-              </MenuLink>
-            )}
-          </li>
+                </MenuLink>
+              )}
+            </li>
+          </Fragment>
         ))}
+        {SHOW_FLEA_MARKET_MENU && (
+          <li>
+            <MenuLink to='/flea-market' onClick={handleLinkClick}>
+              {t("nav.flea_market")}
+            </MenuLink>
+          </li>
+        )}
       </NavList>
     </NavContainer>
   );

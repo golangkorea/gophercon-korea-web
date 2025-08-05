@@ -107,27 +107,11 @@ const About = () => {
       <ScrollAnimatedSection>
         <Section>
           <Card>
-            <SectionTitle>{t("past_conferences_title")}</SectionTitle>
-            <PastConferenceGrid>
-              <PastConferenceLink
-                href='https://www.youtube.com/watch?v=zdMuLvK0pNg'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <RiYoutubeLine size={40} />
-                <h3>GopherCon Korea 2024</h3>
-                <p>{t("watch_now")}</p>
-              </PastConferenceLink>
-              <PastConferenceLink
-                href='https://www.youtube.com/watch?v=75X_eBW0mog&list=PLxEDm5GRSh4Mks_ECe5g3PAppNWGC96F4'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <RiYoutubeLine size={40} />
-                <h3>GopherCon Korea 2023</h3>
-                <p>{t("watch_now")}</p>
-              </PastConferenceLink>
-            </PastConferenceGrid>
+            <SectionTitle>{t("what_is_gophercon_title")}</SectionTitle>
+            <SectionSubtitle>{t("what_is_gophercon_subtitle")}</SectionSubtitle>
+            <MainContent style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+              <p>{t("what_is_gophercon_content")}</p>
+            </MainContent>
           </Card>
         </Section>
       </ScrollAnimatedSection>
@@ -156,11 +140,27 @@ const About = () => {
       <ScrollAnimatedSection>
         <Section>
           <Card>
-            <SectionTitle>{t("what_is_gophercon_title")}</SectionTitle>
-            <SectionSubtitle>{t("what_is_gophercon_subtitle")}</SectionSubtitle>
-            <MainContent style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
-              <p>{t("what_is_gophercon_content")}</p>
-            </MainContent>
+            <SectionTitle>{t("past_conferences_title")}</SectionTitle>
+            <PastConferenceGrid>
+              <PastConferenceLink
+                href='https://www.youtube.com/watch?v=zdMuLvK0pNg'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <RiYoutubeLine size={40} />
+                <h3>GopherCon Korea 2024</h3>
+                <p>{t("watch_now")}</p>
+              </PastConferenceLink>
+              <PastConferenceLink
+                href='https://www.youtube.com/watch?v=75X_eBW0mog&list=PLxEDm5GRSh4Mks_ECe5g3PAppNWGC96F4'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <RiYoutubeLine size={40} />
+                <h3>GopherCon Korea 2023</h3>
+                <p>{t("watch_now")}</p>
+              </PastConferenceLink>
+            </PastConferenceGrid>
           </Card>
         </Section>
       </ScrollAnimatedSection>
