@@ -2,7 +2,7 @@ import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 import hyunseoJung from "@/assets/profile/hyunseo-jung.webp";
 import jaichangPark from "@/assets/profile/jaichang-park.webp";
@@ -62,6 +62,16 @@ const Organizers = () => {
           </OrganizerCard>
         ))}
       </OrganizerGrid>
+      <ArtworkCredit>
+        <Trans
+          i18nKey='organizers.artwork_credit'
+          components={[
+            <a href='https://gopherize.me/' target='_blank' rel='noopener noreferrer' />,
+            <a href='http://reneefrench.blogspot.co.uk/' target='_blank' rel='noopener noreferrer' />,
+            <a href='https://go.dev/blog/gopher' target='_blank' rel='noopener noreferrer' />,
+          ]}
+        />
+      </ArtworkCredit>
     </PageContainer>
   );
 };
@@ -110,6 +120,22 @@ const Name = styled.h3`
 const Role = styled.p`
   font-size: 1rem;
   color: ${({ theme }) => theme.colors.primary};
+`;
+
+const ArtworkCredit = styled.p`
+  text-align: center;
+  font-size: 0.9rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-top: 60px;
+  line-height: 1.6;
+
+  a {
+    color: ${({ theme }) => theme.colors.primary};
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export default Organizers;

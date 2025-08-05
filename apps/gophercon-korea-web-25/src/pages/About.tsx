@@ -156,6 +156,18 @@ const About = () => {
       <ScrollAnimatedSection>
         <Section>
           <Card>
+            <SectionTitle>{t("what_is_gophercon_title")}</SectionTitle>
+            <SectionSubtitle>{t("what_is_gophercon_subtitle")}</SectionSubtitle>
+            <MainContent style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+              <p>{t("what_is_gophercon_content")}</p>
+            </MainContent>
+          </Card>
+        </Section>
+      </ScrollAnimatedSection>
+
+      <ScrollAnimatedSection>
+        <Section>
+          <Card>
             <SectionTitle>{t("photos_title")}</SectionTitle>
             <PhotoGallery>
               {photos.map((photo, index) => (
@@ -195,6 +207,11 @@ const About = () => {
             <MainContent style={{ textAlign: "center", maxWidth: 800, margin: "0 auto" }}>
               <p>{t("gdg_partnership_content")}</p>
             </MainContent>
+            <CtaWrapper>
+              <CtaLink href='https://developers.google.com/community/gdg' target='_blank' rel='noopener noreferrer'>
+                {t("gdg_partnership_cta")}
+              </CtaLink>
+            </CtaWrapper>
           </Card>
         </Section>
       </ScrollAnimatedSection>
@@ -228,6 +245,14 @@ const Slogan = styled.h2`
     line-height: 1.4;
     padding: 0 1rem;
   }
+`;
+
+const SectionSubtitle = styled.p`
+  text-align: center;
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors.textSecondary};
+  margin-top: -20px;
+  margin-bottom: 40px;
 `;
 
 const Card = styled.div`
@@ -472,6 +497,28 @@ const FullscreenImage = styled.img`
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   animation: ${scaleUp} 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+`;
+
+const CtaWrapper = styled.div`
+  text-align: center;
+  margin-top: 40px;
+`;
+
+const CtaLink = styled.a`
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  box-shadow: ${({ theme }) => theme.shadows.small};
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: ${({ theme }) => theme.shadows.medium};
+  }
 `;
 
 export default About;
