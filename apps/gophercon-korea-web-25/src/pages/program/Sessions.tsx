@@ -1,5 +1,6 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
+import CallForSpeakers from "@/components/program/CallForSpeakers";
 import { sessions } from "@/data/program";
 import styled from "@emotion/styled";
 import { useState } from "react";
@@ -27,6 +28,8 @@ const Sessions = () => {
     <PageContainer>
       <Seo title={t("sessions_title")} description={t("placeholder_notice_content")} />
       <PageTitle>{t("sessions_title")}</PageTitle>
+
+      <CallForSpeakers />
 
       <Notice>
         <RiInformationLine size={24} />

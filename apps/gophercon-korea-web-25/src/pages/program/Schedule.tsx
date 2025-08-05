@@ -1,5 +1,6 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
+import CallForSpeakers from "@/components/program/CallForSpeakers";
 import { schedule, Session, sessions } from "@/data/program";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -36,6 +37,8 @@ const Schedule = () => {
     <PageContainer>
       <Seo title={t("schedule_title")} description={t("placeholder_notice_content")} />
       <PageTitle>{t("schedule_title")}</PageTitle>
+
+      <CallForSpeakers />
 
       <Notice>
         <RiInformationLine size={24} />

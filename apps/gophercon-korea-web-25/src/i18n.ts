@@ -248,6 +248,10 @@ const resources = {
           youtube: "This Gopher's videos are un`go`ing production. (Placeholder)",
         },
         description_placeholder: "The session description will be updated soon.",
+        call_for_speakers_title: "Call for Speakers is Open!",
+        call_for_speakers_content:
+          "We are looking for passionate speakers to share their knowledge and experience with the Go community. If you have an interesting topic, apply now!",
+        call_for_speakers_cta: "Apply to be a Speaker",
       },
       venue: {
         title: "How to Get Here",
@@ -874,6 +878,10 @@ const resources = {
           youtube: "영상이 준비되`고` 있습니다. (예시 링크)",
         },
         description_placeholder: "세션 설명이 곧 업데이트될 예정입니다.",
+        call_for_speakers_title: "발표자 모집 중!",
+        call_for_speakers_content:
+          "Go 커뮤니티와 지식과 경험을 나눌 열정적인 발표자를 찾고 있습니다. 흥미로운 주제가 있다면 지금 바로 지원해주세요!",
+        call_for_speakers_cta: "발표자 지원하기",
       },
       venue: {
         title: "오시는 길",
