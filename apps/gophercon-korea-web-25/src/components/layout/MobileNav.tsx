@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 import { RiArrowDownLine, RiArrowUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
+const TICKET_URL = "https://www.ticketa.co/events/25";
+
 const SHOW_FLEA_MARKET_MENU = false;
 interface MobileNavProps {
   isOpen: boolean;
@@ -40,18 +42,14 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
     setOpenSubMenu(openSubMenu === labelKey ? null : labelKey);
   };
 
-  const handleCtaClick = () => {
-    alert(t("nav.buy_ticket_soon"));
-    onClose();
-  };
-
   return (
     <NavContainer isOpen={isOpen}>
       <NavList>
-        <li>
-          <MobileCtaButton onClick={handleCtaClick}>{t("nav.buy_ticket")}</MobileCtaButton>
-        </li>
-        <Divider />
+        <CtaLi>
+          <MobileCtaButton href={TICKET_URL} target='_blank' rel='noopener noreferrer' onClick={onClose}>
+            {t("nav.buy_ticket")}
+          </MobileCtaButton>
+        </CtaLi>
         {GNB_MENU_ITEMS.map((menu) => (
           <Fragment key={menu.labelKey}>
             <li>
@@ -120,7 +118,8 @@ const NavContainer = styled.nav<{ isOpen: boolean }>(({ isOpen, theme }) => ({
   },
 }));
 
-const MobileCtaButton = styled.button`
+const MobileCtaButton = styled.a`
+  display: block;
   width: 100%;
   padding: 1rem;
   font-size: 1.3rem;
@@ -131,12 +130,14 @@ const MobileCtaButton = styled.button`
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
-  opacity: 0.7;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
-const Divider = styled.hr`
-  border: none;
-  border-top: 1px solid ${({ theme }) => theme.colors.border};
+const CtaLi = styled.li`
   margin: 1rem 0;
 `;
 const NavList = styled.ul({ listStyle: "none", margin: 0, padding: 0 });

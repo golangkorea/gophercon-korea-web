@@ -25,7 +25,6 @@ const resources = {
         "2024": "2024",
         "2023": "2023",
         buy_ticket: "Buy Ticket",
-        buy_ticket_soon: "Ticket sales will open soon.",
       },
       page_title: {
         about: "About",
@@ -660,7 +659,6 @@ const resources = {
         "2024": "2024년",
         "2023": "2023년",
         buy_ticket: "티켓 구매",
-        buy_ticket_soon: "티켓 구매는 곧 오픈될 예정입니다.",
       },
       page_title: {
         about: "소개",

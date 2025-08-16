@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 import { RiCloseLine, RiMenuLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
+const TICKET_URL = "https://www.ticketa.co/events/25";
+
 const Header = () => {
   const { i18n, t } = useTranslation();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,10 +29,9 @@ const Header = () => {
             <GNB />
           </DesktopNav>
           <RightSection>
-            <CtaButtonWrapper>
-              <CtaButton disabled>{t("nav.buy_ticket")}</CtaButton>
-              <Tooltip>{t("nav.buy_ticket_soon")}</Tooltip>
-            </CtaButtonWrapper>
+            <CtaButton href={TICKET_URL} target='_blank' rel='noopener noreferrer'>
+              {t("nav.buy_ticket")}
+            </CtaButton>
             <LanguageSelector>
               <LangButton $active={i18n.language.startsWith("ko")} onClick={() => changeLanguage("ko")}>
                 KOR
@@ -111,57 +112,19 @@ const RightSection = styled.div({
   gap: "1.5rem",
 });
 
-const CtaButton = styled.button`
+const CtaButton = styled.a`
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   font-weight: bold;
   color: white;
   background-color: ${({ theme }) => theme.colors.primary};
   border: none;
+  text-decoration: none;
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
 
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-`;
-
-const Tooltip = styled.span`
-  visibility: hidden;
-  width: max-content;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 1;
-  top: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 0.9rem;
-  pointer-events: none;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #333 transparent;
-  }
-`;
-
-const CtaButtonWrapper = styled.div`
-  position: relative;
-  &:hover > ${Tooltip} {
-    visibility: visible;
-    opacity: 1;
+  &:hover {
+    opacity: 0.9;
   }
 `;
 
