@@ -1,6 +1,6 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
-import { sessions } from "@/data/program";
+import { Session, sessions } from "@/data/program";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -8,16 +8,24 @@ import { RiBarChart2Line, RiMapPin2Line, RiTimeLine, RiUserLine } from "react-ic
 import { Link } from "react-router-dom";
 
 const Sessions = () => {
-  const { t, i18n } = useTranslation(undefined, { keyPrefix: "program" });
+  const { t, i18n, ready } = useTranslation(undefined, { keyPrefix: "program" });
   const lang = i18n.language.startsWith("ko") ? "ko" : "en";
 
   const [difficultyFilter, setDifficultyFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
-  const difficulties = ["All", ...Array.from(new Set(sessions.map((s) => s.difficulty[lang])))];
-  const categories = ["All", ...Array.from(new Set(sessions.map((s) => s.category[lang])))];
+  const difficulties = ready ? ["All", ...Array.from(new Set(sessions.map((s: Session) => s.difficulty[lang])))] : ["All"];
+  const categories = ready ? ["All", ...Array.from(new Set(sessions.map((s: Session) => s.category[lang])))] : ["All"];
 
-  const filteredSessions = sessions.filter((session) => {
+  const categoryColors: { [key: string]: string } = {
+    general: "#5a67d8",
+    communication: "#38a169",
+    framework: "#d53f8c",
+    testing: "#dd6b20",
+    concurrency: "#007d9c",
+  };
+
+  const filteredSessions = sessions.filter((session: Session) => {
     const difficultyMatch = difficultyFilter === "All" || session.difficulty[lang] === difficultyFilter;
     const categoryMatch = categoryFilter === "All" || session.category[lang] === categoryFilter;
     return difficultyMatch && categoryMatch;
@@ -56,7 +64,7 @@ const Sessions = () => {
           <SessionCardLink key={session.id} to={`/program/sessions/${session.id}`}>
             <SessionCard>
               <CardHeader>
-                <CategoryLabel category={session.category.en.toLowerCase()}>{session.category[lang]}</CategoryLabel>
+                <CategoryLabel color={categoryColors[session.category.en.toLowerCase()]}>{session.category[lang]}</CategoryLabel>
                 <h3>{session.title[lang]}</h3>
               </CardHeader>
               <p>{session.description[lang] || t("description_placeholder")}</p>
@@ -154,14 +162,14 @@ const CardHeader = styled.div`
   }
 `;
 
-const CategoryLabel = styled.span<{ category: string }>`
+const CategoryLabel = styled.span<{ color?: string }>`
   display: inline-block;
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.8rem;
   font-weight: 500;
   color: white;
-  background-color: ${({ theme, category }) => (theme.colors.category as any)[category] || theme.colors.primary};
+  background-color: ${({ color, theme }) => color || theme.colors.primary};
 `;
 
 const CardFooter = styled.div`
