@@ -16,8 +16,8 @@ const Schedule = () => {
   const [difficultyFilter, setDifficultyFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
-  const difficulties = ["All", ...new Set(sessions.map((s) => s.difficulty[lang]))];
-  const categories = ["All", ...new Set(sessions.map((s) => s.category[lang]))];
+  const difficulties = ["All", ...Array.from(new Set(sessions.map((s) => s.difficulty[lang])))];
+  const categories = ["All", ...Array.from(new Set(sessions.map((s) => s.category[lang])))];
 
   const legendInfo = {
     techtalk: { color: theme.colors.primary, label: t("techtalk", "Tech Talk") },
