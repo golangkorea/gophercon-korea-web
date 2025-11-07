@@ -98,7 +98,7 @@ const sponsors: Sponsor[] = [
     tier: "Publisher",
     description: {
       ko: "제이펍은 IT 전문서, 컴퓨터 활용서, 취미/실용 분야 등 출판 분야가 다양해지면서 2025년부터는 기존의 모토 '0과 1이 꿈꾸는 세상' 대신에 '기술의 깊이, 영감의 높이, 배움의 너비'란 새로운 캐치프레이즈를 내세우며 보다 양질의 책을 펴내는 데 최선을 다하고 있습니다. IT 전문서의 I♥A.I., I♥Cloud, I♥Mobile, I♥Robot 시리즈를 거쳐 LUVIT, LEVELIT 시리즈, 컴퓨터 활용서의 ‘진짜 쓰는’, ‘일잘러’ 시리즈, 취미/실용 분야의 어텐션 시리즈까지 다양한 베스트셀러와 스테디셀러를 출간하고 있습니다.",
-      en: "As J-Pub's publishing areas have diversified to include not only IT professional books but also computer how-to guides and books in the hobby and lifestyle categories, the company has been doing its utmost to publish higher-quality books since 2025 under a new catchphrase, \"Depth of Technology, Height of Inspiration, Breadth of Learning,\" replacing its previous motto \"A World Dreamed by 0s and 1s.\" From our well-received IT series such as I♥A.I., I♥Cloud, I♥Mobile, and I♥Robot, to the LUVIT and LEVELIT series, and practical computer guides like The Real Guide and Work Smart series, as well as the popular Attention series in the hobby and lifestyle category, we have published a wide range of bestsellers and long-sellers.",
+      en: "As Jpub's publishing areas have diversified to include not only IT professional books but also computer how-to guides and books in the hobby and lifestyle categories, the company has been doing its utmost to publish higher-quality books since 2025 under a new catchphrase, \"Depth of Technology, Height of Inspiration, Breadth of Learning,\" replacing its previous motto \"A World Dreamed by 0s and 1s.\" From our well-received IT series such as I♥A.I., I♥Cloud, I♥Mobile, and I♥Robot, to the LUVIT and LEVELIT series, and practical computer guides like The Real Guide and Work Smart series, as well as the popular Attention series in the hobby and lifestyle category, we have published a wide range of bestsellers and long-sellers.",
     },
     website: "https://jpub.tistory.com/",
     socials: { Instagram: "https://www.instagram.com/jpub_official" },
@@ -241,7 +241,7 @@ const SliderTrack = styled.div`
 `;
 
 const SponsorLogo = styled.div`
-  height: 60px;
+  height: 80px;
   width: 250px;
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@ const SponsorLogoLink = styled.a`
 
   img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 60px;
     object-fit: contain;
     filter: grayscale(1);
     opacity: 0.7;
