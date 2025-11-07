@@ -1,3 +1,11 @@
+import ff4500 from "@/assets/speakers/ff4500.webp";
+import hyungsubkim03 from "@/assets/speakers/hyungsubkim03.webp";
+import joohyungpark from "@/assets/speakers/joohyungpark.webp";
+import jqyulee from "@/assets/speakers/jqyulee.webp";
+import kyubin2892 from "@/assets/speakers/kyubin2892.webp";
+import lth9036 from "@/assets/speakers/lth9036.webp";
+import raeperd117 from "@/assets/speakers/raeperd117.webp";
+import scottbae37 from "@/assets/speakers/scottbae37.webp";
 import GopherHead from "@/components/common/GopherHead";
 import { PageContainer } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
@@ -10,17 +18,27 @@ import {
   RiBarChart2Line,
   RiFacebookBoxFill,
   RiGithubFill,
+  RiGlobalLine,
   RiInstagramLine,
   RiLinkedinBoxFill,
   RiMapPin2Line,
   RiTimeLine,
-  RiTwitterFill,
+  RiTwitterXFill,
   RiUserLine,
   RiYoutubeFill,
 } from "react-icons/ri";
 import { Link, useParams } from "react-router-dom";
 
-const profileImages: { [key: string]: any } = {};
+const profileImages: { [key: string]: any } = {
+  ff4500,
+  hyungsubkim03,
+  joohyungpark,
+  jqyulee,
+  kyubin2892,
+  lth9036,
+  raeperd117,
+  scottbae37,
+};
 
 const SessionDetail = () => {
   const { sessionId } = useParams<{ sessionId: string }>();
@@ -132,7 +150,7 @@ const SessionDetail = () => {
                     </SnsIconWrapper>
                   ) : (
                     <a href={session.speaker.sns.twitter} target='_blank' rel='noopener noreferrer'>
-                      <RiTwitterFill />
+                      <RiTwitterXFill />
                     </a>
                   ))}
                 {session.speaker.sns.facebook &&
@@ -175,6 +193,11 @@ const SessionDetail = () => {
                   ) : (
                     <a href={session.speaker.sns.youtube} target='_blank' rel='noopener noreferrer'>
                       <RiYoutubeFill />
+                    </a>
+                  ))}
+                {session.speaker.sns.blog && (
+                    <a href={session.speaker.sns.blog} target='_blank' rel='noopener noreferrer'>
+                      <RiGlobalLine />
                     </a>
                   ))}
               </SnsLinks>

@@ -259,6 +259,7 @@ const SponsorLogoLink = styled.a`
   img {
     max-width: 100%;
     max-height: 100%;
+    object-fit: contain;
     filter: grayscale(1);
     opacity: 0.7;
     transition:
