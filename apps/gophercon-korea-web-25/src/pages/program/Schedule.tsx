@@ -16,12 +16,21 @@ const Schedule = () => {
   const [difficultyFilter, setDifficultyFilter] = useState("All");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
-  const difficulties = ["All", ...Array.from(new Set(sessions.map((s) => s.difficulty[lang])))];
-  const categories = ["All", ...Array.from(new Set(sessions.map((s) => s.category[lang])))];
-  const categoryColors = sessions.reduce(
-    (acc, session) => ({ ...acc, [session.category.en.toLowerCase()]: (theme.colors.category as any)[session.category.en.toLowerCase()] || theme.colors.primary }),
-    {},
-  );
+  const difficulties = ["All", ...new Set(sessions.map((s) => s.difficulty[lang]))];
+  const categories = ["All", ...new Set(sessions.map((s) => s.category[lang]))];
+
+  const legendInfo = {
+    techtalk: { color: theme.colors.primary, label: t("techtalk", "Tech Talk") },
+    event: { color: theme.colors.secondary, label: t("event", "Event") },
+    break: { color: theme.colors.border, label: t("break") },
+  };
+
+  const getItemType = (item: (typeof schedule)[0]): keyof typeof legendInfo => {
+    if (item.type === "break") {
+      return item.title.en.toLowerCase().includes("break") || item.title.en.toLowerCase().includes("lunch") ? "break" : "event";
+    }
+    return "techtalk";
+  };
 
   const getSessionById = (id: string): Session | undefined => sessions.find((s) => s.id === id);
 
@@ -67,16 +76,12 @@ const Schedule = () => {
         <Legend>
           <h4>{t("legend")}</h4>
           <LegendItems>
-            {Object.keys(categoryColors).map((key) => (
-              <LegendItem key={key}>
-                <LegendColorBox $color={(categoryColors as any)[key]} />
-                <span>{sessions.find((s) => s.category.en.toLowerCase() === key)?.category[lang] || key}</span>
+            {Object.values(legendInfo).map((item) => (
+              <LegendItem key={item.label}>
+                <LegendColorBox $color={item.color} />
+                <span>{item.label}</span>
               </LegendItem>
             ))}
-            <LegendItem>
-              <LegendColorBox $color={theme.colors.border} />
-              <span>{t("break")}</span>
-            </LegendItem>
           </LegendItems>
         </Legend>
       </ControlsContainer>
@@ -84,10 +89,10 @@ const Schedule = () => {
       <Timeline>
         {filteredSchedule.map((item, index) => {
           const session = item.sessionId ? getSessionById(item.sessionId) : undefined;
-          const categoryKey = session?.category.en.toLowerCase() || "break";
+          const itemType = getItemType(item);
 
           const contentNode = (
-            <Content category={categoryKey}>
+            <Content itemType={itemType}>
               <h4>{session ? session.title[lang] : item.title[lang]}</h4>
               {session && (
                 <>
@@ -106,10 +111,10 @@ const Schedule = () => {
           );
 
           return (
-            <TimelineItem key={index} type={item.type} category={categoryKey}>
+            <TimelineItem key={index} itemType={itemType}>
               <Time>{item.time}</Time>
               <Line>
-                <Dot category={categoryKey} />
+                <Dot itemType={itemType} />
               </Line>
               {session ? <ContentLink to={`/program/sessions/${session.id}`}>{contentNode}</ContentLink> : contentNode}
             </TimelineItem>
@@ -119,6 +124,17 @@ const Schedule = () => {
     </PageContainer>
   );
 };
+
+declare module "react-i18next" {
+  interface CustomTypeOptions {
+    defaultNS: "translation";
+    resources: {
+      translation: {
+        program: { techtalk: string; event: string };
+      };
+    };
+  }
+}
 
 const ControlsContainer = styled.div`
   display: flex;
@@ -190,7 +206,7 @@ const Timeline = styled.div`
   position: relative;
 `;
 
-const TimelineItem = styled.div<{ type: "session" | "break"; category: string }>`
+const TimelineItem = styled.div<{ itemType: "techtalk" | "event" | "break" }>`
   display: grid;
   grid-template-columns: 100px 40px 1fr;
   align-items: start;
@@ -206,8 +222,7 @@ const TimelineItem = styled.div<{ type: "session" | "break"; category: string }>
     font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: ${({ theme, type, category }) =>
-      type === "session" ? (theme.colors.category as any)[category] : theme.colors.textSecondary};
+    color: ${({ theme, itemType }) => (itemType === "techtalk" ? theme.colors.primary : itemType === "event" ? theme.colors.secondary : theme.colors.textSecondary)};
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     h4 {
@@ -222,13 +237,6 @@ const TimelineItem = styled.div<{ type: "session" | "break"; category: string }>
     line-height: 1.6;
     color: ${({ theme }) => theme.colors.text};
   }
-
-  ${({ type }) =>
-    type === "break" &&
-    `
-    color: #868e96;
-    h4 { color: #495057; }
-  `}
 `;
 
 const Time = styled.div`
@@ -249,7 +257,7 @@ const Line = styled.div`
   justify-self: center;
 `;
 
-const Dot = styled.div<{ category: string }>`
+const Dot = styled.div<{ itemType: "techtalk" | "event" | "break" }>`
   position: absolute;
   top: 0.4rem;
   left: 50%;
@@ -258,10 +266,10 @@ const Dot = styled.div<{ category: string }>`
   height: 14px;
   border-radius: 50%;
   background-color: white;
-  border: 3px solid ${({ theme, category }) => (theme.colors.category as any)[category] || theme.colors.border};
+  border: 3px solid ${({ theme, itemType }) => (itemType === "techtalk" ? theme.colors.primary : itemType === "event" ? theme.colors.secondary : theme.colors.border)};
 `;
 
-const Content = styled.div<{ category: string }>`
+const Content = styled.div<{ itemType: "techtalk" | "event" | "break" }>`
   background-color: white;
   padding: 1.5rem;
   border-radius: 8px;
@@ -276,7 +284,7 @@ const Content = styled.div<{ category: string }>`
     box-shadow: ${({ theme }) => theme.shadows.medium};
     transform: translateY(-2px);
   }
-  border-left: 5px solid ${({ theme, category }) => (theme.colors.category as any)[category] || theme.colors.border};
+  border-left: 5px solid ${({ theme, itemType }) => (itemType === "techtalk" ? theme.colors.primary : itemType === "event" ? theme.colors.secondary : theme.colors.border)};
 `;
 
 const ContentLink = styled(Link)`

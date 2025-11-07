@@ -145,8 +145,8 @@ export const sessions: Session[] = [
       name: { en: "Raecheol Park", ko: "박래철" },
       company: { en: "Karrot", ko: "당근" },
       intro: {
-        en: "I am a backend developer on Karrot's search platform team. I have developed and operated various services in Go. I gave a talk titled 'Building Minimalistic Backend Microservice in Go' at the last GopherCon Korea 2024, and as promised, I registered the project on awesome-go. I am also interested in open-source activities and have contributed a new linter to the golangci-lint project. Although I have experience with various languages like C++, Java, Kotlin, and Python, Go is still my favorite, and I applied to speak to share its advantages.",
-        ko: "당근의 검색플랫폼팀에서 백엔드 개발을 하고 있습니다. 실무에서 다양한 서비스를 Go 로 개발하고 운영해왔습니다. 지난 Gophercon Korea 2024 에서 'Building Minimalistic Backend Microservice in Go' 라는 제목의 발표를 했었고, 이후 발표에서 약속했던 것처럼 프로젝트를 awesome-go 에 등록했습니다. 오픈소스 활동에도 관심이 많아서 golangci-lint 프로젝트에 새로운 linter 를 개발해 기여한 경험이 있습니다. C++, Java, Kotlin, Python 등 다양한 언어를 경험했지만 Go 가 여전히 저희 최애 언어이고 Go 의 좋은점을 사람들에게 알리고 싶어 발표를 지원하게 됐습니다.",
+        en: "I am a backend developer on Karrot's search platform team, where I develop and operate various services in Go. I gave a talk titled 'Building Minimalistic Backend Microservice in Go' at GopherCon Korea 2024 and later registered the project on awesome-go. I am also interested in open-source activities and have contributed a new linter to the golangci-lint project.",
+        ko: "당근 검색플랫폼팀에서 백엔드 개발을 하고 있습니다. 실무에서 다양한 서비스를 Go로 개발하고 운영해왔습니다. GopherCon Korea 2024에서 'Building Minimalistic Backend Microservice in Go'라는 제목으로 발표했으며, 이후 해당 프로젝트를 awesome-go에 등록했습니다. 오픈소스 활동에도 관심이 많아 golangci-lint 프로젝트에 새로운 linter를 개발하여 기여한 경험이 있습니다.",
       },
       image: "raeperd117",
       sns: {
@@ -173,8 +173,8 @@ export const sessions: Session[] = [
       name: { en: "Jaeseung Bae (TechGopher)", ko: "배재승 (테크고퍼)" },
       company: { en: "LINE Plus", ko: "LINE Plus" },
       intro: {
-        en: "I started as a developer at LG Electronics in 2013, moved to Hyundai Motor Company, and am now developing the backend system for advertising at LINE Plus. I have experience presenting at internal studies and to clients at international motor shows, but I have no experience presenting at a developer conference.",
-        ko: "2013년 LG전자에서 개발자로 시작해서, 현대자동차를 거쳐 현재는 LINE Plus 광고 백엔드 시스템을 개발하고 있습니다. 발표경험은 사내의 스터디나, 해외 모터쇼 같은 곳에서 동료 및 고객사 상대 발표한 경험이 있고, 개발 컨퍼런스에서 발표한 경험은 없습니다.",
+        en: "I started as a developer at LG Electronics in 2013, moved to Hyundai Motor Company, and am now developing the backend system for advertising at LINE Plus. I have experience presenting at internal studies and to clients at international motor shows.",
+        ko: "2013년 LG전자에서 개발자로 시작해 현대자동차를 거쳐 현재 LINE Plus에서 광고 백엔드 시스템을 개발하고 있습니다. 사내 스터디나 해외 모터쇼 등에서 동료 및 고객사를 대상으로 발표한 경험이 있습니다.",
       },
       image: "scottbae37",
     },
@@ -197,8 +197,8 @@ export const sessions: Session[] = [
       name: { en: "Qbean Jeon", ko: "전규빈" },
       company: { en: "", ko: "" },
       intro: {
-        en: "I am a Gopher in my final semester of university. I am the team lead for a blockchain-based electronic voting graduation project. Although the project is based on a single-node blockchain, it sparked my interest in implementing a modular PBFT distributed blockchain as a personal project. I also have experience presenting as the team lead for a blockchain mainnet solution at the Dankook University Startup Hackathon.",
-        ko: "대학교 마지막 학기를 다니는 Gopher입니다. 졸업프로젝트로 블록체인 기반 전자투표 팀장을 맡고 있으며 단일 노드 블록체인을 기반으로 하는 프로젝트지만, 이 프로젝트를 계기로 개인 프로젝트로 모듈형 PBFT 분산 블록체인을 구현 중인 Golang을 좋아하는 Gopher입니다. 또한, 단국대 창업해커톤 대회에 블록체인 메인넷 솔루션 제작 팀장으로 발표 경험이 있습니다.",
+        en: "I am a Gopher in my final semester of university, leading a blockchain-based electronic voting graduation project. This project sparked my interest in implementing a modular PBFT distributed blockchain as a personal project. I also have experience presenting as the team lead for a blockchain mainnet solution at the Dankook University Startup Hackathon.",
+        ko: "대학교 마지막 학기를 보내고 있는 Gopher입니다. 졸업 프로젝트로 블록체인 기반 전자투표 팀장을 맡았으며, 이를 계기로 개인 프로젝트로 모듈형 PBFT 분산 블록체인을 구현하고 있습니다. 단국대학교 창업해커톤 대회에서 블록체인 메인넷 솔루션 제작 팀장으로 발표한 경험이 있습니다.",
       },
       image: "kyubin2892",
     },
@@ -221,8 +221,8 @@ export const sessions: Session[] = [
       name: { en: "Taeho Lim", ko: "임태호" },
       company: { en: "Lambda256", ko: "Lambda256" },
       intro: {
-        en: "Hello, I'm Taeho Lim, a Go developer at Lambda256. I have been working as a developer for about 4 years and am currently implementing and operating tasks related to blockchain data in Go. I have no experience presenting outside of school or work. However, I enjoy sharing my problem-solving experiences and analyses through writing. I plan to present the content I've only written about to an audience at this opportunity. I'm nervous, but having attended GopherCon Korea 2023 and 2024 as an audience member, participating as a speaker in 2025 would be a very meaningful experience for me.",
-        ko: "안녕하세요 Lambda256 에서 Go 언어로 개발하고 있는 임태호입니다. 저는 약 4년 정도 개발자로서 일하고 있으며 현재 블록체인 데이터를 다루는 업무를 Go 언어로 구현하고 운영하고 있습니다. 학교 혹은 회사를 제외한 곳에서 발표한 경험은 없습니다. 하지만 글로서 제가 경험했던 문제 해결 경험이나 분석한 내용을 공유하는 것을 좋아합니다. 이번 기회에 글로만 작성했던 내용을 청중들 앞에서 발표해 보려고 합니다. 긴장되지만 고퍼콘 코리아 2023, 24 모두 청중으로서 참여했는데 2025 에 발표자로 참여한다면 저에게 매우 뜻깊은 경험이 될 것 같습니다.",
+        en: "I'm Taeho Lim, a Go developer at Lambda256. I have been working as a developer for about 4 years and am currently implementing and operating tasks related to blockchain data in Go. I enjoy sharing my problem-solving experiences and analyses through writing on my blog.",
+        ko: "Lambda256에서 Go 언어로 개발하고 있는 임태호입니다. 약 4년차 개발자로서 현재 블록체인 데이터를 다루는 업무를 Go 언어로 구현하고 운영하고 있습니다. 블로그를 통해 문제 해결 경험이나 분석 내용을 공유하는 것을 좋아합니다.",
       },
       image: "lth9036",
       sns: {
