@@ -496,7 +496,7 @@ const SponsorSlider = () => {
             </ModalBody>
             <ModalFooter>
               <WebsiteLink href={selectedSponsor.website} target='_blank' rel='noopener noreferrer'>
-                Visit Website
+                {t("visit_website")}
               </WebsiteLink>
               {Object.keys(selectedSponsor.socials).length > 0 && (
                 <SocialLinks>

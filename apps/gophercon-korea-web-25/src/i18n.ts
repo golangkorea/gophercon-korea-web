@@ -103,6 +103,7 @@ const resources = {
         date: "2025. 11. 09. (SUN)",
         venue: "COEX, Magok",
         sponsors_title: "Our Sponsors",
+        visit_website: "Visit Website",
       },
       about: {
         title: "About Golang Korea & GopherCon Korea",
@@ -746,6 +747,7 @@ const resources = {
         date: "2025. 11. 09. (일)",
         venue: "코엑스 마곡",
         sponsors_title: "함께하는 후원사",
+        visit_website: "웹사이트 방문하기",
       },
       about: {
         title: "Golang Korea와 GopherCon Korea",
