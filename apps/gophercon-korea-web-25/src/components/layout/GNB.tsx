@@ -33,10 +33,12 @@ const GNB = () => {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const location = useLocation();
 
+  const filteredMenuItems = GNB_MENU_ITEMS.filter((menu) => menu.labelKey !== "nav.sponsorship");
+
   return (
     <Nav onMouseLeave={() => setHoveredMenu(null)}>
       <MenuList>
-        {GNB_MENU_ITEMS.map((menu) => {
+        {filteredMenuItems.map((menu) => {
           const isActive = menu.subMenus
             ? menu.subMenus.some((subMenu) => location.pathname.startsWith(subMenu.path))
             : location.pathname === menu.path;

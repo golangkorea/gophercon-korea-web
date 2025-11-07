@@ -42,6 +42,8 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
     setOpenSubMenu(openSubMenu === labelKey ? null : labelKey);
   };
 
+  const filteredMenuItems = GNB_MENU_ITEMS.filter((menu) => menu.labelKey !== "nav.sponsorship");
+
   return (
     <NavContainer isOpen={isOpen}>
       <NavList>
@@ -50,7 +52,7 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
             {t("nav.buy_ticket")}
           </MobileCtaButton>
         </CtaLi>
-        {GNB_MENU_ITEMS.map((menu) => (
+        {filteredMenuItems.map((menu) => (
           <Fragment key={menu.labelKey}>
             <li>
               {menu.subMenus ? (

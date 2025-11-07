@@ -1,3 +1,4 @@
+import GopherHead from "@/components/common/GopherHead";
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
 import styled from "@emotion/styled";
@@ -79,7 +80,13 @@ const Organizers = () => {
           const imageUrl = profileImages[member.avatar] || defaultGopherImages[index % defaultGopherImages.length];
           return (
             <OrganizerCard key={member.name}>
-              <ProfileImage imageUrl={imageUrl} />
+              <ProfileImageContainer>
+                {member.avatar === "gopher-head" ? (
+                  <GopherHead />
+                ) : (
+                  <ProfileImage imageUrl={imageUrl} />
+                )}
+              </ProfileImageContainer>
               <Name>{member.name}</Name>
               <Role>{member.role}</Role>
             </OrganizerCard>
@@ -124,17 +131,25 @@ const OrganizerCard = styled.div`
   text-align: center;
 `;
 
-const ProfileImage = styled.div<{ imageUrl?: string }>`
+const ProfileImageContainer = styled.div`
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.footerBg};
   margin: 0 auto 20px;
+  border: 4px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ProfileImage = styled.div<{ imageUrl?: string }>`
+  width: 100%;
+  height: 100%;
   background-image: url(${({ imageUrl }) => imageUrl});
   background-size: cover;
   background-position: center;
-  border: 4px solid white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
 const Name = styled.h3`

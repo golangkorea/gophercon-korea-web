@@ -1,12 +1,11 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
-import CallForSpeakers from "@/components/program/CallForSpeakers";
 import { schedule, Session, sessions } from "@/data/program";
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RiBarChart2Line, RiInformationLine, RiUserLine } from "react-icons/ri";
+import { RiBarChart2Line, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Schedule = () => {
@@ -19,7 +18,10 @@ const Schedule = () => {
 
   const difficulties = ["All", ...Array.from(new Set(sessions.map((s) => s.difficulty[lang])))];
   const categories = ["All", ...Array.from(new Set(sessions.map((s) => s.category[lang])))];
-  const categoryColors = theme.colors.category;
+  const categoryColors = sessions.reduce(
+    (acc, session) => ({ ...acc, [session.category.en.toLowerCase()]: (theme.colors.category as any)[session.category.en.toLowerCase()] || theme.colors.primary }),
+    {},
+  );
 
   const getSessionById = (id: string): Session | undefined => sessions.find((s) => s.id === id);
 
@@ -35,18 +37,8 @@ const Schedule = () => {
 
   return (
     <PageContainer>
-      <Seo title={t("schedule_title")} description={t("placeholder_notice_content")} />
+      <Seo title={t("schedule_title")} />
       <PageTitle>{t("schedule_title")}</PageTitle>
-
-      <CallForSpeakers />
-
-      <Notice>
-        <RiInformationLine size={24} />
-        <NoticeContent>
-          <h4>{t("placeholder_notice_title")}</h4>
-          <p>{t("placeholder_notice_content")}</p>
-        </NoticeContent>
-      </Notice>
 
       <ControlsContainer>
         <FilterContainer>
@@ -127,34 +119,6 @@ const Schedule = () => {
     </PageContainer>
   );
 };
-
-const Notice = styled.div`
-  background-color: ${({ theme }) => theme.colors.backgroundLight};
-  border-left: 5px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 8px;
-  padding: 1.5rem 2rem;
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-
-  svg {
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const NoticeContent = styled.div`
-  h4 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  p {
-    line-height: 1.6;
-  }
-`;
 
 const ControlsContainer = styled.div`
   display: flex;

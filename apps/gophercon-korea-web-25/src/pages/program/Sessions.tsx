@@ -1,11 +1,10 @@
 import { PageContainer, PageTitle } from "@/components/common/PageContainer";
 import Seo from "@/components/common/Seo";
-import CallForSpeakers from "@/components/program/CallForSpeakers";
 import { sessions } from "@/data/program";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RiBarChart2Line, RiInformationLine, RiMapPin2Line, RiTimeLine, RiUserLine } from "react-icons/ri";
+import { RiBarChart2Line, RiMapPin2Line, RiTimeLine, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Sessions = () => {
@@ -26,18 +25,8 @@ const Sessions = () => {
 
   return (
     <PageContainer>
-      <Seo title={t("sessions_title")} description={t("placeholder_notice_content")} />
+      <Seo title={t("sessions_title")} />
       <PageTitle>{t("sessions_title")}</PageTitle>
-
-      <CallForSpeakers />
-
-      <Notice>
-        <RiInformationLine size={24} />
-        <NoticeContent>
-          <h4>{t("placeholder_notice_title")}</h4>
-          <p>{t("placeholder_notice_content")}</p>
-        </NoticeContent>
-      </Notice>
 
       <FilterContainer>
         <FilterGroup>
@@ -94,34 +83,6 @@ const Sessions = () => {
     </PageContainer>
   );
 };
-
-const Notice = styled.div`
-  background-color: ${({ theme }) => theme.colors.backgroundLight};
-  border-left: 5px solid ${({ theme }) => theme.colors.primary};
-  border-radius: 8px;
-  padding: 1.5rem 2rem;
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-
-  svg {
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const NoticeContent = styled.div`
-  h4 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  p {
-    line-height: 1.6;
-  }
-`;
 
 const FilterContainer = styled.div`
   display: flex;
