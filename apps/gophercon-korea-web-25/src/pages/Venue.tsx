@@ -17,7 +17,7 @@ const Venue = () => {
   const { copy: copyAddress, copyStatus: addressCopyStatus } = useCopyToClipboard();
   const email = t("venue.contact_email");
   const address = t("venue.address");
-  const venueName = t("home.venue");
+  const venueName = t("sponsorship_form.venue_name");
   const subwayLines = t("venue.subway_lines", { returnObjects: true });
 
   return (

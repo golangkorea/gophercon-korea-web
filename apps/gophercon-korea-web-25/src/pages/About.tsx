@@ -76,7 +76,7 @@ const About = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { t: tRoot } = useTranslation();
   const { copy: copyVenue, copyStatus: venueCopyStatus } = useCopyToClipboard();
-  const venueName = t("venue").split(": ")[1] || "";
+  const venueName = tRoot("sponsorship_form.venue_name");
   const venueAddress = tRoot("venue.address");
   const fullVenueInfo = `${venueName}, ${venueAddress}`;
 
