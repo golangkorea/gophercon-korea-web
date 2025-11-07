@@ -199,7 +199,7 @@ const SessionDetail = () => {
                     <a href={session.speaker.sns.blog} target='_blank' rel='noopener noreferrer'>
                       <RiGlobalLine />
                     </a>
-                  ))}
+                  )}
               </SnsLinks>
             )}
             <SpeakerIntro>{session.speaker.intro[lang]}</SpeakerIntro>

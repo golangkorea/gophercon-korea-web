@@ -86,8 +86,8 @@ export const sessions: Session[] = [
       ko: "프레임워크냐, 아니냐: 그것이 net/http로다",
     },
     description: {
-      en: "Inspired by the GopherCon 2025 example, I decided to prepare and present on this topic. I will compare the internal code of popular Go server frameworks like Gin, Fiber, and Echo with Go's native http/net package, discuss their implementations, and use various statistics to see which is more widely used. I'm presenting this because fellow Go developers were curious. If it overlaps with other talks, I plan to switch to my next topic: implementing http/1.1 to http/3 in Go.",
-      ko: "고퍼콘 2025 예시를 보고 궁금해서 실제로 저 내용으로 준비해서 발표하려고 합니다. Go에서 많이 쓰이는 서버 framework인 Gin, Fiber, Echo와 Go 자체 패키지인 http/net을 내부 코드를 비교하고 어떻게 구현되었는지 다양한 통계자료를 가져와서 어떤 걸 많이 쓰는 지 비교하려고 합니다. 주위 go개발자분이 궁금해하여서 발표해봅니다. 혹시..라도 다른 분들과 겹친다면 다음 주제로 변경하려고 합니다. go언어로 http1.1~http3 구현하는 법",
+      en: "This session compares the internal code of popular Go server frameworks like Gin, Fiber, and Echo with Go's native http/net package. We will explore their implementations and use various statistics to analyze which frameworks are most widely used, helping you make an informed choice for your next project.",
+      ko: "Go에서 많이 쓰이는 서버 프레임워크인 Gin, Fiber, Echo와 Go 표준 패키지인 net/http의 내부 코드를 비교하고 어떻게 구현되었는지 살펴봅니다. 다양한 통계 자료를 통해 어떤 것이 더 많이 쓰이는지 비교하며 다음 프로젝트를 위한 올바른 선택을 돕습니다.",
     },
     speaker: {
       name: { en: "Hyungsub Kim", ko: "김형섭" },
