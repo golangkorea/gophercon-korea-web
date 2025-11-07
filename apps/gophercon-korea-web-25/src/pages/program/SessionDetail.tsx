@@ -145,7 +145,7 @@ const SessionDetail = () => {
                       onMouseEnter={() => setActiveTooltip("twitter")}
                       onMouseLeave={() => setActiveTooltip(null)}
                     >
-                      <RiTwitterFill />
+                      <RiTwitterXFill />
                       {activeTooltip === "twitter" && <SnsTooltip>{dummySnsMessages.twitter}</SnsTooltip>}
                     </SnsIconWrapper>
                   ) : (
