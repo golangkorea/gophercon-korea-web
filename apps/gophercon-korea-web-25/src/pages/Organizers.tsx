@@ -95,12 +95,12 @@ const Organizers = () => {
       </OrganizerGrid>
       <ArtworkCredit>
         <Trans
-          i18nKey='organizers.artwork_credit'
+          i18nKey="organizers.artwork_credit"
           components={[
-            <a href='https://gopherize.me/' target='_blank' rel='noopener noreferrer'></a>,
-            <a href='http://reneefrench.blogspot.co.uk/' target='_blank' rel='noopener noreferrer'></a>,
-            <a href='https://go.dev/blog/gopher' target='_blank' rel='noopener noreferrer'></a>,
-            <a href='https://x.com/ashleymcnamara' target='_blank' rel='noopener noreferrer'></a>,
+            <a href="https://gopherize.me/" target="_blank" rel="noopener noreferrer">gopherize.me</a>,
+            <a href="http://reneefrench.blogspot.co.uk/" target="_blank" rel="noopener noreferrer">Renee French</a>,
+            <a href="https://go.dev/blog/gopher" target="_blank" rel="noopener noreferrer">Go Gopher</a>,
+            <a href="https://x.com/ashleymcnamara" target="_blank" rel="noopener noreferrer">Ashley McNamara</a>,
             <br />,
           ]}
         />
