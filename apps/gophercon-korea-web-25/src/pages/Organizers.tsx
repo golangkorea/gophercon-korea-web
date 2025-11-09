@@ -97,10 +97,10 @@ const Organizers = () => {
         <Trans
           i18nKey='organizers.artwork_credit'
           components={[
-            <a href='https://gopherize.me/' target='_blank' rel='noopener noreferrer' />,
-            <a href='http://reneefrench.blogspot.co.uk/' target='_blank' rel='noopener noreferrer' />,
-            <a href='https://go.dev/blog/gopher' target='_blank' rel='noopener noreferrer' />,
-            <a href='https://x.com/ashleymcnamara' target='_blank' rel='noopener noreferrer' />,
+            <a href='https://gopherize.me/' target='_blank' rel='noopener noreferrer'></a>,
+            <a href='http://reneefrench.blogspot.co.uk/' target='_blank' rel='noopener noreferrer'></a>,
+            <a href='https://go.dev/blog/gopher' target='_blank' rel='noopener noreferrer'></a>,
+            <a href='https://x.com/ashleymcnamara' target='_blank' rel='noopener noreferrer'></a>,
             <br />,
           ]}
         />
